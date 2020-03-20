@@ -15,6 +15,6 @@ public class A_GanWu_Fragment extends MvpFragment {
 
     @Override
     protected int getLayoutId() {
-        return R.layout.fragment_lishiquxian;
+        return R.layout.a_fragment_ganwu;
     }
 }
