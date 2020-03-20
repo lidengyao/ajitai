@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="unitName" Title="企业名称" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsStatus="Yes" Key="suoding" StatusName="status_qiyesuoding"
+        Title="锁定状态" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="higherLevelUnitName" Title="上级机关"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsBaseCode="Yes" IsEdit="No" IsNull="Yes" Key="lockType" Title="锁定类型"
+        ViewType="Normal"></Item>
+</Root>

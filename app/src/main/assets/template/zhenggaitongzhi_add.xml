@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item Hint="" IsEdit="Yes" IsNull="No" Key="unitId" Title="整改企业"
+        ViewType="ArrayList_Unit"></Item>
+
+    <Item Hint="" IsEdit="Yes" IsNull="No" Key="title" Title="标题" ViewType="Normal"></Item>
+
+    <Item Hint="" IsEdit="Yes" IsNull="No" Key="rectifyLevel" Title="级别" TypeKey="390"
+        ViewType="ArrayList"></Item>
+
+    <Item Hint="" IsEdit="Yes" IsNull="No" Key="termTime" Title="整改期限" ViewType="Date"></Item>
+
+    <Item Hint="" IsEdit="Yes" IsNull="No" Key="rectifyType" Title="类型" TypeKey="388"
+        ViewType="ArrayList"></Item>
+
+    <Item Hint="" IsEdit="Yes" IsNull="No" Key="content" Title="整改内容" ViewType="Lines"></Item>
+
+
+</Root>

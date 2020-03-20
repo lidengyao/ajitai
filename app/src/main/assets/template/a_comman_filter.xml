@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item Hint="" IsBaseCode="Yes" IsEdit="Yes" IsFile="Yes" IsNull="Yes" IsPwd="Yes" IsStatus="Yes"
+        IsTime="Yes" IsUnit="Yes" IsUser="Yes" Key="name" Title="单位名称" ViewType="Normal"></Item>
+    <Item Hint="" IsAdd="Yes" IsEdit="Yes" IsMore="Yes" IsNull="Yes" Key="name" Title="购买品种及数量"
+        ViewType="NormalAdd"></Item>
+    <Item Hint="" IsNull="Yes" Key="name" Tip="（在颁发电子证前无该值）" Title="单位名称"
+        ViewType="NormalRedTip"></Item>
+    <Item Hint="" IsNull="Yes" Key="certificateNumber" Title="备案状态" TypeKey="1"
+        ViewType="ArrayList"></Item>
+    <Item Hint="" IsNull="Yes" Key="certificateNumber" Title="备案状态"
+        ViewType="ArrayList_Unit"></Item>
+    <Item BeginDateIsLong="True" BeginDateKey="searchStart" EndDateIsLong="True"
+        EndDateKey="searchEnd" Hint="选择时间" IsEdit="Yes" IsNull="Yes" Key="createTime" Title="申请时间"
+        ViewType="BetweenDate"></Item>
+    <Item Hint="" IsNull="Yes" Key="workBeginTime" Title="从业时间" ViewType="Date"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="resume" Title="简历" ViewType="Lines"></Item>
+    <Item Hint="" IsNull="Yes" Key="resume" Title="按物品类型" TypeKey="1"
+        ViewType="CheckBoxList"></Item>
+    <Item Hint="" IsNull="Yes" Key="WuPinListView" Title="" TypeKey="1" ViewType="ListView"></Item>
+    <Item Hint="" IsNull="Yes" Key="resume" Title="变更轨迹" TypeKey="1" ViewType="TextViewList"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsStatus="Yes" Key="roleId" Title="用户权限"  StatusName="datatype_userRoleRule_show"
+        ViewType="Normal"></Item>
+
+    <!--列表Adater对应Item-->
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="title" LeftIsBaseCode="No" LeftIsStatus="No"
+        LeftIsTime="No" LeftKey="createTime" LeftStatusName="" LeftTitle="解锁单位" LeftWeight="5"
+        RightIsBaseCode="No" RightIsStatus="No" RightIsTime="No" RightKey="status"
+        RightStatusName="" RightTitle="解锁时间" RightWeight="5" Title="" ViewType="NormalTwo"></Item>
+
+    <!--带状态的配置-->
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsStatus="No" Key="companyName" StatusName=""
+        Title="所在单位" ViewType="Normal"></Item>
+
+    <!--单据状态筛选-->
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="acceptStatus" StatusName="status_danweibeian"
+        Title="证件状态" ViewType="ArrayList_Status"></Item>
+
+    <!--用户筛选-->
+    <Item DefaultValue="001" Hint="" IsNull="No" Key="chargerId" Title="用户名称"
+        ViewType="ArrayList_User"></Item>
+
+    <!--公安筛选-->
+    <Item DefaultValue="001" Hint="" IsNull="No" Key="chargerId" Title="上级单位"
+        ViewType="ArrayList_Police"></Item>
+
+</Root>

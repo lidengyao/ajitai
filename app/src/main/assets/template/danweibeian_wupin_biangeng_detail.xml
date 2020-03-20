@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item Hint="" IsAdd="No" IsEdit="No" IsMore="No" IsNull="Yes" Key="" Title="物品列表"
+        ViewType="NormalAdd"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="WuPinListView" Title="" TypeKey="1"
+        ViewType="ListView"></Item>
+
+    <Item Hint="" IsAdd="No" IsEdit="No" IsMore="No" IsNull="Yes" Key="" Title="物品变更修改详细信息"
+        ViewType="NormalAdd"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="wupinbiangeng" Title="" TypeKey="1"
+        ViewType="ListView"></Item>
+
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="wupinbiangeng" Title="物品变更修改详细信息"-->
+        <!--ViewType="LinearLayout"></Item>-->
+
+</Root>

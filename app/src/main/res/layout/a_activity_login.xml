@@ -1,0 +1,148 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    style="@style/PageRootLL"
+    android:background="@color/color2"
+    android:gravity="center">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_marginTop="158dp"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="你好，阿吉泰"
+            android:textColor="@color/C242424"
+            android:textSize="@dimen/textsize25"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="36dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginRight="36dp"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center_vertical"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+86"
+                    android:textColor="@color/C242424"
+                    android:textSize="@dimen/textsize17"
+                    android:textStyle="bold" />
+
+                <ImageView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="13dp"
+                    android:src="@mipmap/xiajiantou" />
+
+                <EditText
+                    android:id="@+id/MobileET"
+                    android:layout_width="match_parent"
+                    android:layout_height="47dp"
+                    android:layout_marginLeft="33dp"
+                    android:background="@null"
+                    android:hint="请输入手机号"
+                    android:maxLength="11"
+                    android:text="15251435195"
+                    android:textSize="@dimen/textsize16" />
+            </LinearLayout>
+
+            <View style="@style/LineStyle"></View>
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/OKBtn"
+            android:layout_width="match_parent"
+            android:layout_height="45dp"
+            android:layout_marginLeft="40dp"
+            android:layout_marginTop="31dp"
+            android:layout_marginRight="40dp"
+            android:background="@drawable/sysbtn_gray_f1d649_4_shape"
+            android:enabled="true"
+            android:text="获取验证码"
+            android:textColor="@color/C242424"
+            android:textSize="@dimen/textsize16" />
+
+        <TextView
+            android:id="@+id/MiMaDengLuTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="28dp"
+            android:padding="10dp"
+            android:text="密码登陆"
+            android:textColor="@color/CA8A8A8"
+            android:textSize="@dimen/textsize16" />
+
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="50dp"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:orientation="horizontal">
+
+            <View
+                style="@style/LineStyle"
+                android:layout_width="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="35dp"
+                android:layout_marginRight="19dp"
+                android:layout_toLeftOf="@id/CenterTV"></View>
+
+            <TextView
+                android:id="@+id/CenterTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="第三方登录"
+                android:textColor="@color/CA8A8A8"
+                android:textSize="@dimen/textsize12" />
+
+            <View
+                style="@style/LineStyle"
+                android:layout_width="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="19dp"
+                android:layout_marginRight="35dp"
+                android:layout_toRightOf="@+id/CenterTV"></View>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+
+            android:layout_marginTop="30dp"
+            android:gravity="center">
+
+            <ImageView
+                android:id="@+id/WeiXinIV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/a_weixin" />
+        </LinearLayout>
+    </LinearLayout>
+
+</RelativeLayout>

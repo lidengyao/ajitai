@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsTime="No" Key="goodsName" Title="物品名称"
+        ViewType="Normal"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsTime="No" Key="goodsUnit" Title="计量单位"
+        ViewType="Normal"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsTime="No" Key="maxNumber" Title="核定（最大）量"
+        ViewType="Normal"></Item>
+
+    <Item Des="读取字典为283的字典值" Hint="" IsNull="Yes" Key="goodsUse" Title="物品用途" TypeKey="283"
+        ViewType="CheckBoxList"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsTime="No" Key="maxStorage" Title="核定（最大）库存量"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsTime="No" Key="nowStorage" Title="库房当前库存量"
+        ViewType="Normal"></Item>
+</Root>

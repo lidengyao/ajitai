@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsStatus="No" Key="companyName" StatusName=""
+        Title="单位名称" ViewType="Normal"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="title" LeftIsBaseCode="No" LeftIsStatus="No"
+        LeftIsTime="No" LeftKey="orderId" LeftStatusName="" LeftTitle="订单号/购买证号" LeftWeight="5"
+        RightIsBaseCode="No" RightIsStatus="No" RightIsTime="Yes" RightKey="outgoTime"
+        RightStatusName="" RightTitle="登记时间" RightWeight="5" Title="" ViewType="NormalTwo"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="title" LeftIsBaseCode="No" LeftIsStatus="No"
+        LeftIsTime="No" LeftKey="outgoTypeName" LeftStatusName="" LeftTitle="出入库类型" LeftWeight="5"
+        RightIsBaseCode="No" RightIsStatus="No" RightIsTime="No" RightKey="outgoKeeperOneName"
+        RightStatusName="" RightTitle="保管员" RightWeight="5" Title="" ViewType="NormalTwo"></Item>
+
+</Root>

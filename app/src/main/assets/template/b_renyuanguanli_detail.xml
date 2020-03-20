@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item Hint="" IsEdit="No" IsNull="No" Key="name" Title="姓名" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="No" Key="idcard" Title="身份证" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="No" Key="licenceCode" Title="许可证编号" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="No" Key="memberType" Title="作业类型" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="licenceLevel" Title="资格等级" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="major" Title="专业" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="technicalTitle" Title="技术职称" ViewType="Normal"></Item>
+
+</Root>

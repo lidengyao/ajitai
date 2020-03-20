@@ -1,0 +1,47 @@
+描述：
+1.购买证详情
+------------------------------------------------------------------------------
+接口：
+1.详情接口：http://whp.techpolaris.com/toxicPurchaseApply/35。
+2.提交审核接口：http://whp.techpolaris.com/toxicPurchaseApply/edit
+具体传值，继续看下边说明。
+------------------------------------------------------------------------------
+修改：
+1.顶部“所属区域”改为“购买证号”（08-25）
+5.右上角图标
+2019-11-06
+1.详情内页面下方的审核显示信息给成跟单位备案一直，具体值看app标注。
+2.当符合审核条件（跟单位备案条件一样）时，右上角会显示审核按钮。审核传值如下：
+a)	派出所审核时，传值如下
+{
+	"id":68,
+	"acceptStatus":3,
+	"policeCheckOpinion":"派出所同意了",
+	"policeCheckStatus":1（1：同意2：不同意）
+}
+但“policeCheckOpinion”实际没有赋值成功（明天会给后台确认）
+b)	支队审核时，传值如下
+{
+	"id":68,
+	"acceptStatus":5,
+	" policeOpinion":"支队所同意了",
+	" policeApprovalStatus ":1（1：同意2：不同意）
+}
+	但“policeOpinion”，实际没有赋值成功。（明天会给后台确认）
+2019-11-07
+昨天传值修改如下（修改了“policeCheckOpinion”为“policeCheckerOpinion”，修改“policeOpinion”为“policeApprovalOpinion”）
+a)	派出所审核时，传值如下
+{
+	"id":68,
+	"acceptStatus":3,
+	"policeCheckerOpinion":"派出所同意了",
+	"policeCheckStatus":1（1：同意2：不同意）
+}
+
+b)	支队审核时，传值如下
+{
+	"id":68,
+	"acceptStatus":5,
+	" policeApprovalOpinion":"支队所同意了",
+	" policeApprovalStatus ":1（1：同意2：不同意）
+}

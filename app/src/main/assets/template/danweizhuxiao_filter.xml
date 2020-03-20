@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item DefaultValue="001" Hint="" IsNull="No" Key="id" Title="单位名称"
+        ViewType="ArrayList_Unit"></Item>
+
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="compDel" StatusName="compDel" Title="注销状态"
+        ViewType="ArrayList_Status"></Item>
+</Root>

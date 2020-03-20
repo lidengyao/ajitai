@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="publisherName" Title="发布人" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="publishTime" Title="发布日期" ViewType="Normal"></Item>
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="" Title="发布区域" ViewType="Normal"></Item>-->
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="" Title="发布组别" ViewType="Normal"></Item>-->
+    <Item Hint="" IsBaseCode="Yes" IsEdit="No" IsNull="Yes" Key="importance" Title="重要性"
+        ViewType="Normal"></Item>
+</Root>

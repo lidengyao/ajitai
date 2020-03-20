@@ -1,0 +1,13 @@
+描述：
+1.此客户信息来源是：公安和企业可以添加跟自己有关的企业信息，此信息不同于单位备案。
+------------------------------------------------------------------------------
+接口：
+1.列表接口：http://whp.techpolaris.com/yzb/customer/listCustomer
+2.“核查状态”参考值如下：
+    <Item Des="客户核查-核查状态" DicKey="status_hecha">
+        <Data ColorID="2" Status="1" Value="未核查"></Data>
+        <Data ColorID="1" Status="2" Value="已核查"></Data>
+        <Data ColorID="1" Status="3" Value="核查无效"></Data>
+    </Item>
+------------------------------------------------------------------------------
+修改：

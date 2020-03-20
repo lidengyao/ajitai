@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="name" Title="姓名" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="aliasName" Title="别名" ViewType="Normal"></Item>
+    <Item Hint="" IsBaseCode="Yes" IsEdit="No" IsNull="Yes" Key="genderId" Title="性别" TypeKey="51"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="birthday" Title="出生年月" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="certificateNumber" Title="证件号码"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="workBeginTime" Title="从业时间"
+        ViewType="Normal"></Item>
+    <Item Hint=""  IsBaseCode="Yes"  IsEdit="No" IsNull="Yes" Key="raceTypeId" Title="民族" TypeKey="2"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="nativePlace" Title="籍贯" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="householdAddress" Title="户籍地址"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="liveAddress" Title="现在住址" ViewType="Normal"></Item>
+    <Item Hint=""   IsBaseCode="Yes" IsEdit="No" IsNull="Yes" Key="culturalId" Title="文化程度"
+        ViewType="Normal"></Item>
+    <Item Hint=""   IsBaseCode="Yes" IsEdit="No" IsNull="Yes" Key="politicalId" Title="政治面貌" TypeKey="3"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="nowDuty" Title="现任职务" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="tel" Title="联系电话" ViewType="Normal"></Item>
+    <Item Hint=""  IsBaseCode="No"  IsEdit="No" IsNull="Yes" Key="dutyTypeValue" Title="岗位类型" TypeKey="4"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="qualificationName" Title="资格证书名称"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="qualificationNumber" Title="资格证书编号"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="qualificationIssuing" Title="资格证书颁发机构"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="qualificationEndTime" Title="证书有效期"
+        ViewType="Normal"></Item>
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="comparisonResult" Title="与重点人员库比对结果"-->
+        <!--ViewType="Normal"></Item>-->
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="resume" Title="简历" ViewType="Lines"></Item>
+
+</Root>

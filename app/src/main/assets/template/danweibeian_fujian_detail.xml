@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+
+    <Item Hint="" IsAdd="No" IsEdit="Yes" IsMore="No" IsNull="Yes" Key="FuJianList" Title="附件列表"
+        ViewType="NormalAdd"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="FuJianListView" Title="" TypeKey="1"
+        ViewType="ListView"></Item>
+
+
+</Root>

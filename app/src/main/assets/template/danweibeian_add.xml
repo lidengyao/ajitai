@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item Hint="" IsEdit="Yes" IsNull="No" Key="unitName" Title="单位名称" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="No" Key="unitAddress" Title="单位地址" ViewType="Normal"></Item>
+
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="classification" StatusName="user_level" Title="单位类型"
+        ViewType="ArrayList_Status"></Item>
+
+    <Item DefaultValue="001" Hint="" IsNull="No" Key="id" Title="所属区域"
+        ViewType="ArrayList_Area"></Item>
+    <!--公安筛选-->
+    <Item DefaultValue="001" Hint="" IsNull="No" Key="higherLevelUnit" Title="上级单位"
+        ViewType="ArrayList_Police"></Item>
+
+</Root>

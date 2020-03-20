@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="companyName" Title="被锁定单位" ViewType="Normal"></Item>
+    <Item Hint="" IsBaseCode="Yes" IsEdit="No" IsNull="Yes" Key="lockRange" Title="锁定范围"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="lockReason" Title="锁定原因" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="lockUnitName" Title="执行单位" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="lockUnitChargerName" Title="执行人"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsTime="Yes" Key="lockStartTime" Title="锁定时间"
+        ViewType="Normal"></Item>
+
+    <Item Hint="" IsAdd="No" IsEdit="No" IsMore="No" IsNull="Yes" Key="" Title="企业审核"
+        ViewType="NormalAdd"></Item>
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="companyManagerCheckOpinion" Title="单位负责人审查" ViewType="Normal"></Item>-->
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="companyManagerCheckerName" Title="审核人"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsTime="Yes" Key="companyManagerCheckTime" Title="审核时间"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="companyManagerCheckOpinion" Title="意见"
+        ViewType="Normal"></Item>
+
+    <Item Hint="" IsAdd="No" IsEdit="No" IsMore="No" IsNull="Yes" Key="" Title="公安审核"
+        ViewType="NormalAdd"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="unlockUnitChargerName" Title="审核人"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsTime="Yes" Key="unlockTime" Title="审核时间"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="unlockUnitName" Title="审核单位"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="unlockManagerCheckOpinion" Title="意见"
+        ViewType="Normal"></Item>
+</Root>

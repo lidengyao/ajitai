@@ -1,0 +1,25 @@
+描述：
+1.支队对纸质提交上来的企业信息进行初始化操作
+------------------------------------------------------------------------------
+接口：
+1.新增接口
+http://whp.techpolaris.com/unit/add
+传递对象
+传递对象
+{
+	"classification":2（企业）,
+	"unitName":"测试001",
+	"unitAddress":"测试地址001",
+	"higherLevelUnit":125（上级单位ID）
+}
+------------------------------------------------------------------------------
+修改：
+2019-10-16
+1.“单位类型”字段改为当前app显示字段。
+2. “单位类型”参考值（Status）
+   <Item Des="用户管理-用户级别" DicKey="user_level">
+          <Data ColorID="1" Status="2" Value="企业"></Data>
+          <Data ColorID="2" Status="3" Value="派出所"></Data>
+          <Data ColorID="1" Status="4" Value="分局"></Data>
+          <Data ColorID="1" Status="5" Value="支队"></Data>
+      </Item>

@@ -1,0 +1,28 @@
+描述：
+1.新增客户
+2.行政区域接口：http://192.168.0.116:8080/area/list
+读取后对数据进行分析，解析如app显示样式的三级关联模式，具体关联关系如下：
+areaLevel=2：一级数据
+areaLevel=3：二级数据
+areaLevel=4：三级数据
+对象里的areaPcode的值是它的父节点的areaCode的值。通过这两个条件进行解析。
+3.上级机关读取的是所有公安数据。
+------------------------------------------------------------------------------
+接口：
+1.新增接口：http://whp.techpolaris.com/yzb/customer/listCustomer
+对象值：
+{
+   "customerUnitName":"测试001",
+    "unitType": 289,
+    "areaProvince": 0,（所属区域里一级对象里的id）
+    "superiorUnit": 593,（上级机关id）
+    "orgCodeNo": "65588499",（orgCodeNo）
+    "address": "无锡市滨湖区雪浪",
+    "areaCity": 88,（所属区域里二级级对象里的id）
+    "areaCountry": 111,（所属区域里三级对象里的id）
+    "contactsTel": "985555558",
+    "contacts": "吴彦祖",
+    "areaSzxs": 0（默认值）
+}
+------------------------------------------------------------------------------
+修改：

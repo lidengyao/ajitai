@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="planName" Title="预案名称" ViewType="Normal"></Item>
+    <Item Hint="" IsBaseCode="Yes" IsEdit="No" IsNull="Yes" Key="planType" Title="预案类型"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="customMader" Title="定制人"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="publisherValue" Title="发布人"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="content" Title="预案内容" ViewType="Lines"></Item>
+</Root>

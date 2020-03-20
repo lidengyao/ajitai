@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item DefaultValue="001" Hint="" IsNull="No" Key="purchaseUnitId" Title="购买单位"
+        ViewType="ArrayList_Unit"></Item>
+
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="saleUnitId" Title="销售单位"
+        ViewType="ArrayList_Unit"></Item>
+
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="expireStatus" StatusName="status_gouxiao" Title="有效状态"
+        ViewType="ArrayList_Status"></Item>
+</Root>

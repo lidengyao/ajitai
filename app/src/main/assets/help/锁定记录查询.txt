@@ -1,0 +1,74 @@
+描述：
+(2019-11-14)
+1.“锁定记录查询”和“解锁申请审批”用的是同一个页面。数据也一样，唯一不同是当是从“解锁申请审批”进入时，可以有审批功能，“锁定记录查询”没有审批功能。
+------------------------------------------------------------------------------
+接口：
+(2019-11-14)接口不变。
+1.列表：http://whp.techpolaris.com/toxicLock/list?page=1&pageSize=10
+------------------------------------------------------------------------------
+修改：
+2019-10-10
+筛选类
+package com.bcxd.wggaline.model.bean;
+
+import java.io.Serializable;
+
+/*
+锁定筛选类
+ */
+public class ToxicLockSearchVo_Filter_Bean implements Serializable {
+
+    private Integer companyId;
+
+    //    @ApiModelProperty("锁定类型")
+    private Integer lockType;
+
+    //    @ApiModelProperty("锁定状态")
+    private Integer lockStatus;
+
+    //    @ApiModelProperty("锁定开始时间")
+    private Long startTime;
+
+    //    @ApiModelProperty("锁定结束时间")
+    private Long endTime;
+
+    public Integer getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(Integer companyId) {
+        this.companyId = companyId;
+    }
+
+    public Integer getLockType() {
+        return lockType;
+    }
+
+    public void setLockType(Integer lockType) {
+        this.lockType = lockType;
+    }
+
+    public Integer getLockStatus() {
+        return lockStatus;
+    }
+
+    public void setLockStatus(Integer lockStatus) {
+        this.lockStatus = lockStatus;
+    }
+
+    public Long getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(Long startTime) {
+        this.startTime = startTime;
+    }
+
+    public Long getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(Long endTime) {
+        this.endTime = endTime;
+    }
+}

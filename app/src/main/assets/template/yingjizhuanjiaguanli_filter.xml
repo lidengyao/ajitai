@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <!--<Item DefaultValue="001" Hint="" IsNull="No" Key="unitId" Title="企业名称"-->
+        <!--ViewType="ArrayList_Unit"></Item>-->
+<Item Hint="" IsEdit="Yes" IsNull="Yes" Key="name" Title="姓名" ViewType="Normal"></Item>
+
+<Item Hint="" IsEdit="Yes" IsNull="Yes" Key="professional" Title="专业" ViewType="Normal"></Item>
+
+<Item Hint="" IsEdit="Yes" IsNull="Yes" Key="education" Title="学历" TypeKey="35"
+    ViewType="ArrayList"></Item>
+
+<Item Hint="" IsEdit="Yes" IsNull="Yes" Key="title" Title="职称" ViewType="Normal"></Item>
+
+<Item Hint="" IsEdit="Yes" IsNull="Yes" Key="liveAddress" Title="居住地" ViewType="Normal"></Item>
+
+<Item Hint="" IsEdit="Yes" IsNull="Yes" Key="gender" Title="性别" TypeKey="51"
+    ViewType="ArrayList"></Item>
+
+<Item BeginDateIsLong="Yes" BeginDateKey="searchStartTime" EndDateIsLong="Yes" EndDateKey="searchEndTime"
+    Hint="" IsEdit="Yes" IsNull="Yes" Key="birthday" Title="出生年月"
+    ViewType="BetweenDate"></Item>
+</Root>

@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="name" Title="姓名" ViewType="Normal"></Item>
+    <Item DefaultValue="001" Hint="" IsNull="No" Key="gender" Title="性别" TypeKey="51"
+        ViewType="ArrayList"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="idcardNumber" Title="证件号码"
+        ViewType="Normal"></Item>
+
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="unitId" Title="所在单位" TypeKey="156"
+        ViewType="ArrayList_Unit"></Item>
+
+
+</Root>

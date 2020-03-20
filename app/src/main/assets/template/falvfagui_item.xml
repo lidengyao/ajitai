@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsStatus="No" IsTime="No" Key="title" StatusName=""
+        Title="法律条款标题" ViewType="Normal"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsStatus="No" IsTime="No" Key="keywords" StatusName=""
+        Title="条款关键字" ViewType="Normal"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsStatus="No" IsTime="No" Key="pbTime"
+        Title="发布时间" ViewType="Normal"></Item>
+</Root>

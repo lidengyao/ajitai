@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item Hint="" IsEdit="Yes" IsNull="No" Key="customerUnitName" Title="客户名称"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="orgCodeNo" Title="组织机构代码证号"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="unitType" Title="企业类型" TypeKey="283"
+        ViewType="ArrayList"></Item>
+    <Item DefaultValue="001" Hint="" IsNull="No" Key="xingzhengquyu" Title="行政区域"
+        ViewType="ArrayList_Area"></Item>
+    <Item DefaultValue="001" Hint="" IsNull="No" Key="superiorUnit" Title="上级机关"
+        ViewType="ArrayList_Police"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="No" Key="address" Title="单位地址" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="No" Key="contacts" Title="联系人姓名" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="No" Key="contactsTel" Title="联系电话" ViewType="Normal"></Item>
+
+</Root>

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="name" Title="姓名" ViewType="Normal"></Item>
+    <Item Hint="" IsBaseCode="Yes" IsEdit="No" IsNull="Yes" Key="gender" Title="性别"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="birthday" Title="出生年月" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="professional" Title="专业" ViewType="Normal"></Item>
+    <Item Hint="" IsBaseCode="Yes" IsEdit="No" IsNull="Yes" Key="education" Title="学历"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="title" Title="职称" ViewType="Normal"></Item>
+    <Item Hint="" IsBaseCode="Yes" IsEdit="No" IsNull="Yes" Key="academicDegree" Title="学位"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="tel" Title="移动电话" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="liveAddress" Title="居住地" ViewType="Normal"></Item>
+    <Item Hint="" IsBaseCode="Yes" IsEdit="No" IsNull="Yes" Key="type" Title="专家类型"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="officePhone" Title="办公电话" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="fax" Title="传真" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="workUnit" Title="工作单位" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="familyPhone" Title="家庭电话" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="experience" Title="救援经历" ViewType="Lines"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="papers" Title="发表的论文和著作" ViewType="Lines"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="researchFinding" Title="研究成果"
+        ViewType="Lines"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="remark" Title="备注" ViewType="Lines"></Item>
+</Root>

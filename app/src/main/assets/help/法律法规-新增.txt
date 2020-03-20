@@ -1,0 +1,22 @@
+描述：
+1.公安端新增法律法规
+------------------------------------------------------------------------------
+接口：
+1.http://whp.techpolaris.com/toxicLaw/add
+2.添加的json值：字段值来源参考app页面
+ {
+            "id": null,
+            "title": "法律2",
+            "publisher": null,
+            "publishTime": null,
+            "moduleType":101,
+            "pbTime": "",
+            "keywords": "爱国，爱党",
+            "createTime": null,
+            "updateTime": null,
+            "content": "法规",
+            "searchStartTime": null,
+            "searchEndTime": null
+        }
+------------------------------------------------------------------------------
+修改：

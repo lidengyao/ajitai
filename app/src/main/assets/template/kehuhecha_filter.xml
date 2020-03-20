@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item Hint="" IsEdit="Yes"  IsNull="No" Key="customerUnitName" Title="客户名称" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="contacts" Title="联系人" ViewType="Normal"></Item>
+    <!--<Item DefaultValue="001" Hint="" IsNull="No" Key="" Title="录入企业名称"-->
+    <!--ViewType="ArrayList_Unit"></Item>-->
+
+    <!--<Item BeginDateIsLong="Yes" BeginDateKey="searchStart" EndDateIsLong="Yes"-->
+    <!--EndDateKey="searchEnd" Hint="选择时间" IsEdit="Yes" IsNull="Yes" Key="createTime" Title="录入时间"-->
+    <!--ViewType="BetweenDate"></Item>-->
+
+    <!--<Item Hint="" IsEdit="Yes" IsNull="Yes" Key="status" Title="省内外" TypeKey=""-->
+    <!--ViewType="ArrayList"></Item>-->
+
+    <!--<Item DefaultValue="001" Hint="" IsNull="No" Key="areaCountry" Title="所在区域"-->
+    <!--ViewType="ArrayList_Area"></Item>-->
+
+    <!--<Item Hint="" IsEdit="Yes" IsNull="Yes" Key="status" Title="是否备案" TypeKey=""-->
+    <!--ViewType="ArrayList"></Item>-->
+
+    <!--<Item Hint="" IsEdit="Yes" IsNull="Yes" Key="status" Title="注销状态" TypeKey=""-->
+    <!--ViewType="ArrayList"></Item>-->
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="checkStatus" StatusName="status_hecha" Title="核查状态"
+        ViewType="ArrayList_Status"></Item>
+
+</Root>

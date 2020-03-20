@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsTime="No" Key="unitName" Title="企业名称"
+        ViewType="Normal"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsTime="No" Key="policeUnitName" Title="发布机关"
+        ViewType="Normal"></Item>
+
+    <Item Hint="" IsBaseCode="Yes" IsEdit="No" IsNull="Yes" Key="rectifyType" Title="类型"
+        ViewType="Normal"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="No" IsTime="No" Key="title" Title="标题"
+        ViewType="Normal"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="No" IsTime="Yes" Key="termTime" Title="整改期限"
+        ViewType="Normal"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsStatus="Yes" Key="status"
+        StatusName="status_zhengtaitongzhi" Title="状态" ViewType="Normal"></Item>
+</Root>

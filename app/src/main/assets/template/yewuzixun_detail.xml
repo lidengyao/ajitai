@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="companyValue" Title="咨询单位"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes"  Key="receiverUnitValue" Title="受理单位"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsBaseCode="Yes" IsEdit="No" IsNull="Yes" Key="type" Title="咨询类型"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="subject" Title="咨询主题" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="tel" Title="联系电话" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes"  Key="advicerValue" Title="咨询人"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="content" Title="咨询内容" ViewType="Lines"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsTime="Yes" Key="createTime" Title="咨询时间"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes"  Key="responserName" Title="回复人"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="responseContent" Title="回复内容"
+        ViewType="Lines"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsTime="Yes" Key="responseTime" Title="回复时间"
+        ViewType="Normal"></Item>
+</Root>

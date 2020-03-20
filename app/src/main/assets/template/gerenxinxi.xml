@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="userName" Title="姓名" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="userAbbr" Title="用户简称" ViewType="Normal"></Item>
+    <Item Hint="" IsBaseCode="Yes" IsEdit="No" IsNull="Yes" Key="userLevel" Title="用户级别" TypeKey=""
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="userAccount" Title="账号" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="userIsAdmin" Title="是否管理员" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="userTel" Title="手机号" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="userIdcard" Title="身份证" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="userLastLoginTime" Title="最后登录时间"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="unitName" Title="所属单位" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsStatus="Yes" Key="roleId" StatusName="datatype_userRoleRule_show"
+        Title="用户权限" ViewType="Normal"></Item>
+    <Item Hint="" IsBaseCode="Yes" IsEdit="No" IsNull="Yes" Key="unitType" Title="单位类型" TypeKey=""
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="higherUnitName" Title="上级单位"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="unitAddress" Title="单位地址" ViewType="Normal"></Item>
+
+</Root>

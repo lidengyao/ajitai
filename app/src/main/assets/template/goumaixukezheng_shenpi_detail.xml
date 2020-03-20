@@ -1,0 +1,44 @@
+<!--<?xml version="1.0" encoding="utf-8"?>-->
+<!--<Root>-->
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="location" Tip="（在颁发电子证前无该值）" Title="所属区域"-->
+        <!--ViewType="NormalRedTip"></Item>-->
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="effectiveTime" Tip="（在颁发电子证12联前无该值）" Title="有效期"-->
+        <!--ViewType="NormalRedTip"></Item>-->
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="toxicPrefix" Title="剧购字" ViewType="Normal"></Item>-->
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="tallyMark" Tip="（在颁发电子证前无该值）" Title="企业骑缝号"-->
+        <!--ViewType="NormalRedTip"></Item>-->
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="unitName" Title="购买单位名称" ViewType="Normal"></Item>-->
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="legalRepresentativeName" Title="法定代表人" ViewType="Normal"></Item>-->
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="address" Title="地址" ViewType="Normal"></Item>-->
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="legalRepresentativeTel" Title="电话号码" ViewType="Normal"></Item>-->
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="unitAbbr" Title="购买单位企业简称" ViewType="Normal"></Item>-->
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="serialNumber" Title="流水号" ViewType="Normal"></Item>-->
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="purchaseChargeName" Title="购买经办人姓名" ViewType="Normal"></Item>-->
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="certificateNumber" Title="证件号码" ViewType="Normal"></Item>-->
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="name" Title="购买单位证件" ViewType="Normal"></Item>-->
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="purchaseTime" Title="购买时间" ViewType="Normal"></Item>-->
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="name" Title="销售单位属地" ViewType="Normal"></Item>-->
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="saleCompanyName" Title="销售单位名称" ViewType="Normal"></Item>-->
+    <!--<Item Hint="" IsAdd="No" IsEdit="Yes" IsMore="Yes" IsNull="Yes" Key="WuPinList" Title="购买品种及数量"-->
+        <!--ViewType="NormalAdd"></Item>-->
+    <!--<Item Hint="" IsNull="Yes" Key="GouMaiZhengListView" Title="" TypeKey="10"-->
+        <!--ViewType="ListView"></Item>-->
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="usages" Title="购买用途" ViewType="Normal"></Item>-->
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="unitCheckerName" Title="企业审核人" ViewType="Normal"></Item>-->
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="unitApprovalName" Title="企业审批人" ViewType="Normal"></Item>-->
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="" Title="受理" ViewType="Normal"></Item>-->
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="unitApprovalName" Title="审核人" ViewType="Normal"></Item>-->
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="unitOpinion" Title="意见" ViewType="Normal"></Item>-->
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="unitApprovalTime" Title="审核时间" ViewType="Normal"></Item>-->
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="policeApprovalUnitName" Title="审核单位" ViewType="Normal"></Item>-->
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="" Title="审查" ViewType="Normal"></Item>-->
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="policeApprovalName" Title="审核人" ViewType="Normal"></Item>-->
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="policeApprovalStatus" Title="意见" ViewType="Normal"></Item>-->
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="policeApprovalTime" Title="审核时间" ViewType="Normal"></Item>-->
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="policeApprovalUnitName" Title="审核单位" ViewType="Normal"></Item>-->
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="" Title="审批" ViewType="Normal"></Item>-->
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="policeApprovalName" Title="审核人" ViewType="Normal"></Item>-->
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="policeOpinion" Title="意见" ViewType="Normal"></Item>-->
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="policeApprovalTime" Title="审核时间" ViewType="Normal"></Item>-->
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="policeApprovalUnitName" Title="审核单位" ViewType="Normal"></Item>-->
+<!--</Root>-->

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsStatus="No" IsTime="No" Key="unitName" StatusName=""
+        Title="被预警单位" ViewType="Normal"></Item>
+
+    <Item Hint="" IsBaseCode="Yes" IsEdit="No" IsNull="Yes" IsStatus="No" IsTime="No" Key="warningType"
+        StatusName="" Title="预警内容" ViewType="Normal"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsStatus="No" IsTime="No" Key="warningCount"
+        StatusName="" Title="预警次数" ViewType="Normal"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="title" LeftIsBaseCode="No" LeftIsStatus="No"
+        LeftIsTime="Yes" LeftKey="createTime" LeftStatusName="" LeftTitle="预警产生时间" LeftWeight="5"
+        RightIsBaseCode="No" RightIsStatus="No" RightIsTime="Yes" RightKey="updateTime"
+        RightStatusName="" RightTitle="预警更新时间" RightWeight="5" Title="" ViewType="NormalTwo"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="title" LeftIsBaseCode="No" LeftIsStatus="Yes"
+        LeftIsTime="No" LeftKey="dealStatus" LeftStatusName="dealStatus_yujingguanli"
+        LeftTitle="处置状态" LeftWeight="5" RightIsBaseCode="No" RightIsStatus="Yes" RightIsTime="No"
+        RightKey="dealResult" RightStatusName="dealResult_yujingguanli" RightTitle="处置结果"
+        RightWeight="6" Title="" ViewType="NormalTwo"></Item>
+</Root>

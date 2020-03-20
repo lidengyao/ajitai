@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsStatus="No" Key="unitName" StatusName="" Title="单位名称"
+        ViewType="Normal"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsStatus="Yes" Key="compDel" StatusName="compDel" Title="单位状态"
+        ViewType="Normal"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="title" LeftIsBaseCode="No" LeftIsStatus="No"
+        LeftIsTime="No" LeftKey="compContact" LeftStatusName="" LeftTitle="单位联系人" LeftWeight="5"
+        RightIsBaseCode="No" RightIsStatus="No" RightIsTime="No" RightKey="compContactPhone"
+        RightStatusName="" RightTitle="电话" RightWeight="5" Title="" ViewType="NormalTwo"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="title" LeftIsBaseCode="No" LeftIsStatus="Yes"
+        LeftIsTime="No" LeftKey="compToxicDel" LeftStatusName="compToxicDel" LeftTitle="剧毒业务注销状态" LeftWeight="5"
+        RightIsBaseCode="No" RightIsStatus="No" RightIsTime="Yes" RightKey="compToxicDelTime"
+        RightStatusName="" RightTitle="注销时间" RightWeight="5" Title="" ViewType="NormalTwo"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsStatus="No" Key="compToxicDelUnitName" StatusName=""
+        Title="剧毒注销执行单位" ViewType="Normal"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="title" LeftIsBaseCode="No" LeftIsStatus="Yes"
+        LeftIsTime="No" LeftKey="compYzbDel" LeftStatusName="compYzbDel" LeftTitle="易制爆业务注销状态" LeftWeight="5"
+        RightIsBaseCode="No" RightIsStatus="No" RightIsTime="Yes" RightKey="compYzbDelTime"
+        RightStatusName="" RightTitle="注销时间" RightWeight="5" Title="" ViewType="NormalTwo"></Item>
+
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsStatus="No" Key="compYzbDelUnitName" StatusName=""
+        Title="易制爆注销执行单位" ViewType="Normal"></Item>
+</Root>

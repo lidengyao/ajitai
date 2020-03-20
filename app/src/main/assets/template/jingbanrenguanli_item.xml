@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="unitName" Title="单位名称"
+        ViewType="Normal"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="" LeftIsBaseCode="No" LeftIsStatus="No"
+        LeftIsTime="No" LeftKey="name" LeftStatusName="" LeftTitle="姓名" LeftWeight="5"
+        RightIsBaseCode="Yes" RightIsStatus="No" RightIsTime="No" RightKey="gender"
+        RightStatusName="" RightTitle="性别" RightWeight="5" Title="" ViewType="NormalTwo"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="title" LeftIsBaseCode="Yes" LeftIsStatus="No"
+        LeftIsTime="No" LeftKey="idcardType" LeftStatusName="" LeftTitle="证件类型" LeftWeight="5"
+        RightIsBaseCode="No" RightIsStatus="No" RightIsTime="No" RightKey="idcardNumber"
+        RightStatusName="" RightTitle="证件号码" RightWeight="5" Title="" ViewType="NormalTwo"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="title" LeftIsBaseCode="No" LeftIsStatus="No"
+        LeftIsTime="No" LeftKey="phone" LeftStatusName="" LeftTitle="联系电话" LeftWeight="5"
+        RightIsBaseCode="No" RightIsStatus="No" RightIsTime="No" RightKey="tel"
+        RightStatusName="" RightTitle="手机" RightWeight="5" Title="" ViewType="NormalTwo"></Item>
+
+</Root>

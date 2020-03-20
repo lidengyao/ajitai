@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/pinpaishang"
+        android:title="运营商(15251435195)" />
+    <item
+        android:id="@+id/yunyingshang"
+        android:title="品牌商(19895732016)" />
+
+</menu>

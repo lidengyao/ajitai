@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="unitName" Title="单位名称" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="unitAddress" Title="单位详细地址"
+        ViewType="Normal"></Item>
+    <Item Des="读取字典为283的字典值" Hint="" IsNull="Yes" Key="unitType" Title="单位类型" TypeKey="283"
+        ViewType="CheckBoxList"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="legalRepresentativeName" Title="法人代表姓名"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="legalRepresentativeTel" Title="法人代表移动电话"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="legalRepresentativeIdcard" Title="法人代表证件号码"
+        ViewType="Normal"></Item>
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="" Title="经办人固定电话" ViewType="Normal"></Item>-->
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="" Title="经办人移动电话" ViewType="Normal"></Item>-->
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="securityerName" Title="安全责任人姓名"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="securityerTel" Title="安全责任人联系电话"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsBaseCode="Yes" IsEdit="No" IsNull="Yes" Key="importAndExport" Title="是否涉及进出口"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsBaseCode="Yes" IsEdit="No" IsNull="Yes" Key="monitors" Title="库房是否有监控"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="dutyRoomTel" Title="值班保卫室电话"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="toxicStoreAddress" Title="剧毒化学品储存地"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="toxicDescription" Title="生产、经营、储存、使用、剧毒的品名、数量"
+        ViewType="Lines"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="toxicEquipment" Title="储存设施及安全保卫设施" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="remark" Title="备注" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="higherLevelUnitName" Title="上级管理机关"
+        ViewType="Normal"></Item>
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="" Title="联系人" ViewType="Normal"></Item>-->
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="" Title="联系人电话" ViewType="Normal"></Item>-->
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="businessLicenseNo" Title="工商营业执照号"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="businessLicenseNoExpire" Title="工商营业执照号有效期"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="organizationalCodeCertificate" Title="组织机构代码证号"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="organizationalCodeCertificateExpire"
+        Title="组织机构代码证号有效期" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="safetySupervision" Title="安监部门颁发证件号"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="safetySupervisionExpire" Title="安监部门颁发证件号有效期"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="environmentalCertificate" Title="环保资质证号"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="environmentalCertificateExpire" Title="环保资质证号有效期"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="professionalInstitutions" Title="专业机构最新安全评价报告编号"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="professionalInstitutionsExpire"
+        Title="专业机构最新安全评价报告有效期" ViewType="Normal"></Item>
+
+
+    <!--<Item Hint="" IsAdd="No" IsEdit="No" IsMore="No" IsNull="Yes" Key="" Title="单位负责人审查"-->
+        <!--ViewType="NormalAdd"></Item>-->
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" IsUser="Yes" Key="companyCheckerId" Title="审核人"-->
+        <!--ViewType="Normal"></Item>-->
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="companyCheckerOpinion" Title="意见"-->
+        <!--ViewType="Normal"></Item>-->
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="name" Title="审核时间" ViewType="Normal"></Item>-->
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="name" Title="审核单位" ViewType="Normal"></Item>-->
+
+
+    <!--<Item Hint="" IsAdd="No" IsEdit="No" IsMore="No" IsNull="Yes" Key="" Title="派出所审核"-->
+        <!--ViewType="NormalAdd"></Item>-->
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" IsUser="Yes" Key="paichusuoCheckerId" Title="审核人"-->
+        <!--ViewType="Normal"></Item>-->
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="paichusuoCheckerOpinion" Title="意见"-->
+        <!--ViewType="Normal"></Item>-->
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="name" Title="审核时间" ViewType="Normal"></Item>-->
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="name" Title="审核单位" ViewType="Normal"></Item>-->
+
+
+    <!--<Item Hint="" IsAdd="No" IsEdit="No" IsMore="No" IsNull="Yes" Key="" Title="分居治安大队审核"-->
+        <!--ViewType="NormalAdd"></Item>-->
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" IsUser="Yes" Key="policeCheckerId" Title="审核人"-->
+        <!--ViewType="Normal"></Item>-->
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="policeCheckerOpinion" Title="意见"-->
+        <!--ViewType="Normal"></Item>-->
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="name" Title="审核时间" ViewType="Normal"></Item>-->
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="name" Title="审核单位" ViewType="Normal"></Item>-->
+</Root>

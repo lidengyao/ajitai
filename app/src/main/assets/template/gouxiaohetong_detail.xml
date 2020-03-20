@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+
+    <Item Hint="" IsEdit="No" IsFile="Yes" IsNull="Yes" IsStatus="Yes" IsTime="No" Key="sdType"
+        StatusName="status_sdType" Title="供求类型" ViewType="Normal"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="purchaseUnitName" Title="购买单位"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="saleUnitName" Title="销售单位" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsTime="Yes" Key="signTime" Title="签约时间"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsTime="Yes" Key="expireTime" Title="有效时间"
+        ViewType="Normal"></Item>
+
+    <Item Hint="" IsAdd="No" IsEdit="Yes" IsMore="No" IsNull="Yes" Key="" Title="合同附件"
+        ViewType="NormalAdd"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="hetongfujian" Title="" TypeKey="1"
+        ViewType="ListView"></Item>
+
+    <Item Hint="" IsAdd="No" IsEdit="Yes" IsMore="No" IsNull="Yes" Key="" Title="签约物品信息"
+        ViewType="NormalAdd"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="qianyuewupin" Title="" TypeKey="1"
+        ViewType="ListView"></Item>
+</Root>

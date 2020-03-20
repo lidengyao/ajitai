@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="title" Title="标题" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="keywords" Title="法律条款关键词" ViewType="Normal"></Item>
+    <Item BeginDateIsLong="Yes" BeginDateKey="searchStartTime" EndDateIsLong="Yes" EndDateKey="searchEndTime"
+        Hint="" IsEdit="Yes" IsNull="Yes" Key="publishTime" Title="发布时间"
+        ViewType="BetweenDate"></Item>
+</Root>

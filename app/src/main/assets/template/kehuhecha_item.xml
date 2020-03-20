@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="customerUnitName" Title="客户名称"
+        ViewType="Normal"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="address" Title="单位地址" ViewType="Normal"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="unitName" Title="录入企业名称" ViewType="Normal"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="" LeftIsBaseCode="Yes" LeftIsStatus="No"
+        LeftIsTime="No" LeftKey="unitType" LeftStatusName="" LeftTitle="单位类型" LeftWeight="5"
+        RightIsBaseCode="No" RightIsStatus="No" RightIsTime="No" RightKey="orgCodeNo"
+        RightStatusName="" RightTitle="组织机构代码" RightWeight="5" Title="" ViewType="NormalTwo"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="title" LeftIsBaseCode="No" LeftIsStatus="No"
+        LeftIsTime="No" LeftKey="contacts" LeftStatusName="" LeftTitle="联系人" LeftWeight="5"
+        RightIsBaseCode="No" RightIsStatus="No" RightIsTime="No" RightKey="contactsTel"
+        RightStatusName="" RightTitle="联系人号码" RightWeight="5" Title="" ViewType="NormalTwo"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="title" LeftIsBaseCode="No" LeftIsStatus="No"
+        LeftIsTime="Yes" LeftKey="createTime" LeftStatusName="" LeftTitle="录入时间" LeftWeight="5"
+        RightIsBaseCode="No" RightIsStatus="Yes" RightIsTime="No" RightKey="checkStatus"
+        RightStatusName="status_hecha" RightTitle="核查状态" RightWeight="5" Title=""
+        ViewType="NormalTwo"></Item>
+
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="unitName" Title="涉及物品" ViewType="Normal"></Item>-->
+
+</Root>

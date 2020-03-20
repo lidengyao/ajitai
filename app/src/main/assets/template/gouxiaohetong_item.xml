@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="purchaseUnitName" Title="购买单位"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="saleUnitName" Title="销售单位" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsTime="Yes" Key="signTime" Title="签约时间"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="title" LeftIsBaseCode="No" LeftIsStatus="No"
+        LeftIsTime="Yes" LeftKey="expireTime" LeftStatusName="" LeftTitle="有效期" LeftWeight="5"
+        RightIsBaseCode="No" RightIsStatus="Yes" RightIsTime="No" RightKey="status"
+        RightStatusName="status_gouxiao" RightTitle="状态" RightWeight="5" Title="" ViewType="NormalTwo"></Item>
+
+</Root>

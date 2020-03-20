@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item DefaultValue="001" Hint="" IsNull="No" Key="unitId" Title="企业名称"
+        ViewType="ArrayList_Unit"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="whName" Title="仓库名称" ViewType="Normal"></Item>
+    <Item DefaultValue="001" Hint="" IsNull="No" Key="policeUnitId" Title="所属机关"
+        ViewType="ArrayList_Police"></Item>
+
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="managerName" Title="负责人" ViewType="Normal"></Item>
+</Root>

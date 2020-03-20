@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="superiorPcs" Title="" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="superiorFj" Title="" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="id" Title="单位id" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="unitId" Title="企业名称" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="legalRepresentativeName" Title="法人名字"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="legalRepresentativeIdcard" Title="法人身份证号"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="legalRepresentativeTel" Title="法人电话"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="charger" Title="操作人" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="securityerName" Title="安全员姓名"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="securityerTel" Title="安全员电话"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="storageRiskLevel" Title="风险等级" IsBaseCode="Yes"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="companyMemberNumber" Title="企业从业人数"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="importAndExport" Title="是否涉及进出口" IsBaseCode="Yes"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="monitors" Title="是否有监控" ViewType="Normal" IsBaseCode="Yes" ></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="dutyRoomTel" Title="值班室电话" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="monitoringCenterTel" Title="监控中心电话"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="toxicStoreAddress" Title="剧毒存放地址"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="businessLicenseNo" Title="工商证编号"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsTime="Yes" Key="businessLicenseNoExpire"
+        Title="工商证过期时间" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="organizationalCodeCertificate" Title="组织机构证号"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsTime="Yes"
+        Key="organizationalCodeCertificateExpire" Title="组织机构正过期时间" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="safetySupervision" Title="安保证书"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsTime="Yes" Key="safetySupervisionExpire"
+        Title="安保证过期时间" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="environmentalCertificate" Title="环保证"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsTime="Yes" Key="environmentalCertificateExpire"
+        Title="环保证过期时间" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="professionalInstitutions" Title="专业设备证书"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsTime="Yes" Key="professionalInstitutionsExpire"
+        Title="专业设备过期时间" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="lockStatus" Title="单位锁定状态" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="applyStatus" Title="申请状态" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsTime="Yes" Key="passTime" Title="申请通过时间"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsTime="Yes" Key="createTime" Title="数据创建时间"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsTime="Yes" Key="updateTime" Title="数据更新时间"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="lockType" Title="锁定类型" ViewType="Normal"></Item>
+    <Item Des="读取字典为283的字典值" Hint="" IsNull="Yes" Key="unitType" Title="单位类型" TypeKey="283"
+        ViewType="CheckBoxList"></Item>
+
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="dataSource" Title="数据来源，1：系统录入，2：接口获得"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="dwbaId" Title="单位备案id" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="compId" Title="单位id" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="compName" Title="单位名称" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="compCode" Title="单位编码" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="dwbaArenzjlx" Title="法人证件类型，1、身份证 2、其它证件"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="dwbaShoujihaoma" Title="法人手机号"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="dwbaShengbanren" Title="备案登记申办人姓名"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="dwbaShengbanrenzjlx" Title="申办人证件类型，1、身份证 2、其它证件"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="dwbaShengbanrenzjhm" Title="申办人证件号码"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="dwbaShengbanrendhhm" Title="申办人电话号码"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="dwbaShengbanrensjhm" Title="申办人手机号码"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="dwbaChurujing" Title="是否涉及出入库境，1、是 2、否"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="dwbaJiankong" Title="是否安装监控，1、是 2、否"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="leixing" Title="业务类型 1是剧毒备案,2是易制爆备案"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsTime="Yes" Key="dwbaDengjishijian" Title="备案登记时间"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsTime="Yes" Key="dwbaUpdatetime" Title="备案修改时间"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsTime="Yes" Key="dwbaTongguoshijian" Title="备案通过时间"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="notpass" Title="审核流程状态" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="state" Title="备案状态 0未备案，1已备案"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="dwbaJindu"
+        Title="备案进度，1为填写基本信息 2为填写物品信息 3为上传附件信息 4为添加备案人员信息 5为递交审核 6进入公安审批" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="version" Title="变更版本号，0-N，代表第几次变更了"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="bgState"
+        Title="变更状态，1为未变更或变更完成  -1为申请变更了但未递交审核 0为已递交审核" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="cangku" Title="危险化学品仓库数量" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="kurongliang" Title="库容量" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="zaNum" Title="治安保卫人员人数，0表示没有，大于0表示有、且记录具体数量"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="bj" Title="是否有报警装置，0表示没有，1表示有"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="toxicDescription" Title="剧毒化学品经营范围描述"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="toxicEquipment" Title="剧毒化学品储存设备及安保措施"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="remark" Title="备注" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="dwbaBeizhu1" Title="生产、经营、 储存、使用、销毁 剧毒易制爆的品名、数量"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="dwbaBeizhu2" Title="储存设施 及 安全保卫措施"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="dwbaBeizhu3" Title="备注" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="dwbaBeizhu4" Title="是否可直接购买，0 需要 1不需要"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="dwbaBeizhu5" Title="安全责任人电话"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="dwbaBeizhu6" Title="是否申请备案延期变更"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="dwbaBeizhu7" Title="单位地址" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="dwbaBeizhu8" Title="存放风险等级"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="dwbaBeizhu9" Title="公安为自行购买单位发放的购买凭证纸发放数"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="dwbaBeizhu10" Title="企业简称,用于购买许可证"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="suoding" Title="筛选条件，锁定" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="zhuxiao" Title="筛选条件，注销" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="oldId" Title="企业名称" ViewType="Normal"></Item>
+</Root>

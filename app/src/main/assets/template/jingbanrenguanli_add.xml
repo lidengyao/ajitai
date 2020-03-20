@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item DefaultValue="001" Hint="" IsNull="No" Key="unitId" Title="单位名称"
+        ViewType="ArrayList_Unit_Police"></Item>
+
+    <Item Hint="" IsEdit="Yes" IsNull="No" Key="name" Title="姓名" ViewType="Normal"></Item>
+
+    <Item Hint="" IsEdit="Yes" IsNull="No" Key="gender" Title="性别" TypeKey="51"
+        ViewType="ArrayList"></Item>
+
+    <Item Hint="" IsEdit="Yes" IsNull="No" Key="idcardType" Title="证件类型" TypeKey="370"
+        ViewType="ArrayList"></Item>
+
+    <Item Hint="" IsEdit="Yes" IsNull="No" Key="idcardNumber" Title="证件号码" ViewType="Normal"></Item>
+
+    <Item Hint="" IsEdit="Yes" IsNull="No" Key="phone" Title="电话号码" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="No" Key="tel" Title="手机号码" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="remark" Title="备注" ViewType="Normal"></Item>
+
+
+</Root>

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="name" Title="姓名" ViewType="Normal"></Item>
+
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="certificateNumber" Title="身份证号"
+        ViewType="Normal"></Item>
+
+    <Item DefaultValue="001" Hint="" IsNull="No" Key="companyId" Title="所属单位"
+        ViewType="ArrayList_Unit"></Item>
+
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="dutyType" Title="岗位类型" TypeKey="44"
+        ViewType="ArrayList"></Item>
+    <!--<Item BeginDateKey="BeginDateKey" EndDateKey="EndDateKey" Hint="选择时间" IsEdit="Yes" IsNull="Yes"-->
+        <!--Key="birthday" Title="出生日期" ViewType="BetweenDate"></Item>-->
+
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="raceType" Title="民族" TypeKey="54"
+        ViewType="ArrayList"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="tel" Title="手机号码" ViewType="Normal"></Item>
+    <!--<Item Hint="" IsEdit="Yes" IsNull="Yes" Key="raceType" Title="五类人员库对比" TypeKey="308"-->
+        <!--ViewType="ArrayList"></Item>-->
+
+</Root>

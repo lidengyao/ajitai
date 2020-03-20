@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item Hint="" IsEdit="No" IsNull="No" Key="unitType" Title="单位类型" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="No" Key="licenseType" Title="许可证类型" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="No" Key="enterpriseCode" Title="企业代号" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="address" Title="单位所属地"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="No" Key="unitName" Title="单位名称"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="No" Key="unitCode" Title="单位代码"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="unitAddress" Title="单位地址" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="legalRepresentativeName" Title="法定代表人姓名" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="legalRepresentativeIdcard" Title="法定代表人公民身份证号"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="legalRepresentativeTel" Title="法定代表人联系电话"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="techChargerName" Title="技术负责人姓名"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="techChargerIdcard" Title="技术负责人公民身份证号"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="techChargerTel" Title="技术负责人联系电话"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="securityerName" Title="治安保卫负责人姓名"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="securityerIdcard" Title="治安保卫负责人公民身份证号" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="securityerTel" Title="治安保卫负责人联系电话" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="registeredCapital" Title="注册资金（万元）" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="netAsset" Title="净资产（万元）"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="specialEquipmentValue" Title="专用设备净资产（万元）" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="bankAccount" Title="银行账号" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="applyQualityLevel" Title="申请资质等级"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="" Title="申请从业范围" TypeKey="9"
+        ViewType="CheckBoxList"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="charger" Title="经办人姓名"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="chargerTel" Title="经办人联系电话"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsAdd="No" IsEdit="Yes" IsMore="Yes" IsNull="Yes" Key="DanWeiYeJiList"
+        Title="近三年单位爆破作业项目设计施工业绩" ViewType="NormalAdd"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="DanWeiYeJiListView" Title="" TypeKey="1"
+        ViewType="ListView"></Item>
+    <Item Hint="" IsAdd="No" IsEdit="Yes" IsMore="Yes" IsNull="Yes" Key="JiShuYeJiList"
+        Title="技术负责人爆破作业项目设计施工业绩" ViewType="NormalAdd"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="JiShuYeJiListView" Title="" TypeKey="1"
+        ViewType="ListView"></Item>
+    <Item Hint="" IsAdd="No" IsEdit="Yes" IsMore="Yes" IsNull="Yes" Key="BaoPoRenYuanList"
+        Title="爆破工程技术人员" ViewType="NormalAdd"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="BaoPoRenYuanListView" Title="" TypeKey="1"
+        ViewType="ListView"></Item>
+    <Item Hint="" IsAdd="No" IsEdit="Yes" IsMore="Yes" IsNull="Yes" Key="AnQuanYuanList"
+        Title="安全员" ViewType="NormalAdd"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="AnQuanYuanListView" Title="" TypeKey="1"
+        ViewType="ListView"></Item>
+    <Item Hint="" IsAdd="No" IsEdit="Yes" IsMore="Yes" IsNull="Yes" Key="BaoGuanYuanList"
+        Title="保管员" ViewType="NormalAdd"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="BaoGuanYuanListView" Title="" TypeKey="1"
+        ViewType="ListView"></Item>
+    <Item Hint="" IsAdd="No" IsEdit="Yes" IsMore="Yes" IsNull="Yes" Key="AnQuanJuLiList"
+        Title="库区四邻安全距离" ViewType="NormalAdd"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="AnQuanJuLiListView" Title="" TypeKey="1"
+        ViewType="ListView"></Item>
+    <Item Hint="" IsAdd="No" IsEdit="Yes" IsMore="Yes" IsNull="Yes" Key="CangKuList" Title="仓库信息"
+        ViewType="NormalAdd"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="CangKuListView" Title="" TypeKey="1"
+        ViewType="ListView"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="" Title="公安审核意见" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="policeRemark" Title="公安审核备注" ViewType="Normal"></Item>
+</Root>

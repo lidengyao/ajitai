@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item Hint="" IsEdit="Yes" IsNull="No" Key="title" Title="标题" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="No" Key="keywords" Title="关键字" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="No" Key="content" Title="内容" ViewType="Lines"></Item>
+
+</Root>

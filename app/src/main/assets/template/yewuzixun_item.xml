@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="subject" Title="咨询主题" ViewType="Normal"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="title" LeftIsBaseCode="Yes" LeftIsStatus="No"
+        LeftIsTime="No" LeftKey="type" LeftStatusName="" LeftTitle="咨询类型" LeftWeight="5"
+        RightIsBaseCode="No" RightIsStatus="No" RightIsTime="No" RightKey="adviceNumber"
+        RightStatusName="" RightTitle="咨询号" RightWeight="5" Title="" ViewType="NormalTwo"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="companyValue" Title="咨询单位" ViewType="Normal"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="title" LeftIsBaseCode="No" LeftIsStatus="No"
+        LeftIsTime="No" LeftKey="advicerValue" LeftStatusName="" LeftTitle="联系人" LeftWeight="5"
+        RightIsBaseCode="No" RightIsStatus="No" RightIsTime="No" RightKey="createTimeValue"
+        RightStatusName="" RightTitle="咨询时间" RightWeight="5" Title="" ViewType="NormalTwo"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsStatus="Yes" Key="status" StatusName="status_yewuzixun"
+        Title="状态" ViewType="Normal"></Item>
+
+</Root>

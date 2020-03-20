@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="lockStatus" StatusName="status_qiyesuoding"
+        Title="锁定状态" ViewType="ArrayList_Status"></Item>
+
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="lockType" Title="锁定类型" TypeKey="156"
+        ViewType="ArrayList"></Item>
+    <Item BeginDateIsLong="Yes" BeginDateKey="startTime" EndDateIsLong="Yes" EndDateKey="endTime"
+        Hint="请选择锁定时间" IsEdit="Yes" IsNull="Yes" Key="lockStartTime" Title="锁定时间"
+        ViewType="BetweenDate"></Item>
+
+</Root>

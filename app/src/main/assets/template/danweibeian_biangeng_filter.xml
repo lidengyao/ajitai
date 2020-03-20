@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item DefaultValue="001" Hint="" IsNull="No" Key="unitId" Title="单位名称"
+        ViewType="ArrayList_Unit"></Item>
+
+    <!--<Item Hint="" IsEdit="Yes" IsNull="Yes" Key="unitType" Title="单位类型" TypeKey="134"-->
+        <!--ViewType="ArrayList"></Item>-->
+    <!--<Item DefaultValue="001" Hint="" IsNull="No" Key="changer" Title="备案变更申办人"-->
+        <!--ViewType="ArrayList_User"></Item>-->
+
+
+    <!--<Item Hint="" IsEdit="Yes" IsNull="Yes" Key="status" Title="备案变更状态" TypeKey="220"-->
+    <!--ViewType="ArrayList"></Item>-->
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="status" StatusName="status_danweibeianbiangeng"
+        Title="备案变更状态" ViewType="ArrayList_Status"></Item>
+
+    <!--<Item BeginDateIsLong="Yes" BeginDateKey="searchStartTime" EndDateIsLong="Yes" EndDateKey="searchEndTime"-->
+        <!--Hint="申请变更时间" IsEdit="Yes" IsNull="Yes" Key="createTime" Title="登记时间"-->
+        <!--ViewType="BetweenDate"></Item>-->
+</Root>

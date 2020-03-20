@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item Hint="" IsEdit="No" IsNull="No" Key="ids" Title="发布区域" ViewType="CheckListView"></Item>
+    <Item Hint="" IsEdit="Yes" IsInt="Yes" IsNull="No" Key="importance" Title="重要性"
+        TypeKey="151" ViewType="ArrayList"></Item>
+    <!--<Item Hint="" IsEdit="Yes" IsIDS="Yes" IsNull="No" Key="ids" Title="抄送" TypeKey="1"-->
+        <!--ViewType="CheckListView"></Item>-->
+    <Item Hint="" IsEdit="Yes" IsNull="No" Key="title" Title="标题" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="No" Key="content" Title="内容" ViewType="Lines"></Item>
+</Root>

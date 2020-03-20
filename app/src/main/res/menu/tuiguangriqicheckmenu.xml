@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/quanbu"
+        android:title="全部" />
+    <item
+        android:id="@+id/jinri"
+        android:title="今日新增" />
+
+    <item
+        android:id="@+id/yizhou"
+        android:title="一周内" />
+    <item
+        android:id="@+id/yigeyue"
+        android:title="一个月内" />
+
+</menu>

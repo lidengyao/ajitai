@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="chargerName" Title="初始化操作人"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="whName" Title="库房名称" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="policeUnitName" Title="所属公安机关"
+        ViewType="Normal"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="areaAddress" Title="库房区划" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="managerName" Title="库房负责人" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="managerTel" Title="库房负责人电话" ViewType="Normal"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="storekeeperOne" Title="仓库保管员1"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="storekeeperTwo" Title="仓库保管员2"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="address" Title="地址" ViewType="Normal"></Item>
+
+    <Item Hint="" IsAdd="No" IsEdit="Yes" IsMore="No" IsNull="Yes" Key="" Title="物品列表"
+        ViewType="NormalAdd"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="wupinliebiao" Title="" TypeKey="1"
+        ViewType="ListView"></Item>
+</Root>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+
+    <Item Hint="" IsAdd="No" IsEdit="No" IsMore="No" IsNull="Yes" Key="" Title="单位负责人审查"
+        ViewType="NormalAdd"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="unitCheckUserName" Title="审核人"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="unitCheckContent" Title="意见"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsOpinion="Yes" Key="unitCheckOpinion" Title="审核状态"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsTime="Yes" Key="unitCheckTime" Title="审核时间"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="unitName" Title="审核单位" ViewType="Normal"></Item>
+
+
+    <Item Hint="" IsAdd="No" IsEdit="No" IsMore="No" IsNull="Yes" Key="" Title="派出所审核"
+        ViewType="NormalAdd"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="pcsCheckUserName" Title="审核人"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="pcsCheckContent" Title="意见"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsOpinion="Yes" Key="pcsCheckOpinion" Title="审核状态"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsTime="Yes" Key="pcsCheckTime" Title="审核时间"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="pcsCheckUnitName" Title="审核单位"
+        ViewType="Normal"></Item>
+
+
+    <Item Hint="" IsAdd="No" IsEdit="No" IsMore="No" IsNull="Yes" Key="" Title="分居治安大队审核"
+        ViewType="NormalAdd"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="zdCheckUserName" Title="审核人"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="zdCheckContent" Title="意见" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsOpinion="Yes" Key="zdCheckOpinion" Title="审核状态"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsTime="Yes" Key="zdCheckTime" Title="审核时间"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="zdCheckUnitName" Title="审核单位"
+        ViewType="Normal"></Item>
+</Root>

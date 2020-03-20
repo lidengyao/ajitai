@@ -1,0 +1,30 @@
+描述
+2019-11-14
+1.查询当前审核记录
+2.（当时是“解锁审批审批”时）审批当前审核记录
+------------------------------------------------------------------------------
+接口：
+2019-11-14
+1.审核记录接口：http://whp.free.idcfengye.com/toxicLock/getUnlockApply/11（11是上个页面的id）
+2.审批接口：http://whp.techpolaris.com/toxicLock/editUnlockApply
+传递参数：
+{
+        "id": 11,
+        "companyId": 588,
+        "recordId": 101,
+        "lockStatus": 0,（通过是0，驳回是4）
+        "unlockManagerCheckOpinion": "我是填写的审批意见",
+    }
+
+（08-23）
+1.接口：http://whp.techpolaris.com/toxicLock/46
+2.添加了以下字段
+		"companyName": 企业名称,
+		"lockUnitName": 锁定这个企业的单位名称,
+        "lockUnitChargerName": 锁定这个企业的操作人名称,
+        "unlockUnitName": 解锁这个企业的单位名称,
+        "unlockUnitChargerName": 解锁这个企业的操作人名称,
+        "companyManagerCheckerName": 申请解锁的企业名称,
+        "unlockManagerCheckerName": 申请解锁的企业操作人名称
+------------------------------------------------------------------------------
+修改：

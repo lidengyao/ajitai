@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item DefaultValue="001" Hint="" IsNull="No" Key="unitId" Title="单位名称"
+        ViewType="ArrayList_Unit"></Item>
+
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="vcode" Title="设备编号" ViewType="Normal"></Item>
+
+    <!--<Item Hint="" IsEdit="Yes" IsNull="Yes" Key="deviceType" Title="设备类型" TypeKey="233"-->
+    <!--ViewType="ArrayList"></Item>-->
+
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="status" StatusName="status_kufangjiankong"
+        Title="设备状态" ViewType="ArrayList_Status"></Item>
+
+</Root>

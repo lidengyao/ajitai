@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsStatus="No" Key="unitName" StatusName="" Title="企业名称"
+        ViewType="Normal"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="title" LeftIsBaseCode="No" LeftIsStatus="No"
+        LeftIsTime="No" LeftKey="vname" LeftStatusName="" LeftTitle="设备名称" LeftWeight="5"
+        RightIsBaseCode="Yes" RightIsStatus="No" RightIsTime="No" RightKey="deviceType"
+        RightStatusName="" RightTitle="设备类型" RightWeight="5" Title="" ViewType="NormalTwo"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="title" LeftIsBaseCode="No" LeftIsStatus="No"
+        LeftIsTime="No" LeftKey="vcode" LeftStatusName="" LeftTitle="设备序列号" LeftWeight="5"
+        RightIsBaseCode="No" RightIsStatus="Yes" RightIsTime="No" RightKey="status"
+        RightStatusName="status_kufangjiankong" RightTitle="设备状态" RightWeight="5" Title=""
+        ViewType="NormalTwo"></Item>
+</Root>

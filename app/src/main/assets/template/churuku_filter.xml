@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item DefaultValue="001" Hint="" IsNull="No" Key="companyId" Title="登记单位名称"
+        ViewType="ArrayList_Unit"></Item>
+
+    <!--<Item Hint="" IsEdit="Yes" IsNull="Yes" Key="" Title="区域" ViewType="Normal"></Item>-->
+    <!--<Item Hint="" IsEdit="Yes" IsNull="Yes" Key="goodsName" Title="物品名称" ViewType="Normal"></Item>-->
+
+    <!--<Item Hint="" IsEdit="Yes" IsNull="Yes" Key="" Title="桶号" ViewType="Normal"></Item>-->
+    <Item BeginDateIsLong="Yes" BeginDateKey="searchStartTime" EndDateIsLong="Yes" EndDateKey="searchEndTime"
+        Hint="登记时间" IsEdit="Yes" IsNull="Yes" Key="createTime" Title="登记时间"
+        ViewType="BetweenDate"></Item>
+
+</Root>

@@ -1,0 +1,211 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/transparent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+
+        <LinearLayout
+            android:id="@+id/FilterLL"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/color2"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="35dp"
+                        android:layout_marginLeft="15dp"
+                        android:gravity="center_vertical">
+
+                        <TextView
+                            android:id="@+id/normalTitleTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="物品名称"
+                            android:textColor="@color/color1"
+                            android:textColorHighlight="#CCCCCC"
+                            android:textIsSelectable="true"
+                            android:textSize="@dimen/textsize14" />
+
+
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="15dp">
+
+                        <LinearLayout
+                            android:id="@+id/normalJiantouLL"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="5dp"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:id="@+id/QingKongIV"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="6dp"
+                                android:src="@mipmap/qingkong"
+                                android:visibility="gone" />
+
+                            <ImageView
+                                android:id="@+id/JianTouIV"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:paddingLeft="10dp"
+                                android:paddingTop="6dp"
+                                android:paddingRight="10dp"
+                                android:paddingBottom="6dp"
+                                android:src="@mipmap/jiantou" />
+
+                        </LinearLayout>
+
+                        <EditText
+                            android:id="@+id/WuPinET"
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginRight="10dp"
+                            android:layout_toLeftOf="@+id/normalJiantouLL"
+                            android:background="@null"
+                            android:cursorVisible="false"
+                            android:focusable="false"
+                            android:focusableInTouchMode="false"
+                            android:gravity="center_vertical"
+                            android:hint="请选择物品"
+                            android:paddingTop="5dp"
+                            android:paddingBottom="5dp"
+                            android:text=""
+                            android:textColor="@color/color27"
+                            android:textColorHighlight="#CCCCCC"
+                            android:textIsSelectable="true"
+                            android:textSize="@dimen/textsize14" />
+
+
+                    </RelativeLayout>
+
+                    <View style="@style/CenterLineStyle"></View>
+                </LinearLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="70dp"
+                    android:orientation="vertical">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="5dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginTop="7dp"
+                                android:text="物品数量"
+                                android:textColor="@color/color1"
+                                android:textSize="@dimen/textsize14" />
+
+                        </LinearLayout>
+
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="30dp"
+                            android:layout_marginLeft="15dp"
+                            android:layout_marginTop="2dp">
+
+
+                            <EditText
+                                android:id="@+id/ShuLingET"
+                                android:layout_width="match_parent"
+                                android:layout_height="match_parent"
+                                android:layout_toLeftOf="@+id/QingKongLL"
+                                android:background="@null"
+                                android:hint="请输入数量"
+                                android:inputType="number"
+                                android:singleLine="false"
+                                android:text=""
+                                android:textColor="@color/color27"
+                                android:textSize="@dimen/textsize14"
+                                tools:text="" />
+
+                        </RelativeLayout>
+                    </LinearLayout>
+
+
+                    <View
+                        style="@style/CenterLineStyle"
+                        android:layout_alignParentBottom="true"></View>
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/QuXiaoTV"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="取消" />
+
+                <View style="@style/horizontalLineStyle"></View>
+
+                <TextView
+                    android:id="@+id/OKTV"
+                    android:layout_width="0dp"
+                    android:layout_height="match_parent"
+                    android:layout_weight="1"
+                    android:gravity="center"
+                    android:text="确定"
+                    android:textColor="@color/color21" />
+            </LinearLayout>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/addzidianClose"
+            android:layout_width="fill_parent"
+            android:layout_height="fill_parent"
+            android:layout_above="@+id/FilterLL"
+            android:background="@color/transparent"
+            android:orientation="vertical"></LinearLayout>
+
+    </RelativeLayout>
+
+</LinearLayout>

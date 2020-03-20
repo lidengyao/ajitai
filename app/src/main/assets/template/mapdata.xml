@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item Des="性别" DicKey="gender">
+        <Data ColorID="0" Status="0" Value="保密"></Data>
+        <Data ColorID="0" Status="1" Value="男"></Data>
+        <Data ColorID="0" Status="2" Value="女"></Data>
+    </Item>
+
+</Root>

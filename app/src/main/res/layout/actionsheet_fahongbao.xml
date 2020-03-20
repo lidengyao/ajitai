@@ -1,0 +1,191 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@drawable/sysbtn_dialogwhitebg_shape"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:paddingTop="20dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="14dp"
+                android:text="取消"
+                android:textColor="@color/C666666"
+                android:textSize="@dimen/textsize21" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingLeft="16dp"
+                android:layout_alignParentRight="true"
+                android:paddingTop="20dp"
+                android:paddingRight="16dp"
+                android:paddingBottom="14dp"
+                android:src="@mipmap/grayclose" />
+        </RelativeLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="40dp"
+            android:text="发红包"
+            android:textColor="@color/C333333"
+            android:textSize="44sp"
+            android:textStyle="bold" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="33dp"
+            android:layout_marginRight="33dp"
+            android:layout_marginBottom="35dp"
+            android:background="@drawable/sysbtn_gray_f5f5f5_25_shape"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:gravity="center_vertical"
+                android:text="总金额"
+                android:textColor="@color/C333333"
+                android:textSize="@dimen/textsize16" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:orientation="horizontal">
+
+                <EditText
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+
+                    android:background="@null"
+                    android:gravity="right|center_vertical"
+                    android:hint="0.00"
+                    android:textColor="@color/C333333"
+                    android:textSize="@dimen/textsize16" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="2dp"
+                    android:text="元"
+                    android:textColor="@color/C999999"
+                    android:textSize="@dimen/textsize16" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="25dp"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="当前为拼手气红包，"
+                android:textColor="@color/C666666"
+                android:textSize="@dimen/textsize14" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingTop="5dp"
+                android:paddingBottom="5dp"
+                android:text="改为普通红包"
+                android:textColor="#F33322"
+                android:textSize="@dimen/textsize14" />
+        </LinearLayout>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="33dp"
+            android:layout_marginRight="33dp"
+            android:layout_marginBottom="35dp"
+            android:background="@drawable/sysbtn_gray_f5f5f5_25_shape"
+            android:gravity="center_vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:gravity="center_vertical"
+                android:text="红包个数"
+                android:textColor="@color/C333333"
+                android:textSize="@dimen/textsize16" />
+
+            <EditText
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_alignParentRight="true"
+                android:layout_marginRight="20dp"
+                android:background="@null"
+                android:gravity="right|center_vertical"
+                android:hint="请填写个数"
+                android:textColor="@color/C333333"
+                android:textSize="@dimen/textsize16" />
+        </RelativeLayout>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="50dp"
+            android:layout_marginLeft="33dp"
+            android:layout_marginRight="33dp"
+            android:layout_marginBottom="30dp"
+            android:background="@drawable/sysbtn_gray_f5f5f5_25_shape"
+            android:gravity="center_vertical">
+
+            <EditText
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginRight="20dp"
+                android:background="@null"
+                android:text="新年快乐，恭喜发财！"
+                android:textColor="@color/C333333"
+                android:textSize="@dimen/textsize16" />
+        </LinearLayout>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="50dp"
+            android:text="￥ 0.00"
+            android:textColor="#DE1D0C"
+            android:textSize="@dimen/textsize50"
+            android:textStyle="bold" />
+
+        <Button
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="30dp"
+            android:background="@mipmap/fahongbaobtnbg"
+            android:text="塞钱进红包"
+            android:textColor="@color/color2"
+            android:textSize="@dimen/textsize24"
+            android:textStyle="bold" />
+
+    </LinearLayout>
+</LinearLayout>

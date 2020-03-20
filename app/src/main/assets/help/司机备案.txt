@@ -1,0 +1,295 @@
+描述：
+1.查询所有单位的司机备案信息
+------------------------------------------------------------------------------
+接口：
+1.列表：http://whp.techpolaris.com/driver/listDriverRecord
+------------------------------------------------------------------------------
+修改：
+2019-10-14
+1.状态参考值
+    <Item Des="司机备案-单位司机备案状态" DicKey="status_danweisijibeian">
+        <Data ColorID="0" Status="0" Value="审核未通过"></Data>
+        <Data ColorID="0" Status="1" Value="待企业管理员审核"></Data>
+        <Data ColorID="1" Status="2" Value="企业已审核"></Data>
+        <Data ColorID="2" Status="3" Value="派出所已审核"></Data>
+        <Data ColorID="4" Status="5" Value="已完结"></Data>
+    </Item>
+2.列表项model类
+public class DriverRecord_Info implements Serializable {
+
+    //    @ApiModelProperty("数据id")
+    private Integer id;
+
+    //    @ApiModelProperty("单位id")
+    private Integer unitId;
+
+    //    @ApiModelProperty("单位名称")
+    private String unitName;
+
+    //    @ApiModelProperty("状态")
+    private Integer status;
+
+    //    @ApiModelProperty("变更次数")
+    private Integer changeNum;
+
+    //    @ApiModelProperty("单位审核意见内容")
+    private String unitCheckContent;
+
+    //    @ApiModelProperty("单位审核人")
+    private Integer unitCheckUserid;
+
+    //单位审核人名称
+    private String unitCheckUserName;
+
+    //    @ApiModelProperty("单位审核时间")
+    private Long unitCheckTime;
+
+    //    @ApiModelProperty("单位审核意见")
+    private Integer unitCheckOpinion;
+
+    //    @ApiModelProperty("审核单位id")
+    private Integer unitCheckUnitid;
+
+    //    @ApiModelProperty("派出所审核意见内容")
+    private String pcsCheckContent;
+
+    //    @ApiModelProperty("派出所审核人id")
+    private Integer pcsCheckUserid;
+
+    //    @ApiModelProperty("派出所审核时间")
+    private Long pcsCheckTime;
+
+    //    @ApiModelProperty("派出所审核意见")
+    private Integer pcsCheckOpinion;
+
+    //    @ApiModelProperty("审核派出所id")
+    private Integer pcsCheckUnitid;
+
+    //    @ApiModelProperty("支队审核意见内容")
+    private String zdCheckContent;
+
+    //    @ApiModelProperty("支队审核人id")
+    private Integer zdCheckUserid;
+
+    //    @ApiModelProperty("支队审核时间")
+    private Long zdCheckTime;
+
+    //    @ApiModelProperty("支队审核意见")
+    private Integer zdCheckOpinion;
+
+    //    @ApiModelProperty("审核支队id")
+    private Integer zdCheckUnitid;
+
+    //    @ApiModelProperty("数据创建时间")
+    private Long createTime;
+
+    //    @ApiModelProperty("数据更新时间")
+    private Long updateTime;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public Integer getUnitId() {
+        return unitId;
+    }
+
+    public void setUnitId(Integer unitId) {
+        this.unitId = unitId;
+    }
+
+    public String getUnitName() {
+        return unitName;
+    }
+
+    public void setUnitName(String unitName) {
+        this.unitName = unitName;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+
+    public Integer getChangeNum() {
+        return changeNum;
+    }
+
+    public void setChangeNum(Integer changeNum) {
+        this.changeNum = changeNum;
+    }
+
+    public String getUnitCheckContent() {
+        return unitCheckContent;
+    }
+
+    public void setUnitCheckContent(String unitCheckContent) {
+        this.unitCheckContent = unitCheckContent;
+    }
+
+    public Integer getUnitCheckUserid() {
+        return unitCheckUserid;
+    }
+
+    public void setUnitCheckUserid(Integer unitCheckUserid) {
+        this.unitCheckUserid = unitCheckUserid;
+    }
+
+    public Long getUnitCheckTime() {
+        return unitCheckTime;
+    }
+
+    public void setUnitCheckTime(Long unitCheckTime) {
+        this.unitCheckTime = unitCheckTime;
+    }
+
+    public Integer getUnitCheckOpinion() {
+        return unitCheckOpinion;
+    }
+
+    public void setUnitCheckOpinion(Integer unitCheckOpinion) {
+        this.unitCheckOpinion = unitCheckOpinion;
+    }
+
+    public Integer getUnitCheckUnitid() {
+        return unitCheckUnitid;
+    }
+
+    public void setUnitCheckUnitid(Integer unitCheckUnitid) {
+        this.unitCheckUnitid = unitCheckUnitid;
+    }
+
+    public String getPcsCheckContent() {
+        return pcsCheckContent;
+    }
+
+    public void setPcsCheckContent(String pcsCheckContent) {
+        this.pcsCheckContent = pcsCheckContent;
+    }
+
+    public Integer getPcsCheckUserid() {
+        return pcsCheckUserid;
+    }
+
+    public void setPcsCheckUserid(Integer pcsCheckUserid) {
+        this.pcsCheckUserid = pcsCheckUserid;
+    }
+
+    public Long getPcsCheckTime() {
+        return pcsCheckTime;
+    }
+
+    public void setPcsCheckTime(Long pcsCheckTime) {
+        this.pcsCheckTime = pcsCheckTime;
+    }
+
+    public Integer getPcsCheckOpinion() {
+        return pcsCheckOpinion;
+    }
+
+    public void setPcsCheckOpinion(Integer pcsCheckOpinion) {
+        this.pcsCheckOpinion = pcsCheckOpinion;
+    }
+
+    public Integer getPcsCheckUnitid() {
+        return pcsCheckUnitid;
+    }
+
+    public void setPcsCheckUnitid(Integer pcsCheckUnitid) {
+        this.pcsCheckUnitid = pcsCheckUnitid;
+    }
+
+    public String getZdCheckContent() {
+        return zdCheckContent;
+    }
+
+    public void setZdCheckContent(String zdCheckContent) {
+        this.zdCheckContent = zdCheckContent;
+    }
+
+    public Integer getZdCheckUserid() {
+        return zdCheckUserid;
+    }
+
+    public void setZdCheckUserid(Integer zdCheckUserid) {
+        this.zdCheckUserid = zdCheckUserid;
+    }
+
+    public Long getZdCheckTime() {
+        return zdCheckTime;
+    }
+
+    public void setZdCheckTime(Long zdCheckTime) {
+        this.zdCheckTime = zdCheckTime;
+    }
+
+    public Integer getZdCheckOpinion() {
+        return zdCheckOpinion;
+    }
+
+    public void setZdCheckOpinion(Integer zdCheckOpinion) {
+        this.zdCheckOpinion = zdCheckOpinion;
+    }
+
+    public Integer getZdCheckUnitid() {
+        return zdCheckUnitid;
+    }
+
+    public void setZdCheckUnitid(Integer zdCheckUnitid) {
+        this.zdCheckUnitid = zdCheckUnitid;
+    }
+
+    public Long getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Long createTime) {
+        this.createTime = createTime;
+    }
+
+    public Long getUpdateTime() {
+        return updateTime;
+    }
+
+    public void setUpdateTime(Long updateTime) {
+        this.updateTime = updateTime;
+    }
+
+    public String getUnitCheckUserName() {
+        return unitCheckUserName;
+    }
+
+    public void setUnitCheckUserName(String unitCheckUserName) {
+        this.unitCheckUserName = unitCheckUserName;
+    }
+}
+2.筛选条件类
+
+public class Driver_Filter_Bean implements Serializable {
+
+    private Integer status;
+    private Integer unitId;
+
+    public Integer getUnitId() {
+        return unitId;
+    }
+
+    public void setUnitId(Integer unitId) {
+        this.unitId = unitId;
+    }
+
+    public Integer getStatus() {
+        return status;
+    }
+
+    public void setStatus(Integer status) {
+        this.status = status;
+    }
+}

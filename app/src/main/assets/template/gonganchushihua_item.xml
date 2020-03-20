@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsStatus="No" IsTime="No" Key="unitName" StatusName=""
+        Title="单位名称" ViewType="Normal"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsStatus="No" IsTime="No" Key="address" StatusName=""
+        Title="单位地址" ViewType="Normal"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsStatus="No" IsTime="Yes" Key="createTime" StatusName=""
+        Title="创建时间" ViewType="Normal"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsStatus="No" IsTime="No" Key="highLevelUnitName"
+        Title="上级单位" ViewType="Normal"></Item>
+</Root>

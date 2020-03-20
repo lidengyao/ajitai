@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="recordStartTime" Title="入库时间"-->
+        <!--ViewType="Normal"></Item>-->
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="outgoDate" Title="操作时间" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="companyName" Title="购买单位" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="saleCompanyName" Title="销售单位" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="orderId" Title="购买证号" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="outgoMemberOneName" Title="入库人员1"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="outgoMemberTwoName" Title="入库人员2"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="outgoApprovalerName" Title="入库批准人"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsBaseCode="Yes"  IsEdit="No" IsNull="Yes" Key="isUnreal" Title="是否虚拟入库" ViewType="Normal"></Item>
+    <Item Hint="" IsBaseCode="Yes"  IsEdit="No" IsNull="Yes" Key="outgoType" Title="出入库类型"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="outgoBisisNumber" Title="出入库编码"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="outgoKeeperOneName" Title="保管员1"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="outgoKeeperTwoName" Title="保管员2"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsAdd="No" IsEdit="Yes" IsMore="Yes" IsNull="Yes" Key="WuPinList" Title="物品列表"
+        ViewType="NormalAdd"></Item>
+    <Item Hint="" IsNull="Yes" Key="RuKuListView" Title="" TypeKey="1" ViewType="ListView"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="remark" Title="备注" ViewType="Lines"></Item>
+</Root>

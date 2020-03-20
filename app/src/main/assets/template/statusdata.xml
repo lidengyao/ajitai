@@ -1,0 +1,155 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item Des="购买证状态" DicKey="status_goumaizheng">
+        <Data ColorID="0" Status="0" Value="审核未通过"></Data>
+        <Data ColorID="0" Status="1" Value="待企业管理员审核"></Data>
+        <Data ColorID="1" Status="2" Value="企业已审核"></Data>
+        <Data ColorID="2" Status="3" Value="派出所已审核"></Data>
+        <Data ColorID="4" Status="5" Value="已完结"></Data>
+        <Data ColorID="4" Status="-3" Value="派出所驳回申请"></Data>
+        <Data ColorID="4" Status="-5" Value="分局驳回申请"></Data>
+    </Item>
+    <Item Des="人员备案状态" DicKey="status_renyuanbeian">
+        <Data ColorID="0" Status="0" Value="未备案"></Data>
+        <Data ColorID="1" Status="1" Value="已备案"></Data>
+    </Item>
+    <Item Des="企业锁定状态" DicKey="status_qiyesuoding">
+        <Data ColorID="0" Status="0" Value="正常"></Data>
+        <Data ColorID="1" Status="1" Value="锁定"></Data>
+        <Data ColorID="3" Status="3" Value="待审批"></Data>
+        <Data ColorID="4" Status="4" Value="审批未通过"></Data>
+    </Item>
+    <Item Des="企业锁定状态-企业锁定模块筛选使用" DicKey="status_qiyesuoding_filter">
+        <Data ColorID="0" Status="0" Value="正常"></Data>
+        <Data ColorID="1" Status="1" Value="锁定"></Data>
+    </Item>
+    <Item Des="单位备案审核状态" DicKey="status_danweibeian">
+        <Data ColorID="0" Status="0" Value="审核未通过"></Data>
+        <Data ColorID="0" Status="1" Value="待企业管理员审核"></Data>
+        <Data ColorID="1" Status="2" Value="企业已审核"></Data>
+        <Data ColorID="2" Status="3" Value="派出所已审核"></Data>
+        <Data ColorID="4" Status="5" Value="已备案"></Data>
+        <Data ColorID="4" Status="-3" Value="派出所驳回申请"></Data>
+        <Data ColorID="4" Status="-5" Value="分局驳回申请"></Data>
+    </Item>
+
+    <Item Des="单位备案变更审核状态" DicKey="status_danweibeianbiangeng">
+        <Data ColorID="0" Status="0" Value="审核未通过"></Data>
+        <Data ColorID="0" Status="1" Value="待企业管理员审核"></Data>
+        <Data ColorID="1" Status="2" Value="企业已审核"></Data>
+        <Data ColorID="2" Status="3" Value="派出所已审核"></Data>
+        <Data ColorID="4" Status="5" Value="已完结"></Data>
+        <Data ColorID="4" Status="-3" Value="派出所驳回申请"></Data>
+        <Data ColorID="4" Status="-5" Value="分局驳回申请"></Data>
+    </Item>
+    <Item Des="锁定记录查询-锁定类型" DicKey="locktype_qiyesuoding">
+        <Data ColorID="0" Status="1" Value="自动锁定"></Data>
+        <Data ColorID="1" Status="2" Value="手动锁定"></Data>
+        <Data ColorID="2" Status="3" Value="异常锁定"></Data>
+    </Item>
+    <Item Des="单位注销-单位状态" DicKey="compDel">
+        <Data ColorID="1" Status="0" Value="正常"></Data>
+        <Data ColorID="2" Status="1" Value="已注销"></Data>
+    </Item>
+    <Item Des="单位注销-剧毒注销状态" DicKey="compToxicDel">
+        <Data ColorID="1" Status="0" Value="正常"></Data>
+        <Data ColorID="2" Status="1" Value="已注销"></Data>
+    </Item>
+    <Item Des="单位注销-易制爆注销状态" DicKey="compYzbDel">
+        <Data ColorID="1" Status="0" Value="正常"></Data>
+        <Data ColorID="2" Status="1" Value="已注销"></Data>
+    </Item>
+    <Item Des="通知公告-签收状态" DicKey="status_tongzhigonggao">
+        <Data ColorID="1" Status="0" Value="未签收"></Data>
+        <Data ColorID="2" Status="1" Value="已签收"></Data>
+    </Item>
+    <Item Des="业务咨询-状态" DicKey="status_yewuzixun">
+        <Data ColorID="2" Status="0" Value="未回复"></Data>
+        <Data ColorID="1" Status="1" Value="已回复"></Data>
+    </Item>
+    <Item Des="预警管理-处理状态" DicKey="dealStatus_yujingguanli">
+        <Data ColorID="2" Status="0" Value="未查阅"></Data>
+        <Data ColorID="1" Status="1" Value="已查阅"></Data>
+    </Item>
+    <Item Des="预警管理-处理结果" DicKey="dealResult_yujingguanli">
+        <Data ColorID="2" Status="0" Value="未处理"></Data>
+        <Data ColorID="1" Status="1" Value="已处理"></Data>
+    </Item>
+    <Item Des="库房监控-设备状态" DicKey="status_kufangjiankong">
+        <Data ColorID="2" Status="0" Value="离线"></Data>
+        <Data ColorID="1" Status="1" Value="在线"></Data>
+    </Item>
+    <Item Des="司机备案-单位司机备案状态" DicKey="status_danweisijibeian">
+        <Data ColorID="0" Status="0" Value="审核未通过"></Data>
+        <Data ColorID="0" Status="1" Value="待企业管理员审核"></Data>
+        <Data ColorID="1" Status="2" Value="企业已审核"></Data>
+        <Data ColorID="2" Status="3" Value="派出所已审核"></Data>
+        <Data ColorID="4" Status="5" Value="已完结"></Data>
+        <Data ColorID="4" Status="-3" Value="派出所驳回申请"></Data>
+        <Data ColorID="4" Status="-5" Value="分局驳回申请"></Data>
+    </Item>
+    <Item Des="司机备案状态" DicKey="status_sijibeian">
+        <Data ColorID="0" Status="0" Value="未备案"></Data>
+        <Data ColorID="4" Status="5" Value="已备案"></Data>
+    </Item>
+    <Item Des="用户管理-是否管理员" DicKey="admin">
+        <Data ColorID="2" Status="0" Value="否"></Data>
+        <Data ColorID="1" Status="1" Value="是"></Data>
+    </Item>
+
+    <Item Des="用户管理-用户级别" DicKey="user_level">
+        <Data ColorID="1" Status="2" Value="企业"></Data>
+        <Data ColorID="2" Status="3" Value="派出所"></Data>
+        <Data ColorID="1" Status="4" Value="分局"></Data>
+        <Data ColorID="1" Status="5" Value="支队"></Data>
+    </Item>
+
+
+    <Item Des="用户管理-用户级别" DicKey="user_level_unit">
+        <Data ColorID="1" Status="2" Value="企业"></Data>
+    </Item>
+
+    <Item Des="用户管理-用户级别" DicKey="user_level_police">
+        <Data ColorID="2" Status="3" Value="派出所"></Data>
+        <Data ColorID="1" Status="4" Value="分局"></Data>
+        <Data ColorID="1" Status="5" Value="支队"></Data>
+    </Item>
+
+    <Item Des="客户核查-核查状态" DicKey="status_hecha">
+        <Data ColorID="2" Status="1" Value="未核查"></Data>
+        <Data ColorID="1" Status="2" Value="已核查"></Data>
+        <Data ColorID="1" Status="3" Value="核查无效"></Data>
+    </Item>
+
+    <Item Des="购销合同-状态" DicKey="status_gouxiao">
+        <Data ColorID="2" Status="1" Value="有效"></Data>
+        <Data ColorID="1" Status="2" Value="无效"></Data>
+    </Item>
+
+    <Item Des="购销合同-供求类型" DicKey="status_sdType">
+        <Data ColorID="2" Status="1" Value="供方"></Data>
+        <Data ColorID="1" Status="2" Value="需方"></Data>
+    </Item>
+
+    <Item Des="用户管理新增用户-所属系统" DicKey="datatype_system">
+        <Data ColorID="2" Status="1" Value="剧毒化学品"></Data>
+        <Data ColorID="1" Status="2" Value="易制爆危险品"></Data>
+    </Item>
+    <Item Des="用户管理新增用户-用户权限组" DicKey="datatype_userRoleRule">
+        <Data ColorID="2" Status="3" Value="剧毒化学品"></Data>
+        <Data ColorID="1" Status="4" Value="易制爆危险品"></Data>
+    </Item>
+
+    <Item Des="用户管理新增用户-用户权限组详情显示使用" DicKey="datatype_userRoleRule_show">
+        <Data ColorID="2" Status="3" Value="剧毒化学品"></Data>
+        <Data ColorID="1" Status="4" Value="易制爆危险品"></Data>
+        <Data ColorID="2" Status="5" Value="剧毒化学品,易制爆危险品"></Data>
+    </Item>
+
+    <Item Des="整改通知-状态" DicKey="status_zhengtaitongzhi">
+        <Data ColorID="2" Status="1" Value="待整改"></Data>
+        <Data ColorID="1" Status="2" Value="已整改待验收"></Data>
+        <Data ColorID="2" Status="3" Value="需继续整改"></Data>
+        <Data ColorID="2" Status="4" Value="整改合格"></Data>
+    </Item>
+</Root>

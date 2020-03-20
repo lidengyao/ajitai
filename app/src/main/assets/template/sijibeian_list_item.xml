@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="title" LeftIsBaseCode="No" LeftIsStatus="No"
+        LeftIsTime="No" LeftKey="name" LeftStatusName="" LeftTitle="姓名" LeftWeight="5"
+        RightIsBaseCode="Yes" RightIsStatus="No" RightIsTime="No" RightKey="gender"
+        RightStatusName="" RightTitle="性别" RightWeight="5" Title="" ViewType="NormalTwo"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="title" LeftIsBaseCode="No" LeftIsStatus="No"
+        LeftIsTime="No" LeftKey="tel" LeftStatusName="" LeftTitle="手机号码" LeftWeight="5"
+        RightIsBaseCode="No" RightIsStatus="No" RightIsTime="No" RightKey="numberPlate"
+        RightStatusName="" RightTitle="车牌号码" RightWeight="5" Title="" ViewType="NormalTwo"></Item>
+
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsStatus="No" IsTime="No" Key="address" StatusName=""
+        Title="地址" ViewType="Normal"></Item>
+
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsStatus="No" IsTime="No" Key="unitName" StatusName=""
+        Title="单位名称" ViewType="Normal"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="title" LeftIsBaseCode="No" LeftIsStatus="No"
+        LeftIsTime="No" LeftKey="qyfzr" LeftStatusName="" LeftTitle="企业负责人" LeftWeight="5"
+        RightIsBaseCode="No" RightIsStatus="No" RightIsTime="No" RightKey="qyfzedh"
+        RightStatusName="" RightTitle="企业负责人电话" RightWeight="5" Title="" ViewType="NormalTwo"></Item>
+
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsStatus="Yes" Key="status"
+        StatusName="status_sijibeian" Title="备案状态" ViewType="Normal"></Item>
+</Root>

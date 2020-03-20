@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="warningType" Title="预警类型" TypeKey="167"
+        ViewType="ArrayList"></Item>
+
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="dealStatus" StatusName="dealStatus_yujingguanli"
+        Title="处置状态" ViewType="ArrayList_Status"></Item>
+
+    <Item DefaultValue="001" Hint="" IsNull="No" Key="unitId" Title="被预警单位"
+        ViewType="ArrayList_Unit"></Item>
+
+    <Item BeginDateIsLong="Yes" BeginDateKey="searchStartTime" EndDateIsLong="Yes"
+        EndDateKey="searchEndTime" Hint="预警产生时间" IsEdit="Yes" IsNull="Yes" Key="createTime"
+        Title="预警产生时间" ViewType="BetweenDate"></Item>
+
+    <Item BeginDateIsLong="Yes" BeginDateKey="searchUpStartTime" EndDateIsLong="Yes"
+        EndDateKey="searchUpEndTime" Hint="预警更新时间" IsEdit="Yes" IsNull="Yes" Key="updateTime"
+        Title="预警更新时间" ViewType="BetweenDate"></Item>
+
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="dealResult" StatusName="dealResult_yujingguanli"
+        Title="处理结果" ViewType="ArrayList_Status"></Item>
+</Root>

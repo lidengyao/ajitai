@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <!--<Item Hint="" IsEdit="Yes" IsNull="Yes" Key="缺少这个字段" Title="企业名称" ViewType="Normal"></Item>-->
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="planName" Title="预案名称" ViewType="Normal"></Item>
+
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="planType" Title="预案类别" TypeKey="124"
+        ViewType="ArrayList"></Item>
+
+    <!--<Item Hint="" IsEdit="Yes" IsNull="Yes" Key="customMaderValue" Title="定制人"-->
+    <!--ViewType="Normal"></Item>-->
+
+    <Item DefaultValue="001" Hint="" IsNull="No" Key="publisher" Title="发布人"
+        ViewType="ArrayList_User"></Item>
+
+</Root>

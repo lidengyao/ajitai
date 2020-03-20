@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="title" Title="标题" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="importance" Title="重要性" TypeKey="151"
+        ViewType="ArrayList"></Item>
+    <Item BeginDateIsLong="Yes" BeginDateKey="searchStartTime" EndDateIsLong="Yes"
+        EndDateKey="searchEndTime" Hint="" IsEdit="Yes" IsNull="Yes" Key="" Title="发布时间"
+        ViewType="BetweenDate"></Item>
+</Root>

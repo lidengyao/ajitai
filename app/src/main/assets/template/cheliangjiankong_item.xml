@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsStatus="No" Key="saleUnitName" StatusName=""
+        Title="销售企业" ViewType="Normal"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsStatus="No" Key="unitName" StatusName="" Title="购买企业"
+        ViewType="Normal"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="title" LeftIsBaseCode="No" LeftIsStatus="No"
+        LeftIsTime="No" LeftKey="goodsName" LeftStatusName="" LeftTitle="运输物品" LeftWeight="5"
+        RightIsBaseCode="No" RightIsStatus="No" RightIsTime="No" RightKey="vehicleNumber"
+        RightStatusName="" RightTitle="车牌号" RightWeight="5" Title="" ViewType="NormalTwo"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="title" LeftIsBaseCode="No" LeftIsStatus="No"
+        LeftIsTime="No" LeftKey="driverName" LeftStatusName="" LeftTitle="司机" LeftWeight="5"
+        RightIsBaseCode="No" RightIsStatus="No" RightIsTime="No" RightKey="driverTel"
+        RightStatusName="" RightTitle="联系方式" RightWeight="5" Title="" ViewType="NormalTwo"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsStatus="No" Key="transportEndPlace" StatusName=""
+        Title="最后关口" ViewType="Normal"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsStatus="No" IsTime="Yes" Key="transportStartTime"
+        StatusName="" Title="更新时间" ViewType="Normal"></Item>
+
+</Root>

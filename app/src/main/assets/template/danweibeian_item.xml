@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="unitName" Title="企业名称" ViewType="Normal"></Item>
+
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="unitCheckUserName" Title="企业审核人"-->
+    <!--ViewType="Normal"></Item>-->
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="title" LeftIsBaseCode="No" LeftIsStatus="No"
+        LeftIsTime="No" LeftKey="unitCheckUserName" LeftStatusName="" LeftTitle="企业审核人"
+        LeftWeight="5" RightIsBaseCode="No" RightIsStatus="No" RightIsTime="Yes"
+        RightKey="unitCheckTime" RightStatusName="" RightTitle="企业审核时间" RightWeight="5" Title=""
+        ViewType="NormalTwo"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="title" LeftIsBaseCode="No" LeftIsStatus="No"
+        LeftIsTime="No" LeftKey="pcsCheckUserName" LeftStatusName="" LeftTitle="派出所审核人"
+        LeftWeight="5" RightIsBaseCode="No" RightIsStatus="No" RightIsTime="Yes"
+        RightKey="pcsCheckTime" RightStatusName="" RightTitle="派出所审核时间" RightWeight="5" Title=""
+        ViewType="NormalTwo"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="title" LeftIsBaseCode="No" LeftIsStatus="No"
+        LeftIsTime="No" LeftKey="zdCheckUserName" LeftStatusName="" LeftTitle="分局所审核人"
+        LeftWeight="5" RightIsBaseCode="No" RightIsStatus="No" RightIsTime="Yes"
+        RightKey="zdCheckTime" RightStatusName="" RightTitle="分局审核时间" RightWeight="5" Title=""
+        ViewType="NormalTwo"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsStatus="Yes" Key="status"
+        StatusName="status_danweibeian" Title="备案状态" ViewType="Normal"></Item>
+
+    <!--<Item Hint="" IsEdit="No" IsNull="Yes" Key="title" LeftIsBaseCode="No" LeftIsStatus="No"-->
+    <!--LeftIsTime="Yes" LeftKey="createTime" LeftStatusName="" LeftTitle="备案日期" LeftWeight="5"-->
+    <!--RightIsBaseCode="No" RightIsStatus="No" RightIsTime="Yes" RightKey="updateTime"-->
+    <!--RightStatusName="" RightTitle="变更日期" RightWeight="5" Title="" ViewType="NormalTwo"></Item>-->
+</Root>

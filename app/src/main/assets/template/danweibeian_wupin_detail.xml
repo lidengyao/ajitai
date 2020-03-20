@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item Hint="" IsAdd="No" IsEdit="No" IsMore="No" IsNull="Yes" Key="" Title="物品列表"
+        ViewType="NormalAdd"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="WuPinListView" Title="" TypeKey="1"
+        ViewType="ListView"></Item>
+
+
+</Root>

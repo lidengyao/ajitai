@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item Hint="" IsEdit="Yes" IsInt="Yes" IsNull="No" Key="Type" Title="注销类型"
+        TypeKey="345" ViewType="ArrayList"></Item>
+</Root>

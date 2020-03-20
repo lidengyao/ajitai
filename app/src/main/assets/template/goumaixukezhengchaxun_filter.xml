@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item DefaultValue="001" Hint="" IsNull="No" Key="companyId" Title="购买单位"
+        ViewType="ArrayList_Unit"></Item>
+
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="saleCompanyId" Title="销售单位"
+        ViewType="ArrayList_Unit"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="purchaseCertificateNumber" Title="购买证号"
+        ViewType="Normal"></Item>
+    <Item BeginDateIsLong="Yes" BeginDateKey="searchStart" EndDateIsLong="Yes"
+        EndDateKey="searchEnd" Hint="选择时间" IsEdit="Yes" IsNull="Yes" Key="createTime" Title="申请时间"
+        ViewType="BetweenDate"></Item>
+
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="acceptStatus" StatusName="status_danweibeian"
+        Title="单据状态" ViewType="ArrayList_Status"></Item>
+
+    <!--<Item Hint="" IsEdit="Yes" IsNull="Yes" Key="certificateNumber" Title="购销类型" TypeKey="261"-->
+    <!--ViewType="ArrayList"></Item>-->
+    <!--<Item Hint="" IsEdit="Yes" IsNull="Yes" Key="saleCompanyInProvince" Title="省内外" TypeKey="163"-->
+        <!--ViewType="ArrayList"></Item>-->
+    <!--<Item Hint="" IsEdit="Yes" IsNull="Yes" IsVisible="No" Key="certificateNumber" Title="是否已打印1-2联"-->
+    <!--TypeKey="239" ViewType="ArrayList"></Item>-->
+</Root>

@@ -1,0 +1,2 @@
+接口地址：【post】 toxicCompany/unitInfoChangeStatus/{单位id}
+其中，需要公安端配合处理的，如果需要把企业人员变更的状态恢复，需要在完成操作后调用【post】 toxicCompanyMember/delMemberRecord/{单位id}

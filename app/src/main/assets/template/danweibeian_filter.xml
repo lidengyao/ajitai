@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <!--<Item Hint="" IsEdit="Yes" IsNull="Yes" Key="compName" Title="单位名称" ViewType="Normal"></Item>-->
+    <Item DefaultValue="001" Hint="" IsNull="No" Key="unitId" Title="单位名称"
+        ViewType="ArrayList_Unit"></Item>
+    <!--<Item Hint="" IsEdit="Yes" IsNull="Yes" Key="certificateNumber" Title="行政区域" ViewType="Normal"></Item>-->
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="status" StatusName="status_danweibeian"
+        Title="备案状态" ViewType="ArrayList_Status"></Item>
+
+    <!--<Item Hint="" IsEdit="Yes" IsNull="Yes" Key="certificateNumber" Title="注销状态" TypeKey="264"-->
+    <!--ViewType="ArrayList"></Item>-->
+    <!--<Item Hint="" IsEdit="Yes" IsNull="Yes" Key="suoding" StatusName="status_qiyesuoding_filter"-->
+        <!--Title="锁定状态" ViewType="ArrayList_Status"></Item>-->
+    <!--<Item Hint="" IsEdit="Yes" IsNull="Yes" Key="certificateNumber" Title="系统外标记" TypeKey="268"-->
+    <!--ViewType="ArrayList"></Item>-->
+    <!--<Item Hint="" IsEdit="Yes" IsNull="Yes" Key="unitType" Title="按注册类型" TypeKey="271"-->
+    <!--ViewType="ArrayList"></Item>-->
+    <!--<Item Hint="" IsEdit="Yes" IsNull="Yes" Key="certificateNumber" Title="按备案类型" TypeKey="279"-->
+    <!--ViewType="ArrayList"></Item>-->
+    <!--<Item Hint="" IsEdit="Yes" IsNull="Yes" Key="resume" Title="按物品类型" TypeKey="283"-->
+    <!--ViewType="CheckBoxList"></Item>-->
+    <!--<Item Hint="" IsEdit="Yes" IsNull="Yes" Key="certificateNumber" Title="按使用单位类型" TypeKey="290"-->
+    <!--ViewType="ArrayList"></Item>-->
+    <!--<Item Hint="" IsEdit="Yes" IsNull="Yes" Key="storageRiskLevel" Title="风险等级" TypeKey="134"-->
+        <!--ViewType="ArrayList"></Item>-->
+    <!--<Item Hint="" IsEdit="Yes" IsNull="Yes" Key="name" Title="备案物品" ViewType="Normal"></Item>-->
+    <!--<Item Hint="" IsEdit="Yes" IsNull="Yes" Key="higherLevelUnitName" Title="直管单位" TypeKey="302"-->
+    <!--ViewType="ArrayList"></Item>-->
+    <!--<Item Hint="" IsEdit="Yes" IsNull="Yes" Key="name" Title="曾用单位名称" ViewType="Normal"></Item>-->
+    <!--<Item Hint="" IsEdit="Yes" IsNull="Yes" Key="WuPinListView" Title="" TypeKey="1" ViewType="ListView"></Item>-->
+</Root>

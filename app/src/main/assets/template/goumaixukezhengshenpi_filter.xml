@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item DefaultValue="001" Hint="" IsNull="No" Key="companyId" Title="购买单位"
+        ViewType="ArrayList_Unit"></Item>
+
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="saleCompanyId" Title="销售单位"
+        ViewType="ArrayList_Unit"></Item>
+
+    <!--<Item Hint="" IsEdit="Yes" IsNull="Yes" Key="purchaseChargeName" Title="购买经办人" ViewType="Normal"></Item>-->
+
+    <Item DefaultValue="001" Hint="" IsNull="No" Key="chargerId" Title="购买经办人"
+        ViewType="ArrayList_Charger"></Item>
+
+
+    <Item BeginDateIsLong="Yes" BeginDateKey="searchStart" EndDateIsLong="Yes" EndDateKey="searchEnd"
+        Hint="选择时间" IsEdit="Yes" IsNull="Yes" Key="createTime" Title="申请时间"
+        ViewType="BetweenDate"></Item>
+</Root>

@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="title" LeftIsBaseCode="No" LeftIsStatus="No"
+        LeftIsTime="No" LeftKey="userAccount" LeftStatusName="" LeftTitle="用户名" LeftWeight="5"
+        RightIsBaseCode="Yes" RightIsStatus="No" RightIsTime="No" RightKey="userGender"
+        RightStatusName="" RightTitle="性别" RightWeight="5" Title="" ViewType="NormalTwo"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="title" LeftIsBaseCode="No" LeftIsStatus="No"
+        LeftIsTime="No" LeftKey="userName" LeftStatusName="" LeftTitle="真实姓名" LeftWeight="5"
+        RightIsBaseCode="No" RightIsStatus="No" RightIsTime="No" RightKey="userTel"
+        RightStatusName="" RightTitle="手机号" RightWeight="5" Title="" ViewType="NormalTwo"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsStatus="No" Key="userIdcard" StatusName="" Title="身份证号"
+        ViewType="Normal"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsStatus="No" Key="userAddress" StatusName=""
+        Title="联系地址" ViewType="Normal"></Item>
+
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsStatus="No" Key="unitName" StatusName=""
+        Title="所属单位" ViewType="Normal"></Item>
+
+</Root>

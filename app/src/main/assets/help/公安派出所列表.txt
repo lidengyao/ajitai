@@ -1,0 +1,191 @@
+描述：
+2019-10-22新增
+此模块是从单位备案初始化模块里剥离出来的，当前单位备案的初始化可以初始化企业也可以初始化公安数据，但单位备案里边里只有企业数据。所有剥离出来单独做一个公安的初始化
+------------------------------------------------------------------------------
+接口：
+1.获取所有公安数据接口：http://whp.techpolaris.com/unit/allUnit?dwlx=1
+------------------------------------------------------------------------------
+修改：
+2019-10-22
+列表model类
+public class Unit_Info implements Serializable {
+
+
+    /**
+     * id : 1
+     * unitName : 连云港公安总局1
+     * legalRepresentativeName : null
+     * address : null
+     * legalRepresentativeTel : null
+     * unitAbbr : null
+     * organizationalCodeCertificateExpire : null
+     * businessLicenseNoExpire : null
+     * safetySupervisionExpire : null
+     * environmentalCertificateExpire : null
+     * unitCode : null
+     * enterpriseCode : null
+     */
+
+    private Integer id;
+    private String unitName;
+    private Object legalRepresentativeName;
+    private String address;
+    private Object legalRepresentativeTel;
+    private Object unitAbbr;
+    private Object organizationalCodeCertificateExpire;
+    private Object businessLicenseNoExpire;
+    private Object safetySupervisionExpire;
+    private Object environmentalCertificateExpire;
+    private Object unitCode;
+    private Object enterpriseCode;
+    private  Object compDel;
+    private Object compToxicDel;
+    private Object compYzbDel;
+    private Long createTime;
+    private String highLevelUnitName;
+    private Object unitType;
+
+    public Integer getId() {
+        return id;
+    }
+
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
+    public String getUnitName() {
+        return unitName;
+    }
+
+    public void setUnitName(String unitName) {
+        this.unitName = unitName;
+    }
+
+    public Object getLegalRepresentativeName() {
+        return legalRepresentativeName;
+    }
+
+    public void setLegalRepresentativeName(Object legalRepresentativeName) {
+        this.legalRepresentativeName = legalRepresentativeName;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public void setAddress(String address) {
+        this.address = address;
+    }
+
+    public Object getLegalRepresentativeTel() {
+        return legalRepresentativeTel;
+    }
+
+    public void setLegalRepresentativeTel(Object legalRepresentativeTel) {
+        this.legalRepresentativeTel = legalRepresentativeTel;
+    }
+
+    public Object getUnitAbbr() {
+        return unitAbbr;
+    }
+
+    public void setUnitAbbr(Object unitAbbr) {
+        this.unitAbbr = unitAbbr;
+    }
+
+    public Object getOrganizationalCodeCertificateExpire() {
+        return organizationalCodeCertificateExpire;
+    }
+
+    public void setOrganizationalCodeCertificateExpire(Object organizationalCodeCertificateExpire) {
+        this.organizationalCodeCertificateExpire = organizationalCodeCertificateExpire;
+    }
+
+    public Object getBusinessLicenseNoExpire() {
+        return businessLicenseNoExpire;
+    }
+
+    public void setBusinessLicenseNoExpire(Object businessLicenseNoExpire) {
+        this.businessLicenseNoExpire = businessLicenseNoExpire;
+    }
+
+    public Object getSafetySupervisionExpire() {
+        return safetySupervisionExpire;
+    }
+
+    public void setSafetySupervisionExpire(Object safetySupervisionExpire) {
+        this.safetySupervisionExpire = safetySupervisionExpire;
+    }
+
+    public Object getEnvironmentalCertificateExpire() {
+        return environmentalCertificateExpire;
+    }
+
+    public void setEnvironmentalCertificateExpire(Object environmentalCertificateExpire) {
+        this.environmentalCertificateExpire = environmentalCertificateExpire;
+    }
+
+    public Object getUnitCode() {
+        return unitCode;
+    }
+
+    public void setUnitCode(Object unitCode) {
+        this.unitCode = unitCode;
+    }
+
+    public Object getEnterpriseCode() {
+        return enterpriseCode;
+    }
+
+    public void setEnterpriseCode(Object enterpriseCode) {
+        this.enterpriseCode = enterpriseCode;
+    }
+
+    public Object getCompDel() {
+        return compDel;
+    }
+
+    public void setCompDel(Object compDel) {
+        this.compDel = compDel;
+    }
+
+    public Object getCompToxicDel() {
+        return compToxicDel;
+    }
+
+    public void setCompToxicDel(Object compToxicDel) {
+        this.compToxicDel = compToxicDel;
+    }
+
+    public Object getCompYzbDel() {
+        return compYzbDel;
+    }
+
+    public void setCompYzbDel(Object compYzbDel) {
+        this.compYzbDel = compYzbDel;
+    }
+
+    public Long getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Long createTime) {
+        this.createTime = createTime;
+    }
+
+    public String getHighLevelUnitName() {
+        return highLevelUnitName;
+    }
+
+    public void setHighLevelUnitName(String highLevelUnitName) {
+        this.highLevelUnitName = highLevelUnitName;
+    }
+
+    public Object getUnitType() {
+        return unitType;
+    }
+
+    public void setUnitType(Object unitType) {
+        this.unitType = unitType;
+    }
+}

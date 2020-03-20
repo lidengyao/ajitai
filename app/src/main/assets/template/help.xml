@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Help Name="0-1" SDes="购买许可证查询列表" ShowContent="列表接口：toxicPurchaseApply/list"></Help>
+    <Help Name="0-2" SDes="" ShowContent="购买许可证详情"></Help>
+</Root>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <!--购买单位信息-->
+    <Item Hint="" IsAdd="No" IsEdit="No" IsMore="No" IsNull="Yes" Key="" Title="购买单位信息"
+        ViewType="NormalAdd"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="No" Key="companyName" Title="购买单位" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="No" Key="areaPoliceName" Title="所属派出所"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="No" Key="purchaseChargerName" Title="购买经办人"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="No" IsTime="Yes" Key="outgoTime" Title="购买日期"
+        ViewType="Normal"></Item>
+    <!--销售单位信息-->
+    <Item Hint="" IsAdd="No" IsEdit="No" IsMore="No" IsNull="Yes" Key="" Title="销售单位信息"
+        ViewType="NormalAdd"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="No" Key="saleCompanyName" Title="销售单位"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="No" Key="saleChargerName" Title="销售经办人"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsBaseCode="Yes" IsEdit="No" IsNull="Yes" Key="outgoBasis" Title="许可证种类"
+        TypeKey="" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="No" Key="outgoBisisNumber" Title="许可证编号"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="No" Key="tel" Title="手机号码" ViewType="Normal"></Item>
+
+    <Item Hint="" IsAdd="No" IsEdit="No" IsMore="No" IsNull="Yes" Key="goumairukuadd" Title="购买物品信息"
+        ViewType="NormalAdd"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="goumaiwupin" Title="" TypeKey="1"
+        ViewType="ListView"></Item>
+</Root>

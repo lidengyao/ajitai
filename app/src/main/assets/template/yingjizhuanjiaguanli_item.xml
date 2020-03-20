@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="title" LeftIsBaseCode="No" LeftIsStatus="No"
+        LeftIsTime="No" LeftKey="name" LeftStatusName="" LeftTitle="姓名" LeftWeight="5"
+        RightIsBaseCode="Yes" RightIsStatus="No" RightIsTime="No" RightKey="gender"
+        RightStatusName="" RightTitle="性别" RightWeight="5" Title="" ViewType="NormalTwo"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsStatus="No" Key="liveAddress" StatusName="" Title="地址"
+        ViewType="Normal"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="title" LeftIsBaseCode="No" LeftIsStatus="No"
+        LeftIsTime="No" LeftKey="professional" LeftStatusName="" LeftTitle="专业" LeftWeight="5"
+        RightIsBaseCode="No" RightIsStatus="No" RightIsTime="No" RightKey="birthday"
+        RightStatusName="" RightTitle="出生年月" RightWeight="5" Title="" ViewType="NormalTwo"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="title" LeftIsBaseCode="Yes" LeftIsStatus="No"
+        LeftIsTime="No" LeftKey="education" LeftStatusName="" LeftTitle="学历" LeftWeight="5"
+        RightIsBaseCode="No" RightIsStatus="No" RightIsTime="No" RightKey="tel" RightStatusName=""
+        RightTitle="移动电话" RightWeight="5" Title="" ViewType="NormalTwo"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="title" LeftIsBaseCode="No" LeftIsStatus="No"
+        LeftIsTime="No" LeftKey="officePhone" LeftStatusName="" LeftTitle="办公电话" LeftWeight="5"
+        RightIsBaseCode="No" RightIsStatus="No" RightIsTime="No" RightKey="familyPhone"
+        RightStatusName="" RightTitle="家庭电话" RightWeight="5" Title="" ViewType="NormalTwo"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsStatus="No" Key="workUnit" StatusName="" Title="所属企业"
+        ViewType="Normal"></Item>
+</Root>

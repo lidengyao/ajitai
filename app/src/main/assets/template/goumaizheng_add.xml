@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="name" Tip="（在颁发电子证前无该值）" Title="所属区域"
+        ViewType="NormalRedTip"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="name" Tip="（在颁发电子证12联前无该值）" Title="有效期"
+        ViewType="NormalRedTip"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="name" Title="剧购字" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="name" Tip="（在颁发电子证前无该值）" Title="企业骑缝号"
+        ViewType="NormalRedTip"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="name" Title="购买单位名称" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="name" Title="法定代表人" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="name" Title="地址" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="name" Title="电话号码" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="name" Title="购买单位企业简称" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="name" Title="流水号" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="name" Title="购买经办人姓名" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="name" Title="证件号码" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="name" Title="购买单位证件" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="name" Title="购买时间" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="name" Title="销售单位属地" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="name" Title="销售单位名称" ViewType="Normal"></Item>
+    <Item Hint="" IsAdd="No" IsEdit="Yes" IsNull="Yes" Key="name" Title="购买品种及数量"
+        ViewType="NormalAdd"></Item>
+    <Item Hint="" IsNull="Yes" Key="GouMaiZhengListView" Title="" TypeKey="10"
+        ViewType="ListView"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="name" Title="购买用途" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="name" Title="企业审核人" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="name" Title="企业审批人" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="name" Title="受理" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="name" Title="审核人" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="name" Title="意见" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="name" Title="审核时间" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="name" Title="审核单位" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="name" Title="审查" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="name" Title="审核人" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="name" Title="意见" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="name" Title="审核时间" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="name" Title="审核单位" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="name" Title="审批" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="name" Title="审核人" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="name" Title="意见" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="name" Title="审核时间" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="Yes" Key="name" Title="审核单位" ViewType="Normal"></Item>
+</Root>

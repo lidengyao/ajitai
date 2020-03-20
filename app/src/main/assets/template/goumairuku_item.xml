@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="companyName" Title="购买单位"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="title" LeftIsBaseCode="No" LeftIsStatus="No"
+        LeftIsTime="No" LeftKey="purchaseChargerName" LeftStatusName="" LeftTitle="购买经办人" LeftWeight="5"
+        RightIsBaseCode="No" RightIsStatus="No" RightIsTime="Yes" RightKey="outgoTime"
+        RightStatusName="" RightTitle="购买日期" RightWeight="5" Title="" ViewType="NormalTwo"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="saleCompanyName" Title="销售单位"
+        ViewType="Normal"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="saleChargerName" Title="销售经办人"
+        ViewType="Normal"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="title" LeftIsBaseCode="Yes" LeftIsStatus="No"
+        LeftIsTime="No" LeftKey="outgoBasis" LeftStatusName="" LeftTitle="许可证种类" LeftWeight="5"
+        RightIsBaseCode="No" RightIsStatus="No" RightIsTime="No" RightKey="outgoBisisNumber"
+        RightStatusName="" RightTitle="许可证编号" RightWeight="5" Title="" ViewType="NormalTwo"></Item>
+
+</Root>

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsStatus="No" IsTime="No" Key="name" StatusName=""
+        Title="变更项名称" ViewType="Normal"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsStatus="No" IsTime="No" Key="before" StatusName=""
+        Title="变更前" ViewType="Normal"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsStatus="No" IsTime="No" Key="after"
+        Title="变更后" ViewType="Normal"></Item>
+</Root>

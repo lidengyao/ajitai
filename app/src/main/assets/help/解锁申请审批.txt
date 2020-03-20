@@ -1,0 +1,74 @@
+描述
+1.当前已经锁定的企业
+------------------------------------------------------------------------------
+接口：
+1.列表接口：http://whp.techpolaris.com/toxicLock/list?page=1&pageSize=10
+2.锁定状态字段参考值lockStatus
+    <Item Des="企业锁定状态" DicKey="status_qiyesuoding">
+        <Data ColorID="0" Status="0" Value="正常"></Data>
+        <Data ColorID="1" Status="1" Value="锁定"></Data>
+        <Data ColorID="3" Status="3" Value="待审批"></Data>
+        <Data ColorID="4" Status="4" Value="审批未通过"></Data>
+    </Item>
+4.筛选条件等待app端确认
+------------------------------------------------------------------------------
+修改
+2019-10-10
+筛选类
+
+public class ToxicLockSearchVo_Filter_Bean implements Serializable {
+
+    private Integer companyId;
+
+    //    @ApiModelProperty("锁定类型")
+    private Integer lockType;
+
+    //    @ApiModelProperty("锁定状态")
+    private Integer lockStatus;
+
+    //    @ApiModelProperty("锁定开始时间")
+    private Long startTime;
+
+    //    @ApiModelProperty("锁定结束时间")
+    private Long endTime;
+
+    public Integer getCompanyId() {
+        return companyId;
+    }
+
+    public void setCompanyId(Integer companyId) {
+        this.companyId = companyId;
+    }
+
+    public Integer getLockType() {
+        return lockType;
+    }
+
+    public void setLockType(Integer lockType) {
+        this.lockType = lockType;
+    }
+
+    public Integer getLockStatus() {
+        return lockStatus;
+    }
+
+    public void setLockStatus(Integer lockStatus) {
+        this.lockStatus = lockStatus;
+    }
+
+    public Long getStartTime() {
+        return startTime;
+    }
+
+    public void setStartTime(Long startTime) {
+        this.startTime = startTime;
+    }
+
+    public Long getEndTime() {
+        return endTime;
+    }
+
+    public void setEndTime(Long endTime) {
+        this.endTime = endTime;
+    }
+}

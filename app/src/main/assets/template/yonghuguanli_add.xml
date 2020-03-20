@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item DefaultValue="001" Hint="" IsEdit="Yes" IsNull="No" Key="userAccount" Title="用户名"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="No" Key="userIsAdmin" StatusName="admin" Title="是否管理员"
+        ViewType="ArrayList_Status"></Item>
+    <Item Hint="" IsEdit="Yes" IsNull="No" Key="userLevel" StatusName="user_level" Title="用户级别"
+        ViewType="ArrayList_Status"></Item>
+
+    <Item DefaultValue="001" Hint="" IsHideClick="Yes" IsNull="No" Key="userLevelUnitId"
+        Title="所属单位" ViewType="ArrayList_Unit"></Item>
+
+    <!--<Item DataTypeName="datatype_system" Hint="" IsEdit="No" IsNull="No" Key="comp_type"-->
+    <!--Title="所属系统" ViewType="CheckControl_LittleData_Check"></Item>-->
+
+    <Item DataTypeName="datatype_userRoleRule" Hint="" IsEdit="No" IsNull="No" Key="userRoleRule"
+        Title="用户权限" ViewType="CheckControl_LittleData_Check"></Item>
+
+    <Item DefaultValue="Aa*123456" Hint="" IsEdit="Yes" IsNull="No" Key="Password" Title="密码"
+        ViewType="Normal"></Item>
+    <Item DefaultValue="Aa*123456" Hint="" IsEdit="Yes" IsNull="No" Key="userPassword" Title="确认密码"
+        ViewType="Normal"></Item>
+    <Item DefaultValue="李时珍" Hint="" IsEdit="Yes" IsNull="No" Key="userName" Title="真实姓名"
+        ViewType="Normal"></Item>
+    <Item DefaultValue="001" Hint="" IsNull="No" Key="userGender" Title="性别" TypeKey="51"
+        ViewType="ArrayList"></Item>
+    <Item DefaultValue="410185198610076015" Hint="" IsEdit="Yes" IsNull="No" Key="userIdcard"
+        Title="身份证号" ViewType="Normal"></Item>
+    <Item DefaultValue="15251435195" Hint="" IsEdit="Yes" IsNull="No" Key="userTel" Title="手机号"
+        ViewType="Normal"></Item>
+    <Item DefaultValue="无锡大聚会" Hint="" IsEdit="Yes" IsNull="No" Key="userAddress" Title="联系地址"
+        ViewType="Normal"></Item>
+    <!--<Item Hint="" IsEdit="Yes" IsNull="No" Key="resume" Title="所属用户组" ViewType="Normal"></Item>-->
+</Root>

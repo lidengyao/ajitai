@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item Hint="" IsEdit="No" IsNull="No" Key="policeName" Title="审核公安机关"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="No" Key="writeElecCertificateType" Title="写电子证方式" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="No" Key="unitName" Title="收货单位名称" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="No" Key="unitAddress" Title="收货单位地址" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="saleUnitLicenceNumber" Title="许可证编号" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="principalName" Title="负责人姓名"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="principalTel" Title="负责人联系电话"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="chagerName" Title="经办人姓名"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="chargerIdcard" Title="经办人公民身份证号"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="chargerTel" Title="经办人联系电话"
+        ViewType="Normal"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="No" Key="saleUnitName" Title="供货单位名称" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="No" Key="saleUnitAddress" Title="供货单位地址" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="saleUnitLicenceNumber" Title="许可证编号" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="salePrincipalName" Title="供货单位负责人姓名"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="salePrincipalTel" Title="供货单位负责人联系电话"
+        ViewType="Normal"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="No" Key="carrierUnitId" Title="承运单位名称" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="No" Key="carrierUnitAddress" Title="承运单位地址" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="qualificationCertificateNumber" Title="承运单位资质证明编号" ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="carrierPrincipalName" Title="承运单位负责人姓名"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="carrierPrincipalTel" Title="承运单位负责人联系电话"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="driverName" Title="承运单位驾驶员姓名"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="driverQualificationNumber" Title="承运单位驾驶员资格证编号"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="driverTel" Title="承运单位驾驶员联系电话"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="escortName" Title="承运单位押运员姓名"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="escortQualificationNumber" Title="承运单位押运员资格证编号"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="escortTel" Title="承运单位押运员联系电话"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="vehicleNumber" Title="运输车辆牌照"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="roadTransportQualitificationNumber" Title="道路运输证明编号"
+        ViewType="Normal"></Item>
+
+
+
+    <Item Hint="" IsEdit="No" IsNull="No" Key="transportStartTime" Title="运输开始时间"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="transportEndTime" Title="运输结束时间" ViewType="Normal"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="transportStartPlace" Title="运输起始地点"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="transportPassPlace" Title="经停地点"
+        ViewType="Normal"></Item>
+    <Item Hint="-" IsEdit="No" IsNull="Yes" Key="transportEndPlace" Title="运输到达地点"
+        ViewType="Normal"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="blastingContractId" Title="爆破作业合同"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="blastingProjectId" Title="爆破作业项目"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsAdd="No" IsEdit="Yes" IsMore="Yes" IsNull="Yes" Key="WuPinList" Title="物品信息"
+        ViewType="NormalAdd"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="WuPinListView" Title="" TypeKey="1"
+        ViewType="ListView"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="approvalNumber" Title="批文号"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="type" Title="批文号类型"
+        ViewType="Normal"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="remark" Title="备注"
+        ViewType="Normal"></Item>
+</Root>

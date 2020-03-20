@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Root>
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="companyName" Title="被锁定单位" ViewType="Normal"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="title" LeftIsBaseCode="No" LeftIsStatus="No"
+        LeftIsTime="No" LeftKey="lockUnitName" LeftStatusName="" LeftTitle="锁定单位" LeftWeight="5"
+        RightIsBaseCode="No" RightIsStatus="No" RightIsTime="Yes" RightKey="lockStartTime"
+        RightStatusName="" RightTitle="锁定时间" RightWeight="5" Title="" ViewType="NormalTwo"></Item>
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="title" LeftIsBaseCode="No" LeftIsStatus="No"
+        LeftIsTime="No" LeftKey="unlockUnitName" LeftStatusName="" LeftTitle="解锁单位" LeftWeight="5"
+        RightIsBaseCode="No" RightIsStatus="No" RightIsTime="Yes" RightKey="unlockTime"
+        RightStatusName="" RightTitle="解锁时间" RightWeight="5" Title="" ViewType="NormalTwo"></Item>
+
+
+    <Item Hint="" IsEdit="No" IsNull="Yes" Key="title" LeftIsBaseCode="No" LeftIsStatus="No"
+        LeftIsTime="Yes" LeftKey="applyUnlockTime" LeftStatusName="" LeftTitle="申请解锁时间" LeftWeight="5"
+        RightIsBaseCode="Yes" RightIsStatus="No" RightIsTime="No" RightKey="lockType"
+        RightStatusName="" RightTitle="锁定类型" RightWeight="5" Title=""
+        ViewType="NormalTwo"></Item>
+    <Item Hint="" IsEdit="No" IsNull="Yes" IsStatus="Yes" Key="lockStatus" Title="状态"  StatusName="status_qiyesuoding"
+        ViewType="Normal"></Item>
+</Root>
