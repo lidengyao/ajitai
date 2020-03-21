@@ -335,6 +335,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/XueYuanHuiBaoLL"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -428,6 +429,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/YangShengLL"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -470,6 +472,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/ShangChengLL"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -492,6 +495,7 @@
             </LinearLayout>
 
             <RelativeLayout
+                android:id="@+id/DuShuHuiRL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="11dp"
@@ -617,6 +621,7 @@
                 android:src="@mipmap/shouyetu2" />
 
             <RelativeLayout
+                android:id="@+id/XinLingXiangYueRL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="11dp"
@@ -733,6 +738,7 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/TuiJiangRL"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginLeft="11dp"
