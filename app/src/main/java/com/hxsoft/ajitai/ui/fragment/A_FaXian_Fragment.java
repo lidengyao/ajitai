@@ -13,10 +13,13 @@ import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.base.BasePresent;
 import com.hxsoft.ajitai.base.MvpFragment;
 import com.hxsoft.ajitai.ui.activity.A_Activity_DuShuHui;
+import com.hxsoft.ajitai.ui.activity.A_Activity_LianMengYiYuan;
 import com.hxsoft.ajitai.ui.activity.A_Activity_ShangCheng;
 import com.hxsoft.ajitai.ui.activity.A_Activity_XinLingXiangYue;
 import com.hxsoft.ajitai.ui.activity.A_Activity_XueYuanHuiBao;
 import com.hxsoft.ajitai.ui.activity.A_Activity_YangShengGuan;
+import com.hxsoft.ajitai.ui.activity.A_Activity_YinPinZhiBo;
+import com.hxsoft.ajitai.ui.activity.A_Activity_YinYue;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -47,11 +50,13 @@ public class A_FaXian_Fragment extends MvpFragment {
     LinearLayout XueYuanHuiBaoLL;
     @Bind(R.id.YangShengLL)
     LinearLayout YangShengLL;
+    @Bind(R.id.YinPinZhiBoLL)
+    LinearLayout YinPinZhiBoLL;
+    @Bind(R.id.YinYueLL)
+    LinearLayout YinYueLL;
+    @Bind(R.id.LianMengYiYuanLL)
+    LinearLayout LianMengYiYuanLL;
 
-    //    private FmPagerAdapter pagerAdapter;
-//    private ArrayList<Fragment> fragments = new ArrayList<>();
-//    private String[] titles = new String[]{"聊天", "抢购", "品牌专场", "抽奖", "展会", "推广"};
-//    private Y_Fragment_ZhiBo_LiaoTian y_fragment_zhiBo_liaoTian;
     @Override
     protected BasePresent createPresenter() {
         return null;
@@ -109,6 +114,30 @@ public class A_FaXian_Fragment extends MvpFragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), A_Activity_YangShengGuan.class);
+                startActivity(intent);
+            }
+        });
+
+        YinPinZhiBoLL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), A_Activity_YinPinZhiBo.class);
+                startActivity(intent);
+            }
+        });
+
+        YinYueLL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), A_Activity_YinYue.class);
+                startActivity(intent);
+            }
+        });
+
+        LianMengYiYuanLL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), A_Activity_LianMengYiYuan.class);
                 startActivity(intent);
             }
         });

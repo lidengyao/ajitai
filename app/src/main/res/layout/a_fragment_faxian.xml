@@ -229,6 +229,7 @@
                     </LinearLayout>
 
                     <LinearLayout
+                        android:id="@+id/LianMengYiYuanLL"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="10dp"
@@ -293,6 +294,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/YinPinZhiBoLL"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -357,6 +359,7 @@
                 </LinearLayout>
 
                 <LinearLayout
+                    android:id="@+id/YinYueLL"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"

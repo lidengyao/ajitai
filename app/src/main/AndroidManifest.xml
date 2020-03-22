@@ -62,6 +62,19 @@
             </intent-filter>
         </activity>
 
+
+        <activity
+            android:name="com.hxsoft.ajitai.ui.activity.A_Activity_LianMengYiYuan"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
+            android:name="com.hxsoft.ajitai.ui.activity.A_Activity_YinYue"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
+            android:name="com.hxsoft.ajitai.ui.activity.A_Activity_YinPinZhiBo"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
         <activity
             android:name="com.hxsoft.ajitai.ui.activity.A_Activity_YangShengGuan"
             android:configChanges="locale"
