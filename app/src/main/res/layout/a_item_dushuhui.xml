@@ -18,7 +18,7 @@
             android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/duhuihui_item_bg"
+                android:id="@+id/zhibo_item_bg"
                 android:layout_width="match_parent"
                 android:scaleType="centerCrop"
                 android:layout_height="170dp"

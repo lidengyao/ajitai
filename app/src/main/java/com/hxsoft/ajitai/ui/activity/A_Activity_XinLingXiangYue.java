@@ -43,8 +43,8 @@ public class A_Activity_XinLingXiangYue extends MvpActivity {
         String imgUrl1 = "http://47.92.221.41/image/xinlingxiangyue1.png";
         String imgUrl2 = "http://47.92.221.41/image/xinlingxiangyue2.png";
 
-        ImageView imageView1 = (ImageView) HuoDongLL1.findViewById(R.id.duhuihui_item_bg);
-        ImageView imageView2 = (ImageView) HuoDongLL2.findViewById(R.id.duhuihui_item_bg);
+        ImageView imageView1 = (ImageView) HuoDongLL1.findViewById(R.id.zhibo_item_bg);
+        ImageView imageView2 = (ImageView) HuoDongLL2.findViewById(R.id.zhibo_item_bg);
         GlideControl.SetFilletImage(getContext(), imgUrl1, imageView1, R.mipmap.jiazaiing, 10);
         GlideControl.SetFilletImage(getContext(), imgUrl2, imageView2, R.mipmap.jiazaiing, 10);
 

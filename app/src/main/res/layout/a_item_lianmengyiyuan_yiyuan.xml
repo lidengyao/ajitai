@@ -23,7 +23,7 @@
                 android:layout_height="match_parent">
 
                 <ImageView
-                    android:id="@+id/duhuihui_item_bg"
+                    android:id="@+id/zhibo_item_bg"
                     android:layout_width="120dp"
                     android:layout_height="match_parent"
                     android:scaleType="centerInside"

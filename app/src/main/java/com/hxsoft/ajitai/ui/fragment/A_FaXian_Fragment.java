@@ -66,6 +66,16 @@ public class A_FaXian_Fragment extends MvpFragment {
     LinearLayout ZhiBoLL;
     @Bind(R.id.DuShuHui1_IV)
     ImageView DuShuHui1IV;
+    @Bind(R.id.DuShuHui2_IV)
+    ImageView DuShuHui2IV;
+    @Bind(R.id.DuShuHui3_IV)
+    ImageView DuShuHui3IV;
+    @Bind(R.id.DuShuHui4_IV)
+    ImageView DuShuHui4IV;
+    @Bind(R.id.DuShuHui5_IV)
+    ImageView DuShuHui5IV;
+    @Bind(R.id.DuShuHui6_IV)
+    ImageView DuShuHui6IV;
 
     @Override
     protected BasePresent createPresenter() {
@@ -168,7 +178,13 @@ public class A_FaXian_Fragment extends MvpFragment {
             }
         });
 
-        GlideControl.SetFilletImage_Mipmap(getContext(),R.mipmap.a_shuji1,DuShuHui1IV,R.mipmap.jiazaiing,4);
+        GlideControl.SetFilletImage_Mipmap(getContext(), R.mipmap.a_shuji1, DuShuHui1IV, R.mipmap.jiazaiing, 4);
+        GlideControl.SetFilletImage_Mipmap(getContext(), R.mipmap.a_ditu1, DuShuHui2IV, R.mipmap.jiazaiing, 4);
+        GlideControl.SetFilletImage_Mipmap(getContext(), R.mipmap.a_ditu2, DuShuHui3IV, R.mipmap.jiazaiing, 4);
+
+        GlideControl.SetFilletImage_Mipmap(getContext(), R.mipmap.a_ditu2, DuShuHui4IV, R.mipmap.jiazaiing, 4);
+        GlideControl.SetFilletImage_Mipmap(getContext(), R.mipmap.a_shuji1, DuShuHui5IV, R.mipmap.jiazaiing, 4);
+        GlideControl.SetFilletImage_Mipmap(getContext(), R.mipmap.a_ditu1, DuShuHui6IV, R.mipmap.jiazaiing, 4);
     }
 
     @Override
