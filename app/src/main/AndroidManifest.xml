@@ -64,6 +64,10 @@
 
 
         <activity
+            android:name="com.hxsoft.ajitai.ui.activity.A_Activity_XinYuanQiang"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
             android:name="com.hxsoft.ajitai.ui.activity.A_Activity_LianMengYiYuan"
             android:configChanges="locale"
             android:launchMode="singleTop" />

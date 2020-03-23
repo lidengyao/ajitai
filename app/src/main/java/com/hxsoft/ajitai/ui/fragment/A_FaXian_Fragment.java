@@ -16,6 +16,7 @@ import com.hxsoft.ajitai.ui.activity.A_Activity_DuShuHui;
 import com.hxsoft.ajitai.ui.activity.A_Activity_LianMengYiYuan;
 import com.hxsoft.ajitai.ui.activity.A_Activity_ShangCheng;
 import com.hxsoft.ajitai.ui.activity.A_Activity_XinLingXiangYue;
+import com.hxsoft.ajitai.ui.activity.A_Activity_XinYuanQiang;
 import com.hxsoft.ajitai.ui.activity.A_Activity_XueYuanHuiBao;
 import com.hxsoft.ajitai.ui.activity.A_Activity_YangShengGuan;
 import com.hxsoft.ajitai.ui.activity.A_Activity_YinPinZhiBo;
@@ -56,6 +57,8 @@ public class A_FaXian_Fragment extends MvpFragment {
     LinearLayout YinYueLL;
     @Bind(R.id.LianMengYiYuanLL)
     LinearLayout LianMengYiYuanLL;
+    @Bind(R.id.XinYuanQiangLL)
+    LinearLayout XinYuanQiangLL;
 
     @Override
     protected BasePresent createPresenter() {
@@ -138,6 +141,14 @@ public class A_FaXian_Fragment extends MvpFragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), A_Activity_LianMengYiYuan.class);
+                startActivity(intent);
+            }
+        });
+
+        XinYuanQiangLL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), A_Activity_XinYuanQiang.class);
                 startActivity(intent);
             }
         });
