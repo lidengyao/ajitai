@@ -6,6 +6,7 @@ import android.support.design.widget.TabLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
@@ -21,6 +22,8 @@ import com.hxsoft.ajitai.ui.activity.A_Activity_XueYuanHuiBao;
 import com.hxsoft.ajitai.ui.activity.A_Activity_YangShengGuan;
 import com.hxsoft.ajitai.ui.activity.A_Activity_YinPinZhiBo;
 import com.hxsoft.ajitai.ui.activity.A_Activity_YinYue;
+import com.hxsoft.ajitai.ui.activity.A_Activity_ZhiBo;
+import com.hxsoft.ajitai.utils.GlideControl;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -59,6 +62,10 @@ public class A_FaXian_Fragment extends MvpFragment {
     LinearLayout LianMengYiYuanLL;
     @Bind(R.id.XinYuanQiangLL)
     LinearLayout XinYuanQiangLL;
+    @Bind(R.id.ZhiBoLL)
+    LinearLayout ZhiBoLL;
+    @Bind(R.id.DuShuHui1_IV)
+    ImageView DuShuHui1IV;
 
     @Override
     protected BasePresent createPresenter() {
@@ -152,6 +159,16 @@ public class A_FaXian_Fragment extends MvpFragment {
                 startActivity(intent);
             }
         });
+
+        ZhiBoLL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), A_Activity_ZhiBo.class);
+                startActivity(intent);
+            }
+        });
+
+        GlideControl.SetFilletImage_Mipmap(getContext(),R.mipmap.a_shuji1,DuShuHui1IV,R.mipmap.jiazaiing,4);
     }
 
     @Override

@@ -274,6 +274,7 @@
                 android:orientation="horizontal">
 
                 <LinearLayout
+                    android:id="@+id/ZhiBoLL"
                     android:layout_width="0dp"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
@@ -552,6 +553,7 @@
                     android:orientation="vertical">
 
                     <ImageView
+                        android:id="@+id/DuShuHui1_IV"
                         android:layout_width="89dp"
                         android:layout_height="120dp"
                         android:scaleType="centerCrop"
@@ -578,7 +580,7 @@
                         android:layout_width="89dp"
                         android:layout_height="120dp"
                         android:scaleType="centerCrop"
-                        android:src="@mipmap/a_shuji1" />
+                        android:src="@mipmap/a_ditu1" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -601,7 +603,7 @@
                         android:layout_width="89dp"
                         android:layout_height="120dp"
                         android:scaleType="centerCrop"
-                        android:src="@mipmap/a_shuji1" />
+                        android:src="@mipmap/a_ditu2" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -681,7 +683,7 @@
                         android:layout_width="89dp"
                         android:layout_height="120dp"
                         android:scaleType="centerCrop"
-                        android:src="@mipmap/a_shuji1" />
+                        android:src="@mipmap/a_ditu2" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -727,7 +729,7 @@
                         android:layout_width="89dp"
                         android:layout_height="120dp"
                         android:scaleType="centerCrop"
-                        android:src="@mipmap/a_shuji1" />
+                        android:src="@mipmap/a_ditu1" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -856,7 +858,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="124dp"
                         android:scaleType="fitCenter"
-                        android:src="@mipmap/a_shangpin1" />
+                        android:src="@mipmap/a_erji" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -864,7 +866,7 @@
                         android:layout_marginTop="12dp"
                         android:ellipsize="end"
                         android:singleLine="true"
-                        android:text="爱物格林摇摇杯"
+                        android:text="小米圈铁四单元耳机"
                         android:textColor="#242424"
                         android:textSize="@dimen/textsize12" />
 
@@ -879,7 +881,7 @@
                             android:layout_height="wrap_content"
                             android:ellipsize="end"
                             android:singleLine="true"
-                            android:text="1234"
+                            android:text="5000"
                             android:textColor="#242424"
                             android:textSize="@dimen/textsize16"
                             android:textStyle="bold" />
@@ -918,7 +920,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="124dp"
                         android:scaleType="fitCenter"
-                        android:src="@mipmap/a_shangpin1" />
+                        android:src="@mipmap/a_shouji" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -926,7 +928,7 @@
                         android:layout_marginTop="12dp"
                         android:ellipsize="end"
                         android:singleLine="true"
-                        android:text="爱物格林摇摇杯"
+                        android:text="小米10"
                         android:textColor="#242424"
                         android:textSize="@dimen/textsize12" />
 
@@ -941,7 +943,7 @@
                             android:layout_height="wrap_content"
                             android:ellipsize="end"
                             android:singleLine="true"
-                            android:text="1234"
+                            android:text="10000"
                             android:textColor="#242424"
                             android:textSize="@dimen/textsize16"
                             android:textStyle="bold" />
@@ -973,7 +975,7 @@
                         android:layout_width="wrap_content"
                         android:layout_height="124dp"
                         android:scaleType="fitCenter"
-                        android:src="@mipmap/a_shangpin1" />
+                        android:src="@mipmap/a_dianshi" />
 
                     <TextView
                         android:layout_width="wrap_content"
@@ -981,7 +983,7 @@
                         android:layout_marginTop="12dp"
                         android:ellipsize="end"
                         android:singleLine="true"
-                        android:text="爱物格林摇摇杯"
+                        android:text="小米全面屏电视 55英寸"
                         android:textColor="#242424"
                         android:textSize="@dimen/textsize12" />
 
@@ -996,7 +998,7 @@
                             android:layout_height="wrap_content"
                             android:ellipsize="end"
                             android:singleLine="true"
-                            android:text="1234"
+                            android:text="23100"
                             android:textColor="#242424"
                             android:textSize="@dimen/textsize16"
                             android:textStyle="bold" />

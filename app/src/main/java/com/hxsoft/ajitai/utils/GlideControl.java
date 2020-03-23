@@ -51,4 +51,16 @@ public class GlideControl {
 
 
     }
+
+    public static void SetFilletImage_Mipmap(Context context, int imgUrl, ImageView imageView, int normalImg,int radius) {
+        RequestOptions options = RequestOptions.bitmapTransform(new CenterCropRoundCornerTransform(radius, context)).placeholder(normalImg)//图片加载出来前，显示的图片
+                .fallback(normalImg) //url为空的时候,显示的图片
+                .error(normalImg);
+        Glide.with(context)
+                .load(imgUrl)
+                .apply(options)
+                .into(imageView);
+
+
+    }
 }
