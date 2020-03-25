@@ -1,0 +1,799 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/PageRootLL"
+    android:background="@color/color2">
+
+    <ScrollView
+        android:id="@+id/MySL"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/BottomLL"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!--顶部图片-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="181dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/a_ditu1" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="27dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="#60242424"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:text="共45课时 关注人数15867"
+                        android:textColor="@color/color2"
+                        android:textSize="@dimen/textsize14" />
+                </LinearLayout>
+            </RelativeLayout>
+
+
+            <!--标题-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="27dp"
+                android:layout_marginTop="24dp"
+                android:layout_marginRight="27dp"
+                android:ellipsize="end"
+                android:singleLine="true"
+                android:text="《给世界一个惊喜》"
+                android:textColor="@color/C242424"
+                android:textSize="@dimen/textsize16"
+                android:textStyle="bold" />
+
+            <!--作者-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="作者：李明 演播：高金平"
+                    android:textColor="@color/C242424"
+                    android:textSize="@dimen/textsize14"
+                    android:textStyle="bold" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:ellipsize="end"
+                    android:singleLine="true"
+                    android:text="免费"
+                    android:textColor="#E82617"
+                    android:textSize="@dimen/textsize16"
+                    android:textStyle="bold" />
+            </RelativeLayout>
+
+            <!--简介-->
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginRight="20dp"
+                android:lineSpacingExtra="5dp"
+                android:text="该长篇报告文学书稿，真实记录“蒙医心身医学”学科奠基人、“蒙医心身互动疗法”创立人纳贡力毕力格博士的从医生涯和辉煌业绩。"
+                android:textColor="#90242424"
+                android:textSize="@dimen/textsize14" />
+
+            <!--列表标题-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="22dp"
+                android:layout_marginRight="12dp">
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="课程内容"
+                        android:textColor="@color/C242424"
+                        android:textSize="@dimen/textsize15"
+                        android:textStyle="bold" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="（共45课时）"
+                        android:textColor="@color/CA8A8A8"
+                        android:textSize="@dimen/textsize15"
+                        android:textStyle="bold" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:src="@mipmap/a_bofangshunxu" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:padding="8dp"
+                        android:src="@mipmap/a_bofang" />
+                </LinearLayout>
+            </RelativeLayout>
+
+
+            <!--列表-->
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="15dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="01"
+                            android:textColor="@color/CA8A8A8"
+                            android:textSize="@dimen/textsize15" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:ellipsize="end"
+                            android:singleLine="true"
+                            android:text="给世界一个惊喜 - 引言"
+                            android:textColor="@color/C242424"
+                            android:textSize="@dimen/textsize13" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:text="00：03：42"
+                        android:textColor="@color/CA8A8A8"
+                        android:textSize="@dimen/textsize13" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="15dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="02"
+                            android:textColor="@color/CA8A8A8"
+                            android:textSize="@dimen/textsize15" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:ellipsize="end"
+                            android:singleLine="true"
+                            android:text="给世界一个惊喜 - 引言"
+                            android:textColor="@color/C242424"
+                            android:textSize="@dimen/textsize13" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:text="00：03：42"
+                        android:textColor="@color/CA8A8A8"
+                        android:textSize="@dimen/textsize13" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="15dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="03"
+                            android:textColor="@color/CA8A8A8"
+                            android:textSize="@dimen/textsize15" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:ellipsize="end"
+                            android:singleLine="true"
+                            android:text="给世界一个惊喜 - 引言"
+                            android:textColor="@color/C242424"
+                            android:textSize="@dimen/textsize13" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:text="00：03：42"
+                        android:textColor="@color/CA8A8A8"
+                        android:textSize="@dimen/textsize13" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="15dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="04"
+                            android:textColor="@color/CA8A8A8"
+                            android:textSize="@dimen/textsize15" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:ellipsize="end"
+                            android:singleLine="true"
+                            android:text="给世界一个惊喜 - 引言"
+                            android:textColor="@color/C242424"
+                            android:textSize="@dimen/textsize13" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:text="00：03：42"
+                        android:textColor="@color/CA8A8A8"
+                        android:textSize="@dimen/textsize13" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="15dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="05"
+                            android:textColor="@color/CA8A8A8"
+                            android:textSize="@dimen/textsize15" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:ellipsize="end"
+                            android:singleLine="true"
+                            android:text="给世界一个惊喜 - 引言"
+                            android:textColor="@color/C242424"
+                            android:textSize="@dimen/textsize13" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:text="00：03：42"
+                        android:textColor="@color/CA8A8A8"
+                        android:textSize="@dimen/textsize13" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="15dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="06"
+                            android:textColor="@color/CA8A8A8"
+                            android:textSize="@dimen/textsize15" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:ellipsize="end"
+                            android:singleLine="true"
+                            android:text="给世界一个惊喜 - 引言"
+                            android:textColor="@color/C242424"
+                            android:textSize="@dimen/textsize13" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:text="00：03：42"
+                        android:textColor="@color/CA8A8A8"
+                        android:textSize="@dimen/textsize13" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="15dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="07"
+                            android:textColor="@color/CA8A8A8"
+                            android:textSize="@dimen/textsize15" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:ellipsize="end"
+                            android:singleLine="true"
+                            android:text="给世界一个惊喜 - 引言"
+                            android:textColor="@color/C242424"
+                            android:textSize="@dimen/textsize13" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:text="00：03：42"
+                        android:textColor="@color/CA8A8A8"
+                        android:textSize="@dimen/textsize13" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="15dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="08"
+                            android:textColor="@color/CA8A8A8"
+                            android:textSize="@dimen/textsize15" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:ellipsize="end"
+                            android:singleLine="true"
+                            android:text="给世界一个惊喜 - 引言"
+                            android:textColor="@color/C242424"
+                            android:textSize="@dimen/textsize13" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:text="00：03：42"
+                        android:textColor="@color/CA8A8A8"
+                        android:textSize="@dimen/textsize13" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="15dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="09"
+                            android:textColor="@color/CA8A8A8"
+                            android:textSize="@dimen/textsize15" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:ellipsize="end"
+                            android:singleLine="true"
+                            android:text="给世界一个惊喜 - 引言"
+                            android:textColor="@color/C242424"
+                            android:textSize="@dimen/textsize13" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:text="00：03：42"
+                        android:textColor="@color/CA8A8A8"
+                        android:textSize="@dimen/textsize13" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="15dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="10"
+                            android:textColor="@color/CA8A8A8"
+                            android:textSize="@dimen/textsize15" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:ellipsize="end"
+                            android:singleLine="true"
+                            android:text="给世界一个惊喜 - 引言"
+                            android:textColor="@color/C242424"
+                            android:textSize="@dimen/textsize13" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:text="00：03：42"
+                        android:textColor="@color/CA8A8A8"
+                        android:textSize="@dimen/textsize13" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="15dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="11"
+                            android:textColor="@color/CA8A8A8"
+                            android:textSize="@dimen/textsize15" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:ellipsize="end"
+                            android:singleLine="true"
+                            android:text="给世界一个惊喜 - 引言"
+                            android:textColor="@color/C242424"
+                            android:textSize="@dimen/textsize13" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:text="00：03：42"
+                        android:textColor="@color/CA8A8A8"
+                        android:textSize="@dimen/textsize13" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="15dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="12"
+                            android:textColor="@color/CA8A8A8"
+                            android:textSize="@dimen/textsize15" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:ellipsize="end"
+                            android:singleLine="true"
+                            android:text="给世界一个惊喜 - 引言"
+                            android:textColor="@color/C242424"
+                            android:textSize="@dimen/textsize13" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:text="00：03：42"
+                        android:textColor="@color/CA8A8A8"
+                        android:textSize="@dimen/textsize13" />
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="20dp"
+                    android:layout_marginBottom="15dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="13"
+                            android:textColor="@color/CA8A8A8"
+                            android:textSize="@dimen/textsize15" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="15dp"
+                            android:ellipsize="end"
+                            android:singleLine="true"
+                            android:text="给世界一个惊喜 - 引言"
+                            android:textColor="@color/C242424"
+                            android:textSize="@dimen/textsize13" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:text="00：03：42"
+                        android:textColor="@color/CA8A8A8"
+                        android:textSize="@dimen/textsize13" />
+                </RelativeLayout>
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/BottomLL"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_alignParentBottom="true"
+        android:background="#F1D649"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="参加（免费）"
+            android:textColor="@color/C242424"
+            android:textSize="@dimen/textsize16" />
+    </LinearLayout>
+    <!--头部-->
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/HeadToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/headheight"
+        android:background="@color/color2"
+        app:contentInsetStart="0dp">
+
+        <LinearLayout style="@style/TopStyle">
+
+            <RelativeLayout style="@style/TopBarStyle">
+
+                <LinearLayout
+                    style="@style/TopBarLeftStyle"
+                    android:visibility="visible">
+
+                    <ImageView
+                        android:id="@+id/BackIV"
+                        style="@style/TopBarBackImageStyle_White" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/SysNameIV"
+                    style="@style/TopBarTitleStyle"
+                    android:tag="给世界一个惊喜"
+                    android:text="给世界一个惊喜"
+                    android:visibility="gone" />
+
+                <RelativeLayout
+                    android:id="@+id/QieHuanZhangHaoRL"
+                    style="@style/TopBarRightStyle"
+                    android:visibility="invisible">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="20dp"
+                        android:src="@mipmap/qiehuanzhanghao" />
+
+                    <TextView
+                        style="@style/TopBarRightTextStyle"
+                        android:text="修改"
+                        android:visibility="gone" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+</RelativeLayout>

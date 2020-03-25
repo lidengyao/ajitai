@@ -1,6 +1,8 @@
 package com.hxsoft.ajitai.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -52,6 +54,30 @@ public class A_Activity_DuShuHui extends MvpActivity {
         GlideControl.SetFilletImage(getContext(), imgUrl1, imageView1, R.mipmap.jiazaiing, 10);
         GlideControl.SetFilletImage(getContext(), imgUrl2, imageView2, R.mipmap.jiazaiing, 10);
         GlideControl.SetFilletImage(getContext(), imgUrl3, imageView3, R.mipmap.jiazaiing, 10);
+
+        HuoDongLL1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), A_Activity_DuShuHui_List.class);
+                startActivity(intent);
+            }
+        });
+
+        HuoDongLL2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), A_Activity_DuShuHui_List.class);
+                startActivity(intent);
+            }
+        });
+
+        HuoDongLL3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), A_Activity_DuShuHui_List.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

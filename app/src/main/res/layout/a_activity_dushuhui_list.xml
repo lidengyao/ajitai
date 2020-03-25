@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/PageRootLL"
+    android:background="@color/color2">
+
+    <!--头部-->
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/headheight"
+        android:background="@drawable/status_shape"
+        app:contentInsetStart="0dp">
+
+        <LinearLayout style="@style/TopStyle">
+
+            <RelativeLayout style="@style/TopBarStyle">
+
+                <LinearLayout
+                    style="@style/TopBarLeftStyle"
+                    android:visibility="visible">
+
+                    <ImageView style="@style/TopBarBackImageStyle" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/SysNameIV"
+                    style="@style/TopBarTitleStyle"
+                    android:tag="读书会"
+                    android:text="【勒哈读书会】"
+                    android:visibility="visible" />
+
+                <RelativeLayout
+                    android:id="@+id/QieHuanZhangHaoRL"
+                    style="@style/TopBarRightStyle"
+                    android:visibility="invisible">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="20dp"
+                        android:src="@mipmap/qiehuanzhanghao" />
+
+                    <TextView
+                        style="@style/TopBarRightTextStyle"
+                        android:text="修改"
+                        android:visibility="gone" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+    <View style="@style/LineStyle"></View>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="20dp"
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
+
+                    <ImageView
+                        android:layout_width="60dp"
+                        android:layout_height="60dp"
+                        android:src="@mipmap/a_touxiang" />
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="16dp"
+                        android:gravity="center_vertical"
+                        android:orientation="vertical">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="[勒哈读书会]"
+                            android:textColor="@color/C242424"
+                            android:textSize="@dimen/textsize16" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="10dp"
+                            android:text="由内蒙古大学勒哈斯巴特尔老师创办"
+                            android:textColor="@color/C242424"
+                            android:textSize="@dimen/textsize12" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="30dp"
+                    android:layout_marginBottom="30dp">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="20597 关注"
+                            android:textColor="@color/CA8A8A8"
+                            android:textSize="@dimen/textsize13" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:gravity="center">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="20597 浏览"
+                            android:textColor="@color/CA8A8A8"
+                            android:textSize="@dimen/textsize13" />
+                    </LinearLayout>
+                </LinearLayout>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="6dp"
+                android:background="#F3F3F3"></LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/HuoDongLL1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp">
+
+                <include layout="@layout/a_item_dushuhui_list"></include>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/HuoDongLL2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <include layout="@layout/a_item_dushuhui_list"></include>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/HuoDongLL3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content">
+
+                <include layout="@layout/a_item_dushuhui_list"></include>
+            </LinearLayout>
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

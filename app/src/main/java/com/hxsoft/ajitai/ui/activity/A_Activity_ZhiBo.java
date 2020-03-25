@@ -1,6 +1,8 @@
 package com.hxsoft.ajitai.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -48,6 +50,30 @@ public class A_Activity_ZhiBo extends MvpActivity {
         GlideControl.SetFilletImage(getContext(), "http://47.92.221.41/image/a_ditu3.png", imageView1, R.mipmap.jiazaiing, 5);
         GlideControl.SetFilletImage(getContext(), "http://47.92.221.41/image/a_ditu3.png", imageView2, R.mipmap.jiazaiing, 5);
         GlideControl.SetFilletImage(getContext(), "http://47.92.221.41/image/a_ditu3.png", imageView3, R.mipmap.jiazaiing, 5);
+
+        IncludeLL1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getContext(),A_Activity_ShiPinZhiBo_XiangQing.class);
+                startActivity(intent);
+            }
+        });
+
+        IncludeLL2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getContext(),A_Activity_ShiPinZhiBo_XiangQing.class);
+                startActivity(intent);
+            }
+        });
+
+        IncludeLL3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getContext(),A_Activity_ShiPinZhiBo_XiangQing.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

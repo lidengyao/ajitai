@@ -1,0 +1,748 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/PageRootLL"
+    android:background="@color/color2">
+
+    <ScrollView
+        android:id="@+id/MySL"
+        android:layout_width="match_parent"
+
+        android:layout_height="match_parent"
+        android:layout_above="@+id/BottomRL"
+        android:overScrollMode="never">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <!--顶部图片-->
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="181dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/a_ditu1" />
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="50dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="@mipmap/a_dushuhui_shipin_dibg"
+                    android:gravity="center_vertical">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="23dp"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/a_bofang_kongzhi" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="23dp"
+                            android:layout_marginRight="18dp"
+                            android:text="00:01"
+                            android:textColor="@color/color2"
+                            android:textSize="@dimen/textsize12" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/a_jindutiao" />
+                    </LinearLayout>
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="20dp"
+                        android:src="@mipmap/a_quanping" />
+                </RelativeLayout>
+
+                <ImageView
+                    android:layout_width="38dp"
+                    android:layout_height="38dp"
+                    android:layout_centerInParent="true"
+                    android:src="@mipmap/a_bofang_hui" />
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="68dp"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="26dp"
+                    android:text="《关于战争的作品欣赏》"
+                    android:textColor="@color/C242424"
+                    android:textSize="@dimen/textsize15" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginRight="20dp"
+                    android:text="2020-01-02"
+                    android:textColor="@color/CA8A8A8"
+                    android:textSize="@dimen/textsize12" />
+            </RelativeLayout>
+
+            <View style="@style/LineStyle"></View>
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/a_dushuihui_bgda" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="40dp"
+                android:layout_marginRight="20dp"
+                android:lineSpacingExtra="5dp"
+                android:text="最近几天在听课，感恩老师！听课的时候，我们以为是调理反应，静脉曲张有点疼痛，后来明显好转，拔罐时候的疼痛，也明显好转。感恩感恩！！"
+                android:textColor="#4c4c4c"
+                android:textSize="@dimen/textsize12" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="20dp"
+                android:gravity="center_vertical">
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="阅读" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="128765" />
+                </LinearLayout>
+
+
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center_vertical">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:src="@mipmap/a_ganwu_dianzan" />
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="5dp"
+                        android:text="点赞" />
+                </LinearLayout>
+            </RelativeLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="6dp"
+                android:layout_marginTop="20dp"
+                android:background="#F3F3F3"></LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="20dp"
+                android:layout_marginBottom="26dp">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="全部评论"
+                    android:textColor="@color/C242424"
+                    android:textSize="@dimen/textsize15" />
+            </LinearLayout>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="16dp"
+                    android:src="@mipmap/a_ganwu_item_headimg" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:orientation="vertical">
+
+                    <!--头部-->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="哈哈小猪"
+                                android:textColor="@color/C242424"
+                                android:textSize="@dimen/textsize14" />
+
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                    <!--内容-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="25dp"
+                        android:text="最近几天在听课，感恩老师！听课的时候，我们以为是调理反应，静脉曲张有点疼痛，后来明显好转，拔罐时候的疼痛，也明显好转。感恩感恩！！"
+                        android:textColor="#4C4C4C"
+                        android:textSize="@dimen/textsize14" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="16dp"
+                    android:src="@mipmap/a_ganwu_item_headimg" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:orientation="vertical">
+
+                    <!--头部-->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="哈哈小猪"
+                                android:textColor="@color/C242424"
+                                android:textSize="@dimen/textsize14" />
+
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                    <!--内容-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="25dp"
+                        android:text="最近几天在听课，感恩老师！"
+                        android:textColor="#4C4C4C"
+                        android:textSize="@dimen/textsize14" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="16dp"
+                    android:src="@mipmap/a_ganwu_item_headimg" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:orientation="vertical">
+
+                    <!--头部-->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="哈哈小猪"
+                                android:textColor="@color/C242424"
+                                android:textSize="@dimen/textsize14" />
+
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                    <!--内容-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="25dp"
+                        android:text="最近几天在听课，感恩老师！"
+                        android:textColor="#4C4C4C"
+                        android:textSize="@dimen/textsize14" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="16dp"
+                    android:src="@mipmap/a_ganwu_item_headimg" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:orientation="vertical">
+
+                    <!--头部-->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="哈哈小猪"
+                                android:textColor="@color/C242424"
+                                android:textSize="@dimen/textsize14" />
+
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                    <!--内容-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="25dp"
+                        android:text="最近几天在听课，感恩老师！听课的时候，我们以为是调理反应，静脉曲张有点疼痛，后来明显好转，拔罐时候的疼痛，也明显好转。感恩感恩！！"
+                        android:textColor="#4C4C4C"
+                        android:textSize="@dimen/textsize14" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="16dp"
+                    android:src="@mipmap/a_ganwu_item_headimg" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:orientation="vertical">
+
+                    <!--头部-->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="哈哈小猪"
+                                android:textColor="@color/C242424"
+                                android:textSize="@dimen/textsize14" />
+
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                    <!--内容-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="25dp"
+                        android:text="最近几天在听课，感恩老师！听课的时候，我们以为是调理反应，静脉曲张有点疼痛，后来明显好转，拔罐时候的疼痛，也明显好转。感恩感恩！！"
+                        android:textColor="#4C4C4C"
+                        android:textSize="@dimen/textsize14" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="16dp"
+                    android:src="@mipmap/a_ganwu_item_headimg" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:orientation="vertical">
+
+                    <!--头部-->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="哈哈小猪"
+                                android:textColor="@color/C242424"
+                                android:textSize="@dimen/textsize14" />
+
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                    <!--内容-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="25dp"
+                        android:text="最近几天在听课，感恩老师！"
+                        android:textColor="#4C4C4C"
+                        android:textSize="@dimen/textsize14" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="16dp"
+                    android:src="@mipmap/a_ganwu_item_headimg" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:orientation="vertical">
+
+                    <!--头部-->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="哈哈小猪"
+                                android:textColor="@color/C242424"
+                                android:textSize="@dimen/textsize14" />
+
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                    <!--内容-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="25dp"
+                        android:text="最近几天在听课，感恩老师！"
+                        android:textColor="#4C4C4C"
+                        android:textSize="@dimen/textsize14" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="20dp"
+                android:orientation="horizontal">
+
+                <ImageView
+                    android:layout_width="40dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="20dp"
+                    android:layout_marginTop="16dp"
+                    android:src="@mipmap/a_ganwu_item_headimg" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="12dp"
+                    android:orientation="vertical">
+
+                    <!--头部-->
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="match_parent"
+                            android:gravity="center_vertical"
+                            android:orientation="vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="哈哈小猪"
+                                android:textColor="@color/C242424"
+                                android:textSize="@dimen/textsize14" />
+
+
+                        </LinearLayout>
+
+                    </RelativeLayout>
+
+                    <!--内容-->
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginRight="25dp"
+                        android:text="最近几天在听课，感恩老师！听课的时候，我们以为是调理反应，静脉曲张有点疼痛，后来明显好转，拔罐时候的疼痛，也明显好转。感恩感恩！！"
+                        android:textColor="#4C4C4C"
+                        android:textSize="@dimen/textsize14" />
+
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </ScrollView>
+
+    <RelativeLayout
+        android:id="@+id/BottomRL"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/color2"
+        android:elevation="10dp">
+
+        <View
+            style="@style/LineStyle"
+            android:layout_alignParentTop="true"></View>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="32dp"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="17dp"
+            android:layout_toLeftOf="@+id/CaoZuoLL"
+            android:background="@drawable/sysbtn_gray_f6f6f6_4_shape">
+
+            <EditText
+                android:id="@+id/ContentET"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="5dp"
+                android:layout_marginRight="5dp"
+                android:background="@null" />
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/CaoZuoLL"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+
+            <Button
+                android:id="@+id/SendBtn"
+                android:layout_width="64dp"
+                android:layout_height="32dp"
+                android:background="@drawable/sysbtn_gray_ffe248_4_shape"
+                android:text="评论"
+                android:textColor="@color/C242424"
+                android:textSize="@dimen/textsize12"
+                android:visibility="visible" />
+        </LinearLayout>
+    </RelativeLayout>
+    <!--头部-->
+
+    <android.support.v7.widget.Toolbar
+        android:id="@+id/HeadToolbar"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/headheight"
+        android:background="@color/color2"
+        android:visibility="visible"
+        app:contentInsetStart="0dp">
+
+        <LinearLayout style="@style/TopStyle">
+
+            <RelativeLayout style="@style/TopBarStyle">
+
+                <LinearLayout
+                    style="@style/TopBarLeftStyle"
+                    android:visibility="visible">
+
+                    <ImageView
+                        android:id="@+id/BackIV"
+                        style="@style/TopBarBackImageStyle_White" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/SysNameIV"
+                    style="@style/TopBarTitleStyle"
+                    android:tag="关于战争的作品欣赏"
+                    android:text="关于战争的作品欣赏"
+                    android:visibility="gone" />
+
+                <RelativeLayout
+                    android:id="@+id/QieHuanZhangHaoRL"
+                    style="@style/TopBarRightStyle"
+                    android:visibility="invisible">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="20dp"
+                        android:src="@mipmap/qiehuanzhanghao" />
+
+                    <TextView
+                        style="@style/TopBarRightTextStyle"
+                        android:text="修改"
+                        android:visibility="gone" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+</RelativeLayout>

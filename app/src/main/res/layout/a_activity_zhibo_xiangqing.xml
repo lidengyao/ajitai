@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/PageRootLL"
+    android:background="@color/color2">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="5dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="181dp">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:scaleType="centerCrop"
+                    android:src="@mipmap/a_ditu1" />
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="27dp"
+                    android:layout_alignParentBottom="true"
+                    android:background="#60242424"
+                    android:gravity="center_vertical">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
+                        android:text="距离直播开始：0天0时00分60秒"
+                        android:textColor="@color/color2"
+                        android:textSize="@dimen/textsize14" />
+                </LinearLayout>
+            </RelativeLayout>
+
+        </LinearLayout>
+    </ScrollView>
+    <!--头部-->
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/headheight"
+        android:background="@drawable/transparent_shape"
+        app:contentInsetStart="0dp">
+
+        <LinearLayout style="@style/TopStyle">
+
+            <RelativeLayout style="@style/TopBarStyle">
+
+                <LinearLayout
+                    style="@style/TopBarLeftStyle"
+                    android:visibility="visible">
+
+                    <ImageView style="@style/TopBarBackImageStyle_White" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/SysNameIV"
+                    style="@style/TopBarTitleStyle"
+                    android:tag="给世界一个惊喜"
+                    android:text="给世界一个惊喜"
+                    android:visibility="gone" />
+
+                <RelativeLayout
+                    android:id="@+id/QieHuanZhangHaoRL"
+                    style="@style/TopBarRightStyle"
+                    android:visibility="invisible">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="20dp"
+                        android:src="@mipmap/qiehuanzhanghao" />
+
+                    <TextView
+                        style="@style/TopBarRightTextStyle"
+                        android:text="修改"
+                        android:visibility="gone" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+</RelativeLayout>

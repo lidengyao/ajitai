@@ -1,14 +1,18 @@
 package com.hxsoft.ajitai.ui.fragment;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 
 import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.base.BasePresent;
 import com.hxsoft.ajitai.base.MvpFragment;
+import com.hxsoft.ajitai.ui.activity.A_Activity_YinPinZhiBo_XiangQing;
 
+import butterknife.Bind;
 import butterknife.ButterKnife;
 
 /**
@@ -16,6 +20,13 @@ import butterknife.ButterKnife;
  */
 public class Y_Fragment_YinPinZhiBo_HanYu extends MvpFragment {
 
+
+    @Bind(R.id.Item1LL)
+    LinearLayout Item1LL;
+    @Bind(R.id.Item2LL)
+    LinearLayout Item2LL;
+    @Bind(R.id.Item3LL)
+    LinearLayout Item3LL;
 
     @Override
     protected int getLayoutId() {
@@ -37,6 +48,30 @@ public class Y_Fragment_YinPinZhiBo_HanYu extends MvpFragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        Item1LL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), A_Activity_YinPinZhiBo_XiangQing.class);
+                startActivity(intent);
+            }
+        });
+
+        Item2LL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), A_Activity_YinPinZhiBo_XiangQing.class);
+                startActivity(intent);
+            }
+        });
+
+        Item3LL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), A_Activity_YinPinZhiBo_XiangQing.class);
+                startActivity(intent);
+            }
+        });
     }
 
 

@@ -5,24 +5,27 @@
     style="@style/PageRootLL">
 
     <LinearLayout
+        android:id="@+id/Item1LL"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <include layout="@layout/a_item_dushuhui"></include>
+        <include layout="@layout/a_item_yinpinzhibo"></include>
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/Item2LL"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <include layout="@layout/a_item_dushuhui"></include>
+        <include layout="@layout/a_item_yinpinzhibo"></include>
     </LinearLayout>
 
     <LinearLayout
+        android:id="@+id/Item3LL"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content">
 
-        <include layout="@layout/a_item_dushuhui"></include>
+        <include layout="@layout/a_item_yinpinzhibo"></include>
     </LinearLayout>
 
 </LinearLayout>

@@ -79,6 +79,7 @@
         </RelativeLayout>
     </RelativeLayout>
 
+
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -530,33 +531,34 @@
                         android:textColor="#A8A8A8"
                         android:textSize="@dimen/textsize12" />
 
-                    <TextView
+                    <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
-                        android:text=">" />
+                        android:src="@mipmap/a_next" />
                 </LinearLayout>
             </RelativeLayout>
 
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="27dp"
+                android:layout_marginLeft="30dp"
                 android:layout_marginTop="23dp"
-                android:layout_marginRight="27dp"
+                android:layout_marginRight="30dp"
                 android:gravity="center"
                 android:orientation="horizontal">
 
                 <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:gravity="center"
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/DuShuHui1_IV"
+                        android:id="@+id/DuShuHui_IV"
                         android:layout_width="89dp"
                         android:layout_height="120dp"
-                        android:scaleType="centerCrop"
+                        android:scaleType="centerInside"
                         android:src="@mipmap/a_shuji1" />
 
                     <TextView
@@ -574,13 +576,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerInParent="true"
+                    android:gravity="center"
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/DuShuHui2_IV"
+                        android:id="@+id/XinShenHuDong_IV"
                         android:layout_width="89dp"
                         android:layout_height="120dp"
-                        android:scaleType="centerCrop"
+                        android:scaleType="centerInside"
                         android:src="@mipmap/a_ditu1" />
 
                     <TextView
@@ -589,7 +592,7 @@
                         android:layout_marginTop="@dimen/textsize10"
                         android:ellipsize="end"
                         android:singleLine="true"
-                        android:text="【勒哈读书会】"
+                        android:text="【心身互动疗法】"
                         android:textColor="#333333"
                         android:textSize="@dimen/textsize12" />
                 </LinearLayout>
@@ -598,13 +601,14 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
+                    android:gravity="center"
                     android:orientation="vertical">
 
                     <ImageView
-                        android:id="@+id/DuShuHui3_IV"
+                        android:id="@+id/XinLingGanLu_IV"
                         android:layout_width="89dp"
                         android:layout_height="120dp"
-                        android:scaleType="centerCrop"
+                        android:scaleType="centerInside"
                         android:src="@mipmap/a_ditu2" />
 
                     <TextView
@@ -613,7 +617,7 @@
                         android:layout_marginTop="@dimen/textsize10"
                         android:ellipsize="end"
                         android:singleLine="true"
-                        android:text="【勒哈读书会】"
+                        android:text="【心灵甘露】"
                         android:textColor="#333333"
                         android:textSize="@dimen/textsize12" />
                 </LinearLayout>
@@ -659,11 +663,12 @@
                         android:textColor="#A8A8A8"
                         android:textSize="@dimen/textsize12" />
 
-                    <TextView
+
+                    <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
-                        android:text=">" />
+                        android:src="@mipmap/a_next" />
                 </LinearLayout>
             </RelativeLayout>
 
@@ -779,11 +784,11 @@
                         android:textColor="#A8A8A8"
                         android:textSize="@dimen/textsize12" />
 
-                    <TextView
+                    <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="8dp"
-                        android:text=">" />
+                        android:src="@mipmap/a_next" />
                 </LinearLayout>
             </RelativeLayout>
 

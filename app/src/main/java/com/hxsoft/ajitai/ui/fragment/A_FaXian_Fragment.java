@@ -14,9 +14,12 @@ import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.base.BasePresent;
 import com.hxsoft.ajitai.base.MvpFragment;
 import com.hxsoft.ajitai.ui.activity.A_Activity_DuShuHui;
+import com.hxsoft.ajitai.ui.activity.A_Activity_DuShuHui_List;
 import com.hxsoft.ajitai.ui.activity.A_Activity_LianMengYiYuan;
 import com.hxsoft.ajitai.ui.activity.A_Activity_ShangCheng;
 import com.hxsoft.ajitai.ui.activity.A_Activity_XinLingXiangYue;
+import com.hxsoft.ajitai.ui.activity.A_Activity_XinLingXiangYue_XiangQing;
+import com.hxsoft.ajitai.ui.activity.A_Activity_XinShenHuDong;
 import com.hxsoft.ajitai.ui.activity.A_Activity_XinYuanQiang;
 import com.hxsoft.ajitai.ui.activity.A_Activity_XueYuanHuiBao;
 import com.hxsoft.ajitai.ui.activity.A_Activity_YangShengGuan;
@@ -64,12 +67,12 @@ public class A_FaXian_Fragment extends MvpFragment {
     LinearLayout XinYuanQiangLL;
     @Bind(R.id.ZhiBoLL)
     LinearLayout ZhiBoLL;
-    @Bind(R.id.DuShuHui1_IV)
-    ImageView DuShuHui1IV;
-    @Bind(R.id.DuShuHui2_IV)
-    ImageView DuShuHui2IV;
-    @Bind(R.id.DuShuHui3_IV)
-    ImageView DuShuHui3IV;
+    @Bind(R.id.DuShuHui_IV)
+    ImageView DuShuHuiIV;
+    @Bind(R.id.XinShenHuDong_IV)
+    ImageView XinShenHuDongIV;
+    @Bind(R.id.XinLingGanLu_IV)
+    ImageView XinLingGanLuIV;
     @Bind(R.id.DuShuHui4_IV)
     ImageView DuShuHui4IV;
     @Bind(R.id.DuShuHui5_IV)
@@ -178,9 +181,54 @@ public class A_FaXian_Fragment extends MvpFragment {
             }
         });
 
-        GlideControl.SetFilletImage_Mipmap(getContext(), R.mipmap.a_shuji1, DuShuHui1IV, R.mipmap.jiazaiing, 4);
-        GlideControl.SetFilletImage_Mipmap(getContext(), R.mipmap.a_ditu1, DuShuHui2IV, R.mipmap.jiazaiing, 4);
-        GlideControl.SetFilletImage_Mipmap(getContext(), R.mipmap.a_ditu2, DuShuHui3IV, R.mipmap.jiazaiing, 4);
+        DuShuHuiIV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), A_Activity_DuShuHui_List.class);
+                startActivity(intent);
+            }
+        });
+        XinShenHuDongIV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), A_Activity_XinShenHuDong.class);
+                startActivity(intent);
+            }
+        });
+        XinLingGanLuIV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), A_Activity_DuShuHui_List.class);
+                startActivity(intent);
+            }
+        });
+        DuShuHui4IV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), A_Activity_XinLingXiangYue_XiangQing.class);
+                startActivity(intent);
+            }
+        });
+        DuShuHui5IV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), A_Activity_XinLingXiangYue_XiangQing.class);
+                startActivity(intent);
+            }
+        });
+        DuShuHui6IV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), A_Activity_XinLingXiangYue_XiangQing.class);
+                startActivity(intent);
+            }
+        });
+
+
+
+        GlideControl.SetFilletImage_Mipmap(getContext(), R.mipmap.a_shuji1, DuShuHuiIV, R.mipmap.jiazaiing, 4);
+        GlideControl.SetFilletImage_Mipmap(getContext(), R.mipmap.a_ditu1, XinShenHuDongIV, R.mipmap.jiazaiing, 4);
+        GlideControl.SetFilletImage_Mipmap(getContext(), R.mipmap.a_ditu2, XinLingGanLuIV, R.mipmap.jiazaiing, 4);
 
         GlideControl.SetFilletImage_Mipmap(getContext(), R.mipmap.a_ditu2, DuShuHui4IV, R.mipmap.jiazaiing, 4);
         GlideControl.SetFilletImage_Mipmap(getContext(), R.mipmap.a_shuji1, DuShuHui5IV, R.mipmap.jiazaiing, 4);

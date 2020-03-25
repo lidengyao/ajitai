@@ -62,7 +62,38 @@
             </intent-filter>
         </activity>
 
-
+        <activity
+            android:name="com.hxsoft.ajitai.ui.activity.A_Activity_XinShenHuDong_JianJie"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
+            android:name="com.hxsoft.ajitai.ui.activity.A_Activity_XinShenHuDong"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
+            android:name="com.hxsoft.ajitai.ui.activity.A_Activity_QianBao"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
+            android:name="com.hxsoft.ajitai.ui.activity.A_Activity_DuShuHui_XiangQing"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
+            android:name="com.hxsoft.ajitai.ui.activity.A_Activity_ShiPinZhiBo_XiangQing"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
+            android:name="com.hxsoft.ajitai.ui.activity.A_Activity_YinPinZhiBo_XiangQing"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
+            android:name="com.hxsoft.ajitai.ui.activity.A_Activity_XinLingXiangYue_XiangQing"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
+            android:name="com.hxsoft.ajitai.ui.activity.A_Activity_DuShuHui_List"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
         <activity
             android:name="com.hxsoft.ajitai.ui.activity.A_Activity_ZhiBo"
             android:configChanges="locale"

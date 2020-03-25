@@ -1,6 +1,8 @@
 package com.hxsoft.ajitai.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -13,6 +15,7 @@ import com.hxsoft.ajitai.utils.GlideControl;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import okhttp3.internal.Internal;
 
 /**
  * Created by jinxh on 16/2/1.
@@ -47,6 +50,21 @@ public class A_Activity_XinLingXiangYue extends MvpActivity {
         ImageView imageView2 = (ImageView) HuoDongLL2.findViewById(R.id.zhibo_item_bg);
         GlideControl.SetFilletImage(getContext(), imgUrl1, imageView1, R.mipmap.jiazaiing, 10);
         GlideControl.SetFilletImage(getContext(), imgUrl2, imageView2, R.mipmap.jiazaiing, 10);
+
+        HuoDongLL1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), A_Activity_XinLingXiangYue_XiangQing.class);
+                startActivity(intent);
+            }
+        });
+        HuoDongLL2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), A_Activity_XinLingXiangYue_XiangQing.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

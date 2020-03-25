@@ -28,7 +28,18 @@
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
                     android:src="@mipmap/a_ditu1" />
-
+                <Button
+                    android:layout_width="wrap_content"
+                    android:layout_height="25dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="10dp"
+                    android:background="@drawable/sysbtn_gray_222222_40_4_shape"
+                    android:paddingLeft="10dp"
+                    android:paddingRight="10dp"
+                    android:text="上午课程 2020-03-25 08:00-11:30"
+                    android:textColor="@color/color2"
+                    android:textSize="@dimen/textsize12" />
                 <Button
                     android:layout_width="47dp"
                     android:layout_height="25dp"
