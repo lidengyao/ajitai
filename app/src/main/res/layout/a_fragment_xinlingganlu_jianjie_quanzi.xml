@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/PageRootLL">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginRight="20dp"
+                android:lineSpacingExtra="5dp"
+                android:text="我是一-名蒙医大夫,又是一名心理医生，我为自己把医学选定为一生的职业感到无比的自豪。我非常有自信能够成为一名深受老百姓喜欢和信任的白衣天使，因为我对我的每一位患者都是用“心”去医治的。
+
+我又非常珍爱我所从事的蒙医学事业，因为它太博大精深。蒙医学参考经典著作《金光注释》里说:“人在世上生存的意义在于积累知识、掌握才能、创造财富和享受幸福等很多行为。按照古圣贤所云:人应该要具备信念、律己、学问、奉献、才干以及知耻、避嫌等七个方面的要素，学习医学就是为了实现.上述美好的事项。因为做到以.上所讲事项中的一两件事的方法有很多，但要同时做好以上提到的全部事项的途径唯独医学里才有，除此之外其他任何书中没有完整的提到，所以医学的内涵比其他任何学问都要丰富。这 些阐述让我领悟到医学的本质就是“人学”。但现在的人们因受到西方医学的影响，把医学片面地理解为是一种单一“技术”， 而其内在的很多“思想”性的内涵还没有被人们所认识。蒙医学的深邃理论跟社会学、心理学、哲学、易经以及宗教学等文化都有着密切的联系。所以要想全面认识蒙医学，就必须要从自然科学和人文科学等多个领域全方位去研究探索。
+
+            前言
+
+            蒙医学五维健康理念思想要点--健康歌
+
+            患者守则
+
+            咨询须知
+
+            两个月的突变
+
+            朋卫国
+
+            晚期癌症治疗三周见效
+
+            铁木尔其其格
+
+            蒙医心身互动疗法现代人体杀毒软件--接受蒙医心身互动治疗之感
+
+            德力格尔玛
+
+            蒙医心身互动疗法给了我第二次生命.
+
+            达布希拉图\r\n"
+                android:textSize="@dimen/textsize12" />
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>

@@ -17,6 +17,7 @@ import com.hxsoft.ajitai.ui.activity.A_Activity_DuShuHui;
 import com.hxsoft.ajitai.ui.activity.A_Activity_DuShuHui_List;
 import com.hxsoft.ajitai.ui.activity.A_Activity_LianMengYiYuan;
 import com.hxsoft.ajitai.ui.activity.A_Activity_ShangCheng;
+import com.hxsoft.ajitai.ui.activity.A_Activity_XinLingGanLu;
 import com.hxsoft.ajitai.ui.activity.A_Activity_XinLingXiangYue;
 import com.hxsoft.ajitai.ui.activity.A_Activity_XinLingXiangYue_XiangQing;
 import com.hxsoft.ajitai.ui.activity.A_Activity_XinShenHuDong;
@@ -198,7 +199,7 @@ public class A_FaXian_Fragment extends MvpFragment {
         XinLingGanLuIV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), A_Activity_DuShuHui_List.class);
+                Intent intent = new Intent(getContext(), A_Activity_XinLingGanLu.class);
                 startActivity(intent);
             }
         });

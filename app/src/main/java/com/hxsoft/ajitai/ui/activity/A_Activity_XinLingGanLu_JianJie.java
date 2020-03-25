@@ -12,6 +12,8 @@ import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.adapter.FmPagerAdapter;
 import com.hxsoft.ajitai.base.MvpActivity;
 import com.hxsoft.ajitai.present.LoginPresent;
+import com.hxsoft.ajitai.ui.fragment.Y_Fragment_XinLingGanLu_JianJie_QuanZhu;
+import com.hxsoft.ajitai.ui.fragment.Y_Fragment_XinLingGanLu_JianJie_QuanZi;
 import com.hxsoft.ajitai.ui.fragment.Y_Fragment_XinShenHuDong_JianJie_QuanZhu;
 import com.hxsoft.ajitai.ui.fragment.Y_Fragment_XinShenHuDong_JianJie_QuanZi;
 
@@ -23,7 +25,7 @@ import butterknife.ButterKnife;
 /**
  * Created by jinxh on 16/2/1.
  */
-public class A_Activity_XinShenHuDong_JianJie extends MvpActivity {
+public class A_Activity_XinLingGanLu_JianJie extends MvpActivity {
 
 
     @Bind(R.id.SysNameIV)
@@ -39,12 +41,12 @@ public class A_Activity_XinShenHuDong_JianJie extends MvpActivity {
     private FmPagerAdapter pagerAdapter;
     private ArrayList<Fragment> fragments = new ArrayList<>();
     private String[] titles = new String[]{"圈子介绍", "圈主介绍"};
-    private Y_Fragment_XinShenHuDong_JianJie_QuanZhu y_fragment_xinShenHuDong_jianJie_quanZhu;
-    private Y_Fragment_XinShenHuDong_JianJie_QuanZi y_fragment_xinShenHuDong_jianJie_quanZi;
+    private Y_Fragment_XinLingGanLu_JianJie_QuanZhu y_fragment_xinLingGanLu_jianJie_quanZhu;
+    private Y_Fragment_XinLingGanLu_JianJie_QuanZi y_fragment_xinLingGanLu_jianJie_quanZi;
 
     @Override
     protected int getLayoutId() {
-        return R.layout.a_activity_xinshenhudong_jianjie;
+        return R.layout.a_activity_xinlingganlu_jianjie;
     }
 
     @Override
@@ -56,10 +58,10 @@ public class A_Activity_XinShenHuDong_JianJie extends MvpActivity {
     }
 
     private void init() {
-        y_fragment_xinShenHuDong_jianJie_quanZi = new Y_Fragment_XinShenHuDong_JianJie_QuanZi();
-        y_fragment_xinShenHuDong_jianJie_quanZhu = new Y_Fragment_XinShenHuDong_JianJie_QuanZhu();
-        fragments.add(y_fragment_xinShenHuDong_jianJie_quanZi);
-        fragments.add(y_fragment_xinShenHuDong_jianJie_quanZhu);
+        y_fragment_xinLingGanLu_jianJie_quanZi = new Y_Fragment_XinLingGanLu_JianJie_QuanZi();
+        y_fragment_xinLingGanLu_jianJie_quanZhu = new Y_Fragment_XinLingGanLu_JianJie_QuanZhu();
+        fragments.add(y_fragment_xinLingGanLu_jianJie_quanZi);
+        fragments.add(y_fragment_xinLingGanLu_jianJie_quanZhu);
 
 
         for (int i = 0; i < titles.length; i++) {
