@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="292dp"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:background="@color/color2"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:text="开始录音"
+                android:textColor="@color/C242424"
+                android:textSize="@dimen/textsize16" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="15dp"
+                android:orientation="horizontal">
+
+                <Button
+                    android:id="@+id/NoOkBtn"
+                    android:layout_width="121dp"
+                    android:layout_height="40dp"
+                    android:background="@drawable/sysbtn_f2f2f2_4_shape"
+                    android:text="取消"
+                    android:textColor="#808080"
+                    android:textSize="@dimen/textsize15" />
+
+                <Button
+                    android:id="@+id/OkBtn"
+                    android:layout_width="121dp"
+                    android:layout_height="40dp"
+                    android:layout_marginLeft="12dp"
+                    android:background="@drawable/sysbtn_gray_ffe248_4_shape"
+                    android:text="确定"
+                    android:textColor="@color/C242424"
+                    android:textSize="@dimen/textsize15" />
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

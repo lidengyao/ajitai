@@ -34,6 +34,7 @@
     <color name="tabcolor">#E3E4E6</color>
     <color name="C242424">#242424</color>
     <color name="CA8A8A8">#A8A8A8</color>
+    <color name="C808080">#808080</color>
     <color name="C0BA7E0">#0BA7E0</color>
     <color name="C222222">#222222</color>
     <color name="C575555">#575555</color>
@@ -139,4 +140,6 @@
     <color name="background">#eeeeee</color>
 
     <color name="press">#F0F0F0</color>
+
+    <color name="bt_accent">#00B8D4</color>
 </resources>

@@ -4,9 +4,7 @@ import android.os.Bundle;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
 import android.support.v4.view.ViewPager;
-import android.util.TypedValue;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -16,6 +14,7 @@ import com.hxsoft.ajitai.base.MvpActivity;
 import com.hxsoft.ajitai.present.LoginPresent;
 import com.hxsoft.ajitai.ui.fragment.Y_Fragment_YinPinZhiBo_HanYu;
 import com.hxsoft.ajitai.ui.fragment.Y_Fragment_YinPinZhiBo_MengYu;
+import com.hxsoft.ajitai.utils.CheckControl_Dialog_yinpinzhibo_jianjie;
 
 import java.util.ArrayList;
 
@@ -29,12 +28,12 @@ public class A_Activity_YinPinZhiBo extends MvpActivity {
 
     @Bind(R.id.SysNameIV)
     TextView SysNameIV;
-    @Bind(R.id.QieHuanZhangHaoRL)
-    RelativeLayout QieHuanZhangHaoRL;
     @Bind(R.id.MenuTablayout)
     TabLayout MenuTablayout;
     @Bind(R.id.viewPager)
     ViewPager viewPager;
+    @Bind(R.id.JianJieRL)
+    RelativeLayout JianJieRL;
     private FmPagerAdapter pagerAdapter;
     private ArrayList<Fragment> fragments = new ArrayList<>();
     private String[] titles = new String[]{"蒙语课程", "汉语课程"};
@@ -53,6 +52,18 @@ public class A_Activity_YinPinZhiBo extends MvpActivity {
         ButterKnife.bind(this);
 
         init();
+
+        JianJieRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CheckControl_Dialog_yinpinzhibo_jianjie.ShowDialog(getContext(), getActivity(), "", new CheckControl_Dialog_yinpinzhibo_jianjie.OnCheckControl_dialogClickListener() {
+                    @Override
+                    public void OnClick(int type) {
+
+                    }
+                });
+            }
+        });
     }
 
     private void init() {

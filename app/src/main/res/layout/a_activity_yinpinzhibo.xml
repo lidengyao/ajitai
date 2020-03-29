@@ -30,16 +30,16 @@
                     android:visibility="visible" />
 
                 <RelativeLayout
-                    android:id="@+id/QieHuanZhangHaoRL"
+                    android:id="@+id/JianJieRL"
                     style="@style/TopBarRightStyle"
-                    android:visibility="invisible">
+                    android:visibility="visible">
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_centerInParent="true"
                         android:layout_marginRight="20dp"
-                        android:src="@mipmap/qiehuanzhanghao" />
+                        android:src="@mipmap/a_gengduo_dian" />
 
                     <TextView
                         style="@style/TopBarRightTextStyle"

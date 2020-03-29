@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="34dp"
+            android:layout_marginRight="34dp"
+            android:background="@drawable/sysbtn_ffffff_7_shape"
+            android:gravity="center_horizontal"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="34dp"
+                android:text="音频直播间"
+                android:textColor="@color/C242424"
+                android:textSize="@dimen/textsize17" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="30dp"
+                android:lineSpacingExtra="5dp"
+                android:layout_marginRight="20dp"
+                android:text="最近几天在听课，感恩老师！听课的时候，我们以为是调理反应，静脉曲张有点疼痛，后来明显好转，拔罐时候的疼痛，也明显好转。感恩感恩！！最近几天在听课，感恩老师！听课的时候，我们以为是调理反应，静脉曲张有点疼痛，后来明显好转，拔罐时候的疼痛，也明显好转。感恩感恩！！最近几课的时候，我们以为是调理反应，静脉曲张有点疼痛，后来明显好转，拔罐时候的疼痛也明显好转。感恩感恩！！"
+                android:textColor="#4c4c4c"
+                android:textSize="@dimen/textsize13" />
+
+            <Button
+                android:layout_width="150dp"
+                android:layout_height="40dp"
+                android:layout_marginTop="36dp"
+                android:layout_marginBottom="24dp"
+                android:background="@drawable/sysbtn_gray_ffe248_4_shape"
+                android:text="确定"
+                android:textColor="@color/C242424"
+                android:textSize="@dimen/textsize15" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

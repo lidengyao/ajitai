@@ -23,6 +23,8 @@ public class A_Activity_XinShenHuDong extends MvpActivity {
     TextView SysNameIV;
     @Bind(R.id.GengDuoRL)
     RelativeLayout GengDuoRL;
+    @Bind(R.id.FaBuGanWu_RL)
+    RelativeLayout FaBuGanWuRL;
 
     @Override
     protected int getLayoutId() {
@@ -38,7 +40,15 @@ public class A_Activity_XinShenHuDong extends MvpActivity {
         GengDuoRL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent=new Intent(getContext(),A_Activity_XinShenHuDong_JianJie.class);
+                Intent intent = new Intent(getContext(), A_Activity_XinShenHuDong_JianJie.class);
+                startActivity(intent);
+            }
+        });
+
+        FaBuGanWuRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), A_Activity_FaBuGanWu.class);
                 startActivity(intent);
             }
         });

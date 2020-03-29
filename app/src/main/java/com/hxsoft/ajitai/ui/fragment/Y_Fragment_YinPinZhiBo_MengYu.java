@@ -10,7 +10,9 @@ import android.widget.LinearLayout;
 import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.base.BasePresent;
 import com.hxsoft.ajitai.base.MvpFragment;
+import com.hxsoft.ajitai.music.ui.MusicPlayerActivity;
 import com.hxsoft.ajitai.ui.activity.A_Activity_YinPinZhiBo_XiangQing;
+import com.hxsoft.ajitai.utils.CheckControl_Dialog_yinpinzhibo_yijieshu;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -60,8 +62,12 @@ public class Y_Fragment_YinPinZhiBo_MengYu extends MvpFragment {
         Item2LL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), A_Activity_YinPinZhiBo_XiangQing.class);
-                startActivity(intent);
+                CheckControl_Dialog_yinpinzhibo_yijieshu.ShowDialog(getContext(), getActivity(), "", new CheckControl_Dialog_yinpinzhibo_yijieshu.OnCheckControl_dialogClickListener() {
+                    @Override
+                    public void OnClick(int type) {
+
+                    }
+                });
             }
         });
 

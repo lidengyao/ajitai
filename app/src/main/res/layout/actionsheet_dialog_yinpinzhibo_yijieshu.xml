@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/transparent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <Button
+            android:layout_width="150dp"
+            android:layout_height="48dp"
+            android:layout_marginTop="36dp"
+            android:layout_marginBottom="24dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/sysbtn_gray_ffe248_4_shape"
+            android:text="直播已结束"
+            android:textColor="@color/C242424"
+            android:textSize="@dimen/textsize17" />
+
+    </RelativeLayout>
+
+</LinearLayout>

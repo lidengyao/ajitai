@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/PageRootLL"
+    android:background="@color/color2">
+
+    <!--头部-->
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/headheight"
+        android:background="@drawable/status_shape"
+        app:contentInsetStart="0dp">
+
+        <LinearLayout style="@style/TopStyle">
+
+            <RelativeLayout style="@style/TopBarStyle">
+
+                <LinearLayout
+                    style="@style/TopBarLeftStyle"
+                    android:visibility="visible">
+
+                    <ImageView style="@style/TopBarBackImageStyle" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/SysNameIV"
+                    style="@style/TopBarTitleStyle"
+                    android:tag="心灵相约"
+                    android:text="阿吉泰钱包"
+                    android:visibility="visible" />
+
+                <RelativeLayout
+                    android:id="@+id/QieHuanZhangHaoRL"
+                    style="@style/TopBarRightStyle"
+                    android:visibility="invisible">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="20dp"
+                        android:src="@mipmap/qiehuanzhanghao" />
+
+                    <TextView
+                        style="@style/TopBarRightTextStyle"
+                        android:text="修改"
+                        android:visibility="gone" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+
+    <Button
+        android:id="@+id/PlayBtn"
+        android:layout_width="100dp"
+        android:layout_height="50dp"
+        android:text="播放" />
+</LinearLayout>

@@ -56,6 +56,7 @@
     <View style="@style/LineStyle"></View>
 
     <RelativeLayout
+        android:id="@+id/FaBuGanWu_RL"
         android:layout_width="match_parent"
         android:layout_height="60dp">
 
@@ -103,11 +104,11 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <include layout="@layout/a_item_xinshenhudong_ganwu"></include>
+            <include layout="@layout/a_item_xinlingganlu_ganwu"></include>
 
-            <include layout="@layout/a_item_xinshenhudong_ganwu"></include>
+            <include layout="@layout/a_item_xinlingganlu_ganwu"></include>
 
-            <include layout="@layout/a_item_xinshenhudong_ganwu"></include>
+            <include layout="@layout/a_item_xinlingganlu_ganwu"></include>
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

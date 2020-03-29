@@ -17,6 +17,7 @@ import com.hxsoft.ajitai.ui.activity.A_Activity_DuShuHui;
 import com.hxsoft.ajitai.ui.activity.A_Activity_DuShuHui_List;
 import com.hxsoft.ajitai.ui.activity.A_Activity_LianMengYiYuan;
 import com.hxsoft.ajitai.ui.activity.A_Activity_ShangCheng;
+import com.hxsoft.ajitai.ui.activity.A_Activity_ShiPinZhiBo;
 import com.hxsoft.ajitai.ui.activity.A_Activity_XinLingGanLu;
 import com.hxsoft.ajitai.ui.activity.A_Activity_XinLingXiangYue;
 import com.hxsoft.ajitai.ui.activity.A_Activity_XinLingXiangYue_XiangQing;
@@ -26,7 +27,6 @@ import com.hxsoft.ajitai.ui.activity.A_Activity_XueYuanHuiBao;
 import com.hxsoft.ajitai.ui.activity.A_Activity_YangShengGuan;
 import com.hxsoft.ajitai.ui.activity.A_Activity_YinPinZhiBo;
 import com.hxsoft.ajitai.ui.activity.A_Activity_YinYue;
-import com.hxsoft.ajitai.ui.activity.A_Activity_ZhiBo;
 import com.hxsoft.ajitai.utils.GlideControl;
 
 import butterknife.Bind;
@@ -177,7 +177,7 @@ public class A_FaXian_Fragment extends MvpFragment {
         ZhiBoLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), A_Activity_ZhiBo.class);
+                Intent intent = new Intent(getContext(), A_Activity_ShiPinZhiBo.class);
                 startActivity(intent);
             }
         });

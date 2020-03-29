@@ -19,7 +19,7 @@ import butterknife.ButterKnife;
 /**
  * Created by jinxh on 16/2/1.
  */
-public class A_Activity_ZhiBo extends MvpActivity {
+public class A_Activity_ShiPinZhiBo extends MvpActivity {
 
     @Bind(R.id.SysNameIV)
     TextView SysNameIV;

@@ -165,14 +165,16 @@
                 android:orientation="horizontal">
 
                 <ImageView
+                    android:id="@+id/PlayIV"
                     android:layout_width="wrap_content"
+                    android:padding="13dp"
                     android:layout_height="wrap_content"
                     android:src="@mipmap/a_kaishi" />
 
                 <ImageView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginLeft="26dp"
+                    android:layout_marginLeft="13dp"
                     android:layout_marginRight="26dp"
                     android:src="@mipmap/a_xiayiqu" />
 

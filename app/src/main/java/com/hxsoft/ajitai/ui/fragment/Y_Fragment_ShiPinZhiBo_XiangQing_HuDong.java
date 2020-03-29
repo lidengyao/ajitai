@@ -24,16 +24,6 @@ import butterknife.ButterKnife;
 public class Y_Fragment_ShiPinZhiBo_XiangQing_HuDong extends MvpFragment {
 
 
-    @Bind(R.id.Img_ShareLL)
-    LinearLayout ImgShareLL;
-    @Bind(R.id.SendBtn)
-    Button SendBtn;
-    @Bind(R.id.CaoZuoLL)
-    LinearLayout CaoZuoLL;
-    @Bind(R.id.BottomRL)
-    RelativeLayout BottomRL;
-    @Bind(R.id.ContentET)
-    EditText ContentET;
 
     @Override
     protected int getLayoutId() {
@@ -56,30 +46,7 @@ public class Y_Fragment_ShiPinZhiBo_XiangQing_HuDong extends MvpFragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
-        ContentET.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
 
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-
-                if (s.length() > 0) {
-                    ImgShareLL.setVisibility(View.GONE);
-                    SendBtn.setVisibility(View.VISIBLE);
-                } else {
-
-                    ImgShareLL.setVisibility(View.VISIBLE);
-                    SendBtn.setVisibility(View.GONE);
-                }
-            }
-        });
     }
 
 

@@ -1,18 +1,27 @@
 package com.hxsoft.ajitai.ui.activity;
 
+import android.content.ComponentName;
 import android.os.Bundle;
+import android.os.RemoteException;
 import android.support.design.widget.TabLayout;
 import android.support.v4.app.Fragment;
+import android.support.v4.media.MediaBrowserCompat;
+import android.support.v4.media.session.MediaControllerCompat;
+import android.support.v4.media.session.MediaSessionCompat;
+import android.support.v4.media.session.PlaybackStateCompat;
 import android.support.v4.view.ViewPager;
+import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.adapter.FmPagerAdapter;
 import com.hxsoft.ajitai.base.MvpActivity;
+import com.hxsoft.ajitai.music.MusicService;
+import com.hxsoft.ajitai.music.utils.LogHelper;
 import com.hxsoft.ajitai.present.LoginPresent;
-import com.hxsoft.ajitai.ui.fragment.Y_Fragment_YinPinZhiBo_HanYu;
-import com.hxsoft.ajitai.ui.fragment.Y_Fragment_YinPinZhiBo_MengYu;
 import com.hxsoft.ajitai.ui.fragment.Y_Fragment_YinYue_AJiTai;
 import com.hxsoft.ajitai.ui.fragment.Y_Fragment_YinYue_HanYu;
 import com.hxsoft.ajitai.ui.fragment.Y_Fragment_YinYue_MengYu;
@@ -36,6 +45,14 @@ public class A_Activity_YinYue extends MvpActivity {
     TabLayout MenuTablayout;
     @Bind(R.id.viewPager)
     ViewPager viewPager;
+    @Bind(R.id.ShaiXuanLL)
+    LinearLayout ShaiXuanLL;
+    @Bind(R.id.PlayIV)
+    ImageView PlayIV;
+    @Bind(R.id.CaoZuoLL)
+    LinearLayout CaoZuoLL;
+    @Bind(R.id.YinYueBottomRL)
+    RelativeLayout YinYueBottomRL;
     private FmPagerAdapter pagerAdapter;
     private ArrayList<Fragment> fragments = new ArrayList<>();
     private String[] titles = new String[]{"阿吉泰", "蒙语", "汉语", "视频"};
@@ -43,6 +60,16 @@ public class A_Activity_YinYue extends MvpActivity {
     private Y_Fragment_YinYue_MengYu y_fragment_yinYue_mengYu;
     private Y_Fragment_YinYue_HanYu y_fragment_yinYue_hanYu;
     private Y_Fragment_YinYue_ShiPin y_fragment_yinYue_shiPin;
+
+
+    public static final String EXTRA_START_FULLSCREEN =
+            "com.hxsoft.ajitai.ui.activity.EXTRA_START_FULLSCREEN";
+    public static final String EXTRA_CURRENT_MEDIA_DESCRIPTION =
+            "com.hxsoft.ajitai.ui.activity.CURRENT_MEDIA_DESCRIPTION";
+
+
+    private MediaBrowserCompat mMediaBrowser;
+    private MediaControllerCompat mediaController;
 
     @Override
     protected int getLayoutId() {
@@ -56,6 +83,49 @@ public class A_Activity_YinYue extends MvpActivity {
         ButterKnife.bind(this);
 
         init();
+
+
+        mMediaBrowser = new MediaBrowserCompat(this,
+                new ComponentName(this, MusicService.class), mConnectionCallback, null);
+        mMediaBrowser.connect();
+        PlayIV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                MediaControllerCompat controller = MediaControllerCompat.getMediaController(getActivity());
+                PlaybackStateCompat stateObj = controller.getPlaybackState();
+                final int state = stateObj == null ?
+                        PlaybackStateCompat.STATE_NONE : stateObj.getState();
+                if (state == PlaybackStateCompat.STATE_PAUSED ||
+                        state == PlaybackStateCompat.STATE_STOPPED ||
+                        state == PlaybackStateCompat.STATE_NONE) {
+                    playMedia();
+                } else if (state == PlaybackStateCompat.STATE_PLAYING ||
+                        state == PlaybackStateCompat.STATE_BUFFERING ||
+                        state == PlaybackStateCompat.STATE_CONNECTING) {
+                    pauseMedia();
+                }
+            }
+        });
+    }
+
+    private final MediaBrowserCompat.ConnectionCallback mConnectionCallback =
+            new MediaBrowserCompat.ConnectionCallback() {
+                @Override
+                public void onConnected() {
+                    //说明已经连接上了
+                    try {
+                        connectToSession(mMediaBrowser.getSessionToken());
+                    } catch (RemoteException e) {
+                        e.printStackTrace();
+                    }
+                }
+            };
+
+    private void connectToSession(MediaSessionCompat.Token token) throws RemoteException {
+        mediaController = new MediaControllerCompat(this, token);
+        MediaControllerCompat.setMediaController(this, mediaController);
+//        onMediaBrowserConnected();
+//        onMediaControllerConnected(mediaController.getSessionToken());
     }
 
     private void init() {
@@ -103,5 +173,20 @@ public class A_Activity_YinYue extends MvpActivity {
         super.initView();
     }
 
+    private void playMedia() {
+        MediaControllerCompat controller = MediaControllerCompat.getMediaController(getActivity());
+        if (controller != null) {
+            controller.getTransportControls().play();
+        }
 
+        PlayIV.setImageResource(R.mipmap.a_yinyue_zanting);
+    }
+
+    private void pauseMedia() {
+        MediaControllerCompat controller = MediaControllerCompat.getMediaController(getActivity());
+        if (controller != null) {
+            controller.getTransportControls().pause();
+        }
+        PlayIV.setImageResource(R.mipmap.a_kaishi);
+    }
 }
