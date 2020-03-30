@@ -15,6 +15,7 @@ import com.hxsoft.ajitai.base.BasePresent;
 import com.hxsoft.ajitai.base.MvpFragment;
 import com.hxsoft.ajitai.ui.activity.A_Activity_DuShuHui;
 import com.hxsoft.ajitai.ui.activity.A_Activity_DuShuHui_List;
+import com.hxsoft.ajitai.ui.activity.A_Activity_FaXian_SouSuo;
 import com.hxsoft.ajitai.ui.activity.A_Activity_LianMengYiYuan;
 import com.hxsoft.ajitai.ui.activity.A_Activity_ShangCheng;
 import com.hxsoft.ajitai.ui.activity.A_Activity_ShiPinZhiBo;
@@ -38,9 +39,9 @@ import butterknife.ButterKnife;
 public class A_FaXian_Fragment extends MvpFragment {
 
 
-    @Bind(R.id.LeftLL)
+    @Bind(R.id.SouSuoLL)
     LinearLayout LeftLL;
-    @Bind(R.id.RightLL)
+    @Bind(R.id.ExitLL)
     LinearLayout RightLL;
     @Bind(R.id.ShouYeTopRL)
     RelativeLayout ShouYeTopRL;
@@ -80,6 +81,8 @@ public class A_FaXian_Fragment extends MvpFragment {
     ImageView DuShuHui5IV;
     @Bind(R.id.DuShuHui6_IV)
     ImageView DuShuHui6IV;
+    @Bind(R.id.SouSuo_LL)
+    LinearLayout SouSuoLL;
 
     @Override
     protected BasePresent createPresenter() {
@@ -95,6 +98,13 @@ public class A_FaXian_Fragment extends MvpFragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        SouSuoLL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), A_Activity_FaXian_SouSuo.class);
+                startActivity(intent);
+            }
+        });
         DuShuHuiRL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -224,7 +234,6 @@ public class A_FaXian_Fragment extends MvpFragment {
                 startActivity(intent);
             }
         });
-
 
 
         GlideControl.SetFilletImage_Mipmap(getContext(), R.mipmap.a_shuji1, DuShuHuiIV, R.mipmap.jiazaiing, 4);

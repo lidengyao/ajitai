@@ -3,12 +3,15 @@ package com.hxsoft.ajitai.ui.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.base.MvpActivity;
 import com.hxsoft.ajitai.present.LoginPresent;
+import com.hxsoft.ajitai.utils.CheckControl_Dialog_DuShuiHui_GanWu_FenXiang;
+import com.hxsoft.ajitai.utils.CheckControl_Dialog_ShiPinZhiBoFenXiang;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -25,6 +28,10 @@ public class A_Activity_XinLingGanLu extends MvpActivity {
     RelativeLayout GengDuoRL;
     @Bind(R.id.FaBuGanWu_RL)
     RelativeLayout FaBuGanWuRL;
+    @Bind(R.id.GanWuLLOne_LL)
+    LinearLayout GanWuLLOneLL;
+    @Bind(R.id.GanWuLLTwo_LL)
+    LinearLayout GanWuLLTwoLL;
 
     @Override
     protected int getLayoutId() {
@@ -48,8 +55,51 @@ public class A_Activity_XinLingGanLu extends MvpActivity {
         FaBuGanWuRL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), A_Activity_FaBuGanWu.class);
+                Intent intent = new Intent(getContext(), A_Activity_DuShuHui_FaBuGanWu.class);
                 startActivity(intent);
+            }
+        });
+
+        LinearLayout PingLun_LL_One = (LinearLayout) GanWuLLOneLL.findViewById(R.id.PingLun_LL);
+        LinearLayout PingLun_LL_Two = (LinearLayout) GanWuLLTwoLL.findViewById(R.id.PingLun_LL);
+        PingLun_LL_One.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), A_Activity_DuShuHui_PingLun.class);
+                startActivity(intent);
+            }
+        });
+
+        PingLun_LL_Two.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), A_Activity_DuShuHui_PingLun.class);
+                startActivity(intent);
+            }
+        });
+
+        LinearLayout FenXiang_LL_One = (LinearLayout) GanWuLLOneLL.findViewById(R.id.FenXiang_LL);
+        LinearLayout FenXiang_LL_Two = (LinearLayout) GanWuLLTwoLL.findViewById(R.id.FenXiang_LL);
+        FenXiang_LL_One.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CheckControl_Dialog_DuShuiHui_GanWu_FenXiang.ShowDialog(getContext(), getActivity(), "", new CheckControl_Dialog_DuShuiHui_GanWu_FenXiang.OnCheckControl_dialogClickListener() {
+                    @Override
+                    public void OnClick(int type) {
+
+                    }
+                });
+            }
+        });
+        FenXiang_LL_Two.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CheckControl_Dialog_DuShuiHui_GanWu_FenXiang.ShowDialog(getContext(), getActivity(), "", new CheckControl_Dialog_DuShuiHui_GanWu_FenXiang.OnCheckControl_dialogClickListener() {
+                    @Override
+                    public void OnClick(int type) {
+
+                    }
+                });
             }
         });
     }

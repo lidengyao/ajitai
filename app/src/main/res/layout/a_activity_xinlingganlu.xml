@@ -104,11 +104,24 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <include layout="@layout/a_item_xinlingganlu_ganwu"></include>
+            <LinearLayout
+                android:id="@+id/GanWuLLOne_LL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
 
-            <include layout="@layout/a_item_xinlingganlu_ganwu"></include>
+                <include layout="@layout/a_item_xinlingganlu_ganwu"></include>
+            </LinearLayout>
 
-            <include layout="@layout/a_item_xinlingganlu_ganwu"></include>
+
+            <LinearLayout
+                android:id="@+id/GanWuLLTwo_LL"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <include layout="@layout/a_item_xinlingganlu_ganwu"></include>
+            </LinearLayout>
+
+
         </LinearLayout>
     </ScrollView>
 </LinearLayout>

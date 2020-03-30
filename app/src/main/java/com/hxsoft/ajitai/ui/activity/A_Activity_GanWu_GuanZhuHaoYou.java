@@ -1,10 +1,9 @@
 package com.hxsoft.ajitai.ui.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.base.MvpActivity;
@@ -16,19 +15,21 @@ import butterknife.ButterKnife;
 /**
  * Created by jinxh on 16/2/1.
  */
-public class A_Activity_XinShenHuDong extends MvpActivity {
+public class A_Activity_GanWu_GuanZhuHaoYou extends MvpActivity {
 
 
-    @Bind(R.id.SysNameIV)
-    TextView SysNameIV;
-    @Bind(R.id.GengDuoRL)
-    RelativeLayout GengDuoRL;
-    @Bind(R.id.FaBuGanWu_RL)
-    RelativeLayout FaBuGanWuRL;
+    @Bind(R.id.ExitLL)
+    RelativeLayout ExitLL;
+    @Bind(R.id.GanwuOneLL)
+    LinearLayout GanwuOneLL;
+    @Bind(R.id.GanwuTwoLL)
+    LinearLayout GanwuTwoLL;
+    @Bind(R.id.GanwuThreeLL)
+    LinearLayout GanwuThreeLL;
 
     @Override
     protected int getLayoutId() {
-        return R.layout.a_activity_xinshenhudong;
+        return R.layout.a_activity_ganwu_guanzhuhaoyou;
     }
 
     @Override
@@ -37,19 +38,10 @@ public class A_Activity_XinShenHuDong extends MvpActivity {
         // TODO: add setContentView(...) invocation
         ButterKnife.bind(this);
 
-        GengDuoRL.setOnClickListener(new View.OnClickListener() {
+        ExitLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), A_Activity_XinShenHuDong_JianJie.class);
-                startActivity(intent);
-            }
-        });
-
-        FaBuGanWuRL.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), A_Activity_DuShuHui_FaBuGanWu.class);
-                startActivity(intent);
+                finish();
             }
         });
     }

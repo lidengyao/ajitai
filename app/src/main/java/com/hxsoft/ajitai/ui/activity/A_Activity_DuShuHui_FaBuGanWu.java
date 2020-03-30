@@ -18,7 +18,7 @@ import butterknife.ButterKnife;
 /**
  * Created by jinxh on 16/2/1.
  */
-public class A_Activity_FaBuGanWu extends MvpActivity {
+public class A_Activity_DuShuHui_FaBuGanWu extends MvpActivity {
 
 
     @Bind(R.id.SysNameIV)
@@ -44,7 +44,7 @@ public class A_Activity_FaBuGanWu extends MvpActivity {
 
     @Override
     protected int getLayoutId() {
-        return R.layout.a_activity_fabuganwu;
+        return R.layout.a_activity_dushuhui_fabuganwu;
     }
 
     @Override

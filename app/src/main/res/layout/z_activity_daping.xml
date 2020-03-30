@@ -65,14 +65,14 @@
                     android:orientation="vertical"></LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/LeftLL"
+                    android:id="@+id/SouSuoLL"
                     android:layout_width="38dp"
                     android:layout_height="48dp"
                     android:layout_centerVertical="true"
                     android:orientation="vertical"></LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/RightLL"
+                    android:id="@+id/ExitLL"
                     android:layout_width="38dp"
                     android:layout_height="48dp"
                     android:layout_alignParentRight="true"

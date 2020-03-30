@@ -78,7 +78,32 @@
 
 
         <activity
-            android:name=".ui.activity.A_Activity_FaBuGanWu"
+            android:name=".ui.activity.A_Activity_FaXian_SouSuo"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ui.activity.A_Activity_GanWu_GuanZhuHaoYou"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ui.activity.A_Activity_GanWu_SouSuo"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ui.activity.A_Activity_GanWu_ZhuanFa"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ui.activity.A_Activity_GanWu_FaBuGanWu"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ui.activity.A_Activity_DuShuHui_PingLun"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+
+        <activity
+            android:name=".ui.activity.A_Activity_DuShuHui_FaBuGanWu"
             android:configChanges="locale"
             android:launchMode="singleTop" />
         <activity

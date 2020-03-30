@@ -18,7 +18,7 @@
 
 
             <LinearLayout
-                android:id="@+id/LeftLL"
+                android:id="@+id/SouSuoLL"
                 android:layout_width="45dp"
                 android:layout_height="match_parent"
                 android:gravity="center">
@@ -33,11 +33,12 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/SouSuo_LL"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
+                android:layout_height="30dp"
                 android:layout_centerVertical="true"
-                android:layout_toLeftOf="@+id/RightLL"
-                android:layout_toRightOf="@+id/LeftLL"
+                android:layout_toLeftOf="@+id/ExitLL"
+                android:layout_toRightOf="@+id/SouSuoLL"
                 android:background="@drawable/sysbtn_gray_f3f4f6_10_shape"
                 android:gravity="center"
                 android:orientation="horizontal"
@@ -59,7 +60,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/RightLL"
+                android:id="@+id/ExitLL"
                 android:layout_width="45dp"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"

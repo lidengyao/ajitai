@@ -1,14 +1,16 @@
 package com.hxsoft.ajitai.ui.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.base.MvpActivity;
 import com.hxsoft.ajitai.present.LoginPresent;
+import com.hxsoft.ajitai.utils.CheckControl_Dialog_FaBuGanWu_YuYin;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -16,19 +18,13 @@ import butterknife.ButterKnife;
 /**
  * Created by jinxh on 16/2/1.
  */
-public class A_Activity_XinShenHuDong extends MvpActivity {
+public class A_Activity_DuShuHui_PingLun extends MvpActivity {
 
 
-    @Bind(R.id.SysNameIV)
-    TextView SysNameIV;
-    @Bind(R.id.GengDuoRL)
-    RelativeLayout GengDuoRL;
-    @Bind(R.id.FaBuGanWu_RL)
-    RelativeLayout FaBuGanWuRL;
 
     @Override
     protected int getLayoutId() {
-        return R.layout.a_activity_xinshenhudong;
+        return R.layout.a_activity_dushuhui_pinglun;
     }
 
     @Override
@@ -37,21 +33,6 @@ public class A_Activity_XinShenHuDong extends MvpActivity {
         // TODO: add setContentView(...) invocation
         ButterKnife.bind(this);
 
-        GengDuoRL.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), A_Activity_XinShenHuDong_JianJie.class);
-                startActivity(intent);
-            }
-        });
-
-        FaBuGanWuRL.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), A_Activity_DuShuHui_FaBuGanWu.class);
-                startActivity(intent);
-            }
-        });
     }
 
     @Override
