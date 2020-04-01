@@ -143,6 +143,7 @@
         <item name="android:layout_width">10dp</item>
         <item name="android:layout_height">18dp</item>
     </style>
+
     <style name="TopBarBackImageStyle_White">
         <item name="android:src">@mipmap/back_white</item>
         <item name="android:layout_width">10dp</item>
@@ -226,6 +227,12 @@
     <style name="LineStyle">
         <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">@dimen/line</item>
+        <item name="android:background">@color/linecolor</item>
+    </style>
+
+    <style name="LineStyle_Vertical">
+        <item name="android:layout_width">@dimen/line</item>
+        <item name="android:layout_height">match_parent</item>
         <item name="android:background">@color/linecolor</item>
     </style>
 

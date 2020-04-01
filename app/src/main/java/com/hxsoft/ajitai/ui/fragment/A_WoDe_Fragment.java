@@ -10,6 +10,7 @@ import android.widget.RelativeLayout;
 import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.base.BasePresent;
 import com.hxsoft.ajitai.base.MvpFragment;
+import com.hxsoft.ajitai.ui.activity.A_Activity_ChengJiDan;
 import com.hxsoft.ajitai.ui.activity.A_Activity_QianBao;
 
 import butterknife.Bind;
@@ -21,6 +22,8 @@ import butterknife.ButterKnife;
 public class A_WoDe_Fragment extends MvpFragment {
     @Bind(R.id.QianBaoRL)
     RelativeLayout QianBaoRL;
+    @Bind(R.id.ChengJiDan_RL)
+    RelativeLayout ChengJiDanRL;
 
     @Override
     protected BasePresent createPresenter() {
@@ -48,6 +51,14 @@ public class A_WoDe_Fragment extends MvpFragment {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), A_Activity_QianBao.class);
+                startActivity(intent);
+            }
+        });
+
+        ChengJiDanRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), A_Activity_ChengJiDan.class);
                 startActivity(intent);
             }
         });

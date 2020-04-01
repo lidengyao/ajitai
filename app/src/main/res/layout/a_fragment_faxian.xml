@@ -18,7 +18,7 @@
 
 
             <LinearLayout
-                android:id="@+id/SouSuoLL"
+                android:id="@+id/WenZhangYueDuLL"
                 android:layout_width="45dp"
                 android:layout_height="match_parent"
                 android:gravity="center">
@@ -38,7 +38,7 @@
                 android:layout_height="30dp"
                 android:layout_centerVertical="true"
                 android:layout_toLeftOf="@+id/ExitLL"
-                android:layout_toRightOf="@+id/SouSuoLL"
+                android:layout_toRightOf="@+id/WenZhangYueDuLL"
                 android:background="@drawable/sysbtn_gray_f3f4f6_10_shape"
                 android:gravity="center"
                 android:orientation="horizontal"

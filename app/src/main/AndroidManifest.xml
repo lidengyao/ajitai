@@ -77,6 +77,19 @@
         </activity>
 
 
+
+        <activity
+            android:name=".ui.activity.A_Activity_GeRenXinXi"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ui.activity.A_Activity_ChengJiDan"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ui.activity.A_Activity_FaXian_WenZhangYueDu"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
         <activity
             android:name=".ui.activity.A_Activity_FaXian_SouSuo"
             android:configChanges="locale"
@@ -296,17 +309,6 @@
                 <action android:name="android.intent.action.MEDIA_BUTTON" />
             </intent-filter>
         </receiver>
-
-
-
-
-
-
-
-
-
-
-
 
 
         <service android:name="com.hxsoft.ajitai.Service.D2DInfoFBService" />

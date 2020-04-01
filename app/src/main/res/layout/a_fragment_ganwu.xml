@@ -18,7 +18,7 @@
 
 
             <LinearLayout
-                android:id="@+id/SouSuoLL"
+                android:id="@+id/WenZhangYueDuLL"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:paddingLeft="18dp"

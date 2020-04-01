@@ -26,7 +26,7 @@ import butterknife.ButterKnife;
  * Created by lidengyao on 2016-10-12 0012.
  */
 public class A_GanWu_Fragment extends MvpFragment {
-    @Bind(R.id.SouSuoLL)
+    @Bind(R.id.WenZhangYueDuLL)
     LinearLayout SouSuoLL;
     @Bind(R.id.HaoYouLL)
     LinearLayout HaoYouLL;

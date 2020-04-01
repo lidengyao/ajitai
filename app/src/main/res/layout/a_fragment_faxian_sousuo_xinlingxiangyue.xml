@@ -5,75 +5,34 @@
     android:background="@color/color2"
     android:orientation="vertical">
 
-    <RelativeLayout
+    <ScrollView
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="match_parent">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="horizontal">
+            android:layout_marginTop="20dp"
 
-            <ImageView
-                android:layout_width="40dp"
-                android:layout_height="40dp"
-                android:layout_marginLeft="20dp"
-                android:layout_marginTop="16dp"
-                android:src="@mipmap/a_ganwu_item_headimg" />
+            android:orientation="vertical">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="12dp"
-                android:orientation="vertical">
+            <include layout="@layout/a_item_dushuhui"></include>
 
-                <!--头部-->
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="55dp">
+            <include layout="@layout/a_item_dushuhui"></include>
 
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:gravity="center_vertical"
-                        android:orientation="vertical">
+            <include layout="@layout/a_item_dushuhui"></include>
 
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:text="哈哈小猪（管理员）"
-                            android:textColor="@color/C242424"
-                            android:textSize="@dimen/textsize14" />
+            <include layout="@layout/a_item_dushuhui"></include>
 
+            <include layout="@layout/a_item_dushuhui"></include>
 
-                    </LinearLayout>
+            <include layout="@layout/a_item_dushuhui"></include>
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="10dp"
-                        android:padding="10dp"
-                        android:src="@mipmap/a_ganwu_item_xiajiantou"
-                        android:visibility="gone" />
-                </RelativeLayout>
+            <include layout="@layout/a_item_dushuhui"></include>
 
-                <!--内容-->
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_marginRight="25dp"
-                    android:lineSpacingExtra="5dp"
-                    android:text="互动心理疗法是纳贡毕力格教授从事二十多年临床心理治疗工作实践与经验的浓缩和总结。互动心理疗法以“天人合一”整体观思想做指导，以传统医学心身统一理念为基础， 结合现代医学心理学理论和方法，实践操作上运用光电声像等现代技术手段形.成互动效应的一种全新模式的心理治疗方法。"
-                    android:textColor="#4C4C4C"
-                    android:textSize="@dimen/textsize14" />
-
-
-            </LinearLayout>
-
+            <include layout="@layout/a_item_dushuhui"></include>
 
         </LinearLayout>
-    </RelativeLayout>
+    </ScrollView>
 
 </LinearLayout>

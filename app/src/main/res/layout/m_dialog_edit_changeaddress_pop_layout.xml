@@ -17,65 +17,49 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="44dp">
+            android:layout_height="40dp">
 
             <TextView
                 android:id="@+id/btn_myinfo_cancel"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
                 android:gravity="center"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
                 android:text="取消"
-                android:textColor="@color/color21"
-                android:textSize="16dp" />
+                android:textColor="#808080"
+                android:textSize="@dimen/textsize15" />
 
             <TextView
                 android:id="@+id/btn_myinfo_sure"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
                 android:gravity="center"
-                android:paddingLeft="10dp"
-                android:paddingRight="10dp"
-                android:text="完成"
-                android:textColor="@color/color21"
-                android:textSize="16dp" />
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="确定"
+                android:textColor="#242424"
+                android:textSize="@dimen/textsize15" />
 
         </RelativeLayout>
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="1px"
-            android:background="#d8d8d8" />
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="200dp"
+            android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:orientation="horizontal">
 
-            <com.hxsoft.ajitai.timepaker.wheelview.WheelView
-                android:id="@+id/wv_address_province"
-                android:layout_width="0dip"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="1" />
 
             <com.hxsoft.ajitai.timepaker.wheelview.WheelView
-                android:id="@+id/wv_address_city"
-                android:layout_width="0dip"
+                android:id="@+id/wv_YiJi"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="1" />
+                android:layout_gravity="center" />
 
-            <com.hxsoft.ajitai.timepaker.wheelview.WheelView
-                android:id="@+id/wv_address_area"
-                android:layout_width="0dip"
-                android:layout_height="match_parent"
-                android:layout_gravity="center_vertical"
-                android:layout_weight="1" />
         </LinearLayout>
 
     </LinearLayout>

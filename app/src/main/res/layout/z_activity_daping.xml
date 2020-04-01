@@ -65,7 +65,7 @@
                     android:orientation="vertical"></LinearLayout>
 
                 <LinearLayout
-                    android:id="@+id/SouSuoLL"
+                    android:id="@+id/WenZhangYueDuLL"
                     android:layout_width="38dp"
                     android:layout_height="48dp"
                     android:layout_centerVertical="true"

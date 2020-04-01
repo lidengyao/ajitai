@@ -16,6 +16,7 @@ import com.hxsoft.ajitai.base.MvpFragment;
 import com.hxsoft.ajitai.ui.activity.A_Activity_DuShuHui;
 import com.hxsoft.ajitai.ui.activity.A_Activity_DuShuHui_List;
 import com.hxsoft.ajitai.ui.activity.A_Activity_FaXian_SouSuo;
+import com.hxsoft.ajitai.ui.activity.A_Activity_FaXian_WenZhangYueDu;
 import com.hxsoft.ajitai.ui.activity.A_Activity_LianMengYiYuan;
 import com.hxsoft.ajitai.ui.activity.A_Activity_ShangCheng;
 import com.hxsoft.ajitai.ui.activity.A_Activity_ShiPinZhiBo;
@@ -39,8 +40,8 @@ import butterknife.ButterKnife;
 public class A_FaXian_Fragment extends MvpFragment {
 
 
-    @Bind(R.id.SouSuoLL)
-    LinearLayout LeftLL;
+    @Bind(R.id.WenZhangYueDuLL)
+    LinearLayout WenZhangYueDuLL;
     @Bind(R.id.ExitLL)
     LinearLayout RightLL;
     @Bind(R.id.ShouYeTopRL)
@@ -98,6 +99,13 @@ public class A_FaXian_Fragment extends MvpFragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        WenZhangYueDuLL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), A_Activity_FaXian_WenZhangYueDu.class);
+                startActivity(intent);
+            }
+        });
         SouSuoLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
