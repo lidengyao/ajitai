@@ -566,6 +566,7 @@
 
                 <RelativeLayout
                     android:layout_width="match_parent"
+                    android:id="@+id/LiuYanJianYi_RL"
                     android:layout_height="60dp">
 
                     <LinearLayout

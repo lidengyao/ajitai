@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/PageRootLL">
+
+    <LinearLayout
+        android:id="@+id/WeiChuLi1_LL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <include layout="@layout/a_item_liuyanjianyi"></include>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/WeiChuLi2_LL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <include layout="@layout/a_item_liuyanjianyi"></include>
+    </LinearLayout>
+
+
+</LinearLayout>
