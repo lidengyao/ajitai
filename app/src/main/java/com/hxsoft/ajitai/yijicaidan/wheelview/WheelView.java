@@ -17,7 +17,7 @@
  *  limitations under the License.
  */
 
-package com.hxsoft.ajitai.timepaker.wheelview;
+package com.hxsoft.ajitai.yijicaidan.wheelview;
 
 import android.content.Context;
 import android.content.res.Resources;
@@ -34,9 +34,8 @@ import android.view.ViewGroup.LayoutParams;
 import android.view.animation.Interpolator;
 import android.widget.LinearLayout;
 
-
 import com.hxsoft.ajitai.R;
-import com.hxsoft.ajitai.timepaker.wheelview.adapter.WheelViewAdapter;
+import com.hxsoft.ajitai.yijicaidan.wheelview.adapter.WheelViewAdapter;
 
 import java.util.LinkedList;
 import java.util.List;
@@ -710,9 +709,9 @@ public class WheelView extends View {
 //		paint.setStrokeWidth((float) 3);
         paint.setStrokeWidth((float) 4);
         // 绘制上边直线
-        canvas.drawLine(0, center - offset, getWidth(), center - offset, paint);
+        canvas.drawLine(0 + 200, center - offset, getWidth() - 200, center - offset, paint);
         // 绘制下边直线
-        canvas.drawLine(0, center + offset, getWidth(), center + offset, paint);
+        canvas.drawLine(0 + 200, center + offset, getWidth() - 200, center + offset, paint);
         //*/
     }
 

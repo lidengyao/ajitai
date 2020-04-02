@@ -18,43 +18,40 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="50dp">
+            android:layout_height="40dp">
 
             <TextView
                 android:id="@+id/btn_myinfo_cancel"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
-                android:layout_alignParentLeft="true"
+                android:layout_centerVertical="true"
                 android:gravity="center"
-                android:paddingLeft="15dp"
+                android:paddingLeft="20dp"
                 android:paddingRight="20dp"
                 android:text="取消"
-                android:textColor="#9BA0A7"
+                android:textColor="#808080"
                 android:textSize="@dimen/textsize15" />
-
 
             <TextView
                 android:id="@+id/btn_myinfo_sure"
                 android:layout_width="wrap_content"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
                 android:gravity="center"
-                android:paddingLeft="25dp"
-                android:paddingRight="15dp"
-                android:text="完成"
-                android:textColor="#207AEC"
+                android:paddingLeft="20dp"
+                android:paddingRight="20dp"
+                android:text="确定"
+                android:textColor="#242424"
                 android:textSize="@dimen/textsize15" />
 
         </RelativeLayout>
 
-        <TextView xmlns:android="http://schemas.android.com/apk/res/android"
-            android:layout_width="match_parent"
-            android:layout_height="0.5dp"
-            android:background="@color/color_d8d8d8" />
+
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="180dip"
+            android:layout_height="wrap_content"
             android:layout_marginBottom="30dp"
             android:gravity="center_vertical"
             android:orientation="horizontal">

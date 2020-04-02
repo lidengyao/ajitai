@@ -79,6 +79,34 @@
 
 
         <activity
+            android:name=".ui.activity.A_Activity_ZengPiaoZiZhi"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ui.activity.A_Activity_WoDeShouCang"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ui.activity.A_Activity_WoDeGuanZhu"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ui.activity.A_Activity_WoDeFenSi"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ui.activity.A_Activity_SheZhi"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ui.activity.A_Activity_XinJianShouHuoDiZhi"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ui.activity.A_Activity_ShouHuoDiZhi"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
             android:name=".ui.activity.A_Activity_GeRenXinXi"
             android:configChanges="locale"
             android:launchMode="singleTop" />

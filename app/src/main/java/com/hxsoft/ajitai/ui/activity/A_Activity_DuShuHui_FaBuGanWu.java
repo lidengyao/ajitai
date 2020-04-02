@@ -8,6 +8,7 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.hxsoft.ajitai.R;
+import com.hxsoft.ajitai.base.BasePresent;
 import com.hxsoft.ajitai.base.MvpActivity;
 import com.hxsoft.ajitai.present.LoginPresent;
 import com.hxsoft.ajitai.utils.CheckControl_Dialog_FaBuGanWu_YuYin;
@@ -87,9 +88,10 @@ public class A_Activity_DuShuHui_FaBuGanWu extends MvpActivity {
     }
 
     @Override
-    protected LoginPresent createPresenter() {
-        return new LoginPresent();
+    protected BasePresent createPresenter() {
+        return null;
     }
+
 
     @Override
     protected void initEvent() {

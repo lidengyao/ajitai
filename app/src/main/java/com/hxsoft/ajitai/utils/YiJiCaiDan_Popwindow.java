@@ -14,17 +14,14 @@ import android.widget.Toast;
 
 
 import com.hxsoft.ajitai.R;
-import com.hxsoft.ajitai.model.bean.AreaBean;
 import com.hxsoft.ajitai.model.info.YiJiType_Info;
-import com.hxsoft.ajitai.timepaker.wheelview.OnWheelChangedListener;
-import com.hxsoft.ajitai.timepaker.wheelview.OnWheelScrollListener;
-import com.hxsoft.ajitai.timepaker.wheelview.WheelView;
-import com.hxsoft.ajitai.timepaker.wheelview.adapter.AbstractWheelTextAdapter1;
-import com.hxsoft.ajitai.timepaker.wheelview.adapter.WheelViewAdapter;
+import com.hxsoft.ajitai.yijicaidan.wheelview.OnWheelChangedListener;
+import com.hxsoft.ajitai.yijicaidan.wheelview.OnWheelScrollListener;
+import com.hxsoft.ajitai.yijicaidan.wheelview.WheelView;
+import com.hxsoft.ajitai.yijicaidan.wheelview.adapter.AbstractWheelTextAdapter1;
+import com.hxsoft.ajitai.yijicaidan.wheelview.adapter.WheelViewAdapter;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 public class YiJiCaiDan_Popwindow extends PopupWindow implements View.OnClickListener {
 

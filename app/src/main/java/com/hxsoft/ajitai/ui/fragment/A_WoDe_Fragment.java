@@ -5,13 +5,19 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
 import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.base.BasePresent;
 import com.hxsoft.ajitai.base.MvpFragment;
 import com.hxsoft.ajitai.ui.activity.A_Activity_ChengJiDan;
+import com.hxsoft.ajitai.ui.activity.A_Activity_GeRenXinXi;
 import com.hxsoft.ajitai.ui.activity.A_Activity_QianBao;
+import com.hxsoft.ajitai.ui.activity.A_Activity_SheZhi;
+import com.hxsoft.ajitai.ui.activity.A_Activity_WoDeFenSi;
+import com.hxsoft.ajitai.ui.activity.A_Activity_WoDeGuanZhu;
+import com.hxsoft.ajitai.ui.activity.A_Activity_WoDeShouCang;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -24,6 +30,16 @@ public class A_WoDe_Fragment extends MvpFragment {
     RelativeLayout QianBaoRL;
     @Bind(R.id.ChengJiDan_RL)
     RelativeLayout ChengJiDanRL;
+    @Bind(R.id.GeRenXinXi_LL)
+    LinearLayout GeRenXinXiLL;
+    @Bind(R.id.SheZhi_RL)
+    RelativeLayout SheZhiRL;
+    @Bind(R.id.FenSi_LL)
+    LinearLayout FenSiLL;
+    @Bind(R.id.GuanZhu_LL)
+    LinearLayout GuanZhuLL;
+    @Bind(R.id.ShouCang_LL)
+    LinearLayout ShouCangLL;
 
     @Override
     protected BasePresent createPresenter() {
@@ -47,6 +63,44 @@ public class A_WoDe_Fragment extends MvpFragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        ShouCangLL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), A_Activity_WoDeShouCang.class);
+                startActivity(intent);
+            }
+        });
+
+        GuanZhuLL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), A_Activity_WoDeGuanZhu.class);
+                startActivity(intent);
+            }
+        });
+
+        FenSiLL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), A_Activity_WoDeFenSi.class);
+                startActivity(intent);
+            }
+        });
+        SheZhiRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), A_Activity_SheZhi.class);
+                startActivity(intent);
+            }
+        });
+
+        GeRenXinXiLL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), A_Activity_GeRenXinXi.class);
+                startActivity(intent);
+            }
+        });
         QianBaoRL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
