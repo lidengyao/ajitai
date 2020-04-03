@@ -3,6 +3,8 @@ package com.hxsoft.ajitai.ui.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -16,19 +18,25 @@ import butterknife.ButterKnife;
 /**
  * Created by jinxh on 16/2/1.
  */
-public class A_Activity_QianBao extends MvpActivity {
+public class A_Activity_QueRenDingDan extends MvpActivity {
 
 
     @Bind(R.id.SysNameIV)
     TextView SysNameIV;
     @Bind(R.id.QieHuanZhangHaoRL)
     RelativeLayout QieHuanZhangHaoRL;
-    @Bind(R.id.DingDan_RL)
-    RelativeLayout DingDanRL;
+    @Bind(R.id.A_Next_IV)
+    ImageView ANextIV;
+    @Bind(R.id.Price_LL)
+    LinearLayout PriceLL;
+    @Bind(R.id.textView)
+    TextView textView;
+    @Bind(R.id.BottomLL)
+    LinearLayout BottomLL;
 
     @Override
     protected int getLayoutId() {
-        return R.layout.a_activity_qianbao;
+        return R.layout.a_activity_querendingdan;
     }
 
     @Override
@@ -37,15 +45,15 @@ public class A_Activity_QianBao extends MvpActivity {
         // TODO: add setContentView(...) invocation
         ButterKnife.bind(this);
 
-        DingDanRL.setOnClickListener(new View.OnClickListener() {
+        BottomLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), A_Activity_WoDeDingDan.class);
+                Intent intent = new Intent(getContext(), A_Activity_DingDanXiangQing.class);
                 startActivity(intent);
             }
         });
-
     }
+
 
     @Override
     protected LoginPresent createPresenter() {

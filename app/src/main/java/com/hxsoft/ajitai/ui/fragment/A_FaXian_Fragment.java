@@ -18,6 +18,7 @@ import com.hxsoft.ajitai.ui.activity.A_Activity_DuShuHui_List;
 import com.hxsoft.ajitai.ui.activity.A_Activity_FaXian_SouSuo;
 import com.hxsoft.ajitai.ui.activity.A_Activity_FaXian_WenZhangYueDu;
 import com.hxsoft.ajitai.ui.activity.A_Activity_LianMengYiYuan;
+import com.hxsoft.ajitai.ui.activity.A_Activity_QueRenDingDan;
 import com.hxsoft.ajitai.ui.activity.A_Activity_ShangCheng;
 import com.hxsoft.ajitai.ui.activity.A_Activity_ShiPinZhiBo;
 import com.hxsoft.ajitai.ui.activity.A_Activity_XinLingGanLu;
@@ -84,6 +85,8 @@ public class A_FaXian_Fragment extends MvpFragment {
     ImageView DuShuHui6IV;
     @Bind(R.id.SouSuo_LL)
     LinearLayout SouSuoLL;
+    @Bind(R.id.ShangPin1_LL)
+    LinearLayout ShangPin1LL;
 
     @Override
     protected BasePresent createPresenter() {
@@ -99,6 +102,14 @@ public class A_FaXian_Fragment extends MvpFragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        ShangPin1LL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showMessage("临时跳转到确认订单页面");
+                Intent intent = new Intent(getContext(), A_Activity_QueRenDingDan.class);
+                startActivity(intent);
+            }
+        });
         WenZhangYueDuLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

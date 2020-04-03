@@ -189,6 +189,7 @@
                     android:layout_marginLeft="53dp"></View>
             </RelativeLayout>
             <RelativeLayout
+                android:id="@+id/DingDan_RL"
                 android:layout_width="match_parent"
                 android:layout_height="60dp">
 
