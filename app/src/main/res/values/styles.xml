@@ -193,7 +193,7 @@
     </style>
 
     <style name="TopBarRightStyle">
-        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_width">wrap_content</item>
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_alignParentRight">true</item>
     </style>
@@ -204,8 +204,8 @@
         <item name="android:layout_centerInParent">true</item>
         <item name="android:layout_marginLeft">14dp</item>
         <item name="android:layout_marginRight">14dp</item>
-        <item name="android:textColor">@color/color2</item>
-        <item name="android:textSize">@dimen/textsize15</item>
+        <item name="android:textColor">@color/C808080</item>
+        <item name="android:textSize">@dimen/textsize14</item>
     </style>
 
     <style name="ActionSheetAnimation" parent="@android:style/Animation.Dialog">

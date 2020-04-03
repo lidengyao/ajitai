@@ -77,7 +77,14 @@
         </activity>
 
 
-
+        <activity
+            android:name=".ui.activity.A_Activity_GouWuChe"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ui.activity.A_Activity_XiaoXi"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
         <activity
             android:name=".ui.activity.A_Activity_DingDanXiangQing"
             android:configChanges="locale"

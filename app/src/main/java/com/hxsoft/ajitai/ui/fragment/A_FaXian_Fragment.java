@@ -21,6 +21,7 @@ import com.hxsoft.ajitai.ui.activity.A_Activity_LianMengYiYuan;
 import com.hxsoft.ajitai.ui.activity.A_Activity_QueRenDingDan;
 import com.hxsoft.ajitai.ui.activity.A_Activity_ShangCheng;
 import com.hxsoft.ajitai.ui.activity.A_Activity_ShiPinZhiBo;
+import com.hxsoft.ajitai.ui.activity.A_Activity_XiaoXi;
 import com.hxsoft.ajitai.ui.activity.A_Activity_XinLingGanLu;
 import com.hxsoft.ajitai.ui.activity.A_Activity_XinLingXiangYue;
 import com.hxsoft.ajitai.ui.activity.A_Activity_XinLingXiangYue_XiangQing;
@@ -43,8 +44,8 @@ public class A_FaXian_Fragment extends MvpFragment {
 
     @Bind(R.id.WenZhangYueDuLL)
     LinearLayout WenZhangYueDuLL;
-    @Bind(R.id.ExitLL)
-    LinearLayout RightLL;
+    @Bind(R.id.XiaoXi_LL)
+    LinearLayout XiaoXiLL;
     @Bind(R.id.ShouYeTopRL)
     RelativeLayout ShouYeTopRL;
     @Bind(R.id.MenuTablayout)
@@ -101,6 +102,15 @@ public class A_FaXian_Fragment extends MvpFragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        XiaoXiLL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), A_Activity_XiaoXi.class);
+                startActivity(intent);
+            }
+        });
+
 
         ShangPin1LL.setOnClickListener(new View.OnClickListener() {
             @Override

@@ -13,6 +13,7 @@ import com.hxsoft.ajitai.base.BasePresent;
 import com.hxsoft.ajitai.base.MvpFragment;
 import com.hxsoft.ajitai.ui.activity.A_Activity_ChengJiDan;
 import com.hxsoft.ajitai.ui.activity.A_Activity_GeRenXinXi;
+import com.hxsoft.ajitai.ui.activity.A_Activity_GouWuChe;
 import com.hxsoft.ajitai.ui.activity.A_Activity_LiuYanJianYi;
 import com.hxsoft.ajitai.ui.activity.A_Activity_QianBao;
 import com.hxsoft.ajitai.ui.activity.A_Activity_SheZhi;
@@ -43,6 +44,8 @@ public class A_WoDe_Fragment extends MvpFragment {
     LinearLayout ShouCangLL;
     @Bind(R.id.LiuYanJianYi_RL)
     RelativeLayout LiuYanJianYiRL;
+    @Bind(R.id.GouWuChe_RL)
+    RelativeLayout GouWuCheRL;
 
     @Override
     protected BasePresent createPresenter() {
@@ -66,6 +69,14 @@ public class A_WoDe_Fragment extends MvpFragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+
+        GouWuCheRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), A_Activity_GouWuChe.class);
+                startActivity(intent);
+            }
+        });
         LiuYanJianYiRL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

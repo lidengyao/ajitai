@@ -37,7 +37,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="30dp"
                 android:layout_centerVertical="true"
-                android:layout_toLeftOf="@+id/ExitLL"
+                android:layout_toLeftOf="@+id/XiaoXi_LL"
                 android:layout_toRightOf="@+id/WenZhangYueDuLL"
                 android:background="@drawable/sysbtn_gray_f3f4f6_10_shape"
                 android:gravity="center"
@@ -60,7 +60,7 @@
             </LinearLayout>
 
             <LinearLayout
-                android:id="@+id/ExitLL"
+                android:id="@+id/XiaoXi_LL"
                 android:layout_width="45dp"
                 android:layout_height="match_parent"
                 android:layout_alignParentRight="true"
