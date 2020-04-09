@@ -7,8 +7,8 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.hxsoft.ajitai.R;
+import com.hxsoft.ajitai.base.BasePresent;
 import com.hxsoft.ajitai.base.MvpActivity;
-import com.hxsoft.ajitai.present.LoginPresent;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -23,8 +23,12 @@ public class A_Activity_QianBao extends MvpActivity {
     TextView SysNameIV;
     @Bind(R.id.QieHuanZhangHaoRL)
     RelativeLayout QieHuanZhangHaoRL;
+    @Bind(R.id.ChongZhi_RL)
+    RelativeLayout ChongZhiRL;
     @Bind(R.id.DingDan_RL)
     RelativeLayout DingDanRL;
+    @Bind(R.id.ChongZhi_HaoYou_RL)
+    RelativeLayout ChongZhiHaoYouRL;
 
     @Override
     protected int getLayoutId() {
@@ -45,12 +49,28 @@ public class A_Activity_QianBao extends MvpActivity {
             }
         });
 
+        ChongZhiRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), A_Activity_ChongZhi.class);
+                startActivity(intent);
+            }
+        });
+        ChongZhiHaoYouRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), A_Activity_ChongZhi_HaoYou.class);
+                startActivity(intent);
+            }
+        });
+
     }
 
     @Override
-    protected LoginPresent createPresenter() {
-        return new LoginPresent();
+    protected BasePresent createPresenter() {
+        return null;
     }
+
 
     @Override
     protected void initEvent() {

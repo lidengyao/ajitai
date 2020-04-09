@@ -335,7 +335,7 @@
                 android:id="@+id/BtnOK"
                 android:layout_width="match_parent"
                 android:layout_height="43dp"
-                android:layout_marginLeft="75dp"
+                android:layout_marginLeft="75dp" style="@style/Button_Style"
                 android:layout_marginRight="75dp"
                 android:background="@drawable/sysbtn_blue_shape"
                 android:text="提交"

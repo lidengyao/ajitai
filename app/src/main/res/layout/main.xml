@@ -6,19 +6,19 @@
 
     <Button
         android:id="@+id/getfilesBtn"
-        android:layout_width="fill_parent"
+        android:layout_width="fill_parent" style="@style/Button_Style"
         android:layout_height="wrap_content"
         android:text="获取文件列表名称" />
 
     <Button
-        android:id="@+id/start"
+        android:id="@+id/start" style="@style/Button_Style"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
         android:text="@string/start" />
 
     <Button
         android:id="@+id/stop"
-        android:layout_width="fill_parent"
+        android:layout_width="fill_parent" style="@style/Button_Style"
         android:layout_height="wrap_content"
         android:text="@string/stop" />
 

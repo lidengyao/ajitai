@@ -35,7 +35,7 @@
     <Button
         android:id="@+id/BtnChooseImage"
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="50dp" style="@style/Button_Style"
         android:layout_marginTop="10dp"
         android:text="选择图片" />
 </LinearLayout>

@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
@@ -19,6 +20,7 @@ import com.hxsoft.ajitai.ui.activity.A_Activity_QianBao;
 import com.hxsoft.ajitai.ui.activity.A_Activity_SheZhi;
 import com.hxsoft.ajitai.ui.activity.A_Activity_WoDeFenSi;
 import com.hxsoft.ajitai.ui.activity.A_Activity_WoDeGuanZhu;
+import com.hxsoft.ajitai.ui.activity.A_Activity_WoDeKeCheng;
 import com.hxsoft.ajitai.ui.activity.A_Activity_WoDeShouCang;
 
 import butterknife.Bind;
@@ -46,6 +48,10 @@ public class A_WoDe_Fragment extends MvpFragment {
     RelativeLayout LiuYanJianYiRL;
     @Bind(R.id.GouWuChe_RL)
     RelativeLayout GouWuCheRL;
+    @Bind(R.id.SendMsg_IV)
+    ImageView SendMsgIV;
+    @Bind(R.id.WoDeKeCheng_RL)
+    RelativeLayout WoDeKeChengRL;
 
     @Override
     protected BasePresent createPresenter() {
@@ -69,6 +75,20 @@ public class A_WoDe_Fragment extends MvpFragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+        WoDeKeChengRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), A_Activity_WoDeKeCheng.class);
+                startActivity(intent);
+            }
+        });
+        SendMsgIV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+//                SmsManager.getDefault().sendTextMessage("18952460823",
+//                        null, "付费短信", null, null);
+            }
+        });
 
         GouWuCheRL.setOnClickListener(new View.OnClickListener() {
             @Override

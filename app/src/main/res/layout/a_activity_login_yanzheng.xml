@@ -98,7 +98,7 @@
                 <Button
                     android:id="@+id/getCodeBtn"
                     android:layout_width="71dp"
-                    android:layout_height="28dp"
+                    android:layout_height="28dp" style="@style/Button_Style"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:background="@drawable/sysbtn_gray_c7c7c7_4_shape"
@@ -117,7 +117,7 @@
         <Button
             android:id="@+id/OKBtn"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
+            android:layout_height="45dp" style="@style/Button_Style"
             android:layout_marginTop="25dp"
             android:background="@drawable/sysbtn_gray_ebebeb_4_shape"
             android:enabled="true"

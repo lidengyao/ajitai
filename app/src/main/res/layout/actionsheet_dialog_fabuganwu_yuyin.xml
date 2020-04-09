@@ -35,7 +35,7 @@
                 <Button
                     android:id="@+id/NoOkBtn"
                     android:layout_width="121dp"
-                    android:layout_height="40dp"
+                    android:layout_height="40dp" style="@style/Button_Style"
                     android:background="@drawable/sysbtn_f2f2f2_4_shape"
                     android:text="取消"
                     android:textColor="#808080"
@@ -43,10 +43,10 @@
 
                 <Button
                     android:id="@+id/OkBtn"
-                    android:layout_width="121dp"
+                    android:layout_width="121dp" style="@style/Button_Style"
                     android:layout_height="40dp"
                     android:layout_marginLeft="12dp"
-                    android:background="@drawable/sysbtn_gray_ffe248_4_shape"
+                    android:background="@drawable/sysbtn_ffe248_4_shape"
                     android:text="确定"
                     android:textColor="@color/C242424"
                     android:textSize="@dimen/textsize15" />

@@ -20,6 +20,7 @@ import com.hxsoft.ajitai.ui.activity.A_Activity_FaXian_WenZhangYueDu;
 import com.hxsoft.ajitai.ui.activity.A_Activity_LianMengYiYuan;
 import com.hxsoft.ajitai.ui.activity.A_Activity_QueRenDingDan;
 import com.hxsoft.ajitai.ui.activity.A_Activity_ShangCheng;
+import com.hxsoft.ajitai.ui.activity.A_Activity_ShangPin_XiangQing;
 import com.hxsoft.ajitai.ui.activity.A_Activity_ShiPinZhiBo;
 import com.hxsoft.ajitai.ui.activity.A_Activity_XiaoXi;
 import com.hxsoft.ajitai.ui.activity.A_Activity_XinLingGanLu;
@@ -115,8 +116,7 @@ public class A_FaXian_Fragment extends MvpFragment {
         ShangPin1LL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                showMessage("临时跳转到确认订单页面");
-                Intent intent = new Intent(getContext(), A_Activity_QueRenDingDan.class);
+                Intent intent = new Intent(getContext(), A_Activity_ShangPin_XiangQing.class);
                 startActivity(intent);
             }
         });

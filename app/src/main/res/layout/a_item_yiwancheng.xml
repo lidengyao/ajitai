@@ -149,7 +149,7 @@
             <Button
                 android:layout_width="70dp"
                 android:layout_height="28dp"
-                android:layout_marginTop="18dp"
+                android:layout_marginTop="18dp" style="@style/Button_Style"
                 android:layout_marginBottom="15dp"
                 android:background="@drawable/sysbtn_f2f2f2_4_shape"
                 android:text="删除订单"

@@ -132,7 +132,7 @@
 
             <Button
                 android:id="@+id/XiaYiBuBtn"
-                android:layout_width="100dp"
+                android:layout_width="100dp" style="@style/Button_Style"
                 android:layout_height="42dp"
                 android:layout_alignParentRight="true"
 

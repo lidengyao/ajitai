@@ -128,11 +128,11 @@
             <Button
                 android:id="@+id/FaBu_Btn"
                 android:layout_width="65dp"
-                android:layout_height="32dp"
+                android:layout_height="32dp" style="@style/Button_Style"
                 android:layout_alignParentRight="true"
                 android:layout_centerVertical="true"
                 android:layout_marginRight="18dp"
-                android:background="@drawable/sysbtn_gray_ffe248_4_shape"
+                android:background="@drawable/sysbtn_ffe248_4_shape"
                 android:text="发布"
                 android:textColor="@color/C242424"
                 android:textSize="@dimen/textsize15" />

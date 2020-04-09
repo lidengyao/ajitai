@@ -191,11 +191,11 @@
 
 
                         <Button
-                            android:layout_width="67dp"
+                            android:layout_width="67dp" style="@style/Button_Style"
                             android:layout_height="27dp"
                             android:text="检测更新"
                             android:layout_marginRight="12dp"
-                            android:background="@drawable/sysbtn_gray_ffe248_4_shape"
+                            android:background="@drawable/sysbtn_ffe248_4_shape"
                             android:textColor="@color/C242424"
                             android:textSize="@dimen/textsize12" />
 

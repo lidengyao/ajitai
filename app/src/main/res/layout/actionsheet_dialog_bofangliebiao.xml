@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="#F3F3F3"
+    android:orientation="vertical">
+
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:layout_above="@+id/GuanBi_LL"
+        android:background="@color/color2">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:orientation="vertical"
+            android:layout_height="wrap_content">
+
+            <include layout="@layout/a_item_bofangliebiao"></include>
+            <include layout="@layout/a_item_bofangliebiao"></include>
+            <include layout="@layout/a_item_bofangliebiao"></include>
+            <include layout="@layout/a_item_bofangliebiao"></include>
+            <include layout="@layout/a_item_bofangliebiao"></include>
+            <include layout="@layout/a_item_bofangliebiao"></include>
+            <include layout="@layout/a_item_bofangliebiao"></include>
+        </LinearLayout>
+    </ScrollView>
+
+    <LinearLayout
+        android:id="@+id/GuanBi_LL"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="6dp"
+        android:background="@color/color2"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="关闭"
+            android:textColor="#4D4D4D"
+            android:textSize="@dimen/textsize14" />
+    </LinearLayout>
+
+
+</LinearLayout>

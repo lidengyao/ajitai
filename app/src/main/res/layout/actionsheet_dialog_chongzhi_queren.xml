@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/transparent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="34dp"
+            android:layout_marginRight="34dp"
+            android:background="@drawable/sysbtn_ffffff_7_shape"
+            android:gravity="center"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="是否确认购买【7天课程】"
+                android:textColor="@color/C242424"
+                android:textSize="@dimen/textsize16" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="30dp"
+                android:text="¥ 63"
+                android:textColor="@color/C242424"
+                android:textSize="@dimen/textsize24" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="30dp"
+                android:layout_marginRight="20dp"
+                android:text="套餐使用说明：听音频直播，一次/天，一天之内超过一次还想听直播，只能购买单次课程（不要求每天连续听）"
+                android:textColor="#4C4C4C"
+                android:textSize="@dimen/textsize12" />
+
+            <LinearLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="23dp"
+                android:orientation="horizontal">
+
+                <Button
+
+                    android:layout_width="121dp" style="@style/Button_Style"
+                    android:layout_height="42dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/sysbtn_f3f3f3_4_shape"
+                    android:text="取消"
+                    android:textColor="@color/C808080"
+                    android:textSize="@dimen/textsize14" />
+
+                <Button
+                    android:id="@+id/OK_Btn"
+                    android:layout_width="121dp"
+                    android:layout_height="42dp" style="@style/Button_Style"
+                    android:layout_marginLeft="12dp"
+                    android:layout_marginBottom="16dp"
+                    android:background="@drawable/sysbtn_ffe248_4_shape"
+                    android:text="确定"
+                    android:textColor="@color/C242424"
+                    android:textSize="@dimen/textsize14" />
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

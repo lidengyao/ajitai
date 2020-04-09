@@ -16,7 +16,7 @@
             android:layout_marginTop="36dp"
             android:layout_marginBottom="24dp"
             android:layout_centerInParent="true"
-            android:background="@drawable/sysbtn_gray_ffe248_4_shape"
+            android:background="@drawable/sysbtn_ffe248_4_shape"
             android:text="直播已结束"
             android:textColor="@color/C242424"
             android:textSize="@dimen/textsize17" />

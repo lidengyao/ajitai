@@ -77,7 +77,7 @@
                 android:layout_width="50dp"
                 android:layout_height="27dp"
                 android:layout_alignParentRight="true"
-                android:background="@drawable/sysbtn_gray_ffe248_4_shape"
+                android:background="@drawable/sysbtn_ffe248_4_shape" style="@style/Button_Style"
                 android:layout_centerVertical="true"
                 android:text="¥10"
                 android:textColor="@color/C242424"

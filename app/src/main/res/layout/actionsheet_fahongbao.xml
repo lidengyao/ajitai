@@ -183,7 +183,7 @@
             android:layout_marginBottom="30dp"
             android:background="@mipmap/fahongbaobtnbg"
             android:text="塞钱进红包"
-            android:textColor="@color/color2"
+            android:textColor="@color/color2" style="@style/Button_Style"
             android:textSize="@dimen/textsize24"
             android:textStyle="bold" />
 

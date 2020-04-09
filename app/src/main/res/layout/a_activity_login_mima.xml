@@ -122,7 +122,7 @@
         <Button
             android:id="@+id/OKBtn"
             android:layout_width="match_parent"
-            android:layout_height="45dp"
+            android:layout_height="45dp" style="@style/Button_Style"
             android:layout_marginTop="25dp"
             android:background="@drawable/sysbtn_gray_ebebeb_4_shape"
             android:enabled="true"

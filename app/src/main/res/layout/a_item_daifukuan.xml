@@ -149,7 +149,7 @@
             <Button
                 android:layout_width="70dp"
                 android:layout_height="28dp"
-                android:layout_marginTop="18dp"
+                android:layout_marginTop="18dp" style="@style/Button_Style"
                 android:layout_marginBottom="15dp"
                 android:background="@drawable/sysbtn_f2f2f2_4_shape"
                 android:text="取消订单"
@@ -161,8 +161,8 @@
                 android:layout_height="28dp"
                 android:layout_marginLeft="10dp"
                 android:layout_marginTop="18dp"
-                android:layout_marginBottom="15dp"
-                android:background="@drawable/sysbtn_gray_ffe248_4_shape"
+                android:layout_marginBottom="15dp" style="@style/Button_Style"
+                android:background="@drawable/sysbtn_ffe248_4_shape"
                 android:text="付款"
                 android:textColor="@color/C242424"
                 android:textSize="@dimen/textsize13" />

@@ -1,4 +1,4 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
 
     <!-- Base application theme. -->
     <style name="AppTheme" parent="Theme.AppCompat.Light.NoActionBar">
@@ -415,6 +415,11 @@
         <item name="android:layout_marginLeft">15dp</item>
         <item name="android:textColor">@color/color4</item>
         <item name="android:textSize">@dimen/textsize15</item>
+    </style>
+
+    <style name="Button_Style">
+        <item name="android:stateListAnimator" tools:targetApi="lollipop">@null</item>
+
     </style>
 
     <style name="main_menu_animstyle">

@@ -102,6 +102,7 @@ public class A_Main_Activity extends MvpActivity implements View.OnClickListener
         pers[2] = Permission.RECORD_AUDIO;
         pers[3] = Permission.CAMERA;
         pers[4] = Permission.READ_PHONE_STATE;
+//        pers[5] = Permission.SEND_SMS;
         requestPermission(pers);
         mRationale = new DefaultRationale();
         FaXianLL.setOnClickListener(this);
@@ -134,6 +135,8 @@ public class A_Main_Activity extends MvpActivity implements View.OnClickListener
     //
     private boolean IS_READ_PHONE_STATE = true;
 
+    private boolean IS_SEND_SMS = true;
+
     private void requestPermission(String... permissions) {
         AndPermission.with(this)
                 .permission(permissions)
@@ -156,6 +159,9 @@ public class A_Main_Activity extends MvpActivity implements View.OnClickListener
                         if (permissions.contains("android.permission.READ_PHONE_STATE")) {
                             IS_READ_PHONE_STATE = true;
                         }
+//                        if (permissions.contains("android.permission.SEND_SMS")) {
+//                            IS_SEND_SMS = true;
+//                        }
 
 //                        toast(R.string.successfully);
                     }
@@ -180,6 +186,9 @@ public class A_Main_Activity extends MvpActivity implements View.OnClickListener
                         if (permissions.contains("android.permission.READ_PHONE_STATE")) {
                             IS_READ_PHONE_STATE = false;
                         }
+//                        if (permissions.contains("android.permission.SEND_SMS")) {
+//                            IS_SEND_SMS = false;
+//                        }
 
                     }
                 })

@@ -37,6 +37,7 @@
     <uses-permission android:name="android.permission.CHANGE_NETWORK_STATE" />
     <uses-permission android:name="android.permission.GET_TASKS" />
     <uses-permission android:name="android.permission.SYSTEM_OVERLAY_WINDOW" />
+    <uses-permission android:name="android.permission.SEND_SMS"></uses-permission>
 
     <uses-feature android:name="android.hardware.camera" />
     <uses-feature android:name="android.hardware.camera.any" />
@@ -77,6 +78,39 @@
         </activity>
 
 
+
+        <activity
+            android:name=".ui.activity.A_Activity_YinYue_XiangQing"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ui.activity.A_Activity_YinYue_SouSuo"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ui.activity.A_Activity_ShouYinTai"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ui.activity.A_Activity_WoDeKeCheng"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ui.activity.A_Activity_ShangPin_XiangQing"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ui.activity.A_Activity_ChongZhi_HaoYou_KeChengJine"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ui.activity.A_Activity_ChongZhi_HaoYou"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ui.activity.A_Activity_ChongZhi"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
         <activity
             android:name=".ui.activity.A_Activity_GouWuChe"
             android:configChanges="locale"

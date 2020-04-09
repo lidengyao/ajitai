@@ -113,10 +113,10 @@
                     android:id="@+id/BaoMingBtn"
                     android:layout_width="65dp"
                     android:layout_height="32dp"
-                    android:layout_alignParentRight="true"
+                    android:layout_alignParentRight="true" style="@style/Button_Style"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="20dp"
-                    android:background="@drawable/sysbtn_gray_ffe248_4_shape"
+                    android:background="@drawable/sysbtn_ffe248_4_shape"
                     android:text="免费报名"
                     android:textColor="@color/C242424"
                     android:textSize="@dimen/textsize12" />
@@ -229,8 +229,8 @@
                 <Button
                     android:id="@+id/SendBtn"
                     android:layout_width="64dp"
-                    android:layout_height="32dp"
-                    android:background="@drawable/sysbtn_gray_ffe248_4_shape"
+                    android:layout_height="32dp" style="@style/Button_Style"
+                    android:background="@drawable/sysbtn_ffe248_4_shape"
                     android:text="发送"
                     android:textColor="@color/C242424"
                     android:textSize="@dimen/textsize12"

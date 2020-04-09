@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/PageRootLL">
+
+    <LinearLayout
+        android:id="@+id/Item1LL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <include layout="@layout/a_item_kecheng"></include>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Item2LL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <include layout="@layout/a_item_kecheng"></include>
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/Item3LL"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content">
+
+        <include layout="@layout/a_item_kecheng"></include>
+    </LinearLayout>
+</LinearLayout>

@@ -530,9 +530,9 @@
 
             <Button
                 android:id="@+id/SendBtn"
-                android:layout_width="64dp"
+                android:layout_width="64dp" style="@style/Button_Style"
                 android:layout_height="32dp"
-                android:background="@drawable/sysbtn_gray_ffe248_4_shape"
+                android:background="@drawable/sysbtn_ffe248_4_shape"
                 android:text="发送"
                 android:textColor="@color/C242424"
                 android:textSize="@dimen/textsize12"

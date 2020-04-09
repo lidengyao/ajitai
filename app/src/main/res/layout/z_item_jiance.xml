@@ -129,7 +129,7 @@
 
                 <Button
                     android:layout_width="65dp"
-                    android:layout_height="24dp"
+                    android:layout_height="24dp" style="@style/Button_Style"
                     android:background="@mipmap/jiancebtn"
                     android:text="告警设置"
                     android:textColor="@color/color2"

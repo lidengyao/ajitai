@@ -98,7 +98,7 @@
         android:layout_width="match_parent"
         android:layout_height="@dimen/touch_view_min_height"
         android:layout_below="@id/ll_login"
-        android:layout_margin="@dimen/view_margin"
+        android:layout_margin="@dimen/view_margin" style="@style/Button_Style"
         android:background="@color/color5"
         android:text="@string/label_use_mobile_login"
         android:textColor="@color/white"

@@ -150,10 +150,10 @@
             <Button
                 android:layout_width="70dp"
                 android:layout_height="28dp"
-                android:layout_marginLeft="10dp"
+                android:layout_marginLeft="10dp" style="@style/Button_Style"
                 android:layout_marginTop="18dp"
                 android:layout_marginBottom="15dp"
-                android:background="@drawable/sysbtn_gray_ffe248_4_shape"
+                android:background="@drawable/sysbtn_ffe248_4_shape"
                 android:text="确认收货"
                 android:textColor="@color/C242424"
                 android:textSize="@dimen/textsize13" />

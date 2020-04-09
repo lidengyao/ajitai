@@ -55,7 +55,7 @@
                 <Button
                     android:layout_width="187dp"
                     android:layout_height="43dp"
-                    android:text="确定"
+                    android:text="确定" style="@style/Button_Style"
                     android:layout_marginTop="34dp"
                     android:background="@drawable/layout_blue_raduis20_shape"
                     android:textColor="@color/color2"

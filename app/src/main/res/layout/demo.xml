@@ -8,12 +8,12 @@
 
 
     <Button
-        android:text="A"
+        android:text="A" style="@style/Button_Style"
         android:layout_width="100dp"
         android:layout_height="50dp" />
 
     <Button
-        android:text="B"
+        android:text="B" style="@style/Button_Style"
         android:layout_width="150dp"
         android:layout_centerInParent="true"
         android:layout_height="60dp" />
