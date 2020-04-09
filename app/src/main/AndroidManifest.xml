@@ -80,6 +80,54 @@
 
 
         <activity
+            android:name=".ui.activity.A_Activity_XueYuanHuiBao_ZhuYaoBingQing"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ui.activity.A_Activity_XueYuanHuiBao_TiaoLiFanYing"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ui.activity.A_Activity_XueYuanHuiBao_JianChaBaoGao_Add"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ui.activity.A_Activity_XueYuanHuiBao_GeRenZiLiao"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ui.activity.A_Activity_XueYuanHuiBao_YinShiPin_Add"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ui.activity.A_Activity_XueYuanHuiBao_SouSuo"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ui.activity.A_Activity_XueYuanHuiBao_HuiBaoZiLiao"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ui.activity.A_Activity_XueYuanHuiBao_JianChaBaoGao"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ui.activity.A_Activity_XueYuanHuiBao_YinShiPin"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ui.activity.A_Activity_XueYuanHuiBao_TuPian_Add"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ui.activity.A_Activity_XueYuanHuiBao_TuPian"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ui.activity.A_Activity_XuYuanQiang_XiangQing"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
             android:name=".ui.activity.A_Activity_YinYue_XiangQing"
             android:configChanges="locale"
             android:launchMode="singleTop" />

@@ -1,0 +1,216 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/PageRootLL"
+    android:background="@color/color2">
+
+    <!--头部-->
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/headheight"
+        android:background="@drawable/status_shape"
+        app:contentInsetStart="0dp">
+
+        <LinearLayout style="@style/TopStyle">
+
+            <RelativeLayout style="@style/TopBarStyle">
+
+                <LinearLayout
+                    style="@style/TopBarLeftStyle"
+                    android:visibility="visible">
+
+                    <ImageView style="@style/TopBarBackImageStyle" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/SysNameIV"
+                    style="@style/TopBarTitleStyle"
+                    android:tag="主要病情"
+                    android:text="主要病情"
+                    android:visibility="visible" />
+
+                <RelativeLayout
+                    android:id="@+id/SouSuoRL"
+                    style="@style/TopBarRightStyle"
+
+                    android:visibility="visible">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="20dp"
+                        android:layout_marginRight="20dp"
+                        android:src="@mipmap/xueyuanhuibaochaxuan"
+                        android:visibility="gone" />
+
+                    <TextView
+                        style="@style/TopBarRightTextStyle"
+                        android:text="完成"
+                        android:textColor="@color/C242424"
+                        android:visibility="visible" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+    <View style="@style/LineStyle"></View>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:layout_width="120dp"
+            android:layout_height="match_parent">
+
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="#F4F4F4">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:background="@null"
+                        android:text="头部"
+                        android:textColor="@color/C242424"
+                        android:textSize="@dimen/textsize15" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:background="@null"
+                        android:text="颈部"
+                        android:textColor="@color/C242424"
+                        android:textSize="@dimen/textsize15" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:background="@null"
+                        android:text="胸部"
+                        android:textColor="@color/C242424"
+                        android:textSize="@dimen/textsize15" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:background="@null"
+                        android:text="腹部"
+                        android:textColor="@color/C242424"
+                        android:textSize="@dimen/textsize15" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:background="@null"
+                        android:text="腰部"
+                        android:textColor="@color/C242424"
+                        android:textSize="@dimen/textsize15" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:background="@color/color2"
+
+                        android:text="男性生殖"
+                        android:textColor="@color/C242424"
+                        android:textSize="@dimen/textsize15" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:background="@null"
+                        android:text="女性生殖"
+                        android:textColor="@color/C242424"
+                        android:textSize="@dimen/textsize15" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:background="@null"
+                        android:text="全身"
+                        android:textColor="@color/C242424"
+                        android:textSize="@dimen/textsize15" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:background="@null"
+                        android:text="上肢"
+                        android:textColor="@color/C242424"
+                        android:textSize="@dimen/textsize15" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:background="@null"
+                        android:text="下肢"
+                        android:textColor="@color/C242424"
+                        android:textSize="@dimen/textsize15" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:background="@null"
+                        android:text="盆腔"
+                        android:textColor="@color/C242424"
+                        android:textSize="@dimen/textsize15" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:background="@null"
+                        android:text="臀部"
+                        android:textColor="@color/C242424"
+                        android:textSize="@dimen/textsize15" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:background="@null"
+                        android:text="骨"
+                        android:textColor="@color/C242424"
+                        android:textSize="@dimen/textsize15" />
+
+                    <Button
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:background="@null"
+                        android:text="心理"
+                        android:textColor="@color/C242424"
+                        android:textSize="@dimen/textsize15" />
+                </LinearLayout>
+            </ScrollView>
+        </LinearLayout>
+
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <include layout="@layout/a_item_bingqing"></include>
+
+                <include layout="@layout/a_item_bingqing"></include>
+
+            </LinearLayout>
+        </ScrollView>
+    </LinearLayout>
+
+</LinearLayout>

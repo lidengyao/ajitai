@@ -30,13 +30,15 @@
                     android:visibility="visible" />
 
                 <RelativeLayout
-                    android:id="@+id/QieHuanZhangHaoRL"
+                    android:id="@+id/SouSuoRL"
                     style="@style/TopBarRightStyle"
+
                     android:visibility="visible">
 
                     <ImageView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_marginLeft="20dp"
                         android:layout_centerVertical="true"
                         android:layout_marginRight="20dp"
                         android:src="@mipmap/xueyuanhuibaochaxuan" />
@@ -66,6 +68,7 @@
             android:orientation="vertical">
 
             <RelativeLayout
+                android:id="@+id/TuPian_RL"
                 android:layout_width="match_parent"
                 android:layout_height="60dp">
 
@@ -78,8 +81,9 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="23dp"
+                        android:layout_height="23dp"
+                        android:scaleType="fitCenter"
                         android:src="@mipmap/a_tupian" />
 
                     <TextView
@@ -116,6 +120,7 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/YinShiPin_RL"
                 android:layout_width="match_parent"
                 android:layout_height="60dp">
 
@@ -128,8 +133,10 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+
+                        android:layout_width="23dp"
+                        android:layout_height="23dp"
+                        android:scaleType="fitCenter"
                         android:src="@mipmap/a_shipin" />
 
                     <TextView
@@ -166,6 +173,7 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/JianChaBaoGao_RL"
                 android:layout_width="match_parent"
                 android:layout_height="60dp">
 
@@ -178,8 +186,9 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="23dp"
+                        android:layout_height="23dp"
+                        android:scaleType="fitCenter"
                         android:src="@mipmap/a_chengjidan" />
 
                     <TextView
@@ -216,6 +225,7 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/HuiBaoCaiLiao_RL"
                 android:layout_width="match_parent"
                 android:layout_height="60dp">
 
@@ -228,8 +238,9 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="23dp"
+                        android:layout_height="23dp"
+                        android:scaleType="fitCenter"
                         android:src="@mipmap/a_huibao" />
 
                     <TextView
@@ -266,6 +277,7 @@
             </RelativeLayout>
 
             <RelativeLayout
+                android:id="@+id/GeRenZiLiao_RL"
                 android:layout_width="match_parent"
                 android:layout_height="60dp">
 
@@ -278,8 +290,9 @@
                     android:orientation="horizontal">
 
                     <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        android:layout_width="23dp"
+                        android:layout_height="23dp"
+                        android:scaleType="fitCenter"
                         android:src="@mipmap/a_xueyuanhuibao_geren" />
 
                     <TextView
