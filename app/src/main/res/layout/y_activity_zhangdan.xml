@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    style="@style/PageRootLL">
+    <!--头部-->
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/headheight"
+        android:background="@drawable/status_shape"
+        app:contentInsetStart="0dp">
+
+        <LinearLayout style="@style/TopStyle">
+
+            <RelativeLayout style="@style/TopBarStyle">
+
+                <LinearLayout
+                    style="@style/TopBarLeftStyle"
+                    android:visibility="visible">
+
+                    <ImageView style="@style/TopBarBackImageStyle" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/SysNameIV"
+                    style="@style/TopBarTitleStyle"
+                    android:tag="历史记录"
+                    android:text="账单" />
+
+                <RelativeLayout
+                    android:id="@+id/SaveRL"
+                    style="@style/TopBarRightStyle"
+                    android:visibility="gone">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="20dp"
+                        android:src="@mipmap/tianjia" />
+
+                    <TextView
+                        style="@style/TopBarRightTextStyle"
+                        android:text="修改"
+                        android:visibility="gone" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginTop="@dimen/llbianju"
+        android:background="@color/color2"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:id="@+id/XuanZeRiQiRL"
+            android:layout_width="match_parent"
+            android:layout_height="37dp"
+            android:layout_marginLeft="@dimen/bianju25"
+            android:layout_marginTop="13dp"
+            android:layout_marginRight="@dimen/bianju25"
+            android:layout_marginBottom="13dp"
+            android:background="@drawable/sysbtn_lishijilu_shape">
+
+            <TextView
+                android:id="@+id/RiQiTV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
+                android:layout_marginLeft="18dp"
+                android:text="2019年3月"
+                android:textColor="#666666"
+                android:textSize="@dimen/textsize14" />
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="@dimen/bianju"
+                android:src="@mipmap/xiala" />
+
+        </RelativeLayout>
+
+        <com.hxsoft.ajitai.widget.PullLoadMoreListView
+            android:id="@+id/DataListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="12dp"
+            android:divider="@null" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

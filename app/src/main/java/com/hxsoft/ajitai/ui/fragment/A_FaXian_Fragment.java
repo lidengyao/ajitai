@@ -13,15 +13,16 @@ import android.widget.RelativeLayout;
 import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.base.BasePresent;
 import com.hxsoft.ajitai.base.MvpFragment;
+import com.hxsoft.ajitai.ui.activity.A_Activity_DaJiangTang;
 import com.hxsoft.ajitai.ui.activity.A_Activity_DuShuHui;
 import com.hxsoft.ajitai.ui.activity.A_Activity_DuShuHui_List;
 import com.hxsoft.ajitai.ui.activity.A_Activity_FaXian_SouSuo;
 import com.hxsoft.ajitai.ui.activity.A_Activity_FaXian_WenZhangYueDu;
 import com.hxsoft.ajitai.ui.activity.A_Activity_LianMengYiYuan;
-import com.hxsoft.ajitai.ui.activity.A_Activity_QueRenDingDan;
 import com.hxsoft.ajitai.ui.activity.A_Activity_ShangCheng;
 import com.hxsoft.ajitai.ui.activity.A_Activity_ShangPin_XiangQing;
 import com.hxsoft.ajitai.ui.activity.A_Activity_ShiPinZhiBo;
+import com.hxsoft.ajitai.ui.activity.A_Activity_XianChangJiangZuo;
 import com.hxsoft.ajitai.ui.activity.A_Activity_XiaoXi;
 import com.hxsoft.ajitai.ui.activity.A_Activity_XinLingGanLu;
 import com.hxsoft.ajitai.ui.activity.A_Activity_XinLingXiangYue;
@@ -89,6 +90,16 @@ public class A_FaXian_Fragment extends MvpFragment {
     LinearLayout SouSuoLL;
     @Bind(R.id.ShangPin1_LL)
     LinearLayout ShangPin1LL;
+    @Bind(R.id.ZiXun_LL)
+    LinearLayout ZiXunLL;
+    @Bind(R.id.JianKangLvYou_LL)
+    LinearLayout JianKangLvYouLL;
+    @Bind(R.id.XianChangJiangZuo_LL)
+    LinearLayout XianChangJiangZuoLL;
+    @Bind(R.id.XinLingGanLu_LL)
+    LinearLayout XinLingGanLuLL;
+    @Bind(R.id.DaJiangTang_LL)
+    LinearLayout DaJiangTangLL;
 
     @Override
     protected BasePresent createPresenter() {
@@ -104,6 +115,44 @@ public class A_FaXian_Fragment extends MvpFragment {
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+
+        DaJiangTangLL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), A_Activity_DaJiangTang.class);
+                startActivity(intent);
+            }
+        });
+        ZiXunLL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showMessage("敬请期待");
+            }
+        });
+
+        JianKangLvYouLL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), A_Activity_FaXian_WenZhangYueDu.class);
+                startActivity(intent);
+            }
+        });
+
+        XianChangJiangZuoLL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), A_Activity_XianChangJiangZuo.class);
+                startActivity(intent);
+            }
+        });
+
+        XinLingGanLuLL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), A_Activity_FaXian_WenZhangYueDu.class);
+                startActivity(intent);
+            }
+        });
         XiaoXiLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

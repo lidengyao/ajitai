@@ -136,9 +136,7 @@ public class A_Activity_YinYue extends MvpActivity {
 
             }
         });
-        mMediaBrowser = new MediaBrowserCompat(this,
-                new ComponentName(this, MusicService.class), mConnectionCallback, null);
-        mMediaBrowser.connect();
+
         PlayIV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -177,13 +175,22 @@ public class A_Activity_YinYue extends MvpActivity {
             }
         });
 
+        mMediaBrowser = new MediaBrowserCompat(this,
+                new ComponentName(this, MusicService.class),mConnectionCallback, null);
+        mMediaBrowser.connect();
+
+    }
+
+    private void AddMusics()
+    {
+
     }
 
     private final MediaBrowserCompat.ConnectionCallback mConnectionCallback =
             new MediaBrowserCompat.ConnectionCallback() {
                 @Override
                 public void onConnected() {
-                    //说明已经连接上了
+                    //说明已经连接上了Y_LiShiJiLu_Activity
                     try {
                         connectToSession(mMediaBrowser.getSessionToken());
                     } catch (RemoteException e) {

@@ -29,6 +29,8 @@ public class A_Activity_QianBao extends MvpActivity {
     RelativeLayout DingDanRL;
     @Bind(R.id.ChongZhi_HaoYou_RL)
     RelativeLayout ChongZhiHaoYouRL;
+    @Bind(R.id.ZhangDan_RL)
+    RelativeLayout ZhangDanRL;
 
     @Override
     protected int getLayoutId() {
@@ -60,6 +62,14 @@ public class A_Activity_QianBao extends MvpActivity {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), A_Activity_ChongZhi_HaoYou.class);
+                startActivity(intent);
+            }
+        });
+
+        ZhangDanRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), A_ZhangDan_Activity.class);
                 startActivity(intent);
             }
         });

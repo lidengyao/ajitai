@@ -78,7 +78,18 @@
         </activity>
 
 
-
+        <activity
+            android:name=".ui.activity.A_Activity_DaJiangTang"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ui.activity.A_Activity_XianChangJiangZuo"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ui.activity.A_ZhangDan_Activity"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
         <activity
             android:name=".ui.activity.A_Activity_XueYuanHuiBao_ZhuYaoBingQing"
             android:configChanges="locale"

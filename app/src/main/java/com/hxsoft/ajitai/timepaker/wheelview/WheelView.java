@@ -705,7 +705,7 @@ public class WheelView extends View {
 		centerDrawable.draw(canvas);
 		//*/
         Paint paint = new Paint();
-        paint.setColor(getResources().getColor(R.color.province_line_border));
+        paint.setColor(getResources().getColor(R.color.line_color));
         // 设置线宽
 //		paint.setStrokeWidth((float) 3);
         paint.setStrokeWidth((float) 4);

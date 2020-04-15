@@ -1,0 +1,76 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/color22"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="85dp"
+        android:background="@drawable/ldy_cornersitemclickstyle">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center_vertical"
+            android:orientation="vertical">
+
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+
+                android:layout_marginLeft="@dimen/bianju25"
+                android:layout_marginRight="@dimen/bianju25">
+
+
+                <TextView
+                    android:id="@+id/memoTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="微信充值"
+                    android:textColor="@color/color1"
+                    android:textSize="@dimen/textsize14" />
+
+                <TextView
+                    android:id="@+id/moneyTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="+800"
+                    android:textColor="#029402"
+                    android:textSize="@dimen/textsize21" />
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="@dimen/bianju25"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="@dimen/bianju25">
+
+
+                <TextView
+                    android:id="@+id/createtimeTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="2019-03-14 18:05:53"
+                    android:textColor="#BFBFBF"
+                    android:textSize="@dimen/textsize14" />
+
+                <TextView
+                    android:id="@+id/afterTV"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:text="余额 12500"
+                    android:textColor="#BFBFBF"
+                    android:textSize="@dimen/textsize14" />
+            </RelativeLayout>
+        </LinearLayout>
+
+        <View style="@style/Left25LineStyle"></View>
+    </RelativeLayout>
+</LinearLayout>
