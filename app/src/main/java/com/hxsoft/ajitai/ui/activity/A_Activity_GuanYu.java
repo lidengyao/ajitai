@@ -1,39 +1,22 @@
 package com.hxsoft.ajitai.ui.activity;
 
-import android.content.Intent;
 import android.os.Bundle;
-import android.view.View;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
 
 import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.base.MvpActivity;
 import com.hxsoft.ajitai.present.LoginPresent;
 
-import butterknife.Bind;
 import butterknife.ButterKnife;
 
 /**
  * Created by jinxh on 16/2/1.
  */
-public class A_Activity_SheZhi extends MvpActivity {
+public class A_Activity_GuanYu extends MvpActivity {
 
-
-    @Bind(R.id.SysNameIV)
-    TextView SysNameIV;
-    @Bind(R.id.QieHuanZhangHaoRL)
-    RelativeLayout QieHuanZhangHaoRL;
-    @Bind(R.id.GuanYu_RL)
-    RelativeLayout GuanYuRL;
-    @Bind(R.id.textView)
-    TextView textView;
-    @Bind(R.id.BottomLL)
-    LinearLayout BottomLL;
 
     @Override
     protected int getLayoutId() {
-        return R.layout.a_activity_shezhi;
+        return R.layout.a_activity_guanyu;
     }
 
     @Override
@@ -42,14 +25,7 @@ public class A_Activity_SheZhi extends MvpActivity {
         // TODO: add setContentView(...) invocation
         ButterKnife.bind(this);
 
-
-        GuanYuRL.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), A_Activity_GuanYu.class);
-                startActivity(intent);
-            }
-        });
+        
     }
 
 

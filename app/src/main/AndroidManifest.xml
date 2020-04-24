@@ -79,6 +79,10 @@
 
 
         <activity
+            android:name=".ui.activity.A_Activity_GuanYu"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
             android:name=".ui.activity.A_Activity_DaJiangTang"
             android:configChanges="locale"
             android:launchMode="singleTop" />

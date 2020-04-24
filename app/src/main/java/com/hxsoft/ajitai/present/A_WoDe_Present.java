@@ -3,23 +3,29 @@ package com.hxsoft.ajitai.present;
 import android.content.Context;
 
 import com.hxsoft.ajitai.base.BasePresent;
-import com.hxsoft.ajitai.model.api.APIService;
+import com.hxsoft.ajitai.model.api.APIService_AJiTai;
 import com.hxsoft.ajitai.model.api.ApiCallBack;
 import com.hxsoft.ajitai.model.api.ApiSubscriber;
-import com.hxsoft.ajitai.model.api.RetrofitClient;
 import com.hxsoft.ajitai.model.api.ResponseBean;
-import com.hxsoft.ajitai.model.info.PhoneLoginInfo;
-import com.hxsoft.ajitai.ui.view.LoginView;
+import com.hxsoft.ajitai.model.api.RetrofitClient;
+import com.hxsoft.ajitai.model.bean.A_User_Info;
+import com.hxsoft.ajitai.ui.view.A_WoDe_View;
+import com.hxsoft.ajitai.utils.FileUtils;
+import com.hxsoft.ajitai.utils.LogCode;
 
 import rx.Observable;
 
 /**
  * Created by jinxh on 16/2/1.
  */
-public class LoginPresent extends BasePresent<LoginView> {
-    public void login(final String phone, String password, Context context) {
-        Observable<ResponseBean<PhoneLoginInfo>> observable = RetrofitClient.builderRetrofit(context).create(APIService.class).phoneLogin(phone, password);
-        addIOSubscription(observable, new ApiSubscriber(new ApiCallBack<PhoneLoginInfo>() {
+public class A_WoDe_Present extends BasePresent<A_WoDe_View> {
+
+    //获取当前用户基本信息
+    public void userInfo( Context context) {
+        String tip = "A_WoDe_Present-userInfo-获取当前用户基本信息\r\n";
+        FileUtils.writeLogToFile(tip);
+        Observable<ResponseBean<A_User_Info>> observable = RetrofitClient.builderRetrofit(context).create(APIService_AJiTai.class).userInfo();
+        addIOSubscription(observable, new ApiSubscriber(new ApiCallBack<A_User_Info>() {
             @Override
             public void onStart() {
                 super.onStart();
@@ -29,16 +35,16 @@ public class LoginPresent extends BasePresent<LoginView> {
             }
 
             @Override
-            public void onSuccess(PhoneLoginInfo model) {
+            public void onSuccess(A_User_Info model) {
                 if (getView() != null) {
-                    getView().loginSuccess(model);
+                    getView().userInfoSuccess(model);
                 }
             }
 
             @Override
             public void onFailure(int code, String msg) {
                 if (getView() != null) {
-                    getView().showMessage(msg);
+                    getView().showMessage(LogCode.GetCode(tip) + msg);
                 }
             }
 
@@ -50,5 +56,4 @@ public class LoginPresent extends BasePresent<LoginView> {
             }
         },context));
     }
-
 }

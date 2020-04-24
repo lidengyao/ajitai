@@ -1,4 +1,4 @@
-package com.hxsoft.ajitai.model.bean;
+package com.hxsoft.ajitai.model.api;
 
 /**
  * Created by jinxh on 16/2/17.
@@ -7,7 +7,6 @@ public class ResponseBean<T> {
     private String code;
     private T data;
     private String msg;
-    private String time;
 
     public T getData() {
         return data;
@@ -17,13 +16,6 @@ public class ResponseBean<T> {
         this.data = data;
     }
 
-    public String getTime() {
-        return time;
-    }
-
-    public void setTime(String time) {
-        this.time = time;
-    }
 
     public String getCode() {
         return code;

@@ -18,10 +18,10 @@ import android.widget.TextView;
 
 import com.hxsoft.ajitai.BuildConfig;
 import com.hxsoft.ajitai.R;
-import com.hxsoft.ajitai.base.BasePresent;
 import com.hxsoft.ajitai.base.MvpActivity;
 import com.hxsoft.ajitai.jpush.ExampleUtil;
 import com.hxsoft.ajitai.jpush.LocalBroadcastManager;
+import com.hxsoft.ajitai.present.A_WoDe_Present;
 import com.hxsoft.ajitai.ui.fragment.A_FaXian_Fragment;
 import com.hxsoft.ajitai.ui.fragment.A_GanWu_Fragment;
 import com.hxsoft.ajitai.ui.fragment.A_WoDe_Fragment;
@@ -40,7 +40,6 @@ import butterknife.Bind;
 import butterknife.ButterKnife;
 
 public class A_Main_Activity extends MvpActivity implements View.OnClickListener, ViewPager.OnPageChangeListener {
-
 
     ArrayList<Fragment> fragments = new ArrayList<>();
     @Bind(R.id.ContentSP)
@@ -90,8 +89,8 @@ public class A_Main_Activity extends MvpActivity implements View.OnClickListener
     }
 
     @Override
-    protected BasePresent createPresenter() {
-        return null;
+    protected A_WoDe_Present createPresenter() {
+        return new A_WoDe_Present();
     }
 
 
@@ -282,6 +281,8 @@ public class A_Main_Activity extends MvpActivity implements View.OnClickListener
                 break;
         }
     }
+
+
 
     public class MyFragmentPagerAdapter extends FragmentPagerAdapter {
 

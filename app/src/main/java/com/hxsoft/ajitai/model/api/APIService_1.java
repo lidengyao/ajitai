@@ -2,7 +2,6 @@ package com.hxsoft.ajitai.model.api;
 
 import com.hxsoft.ajitai.model.bean.CheLiangGuiJi_Bean;
 import com.hxsoft.ajitai.model.bean.CheLiangGuiJi_ShiShi_Bean;
-import com.hxsoft.ajitai.model.bean.ResponseBean;
 import com.hxsoft.ajitai.model.info.CheLiangJianKong_GuiJi_Info;
 import com.hxsoft.ajitai.model.info.CheLiangJianKong_ShiShi_Info;
 

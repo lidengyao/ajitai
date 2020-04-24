@@ -53,6 +53,11 @@ public class WearActivity extends MvpActivity<LoginPresent> implements View.OnCl
     }
 
     @Override
+    public void onFailure(int code, String msg) {
+
+    }
+
+    @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // TODO: add setContentView(...) invocation

@@ -3,6 +3,7 @@ package com.hxsoft.ajitai;
 import android.app.Application;
 
 import com.hxsoft.ajitai.model.db.DBHelper;
+import com.hxsoft.ajitai.utils.GetDeviceId;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
@@ -20,8 +21,9 @@ import cn.jpush.android.api.JPushInterface;
 public class AppContext extends Application {
 
     public static boolean offLine = false;//是否设置为离线版本
+    public static String sKey = "thanks,pig4cloud";
     public static boolean debug = true;
-    public static String API_BASE_URL = "https://www.yck2046.com/api/";
+    public static String API_BASE_URL = "http://103.45.179.57:9999/";
     //                public static String API_BASE_URL = "http://zejun.free.idcfengye.com/";
     public static String API_BASE_URL_1 = "http://app.hxsoft.net:8081/";
     // 配置是否要沉浸式头部
@@ -79,4 +81,6 @@ public class AppContext extends Application {
             e.printStackTrace();
         }
     }
+
+
 }

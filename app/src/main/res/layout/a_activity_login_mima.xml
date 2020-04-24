@@ -56,8 +56,8 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="80dp"
         android:layout_marginLeft="40dp"
+        android:layout_marginTop="80dp"
         android:layout_marginRight="40dp"
         android:orientation="vertical">
 
@@ -75,6 +75,7 @@
             android:layout_marginTop="60dp">
 
             <EditText
+                android:id="@+id/username_ET"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@null"
@@ -93,6 +94,7 @@
             android:layout_marginTop="15dp">
 
             <EditText
+                android:id="@+id/password_ET"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:background="@null"
@@ -121,8 +123,9 @@
 
         <Button
             android:id="@+id/OKBtn"
+            style="@style/Button_Style"
             android:layout_width="match_parent"
-            android:layout_height="45dp" style="@style/Button_Style"
+            android:layout_height="45dp"
             android:layout_marginTop="25dp"
             android:background="@drawable/sysbtn_gray_ebebeb_4_shape"
             android:enabled="true"

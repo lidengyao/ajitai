@@ -84,4 +84,9 @@ public class A_LoginActivity_BandMobile extends MvpActivity<LoginPresent> implem
 
     }
 
+    @Override
+    public void onFailure(int code, String msg) {
+
+    }
+
 }

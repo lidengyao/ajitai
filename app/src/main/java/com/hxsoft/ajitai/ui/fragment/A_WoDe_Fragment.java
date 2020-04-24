@@ -8,10 +8,13 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 
+import com.google.gson.Gson;
 import com.hxsoft.ajitai.R;
-import com.hxsoft.ajitai.base.BasePresent;
 import com.hxsoft.ajitai.base.MvpFragment;
+import com.hxsoft.ajitai.model.bean.A_User_Info;
+import com.hxsoft.ajitai.present.A_WoDe_Present;
 import com.hxsoft.ajitai.ui.activity.A_Activity_ChengJiDan;
 import com.hxsoft.ajitai.ui.activity.A_Activity_GeRenXinXi;
 import com.hxsoft.ajitai.ui.activity.A_Activity_GouWuChe;
@@ -22,6 +25,10 @@ import com.hxsoft.ajitai.ui.activity.A_Activity_WoDeFenSi;
 import com.hxsoft.ajitai.ui.activity.A_Activity_WoDeGuanZhu;
 import com.hxsoft.ajitai.ui.activity.A_Activity_WoDeKeCheng;
 import com.hxsoft.ajitai.ui.activity.A_Activity_WoDeShouCang;
+import com.hxsoft.ajitai.ui.view.A_WoDe_View;
+import com.hxsoft.ajitai.utils.DbKeyS;
+import com.hxsoft.ajitai.utils.GlideControl;
+import com.hxsoft.ajitai.utils.SpUtils;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -29,7 +36,7 @@ import butterknife.ButterKnife;
 /**
  * Created by lidengyao on 2016-10-12 0012.
  */
-public class A_WoDe_Fragment extends MvpFragment {
+public class A_WoDe_Fragment extends MvpFragment<A_WoDe_Present> implements A_WoDe_View {
     @Bind(R.id.QianBaoRL)
     RelativeLayout QianBaoRL;
     @Bind(R.id.ChengJiDan_RL)
@@ -52,10 +59,16 @@ public class A_WoDe_Fragment extends MvpFragment {
     ImageView SendMsgIV;
     @Bind(R.id.WoDeKeCheng_RL)
     RelativeLayout WoDeKeChengRL;
+    @Bind(R.id.avatar_IV)
+    ImageView avatarIV;
+    @Bind(R.id.nickname_TV)
+    TextView nicknameTV;
+    @Bind(R.id.phone_TTV)
+    TextView phoneTTV;
 
     @Override
-    protected BasePresent createPresenter() {
-        return null;
+    protected A_WoDe_Present createPresenter() {
+        return new A_WoDe_Present();
     }
 
     @Override
@@ -157,6 +170,35 @@ public class A_WoDe_Fragment extends MvpFragment {
                 startActivity(intent);
             }
         });
+
+
+    }
+
+    @Override
+    public void userInfoSuccess(A_User_Info model) {
+        if (model == null)
+            return;
+        Gson gson = new Gson();
+        String gsonStr = gson.toJson(model);
+        SpUtils.saveSettingNote(getContext(), DbKeyS.A_User_Info, gsonStr);
+
+        //UI赋值
+        GlideControl.SetCircleImage(getContext(), model.getSysUser().getAvatar(), avatarIV, R.mipmap.a_touxiang);
+
+        nicknameTV.setText(model.getSysUser().getNickname());
+        phoneTTV.setText(model.getSysUser().getPhone().substring(0, 3) + "****" + model.getSysUser().getPhone().substring(7, 11));
+
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        presenter.userInfo(getContext());
+    }
+
+    @Override
+    public void onFailure(int code, String msg) {
+        showMessage(msg);
     }
 
     @Override

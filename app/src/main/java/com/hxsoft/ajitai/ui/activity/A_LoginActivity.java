@@ -15,6 +15,7 @@ import com.hxsoft.ajitai.base.MvpActivity;
 import com.hxsoft.ajitai.model.info.PhoneLoginInfo;
 import com.hxsoft.ajitai.present.LoginPresent;
 import com.hxsoft.ajitai.ui.view.LoginView;
+import com.hxsoft.ajitai.utils.MStringUtils;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -74,7 +75,20 @@ public class A_LoginActivity extends MvpActivity<LoginPresent> implements View.O
         OKBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                if (MStringUtils.IsNullOrEmpty(MobileET.getText().toString())) {
+                    showMessage("请输入手机号");
+                    return;
+                }
+                if (MobileET.getText().toString().length() != 11) {
+                    showMessage("请输入11位手机号");
+                    return;
+                }
+                if (!MobileET.getText().toString().substring(0, 1).equals("1")) {
+                    showMessage("请输入正确手机号");
+                    return;
+                }
                 Intent intent = new Intent(getContext(), A_LoginActivity_YanZheng.class);
+                intent.putExtra("mobile", MobileET.getText().toString());
                 startActivity(intent);
             }
         });
@@ -126,6 +140,11 @@ public class A_LoginActivity extends MvpActivity<LoginPresent> implements View.O
     public void loginSuccess(PhoneLoginInfo model) {
         showMessage("登陆成功");
 
+    }
+
+    @Override
+    public void onFailure(int code, String msg) {
+        showMessage(msg);
     }
 
 }

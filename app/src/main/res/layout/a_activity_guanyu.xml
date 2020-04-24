@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     style="@style/PageRootLL"
-    android:background="@color/color2">
+    android:background="@color/color22">
 
 
     <!--头部-->
@@ -26,8 +26,8 @@
                 <TextView
                     android:id="@+id/SysNameIV"
                     style="@style/TopBarTitleStyle"
-                    android:tag="设置"
-                    android:text="设置"
+                    android:tag="关于"
+                    android:text="关于"
                     android:visibility="visible" />
 
                 <RelativeLayout
@@ -69,13 +69,16 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
 
-                android:background="@color/color2"
                 android:orientation="vertical">
+
+
 
 
                 <!--个人信息-->
                 <RelativeLayout
+                    android:layout_marginTop="20dp"
                     android:layout_width="match_parent"
+                    android:background="@color/color2"
                     android:layout_height="60dp">
 
                     <TextView
@@ -83,7 +86,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="24dp"
-                        android:text="个人信息"
+                        android:text="特别声明"
                         android:textColor="@color/C242424"
                         android:textSize="@dimen/textsize16" />
 
@@ -113,6 +116,7 @@
                 <!--密码修改-->
                 <RelativeLayout
                     android:layout_width="match_parent"
+                    android:background="@color/color2"
                     android:layout_height="60dp">
 
                     <TextView
@@ -120,7 +124,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="24dp"
-                        android:text="密码修改"
+                        android:text="使用帮助"
                         android:textColor="@color/C242424"
                         android:textSize="@dimen/textsize16" />
 
@@ -146,74 +150,11 @@
                         android:layout_marginLeft="20dp"></View>
                 </RelativeLayout>
 
-                <!--当前版本-->
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp">
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="24dp"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-
-                            android:text="当前版本"
-                            android:textColor="@color/C242424"
-                            android:textSize="@dimen/textsize16" />
-
-                        <TextView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-
-                            android:layout_marginLeft="8dp"
-                            android:text="V 4.8.0"
-                            android:textColor="@color/CA8A8A8"
-                            android:textSize="@dimen/textsize12" />
-
-                    </LinearLayout>
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="20dp"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
-
-                        <Button
-                            android:layout_width="67dp" style="@style/Button_Style"
-                            android:layout_height="27dp"
-                            android:text="检测更新"
-                            android:layout_marginRight="12dp"
-                            android:background="@drawable/sysbtn_ffe248_4_shape"
-                            android:textColor="@color/C242424"
-                            android:textSize="@dimen/textsize12" />
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@mipmap/a_next" />
-                    </LinearLayout>
-
-                    <View
-                        style="@style/LineStyle"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginLeft="20dp"></View>
-                </RelativeLayout>
 
                 <!--APP下载分享-->
                 <RelativeLayout
                     android:layout_width="match_parent"
+                    android:background="@color/color2"
                     android:layout_height="60dp">
 
                     <TextView
@@ -221,7 +162,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="24dp"
-                        android:text="APP下载分享"
+                        android:text="给我评分"
                         android:textColor="@color/C242424"
                         android:textSize="@dimen/textsize16" />
 
@@ -249,7 +190,7 @@
 
                 <!--关于阿吉泰-->
                 <RelativeLayout
-                    android:id="@+id/GuanYu_RL"
+                    android:background="@color/color2"
                     android:layout_width="match_parent"
                     android:layout_height="60dp">
 
@@ -258,7 +199,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="24dp"
-                        android:text="关于阿吉泰"
+                        android:text="隐私政策"
                         android:textColor="@color/C242424"
                         android:textSize="@dimen/textsize16" />
 
@@ -284,8 +225,9 @@
                         android:layout_marginLeft="20dp"></View>
                 </RelativeLayout>
 
-                <!--公众号设置-->
+                <!--关于阿吉泰-->
                 <RelativeLayout
+                    android:background="@color/color2"
                     android:layout_width="match_parent"
                     android:layout_height="60dp">
 
@@ -294,44 +236,7 @@
                         android:layout_height="wrap_content"
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="24dp"
-                        android:text="公众号设置"
-                        android:textColor="@color/C242424"
-                        android:textSize="@dimen/textsize16" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="20dp"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@mipmap/a_next"
-                            android:visibility="invisible" />
-                    </LinearLayout>
-
-                    <View
-                        style="@style/LineStyle"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginLeft="20dp"></View>
-                </RelativeLayout>
-
-                <!--系统公告-->
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="24dp"
-                        android:text="系统公告"
+                        android:text="关注公众号"
                         android:textColor="@color/C242424"
                         android:textSize="@dimen/textsize16" />
 
@@ -358,62 +263,25 @@
                 </RelativeLayout>
 
 
-                <!--客服电话-->
-                <RelativeLayout
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="60dp">
-
+                    android:layout_marginTop="50dp"
+                    android:gravity="center"
+                    android:orientation="vertical"
+                    android:layout_height="wrap_content">
                     <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="24dp"
-                        android:text="客服电话"
-                        android:textColor="@color/C242424"
-                        android:textSize="@dimen/textsize16" />
-
-                    <LinearLayout
+                        android:text="Copyright@2016-2021"
+                        android:layout_height="wrap_content" />
+                    <TextView
                         android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="20dp"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@mipmap/a_next" />
-                    </LinearLayout>
-
-                    <View
-                        style="@style/LineStyle"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginLeft="20dp"></View>
-                </RelativeLayout>
-
+                        android:text="弘晓软件hxsoft.net版权所有"
+                        android:layout_marginTop="2dp"
+                        android:layout_height="wrap_content" />
+                </LinearLayout>
             </LinearLayout>
         </ScrollView>
 
-        <LinearLayout
-            android:id="@+id/BottomLL"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_alignParentBottom="true"
-            android:background="#F1D649"
-            android:gravity="center"
-            android:orientation="horizontal">
-
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="退出当前账号"
-                android:textColor="@color/C242424"
-                android:textSize="@dimen/textsize16" />
-        </LinearLayout>
     </RelativeLayout>
 
 </LinearLayout>

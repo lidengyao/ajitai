@@ -51,16 +51,12 @@ public class RetrofitClient {
                     // Request customization: add request headers
                     Request.Builder requestBuilder = original.newBuilder();
 
-                    String token = SpUtils.getSettingNote(context, DbKeyS.yck_token);
-                    String moduleType = SpUtils.getSettingNote(context, DbKeyS.systype);
+                    String token = SpUtils.getSettingNote(context, DbKeyS.token);
                     requestBuilder.addHeader("Content-Type", "application/json");
                     requestBuilder.addHeader("VERSION", "1.0");
                     requestBuilder.addHeader("Accept", "application/json");
                     if (token != null)
-                        requestBuilder.addHeader("token", token);
-                    if (moduleType != null) {
-                        requestBuilder.addHeader("moduleType", moduleType);
-                    }
+                        requestBuilder.addHeader("Authorization","bearer "+ token);
 
                     Request request = requestBuilder.build();
                     return chain.proceed(request);

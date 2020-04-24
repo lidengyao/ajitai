@@ -69,14 +69,30 @@
             android:textSize="@dimen/textsize25"
             android:textStyle="bold" />
 
-        <TextView
+        <LinearLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="12dp"
-            android:text="短信验证码已发送至+86 188****8888"
-            android:textColor="@color/CA8A8A8"
-            android:textSize="@dimen/textsize12"
-            android:textStyle="bold" />
+            android:orientation="horizontal">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+
+                android:text="短信验证码已发送至+86 "
+                android:textColor="@color/CA8A8A8"
+                android:textSize="@dimen/textsize12"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/Mobile_TV"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textColor="@color/CA8A8A8"
+                android:textSize="@dimen/textsize12"
+                android:textStyle="bold" />
+        </LinearLayout>
 
         <RelativeLayout
             android:layout_width="match_parent"
@@ -88,6 +104,7 @@
                 android:layout_height="match_parent">
 
                 <EditText
+                    android:id="@+id/YanZhengMa_ET"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_toLeftOf="@+id/getCodeBtn"
@@ -97,8 +114,9 @@
 
                 <Button
                     android:id="@+id/getCodeBtn"
-                    android:layout_width="71dp"
-                    android:layout_height="28dp" style="@style/Button_Style"
+                    style="@style/Button_Style"
+                    android:layout_width="75dp"
+                    android:layout_height="28dp"
                     android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:background="@drawable/sysbtn_gray_c7c7c7_4_shape"
@@ -116,8 +134,9 @@
 
         <Button
             android:id="@+id/OKBtn"
+            style="@style/Button_Style"
             android:layout_width="match_parent"
-            android:layout_height="45dp" style="@style/Button_Style"
+            android:layout_height="45dp"
             android:layout_marginTop="25dp"
             android:background="@drawable/sysbtn_gray_ebebeb_4_shape"
             android:enabled="true"

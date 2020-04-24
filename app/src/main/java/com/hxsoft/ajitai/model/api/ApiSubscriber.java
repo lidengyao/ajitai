@@ -4,7 +4,6 @@ package com.hxsoft.ajitai.model.api;
 import android.content.Context;
 
 import com.hxsoft.ajitai.AppContext;
-import com.hxsoft.ajitai.model.bean.ResponseBean;
 
 import java.net.UnknownHostException;
 
@@ -41,7 +40,8 @@ public class ApiSubscriber<T> extends Subscriber<ResponseBean<T>> {
     public void onError(Throwable e) {
         e.printStackTrace();
         if (e instanceof HttpException || e instanceof UnknownHostException) {
-            apiCallback.onFailure(UNKNOWN_CODE, AppContext.NET_ERROR_MSG);
+//            apiCallback.onFailure(UNKNOWN_CODE, AppContext.NET_ERROR_MSG);
+            apiCallback.onFailure(UNKNOWN_CODE, e.getMessage());
         } else {
             apiCallback.onFailure(UNKNOWN_CODE, e.getMessage());
         }
