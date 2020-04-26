@@ -75,7 +75,7 @@ public class PCA_Popwindow   implements View.OnClickListener {
 
         _onAddressCListener=onAddressCListener;
         Gson gsonZU = new Gson();
-        String y_pca_gson = SpUtils.getSettingNote(context, DbKeyS.pca);
+        String y_pca_gson = SpUtils.getSettingNote(context, DbKeyS.test);
 //        Y_PCA y_pca = gsonZU.fromJson(y_pca_gson, Y_PCA.class);
 //
 //

@@ -1,7 +1,7 @@
 package com.hxsoft.ajitai;
 
 public class Constants {
-    public static final String APP_ID = "wx359f620e3b9be21d";
+    public static final String APP_ID = "wxa5cad93b1a90dff5";
     public static final String AppSecret = "ccd18110692f3444221b736d522bf1df";
     public static final String STS_SERVER_URL = "https://www.yck2046.com/api/sts/securitytoken";//STS 地址
     public static final String BUCKET_NAME = "yck-oss";

@@ -145,7 +145,7 @@ public class ObjectControl_Adapter <T>{
                             tempNormal.getTextView().setText(BaseCodeUtils.getValue(Integer.parseInt(value), context));
                         } else if (tempNormal.getStatus()) {
                             tempNormal.getTextView().setText(BaseCodeUtils.getValue(Integer.parseInt(value), context));
-                            DicUtils.SetStatus(DbKeyS.status_tongzhigonggao, Integer.parseInt(value), context,   tempNormal.getTextView());
+                            DicUtils.SetStatus(DbKeyS.test, Integer.parseInt(value), context,   tempNormal.getTextView());
                         } else {
                             tempNormal.getTextView().setText(value);
                         }

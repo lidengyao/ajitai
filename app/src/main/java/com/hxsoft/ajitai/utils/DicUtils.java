@@ -65,7 +65,7 @@ public class DicUtils {
         String value = "";
         try {
             Gson gson = new Gson();
-            String gsonData = SpUtils.getSettingNote(context, DbKeyS.basecodedata);
+            String gsonData = SpUtils.getSettingNote(context, DbKeyS.test);
 
             ArrayList<BaseCodeInfo> baseCodeInfoArrayList = new ArrayList<>();
             if (!gsonData.equals("")) {
@@ -140,7 +140,7 @@ public class DicUtils {
 
             Gson gson = new Gson();
             String statusdata = gson.toJson(statusCArrayList);
-            SpUtils.saveSettingNote(context, DbKeyS.statusdata, statusdata);
+            SpUtils.saveSettingNote(context, DbKeyS.test, statusdata);
 
 
         } catch (XmlPullParserException e) {
@@ -203,7 +203,7 @@ public class DicUtils {
 
             Gson gson = new Gson();
             String statusdata = gson.toJson(statusCArrayList);
-            SpUtils.saveSettingNote(context, DbKeyS.mapdata, statusdata);
+            SpUtils.saveSettingNote(context, DbKeyS.test, statusdata);
 
 
         } catch (XmlPullParserException e) {
@@ -217,7 +217,7 @@ public class DicUtils {
     public static ArrayList<BaseCodeInfo> getStatusDic(Context context, String statusName) {
         ArrayList<BaseCodeInfo> statusBaseCodeInfoList = new ArrayList<>();
         Gson gson = new Gson();
-        String gsonData = SpUtils.getSettingNote(context, DbKeyS.statusdata);
+        String gsonData = SpUtils.getSettingNote(context, DbKeyS.test);
 
         ArrayList<StatusC> statusList = new ArrayList<>();
         if (!gsonData.equals("")) {
@@ -248,7 +248,7 @@ public class DicUtils {
         String mapValue = "";
         ArrayList<BaseCodeInfo> statusBaseCodeInfoList = new ArrayList<>();
         Gson gson = new Gson();
-        String gsonData = SpUtils.getSettingNote(context, DbKeyS.mapdata);
+        String gsonData = SpUtils.getSettingNote(context, DbKeyS.test);
 
         ArrayList<StatusC> statusList = new ArrayList<>();
         if (!gsonData.equals("")) {
@@ -332,7 +332,7 @@ public class DicUtils {
 
             Gson gson = new Gson();
             String helpData = gson.toJson(helpBeanArrayList);
-            SpUtils.saveSettingNote(context, DbKeyS.helpdata, helpData);
+            SpUtils.saveSettingNote(context, DbKeyS.test, helpData);
 
 
         } catch (XmlPullParserException e) {
@@ -406,7 +406,7 @@ public class DicUtils {
         String value = "";
         Integer ColorID = 0;
         Gson gson = new Gson();
-        String gsonData = SpUtils.getSettingNote(context, DbKeyS.statusdata);
+        String gsonData = SpUtils.getSettingNote(context, DbKeyS.test);
 
         ArrayList<StatusC> statusCArrayList = new ArrayList<>();
         if (!gsonData.equals("")) {
@@ -439,7 +439,7 @@ public class DicUtils {
         String value = "";
         try {
             Gson gson = new Gson();
-            String gsonData = SpUtils.getSettingNote(context, DbKeyS.allqiyedata);
+            String gsonData = SpUtils.getSettingNote(context, DbKeyS.test);
 
             ArrayList<Unit_Info> unit_infoArrayList = new ArrayList<>();
             if (!gsonData.equals("")) {
@@ -467,7 +467,7 @@ public class DicUtils {
         String value = "";
         try {
             Gson gson = new Gson();
-            String gsonData = SpUtils.getSettingNote(context, DbKeyS.usersdata);
+            String gsonData = SpUtils.getSettingNote(context, DbKeyS.test);
 
             ArrayList<YongHuGuanLi_Info> users_infoArrayList = new ArrayList<>();
             if (!gsonData.equals("")) {

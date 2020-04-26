@@ -121,7 +121,7 @@ public class PineConeFloatBallView extends LinearLayout {
 //            mFBManager.showD2DInFo();
 
             Gson gson = new Gson();
-            String gsonData = SpUtils.getSettingNote(getContext(), DbKeyS.w_userinfo);
+            String gsonData = SpUtils.getSettingNote(getContext(), DbKeyS.test);
             Toast.makeText(getContext(),gsonData,Toast.LENGTH_LONG).show();
 //            View view_dolog = LayoutInflater.from(getContext()).inflate(R.layout.w_dialog_help, null, false);
 //

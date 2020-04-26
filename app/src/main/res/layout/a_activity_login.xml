@@ -55,7 +55,7 @@
                     android:background="@null"
                     android:hint="请输入手机号"
                     android:maxLength="11"
-                    android:text="15251435195"
+                    android:text="1525143519"
                     android:textSize="@dimen/textsize16" />
             </LinearLayout>
 

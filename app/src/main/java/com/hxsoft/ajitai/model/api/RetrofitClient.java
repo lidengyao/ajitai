@@ -30,7 +30,6 @@ import retrofit2.converter.gson.GsonConverterFactory;
  */
 public class RetrofitClient {
     public static Retrofit mRetrofit;
-    public static Retrofit mRetrofit_1;
 
     private RetrofitClient(Context context) {
 
@@ -77,72 +76,6 @@ public class RetrofitClient {
         return mRetrofit;
     }
 
-    /*
-    车辆轨迹
-     */
-    public static Retrofit builderRetrofit_1(final Context context) {
-        if (mRetrofit_1 == null) {
-            // log
-            HttpLoggingInterceptor logging = new HttpLoggingInterceptor();
-            logging.setLevel(HttpLoggingInterceptor.Level.BODY);
-            OkHttpClient.Builder httpClient = new OkHttpClient.Builder();
-
-            //添加head
-            httpClient.interceptors().add(new Interceptor() {
-                @Override
-                public Response intercept(Interceptor.Chain chain) throws IOException {
-
-                    Gson gson = new Gson();
-//                    String s = AppContext.dbHelper.GetValue(DbKeyS.logininfo);
-                    String s = SpUtils.getSettingNote(context, DbKeyS.logininfo);
-//                    LoginInfo loginInfo = gson.fromJson(s, LoginInfo.class);
-
-//                    String Bearer = "Bearer ";
-                    Request original = chain.request();
-
-                    // Request customization: add request headers
-                    Request.Builder requestBuilder = original.newBuilder();
-
-                    Response proceed = chain.proceed(requestBuilder.build());
-//                    if (loginInfo != null) {
-////                        String yck_token = AppContext.dbHelper.GetValue(DbKeyS.yck_token);
-//                        String yck_token = SpUtils.getSettingNote(context, DbKeyS.yck_token);
-//                        if (yck_token.equals("-1")) {
-//                            requestBuilder.addHeader("Authorization", Bearer + loginInfo.getRefresh_token());
-//                        } else {
-//                            requestBuilder.addHeader("Authorization", Bearer + loginInfo.getAccess_token());
-//                        }
-//                    }
-                    String token = SpUtils.getSettingNote(context, DbKeyS.yck_token);
-                    requestBuilder.addHeader("Content-Type", "application/json");
-                    requestBuilder.addHeader("VERSION", "1.0");
-                    requestBuilder.addHeader("Accept", "application/json");
-                    if (token != null)
-                        requestBuilder.addHeader("yck_token", token);
-//                    Request.Builder requestBuilder = original.newBuilder()
-//                            .addHeader("Authorization", Authorization + loginInfo.getAccess_token())
-//                            .addHeader("Content-Type", "application/json")
-//                            .addHeader("VERSION", "1.0")
-//                            .addHeader("Accept", "application/json");
-
-                    Request request = requestBuilder.build();
-                    return chain.proceed(request);
-                }
-            });
-
-            httpClient.addInterceptor(logging);
-            Gson gson = new GsonBuilder().registerTypeAdapterFactory(new NullToDefaultValueAdapterFactory()).create();
-
-            mRetrofit_1 = new Retrofit.Builder()
-                    .baseUrl(AppContext.API_BASE_URL_1)
-                    .addConverterFactory(GsonConverterFactory.create(gson))
-                    .addCallAdapterFactory(RxJavaCallAdapterFactory.create())
-                    .client(httpClient.build())
-                    .build();
-
-        }
-        return mRetrofit_1;
-    }
 
     public static class NullToDefaultValueAdapterFactory<T> implements TypeAdapterFactory {
         @SuppressWarnings("unchecked")

@@ -12,7 +12,7 @@ public class JPushControl {
     public static void SetJPush(Context context) {
 
         Gson gsonZU = new Gson();
-        String userinfo = SpUtils.getSettingNote(context, DbKeyS.userindex);
+        String userinfo = SpUtils.getSettingNote(context, DbKeyS.test);
         UserIndexInfo.UserinfoBean userinfoBean = gsonZU.fromJson(userinfo, UserIndexInfo.UserinfoBean.class);
 
         if (JPushInterface.isPushStopped(context)) {

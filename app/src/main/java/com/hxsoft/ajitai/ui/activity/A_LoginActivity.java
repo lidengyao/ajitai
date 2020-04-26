@@ -9,13 +9,18 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.hxsoft.ajitai.Constants;
 import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.base.MvpActivity;
 import com.hxsoft.ajitai.model.info.PhoneLoginInfo;
 import com.hxsoft.ajitai.present.LoginPresent;
 import com.hxsoft.ajitai.ui.view.LoginView;
 import com.hxsoft.ajitai.utils.MStringUtils;
+import com.hxsoft.ajitai.wxapi.WXAPI;
+import com.tencent.mm.opensdk.openapi.IWXAPI;
+import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -35,7 +40,7 @@ public class A_LoginActivity extends MvpActivity<LoginPresent> implements View.O
     TextView CenterTV;
     @Bind(R.id.WeiXinIV)
     ImageView WeiXinIV;
-
+    private IWXAPI api;
     @Override
     protected int getLayoutId() {
         return R.layout.a_activity_login;
@@ -46,7 +51,9 @@ public class A_LoginActivity extends MvpActivity<LoginPresent> implements View.O
         super.onCreate(savedInstanceState);
         // TODO: add setContentView(...) invocation
         ButterKnife.bind(this);
-
+        WXAPI.Init(this);
+        api = WXAPIFactory.createWXAPI(this, Constants.APP_ID, false);
+        regToWx();
         MobileET.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -104,10 +111,17 @@ public class A_LoginActivity extends MvpActivity<LoginPresent> implements View.O
         WeiXinIV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), A_LoginActivity_BandMobile.class);
-                startActivity(intent);
+                if (!api.isWXAppInstalled()) {
+                    Toast.makeText(getContext(), "您的设备未安装微信客户端", Toast.LENGTH_SHORT).show();
+                } else {
+                    WXAPI.Login();
+                }
             }
         });
+    }
+    private void regToWx() {
+        api = WXAPIFactory.createWXAPI(this, Constants.APP_ID, false);
+        api.registerApp(Constants.APP_ID);
     }
 
     @Override

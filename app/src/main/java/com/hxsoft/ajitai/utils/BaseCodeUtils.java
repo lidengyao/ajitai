@@ -15,7 +15,7 @@ public class BaseCodeUtils {
         String value = "";
         try {
             Gson gson = new Gson();
-            String gsonData = SpUtils.getSettingNote(context, DbKeyS.basecodelist);
+            String gsonData = SpUtils.getSettingNote(context, DbKeyS.test);
 
             ArrayList<BaseCodeInfo> baseCodeInfoArrayList = new ArrayList<>();
             if (!gsonData.equals("")) {

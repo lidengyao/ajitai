@@ -111,10 +111,18 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
 
         switch (resp.errCode) {
             case BaseResp.ErrCode.ERR_OK:
-                result = R.string.errcode_success;
-                SendAuth.Resp authResp = (SendAuth.Resp) resp;
-                SpUtils.saveSettingNote(this, DbKeyS.yck_weixindenglu,"1");
-                SpUtils.saveSettingNote(this, DbKeyS.yck_code,authResp.code);
+                if (WXAPI.Type == 1) {
+
+                }
+                if (WXAPI.Type == 2) {
+                }
+
+                //微信登陆
+                if (WXAPI.Type == 3) {
+                    SendAuth.Resp authResp = (SendAuth.Resp) resp;
+                    SpUtils.saveSettingNote(this, DbKeyS.weixindenglu, "1");
+                    SpUtils.saveSettingNote(this, DbKeyS.wx_code, authResp.code);
+                }
                 break;
             case BaseResp.ErrCode.ERR_USER_CANCEL:
                 result = R.string.errcode_cancel;
