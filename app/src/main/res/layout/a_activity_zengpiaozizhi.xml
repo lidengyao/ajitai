@@ -26,7 +26,7 @@
                 <TextView
                     android:id="@+id/SysNameIV"
                     style="@style/TopBarTitleStyle"
-                    android:tag="设置"
+                    android:tag="增票资质"
                     android:text="增票资质"
                     android:visibility="visible" />
 
@@ -54,276 +54,20 @@
 
     </android.support.v7.widget.Toolbar>
 
-
     <View style="@style/LineStyle"></View>
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
-        <ScrollView
+
+        <com.hxsoft.ajitai.widget.PullLoadMoreListView
+            android:id="@+id/DataListView"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_above="@+id/BottomLL">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-
-                android:background="@color/color2"
-                android:orientation="vertical">
-
-
-                <!--单位名称-->
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="24dp"
-                        android:text="单位名称"
-                        android:textColor="@color/C242424"
-                        android:textSize="@dimen/textsize16" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="20dp"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@mipmap/a_next"
-                            android:visibility="visible" />
-                    </LinearLayout>
-
-                    <View
-                        style="@style/LineStyle"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginLeft="20dp"></View>
-                </RelativeLayout>
-
-                <!--纳税人识别号-->
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="24dp"
-                        android:text="纳税人识别号"
-                        android:textColor="@color/C242424"
-                        android:textSize="@dimen/textsize16" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="20dp"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@mipmap/a_next" />
-                    </LinearLayout>
-
-                    <View
-                        style="@style/LineStyle"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginLeft="20dp"></View>
-                </RelativeLayout>
-
-                <!--注册地址-->
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="24dp"
-                        android:text="注册地址"
-                        android:textColor="@color/C242424"
-                        android:textSize="@dimen/textsize16" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="20dp"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@mipmap/a_next" />
-                    </LinearLayout>
-
-                    <View
-                        style="@style/LineStyle"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginLeft="20dp"></View>
-                </RelativeLayout>
-
-                <!--注册电话-->
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="24dp"
-                        android:text="注册电话"
-                        android:textColor="@color/C242424"
-                        android:textSize="@dimen/textsize16" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="20dp"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@mipmap/a_next" />
-                    </LinearLayout>
-
-                    <View
-                        style="@style/LineStyle"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginLeft="20dp"></View>
-                </RelativeLayout>
-
-                <!--开户银行-->
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="24dp"
-                        android:text="开户银行"
-                        android:textColor="@color/C242424"
-                        android:textSize="@dimen/textsize16" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="20dp"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@mipmap/a_next"
-                            android:visibility="invisible" />
-                    </LinearLayout>
-
-                    <View
-                        style="@style/LineStyle"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginLeft="20dp"></View>
-                </RelativeLayout>
-
-                <!--银行账户-->
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="24dp"
-                        android:text="银行账户"
-                        android:textColor="@color/C242424"
-                        android:textSize="@dimen/textsize16" />
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="match_parent"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="20dp"
-                        android:gravity="center_vertical"
-                        android:orientation="horizontal">
-
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:src="@mipmap/a_next" />
-                    </LinearLayout>
-
-                    <View
-                        style="@style/LineStyle"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginLeft="20dp"></View>
-                </RelativeLayout>
-
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginLeft="15dp"
-                    android:layout_marginTop="10dp"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:id="@+id/Check_IV"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:padding="10dp"
-                        android:src="@mipmap/a_weixuanzhong" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="我已阅读并同意"
-                        android:textColor="@color/CA8A8A8"
-                        android:textSize="@dimen/textsize12" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text="《增票资质确认书》"
-                        android:textColor="#0BA7E0"
-                        android:textSize="@dimen/textsize12" />
-                </LinearLayout>
-            </LinearLayout>
-        </ScrollView>
+            android:layout_above="@+id/BottomLL"
+            android:layout_marginTop="12dp"
+            android:divider="@null" />
 
         <LinearLayout
             android:id="@+id/BottomLL"
@@ -338,9 +82,10 @@
                 android:id="@+id/textView"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="提交审核"
+                android:text="新建增票资质"
                 android:textColor="@color/C242424"
                 android:textSize="@dimen/textsize16" />
         </LinearLayout>
     </RelativeLayout>
+
 </LinearLayout>

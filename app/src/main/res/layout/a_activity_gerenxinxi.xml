@@ -567,6 +567,7 @@
                         android:orientation="horizontal">
 
                         <TextView
+                            android:visibility="invisible"
                             android:id="@+id/ZengPiaoZiZhi_TV"
                             android:layout_width="150dp"
                             android:layout_height="match_parent"

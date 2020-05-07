@@ -5,7 +5,7 @@ public class MStringUtils {
     public static boolean IsNullOrEmpty(String value) {
         if (value == null)
             return true;
-        else if (value.equals(""))
+        else if (value.trim().equals(""))
             return true;
         else
             return false;

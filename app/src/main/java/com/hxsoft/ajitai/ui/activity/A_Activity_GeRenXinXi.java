@@ -18,9 +18,6 @@ import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.bumptech.glide.Glide;
-import com.bumptech.glide.load.resource.bitmap.CircleCrop;
-import com.bumptech.glide.request.RequestOptions;
 import com.google.gson.Gson;
 import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.base.MvpActivity;
@@ -102,20 +99,6 @@ public class A_Activity_GeRenXinXi extends MvpActivity<A_GeRenXinXi_Present> imp
             }
         });
 
-        ZengPiaoZiZhiTV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), A_Activity_ZengPiaoZiZhi.class);
-                startActivity(intent);
-            }
-        });
-        ShouHuoDiZhiTV.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), A_Activity_ShouHuoDiZhi.class);
-                startActivity(intent);
-            }
-        });
 
         ShouHuoDiZhiRL.setOnClickListener(new View.OnClickListener() {
             @Override

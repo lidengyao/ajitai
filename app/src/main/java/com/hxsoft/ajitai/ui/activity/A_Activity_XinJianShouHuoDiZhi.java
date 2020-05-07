@@ -1,17 +1,26 @@
 package com.hxsoft.ajitai.ui.activity;
 
-import android.content.Intent;
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.view.View;
+import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.base.MvpActivity;
-import com.hxsoft.ajitai.present.LoginPresent;
-import com.hxsoft.ajitai.timepaker.ChangeDatePopwindow;
-import com.hxsoft.ajitai.utils.CheckControl_Dialog_XingBie;
+import com.hxsoft.ajitai.model.bean.A_Cuseraddress_Bean;
+import com.hxsoft.ajitai.model.info.Cuseraddress_Info;
+import com.hxsoft.ajitai.model.info.Sysarea_Info;
+import com.hxsoft.ajitai.present.A_XinJianShouHuoDiZhi_Present;
+import com.hxsoft.ajitai.ui.view.A_XinJianShouHuoDiZhi_View;
+import com.hxsoft.ajitai.utils.CheckControl_Dialog_SysArea;
+import com.hxsoft.ajitai.utils.MStringUtils;
+
+import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -19,9 +28,36 @@ import butterknife.ButterKnife;
 /**
  * Created by jinxh on 16/2/1.
  */
-public class A_Activity_XinJianShouHuoDiZhi extends MvpActivity {
+public class A_Activity_XinJianShouHuoDiZhi extends MvpActivity<A_XinJianShouHuoDiZhi_Present> implements A_XinJianShouHuoDiZhi_View {
 
 
+    @Bind(R.id.Back_LL)
+    LinearLayout BackLL;
+    @Bind(R.id.Delete_RL)
+    RelativeLayout DeleteRL;
+    @Bind(R.id.username_ET)
+    EditText usernameET;
+    @Bind(R.id.phone_ET)
+    EditText phoneET;
+    @Bind(R.id.addrcode_ET)
+    TextView addrcodeET;
+    @Bind(R.id.AreaRL)
+    RelativeLayout AreaRL;
+    @Bind(R.id.address_ET)
+    EditText addressET;
+    @Bind(R.id.isdefault_IV)
+    ImageView isdefaultIV;
+    @Bind(R.id.isdefault_LL)
+    LinearLayout isdefaultLL;
+    @Bind(R.id.ShouHuoDiZhi_RL)
+    RelativeLayout ShouHuoDiZhiRL;
+    @Bind(R.id.textView)
+    TextView textView;
+    @Bind(R.id.BottomLL)
+    LinearLayout BottomLL;
+    private Integer isdefault = 0;
+    private String type;
+    private Cuseraddress_Info.RecordsBean recordsBean;
 
     @Override
     protected int getLayoutId() {
@@ -34,12 +70,134 @@ public class A_Activity_XinJianShouHuoDiZhi extends MvpActivity {
         // TODO: add setContentView(...) invocation
         ButterKnife.bind(this);
 
+        //0:新增；1：修改。
+        type = getIntent().getStringExtra("type");
+
+        if (type.equals("0")) {
+            DeleteRL.setVisibility(View.INVISIBLE);
+        }
+        if (type.equals("1")) {
+            recordsBean = (Cuseraddress_Info.RecordsBean) getIntent().getSerializableExtra("RecordsBean");
+            isdefault = recordsBean.getIsdefault();
+            usernameET.setText(recordsBean.getUsername());
+            phoneET.setText(recordsBean.getPhone());
+            addressET.setText(recordsBean.getAddress());
+            addrcodeET.setText(recordsBean.getAddrcode() + "");
+
+            if (isdefault == 0) {
+                isdefaultIV.setImageResource(R.mipmap.a_moren_hui);
+            }
+
+            if (isdefault == 1) {
+                isdefaultIV.setImageResource(R.mipmap.a_moren_huang);
+            }
+        }
+
+
+        BottomLL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String username = usernameET.getText().toString();
+                String phone = phoneET.getText().toString();
+                String addrcode = addrcodeET.getText().toString();
+                String address = addressET.getText().toString();
+                if (MStringUtils.IsNullOrEmpty(username)) {
+                    showMessage("请填写收货人");
+                    return;
+                }
+                if (MStringUtils.IsNullOrEmpty(phone)) {
+                    showMessage("请填写手机号码");
+                    return;
+                }
+                if (MStringUtils.IsNullOrEmpty(addrcode)) {
+                    showMessage("请选择所在地区");
+                    return;
+                }
+                if (MStringUtils.IsNullOrEmpty(address)) {
+                    showMessage("请填写详细地址");
+                    return;
+                }
+
+                if (type.equals("0")) {
+                    A_Cuseraddress_Bean a_cuseraddress_bean = new A_Cuseraddress_Bean();
+                    a_cuseraddress_bean.setUsername(username);
+                    a_cuseraddress_bean.setPhone(phone);
+                    a_cuseraddress_bean.setAddrcode(20);//写死
+                    a_cuseraddress_bean.setAddress(address);
+                    a_cuseraddress_bean.setIsdefault(isdefault);
+                    mPresenter.adminCuseraddressAdd(a_cuseraddress_bean, getContext());
+                }
+
+                if (type.equals("1")) {
+                    A_Cuseraddress_Bean a_cuseraddress_bean = new A_Cuseraddress_Bean();
+                    a_cuseraddress_bean.setAid(recordsBean.getAid());
+                    a_cuseraddress_bean.setUsername(username);
+                    a_cuseraddress_bean.setPhone(phone);
+                    a_cuseraddress_bean.setAddrcode(20);//写死
+                    a_cuseraddress_bean.setAddress(address);
+                    a_cuseraddress_bean.setIsdefault(isdefault);
+                    mPresenter.adminCuseraddressUpdate(a_cuseraddress_bean, getContext());
+                }
+            }
+        });
+
+        isdefaultLL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (isdefault == 0) {
+                    isdefaultIV.setImageResource(R.mipmap.a_moren_huang);
+                    isdefault = 1;
+                    return;
+                }
+
+                if (isdefault == 1) {
+                    isdefaultIV.setImageResource(R.mipmap.a_moren_hui);
+                    isdefault = 0;
+                    return;
+                }
+            }
+        });
+
+        DeleteRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+
+                AlertDialog.Builder builder = new AlertDialog.Builder(getContext());
+                builder.setTitle("提示").setMessage("确定删除该地址吗").setNegativeButton("取消", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                }).setPositiveButton("确定", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+
+                        mPresenter.adminCuseraddressDelete(recordsBean.getAid(), getContext());
+                    }
+                }).show();
+
+
+            }
+        });
+
+        AreaRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CheckControl_Dialog_SysArea.ShowDialog(getContext(), getActivity(),  new CheckControl_Dialog_SysArea.OnCheckControl_dialogClickListener() {
+                    @Override
+                    public void OnClick(int type) {
+
+                    }
+                });
+            }
+        });
     }
 
 
     @Override
-    protected LoginPresent createPresenter() {
-        return new LoginPresent();
+    protected A_XinJianShouHuoDiZhi_Present createPresenter() {
+        return new A_XinJianShouHuoDiZhi_Present();
     }
 
     @Override
@@ -58,4 +216,49 @@ public class A_Activity_XinJianShouHuoDiZhi extends MvpActivity {
     }
 
 
+    @Override
+    public void adminCuseraddressAddSuccess(Boolean model) {
+        if (model) {
+            showMessage("保存成功");
+            finish();
+        } else {
+            showMessage("保存失败");
+        }
+    }
+
+
+    @Override
+    public void adminCuseraddressDeleteSuccess(Boolean model) {
+        if (model) {
+            showMessage("删除成功");
+            finish();
+        } else {
+            showMessage("删除失败");
+        }
+    }
+
+    @Override
+    public void adminCuseraddressUpdateSuccess(Boolean model) {
+        if (model) {
+            showMessage("修改成功");
+            finish();
+        } else {
+            showMessage("修改失败");
+        }
+    }
+
+    @Override
+    public void dictSysareaegettreelistbyupidSuccess(ArrayList<Sysarea_Info> model) {
+
+    }
+
+    @Override
+    public void dictSysareaettreelistSuccess(ArrayList<Sysarea_Info> model) {
+
+    }
+
+    @Override
+    public void onFailure(int code, String msg) {
+        showMessage(msg);
+    }
 }
