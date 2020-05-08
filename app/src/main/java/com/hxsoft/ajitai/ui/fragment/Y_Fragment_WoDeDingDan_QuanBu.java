@@ -10,7 +10,7 @@ import android.widget.LinearLayout;
 import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.base.BasePresent;
 import com.hxsoft.ajitai.base.MvpFragment;
-import com.hxsoft.ajitai.ui.activity.A_Activity_LiuYanJianYi_XiangQing;
+import com.hxsoft.ajitai.ui.activity.A_Activity_DingDanXiangQing;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -20,6 +20,15 @@ import butterknife.ButterKnife;
  */
 public class Y_Fragment_WoDeDingDan_QuanBu extends MvpFragment {
 
+
+    @Bind(R.id.WeiChuLi1_LL)
+    LinearLayout WeiChuLi1LL;
+    @Bind(R.id.WeiChuLi2_LL)
+    LinearLayout WeiChuLi2LL;
+    @Bind(R.id.WeiChuLi3_LL)
+    LinearLayout WeiChuLi3LL;
+    @Bind(R.id.WeiChuLi4_LL)
+    LinearLayout WeiChuLi4LL;
 
     @Override
     protected int getLayoutId() {
@@ -40,6 +49,35 @@ public class Y_Fragment_WoDeDingDan_QuanBu extends MvpFragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+        WeiChuLi1LL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), A_Activity_DingDanXiangQing.class);
+                startActivity(intent);
+            }
+        });
+        WeiChuLi2LL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), A_Activity_DingDanXiangQing.class);
+                startActivity(intent);
+            }
+        });
+        WeiChuLi3LL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), A_Activity_DingDanXiangQing.class);
+                startActivity(intent);
+            }
+        });
+        WeiChuLi4LL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), A_Activity_DingDanXiangQing.class);
+                startActivity(intent);
+            }
+        });
 
     }
 

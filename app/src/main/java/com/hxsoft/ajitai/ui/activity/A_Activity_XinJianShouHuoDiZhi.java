@@ -1,12 +1,19 @@
 package com.hxsoft.ajitai.ui.activity;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
+import android.view.Gravity;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -58,6 +65,16 @@ public class A_Activity_XinJianShouHuoDiZhi extends MvpActivity<A_XinJianShouHuo
     private Integer isdefault = 0;
     private String type;
     private Cuseraddress_Info.RecordsBean recordsBean;
+    private Boolean IsCheckArea = false;
+    private ArrayList<Sysarea_Info> sheng_sysarea_infoArrayList;
+    private Integer AreaIndexOne = 1;
+    private Integer AreaIndexTwo = 2;
+    private Integer AreaIndexThree = 3;
+    private Integer AreaIndexFour = 4;
+
+    private View bottomView;
+    private LinearLayout NameListLL;
+    private LinearLayout DataLL;
 
     @Override
     protected int getLayoutId() {
@@ -184,14 +201,42 @@ public class A_Activity_XinJianShouHuoDiZhi extends MvpActivity<A_XinJianShouHuo
         AreaRL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CheckControl_Dialog_SysArea.ShowDialog(getContext(), getActivity(),  new CheckControl_Dialog_SysArea.OnCheckControl_dialogClickListener() {
-                    @Override
-                    public void OnClick(int type) {
-
-                    }
-                });
+                ShowDialog();
             }
         });
+
+        mPresenter.dictSysareaGettreelist(getContext());
+
+        bottomView = View.inflate(getContext(), R.layout.actionsheet_dialog_sysarea, null);
+
+        NameListLL = bottomView.findViewById(R.id.NameListLL);
+        DataLL = bottomView.findViewById(R.id.DataLL);
+
+    }
+
+
+    private void ShowDialog() {
+
+        PopupWindow pop = new PopupWindow(bottomView, -1, -2);
+        pop.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        pop.setOutsideTouchable(true);
+        pop.setFocusable(true);
+        WindowManager.LayoutParams lp = getWindow().getAttributes();
+        lp.alpha = 0.5f;
+        getWindow().setAttributes(lp);
+        pop.setOnDismissListener(new PopupWindow.OnDismissListener() {
+
+            @Override
+            public void onDismiss() {
+                WindowManager.LayoutParams lp = getWindow().getAttributes();
+                lp.alpha = 1f;
+                getWindow().setAttributes(lp);
+            }
+        });
+        pop.setAnimationStyle(R.style.main_menu_photo_anim);
+        pop.showAtLocation(getWindow().getDecorView(), Gravity.BOTTOM, 0, 0);
+
+
     }
 
 
@@ -250,10 +295,36 @@ public class A_Activity_XinJianShouHuoDiZhi extends MvpActivity<A_XinJianShouHuo
     @Override
     public void dictSysareaegettreelistbyupidSuccess(ArrayList<Sysarea_Info> model) {
 
+
     }
 
     @Override
     public void dictSysareaettreelistSuccess(ArrayList<Sysarea_Info> model) {
+        if (model == null)
+            return;
+        sheng_sysarea_infoArrayList = model;
+        //省份
+
+
+        if (sheng_sysarea_infoArrayList.size() > 0) {
+            for (int i = 0; i < sheng_sysarea_infoArrayList.size(); i++) {
+                Sysarea_Info sysarea_info = sheng_sysarea_infoArrayList.get(i);
+                View AreaView = View.inflate(getContext(), R.layout.a_item_area, null);
+                ImageView Check_IV = (ImageView) AreaView.findViewById(R.id.Check_IV);
+                TextView AreaTV = (TextView) AreaView.findViewById(R.id.AreaTV);
+                AreaTV.setText(sysarea_info.getAreaname());
+                DataLL.addView(AreaView);
+                AreaView.setTag(sysarea_info);
+                AreaView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Sysarea_Info sysarea_info1 = (Sysarea_Info) v.getTag();
+                        mPresenter.dictSysareaegettreelistbyupid(sysarea_info1.getAid(), getContext());
+                    }
+                });
+            }
+
+        }
 
     }
 
@@ -261,4 +332,9 @@ public class A_Activity_XinJianShouHuoDiZhi extends MvpActivity<A_XinJianShouHuo
     public void onFailure(int code, String msg) {
         showMessage(msg);
     }
+
+    public class SysAreaC {
+
+    }
+
 }

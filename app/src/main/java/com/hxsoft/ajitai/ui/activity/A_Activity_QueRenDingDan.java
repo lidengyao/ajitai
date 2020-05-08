@@ -48,7 +48,7 @@ public class A_Activity_QueRenDingDan extends MvpActivity {
         BottomLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), A_Activity_DingDanXiangQing.class);
+                Intent intent = new Intent(getContext(), A_Activity_ShouYinTai.class);
                 startActivity(intent);
             }
         });

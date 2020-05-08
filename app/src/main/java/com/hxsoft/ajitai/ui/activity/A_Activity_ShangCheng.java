@@ -1,15 +1,14 @@
 package com.hxsoft.ajitai.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.view.View;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.base.MvpActivity;
 import com.hxsoft.ajitai.present.LoginPresent;
-import com.hxsoft.ajitai.utils.GlideControl;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -20,6 +19,10 @@ import butterknife.ButterKnife;
 public class A_Activity_ShangCheng extends MvpActivity {
 
 
+    @Bind(R.id.SysNameIV)
+    TextView SysNameIV;
+    @Bind(R.id.QieHuanZhangHaoRL)
+    RelativeLayout QieHuanZhangHaoRL;
 
     @Override
     protected int getLayoutId() {
@@ -32,6 +35,13 @@ public class A_Activity_ShangCheng extends MvpActivity {
         // TODO: add setContentView(...) invocation
         ButterKnife.bind(this);
 
+        QieHuanZhangHaoRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getContext(),A_Activity_GouWuChe.class);
+                startActivity(intent);
+            }
+        });
     }
 
     @Override

@@ -12,7 +12,10 @@ import com.hxsoft.ajitai.model.info.AtBrands_Info;
 import com.hxsoft.ajitai.model.info.Cuseraddress_Info;
 import com.hxsoft.ajitai.model.info.Cuserreceipt_Info;
 import com.hxsoft.ajitai.model.info.OauthToken_Info;
+import com.hxsoft.ajitai.model.info.Sysarea_Info;
 import com.hxsoft.ajitai.model.info.UpLoadInfo;
+
+import java.util.ArrayList;
 
 import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
@@ -63,7 +66,7 @@ public interface APIService_AJiTai {
     //邮寄地址查询(APP)
     @GET("admin/cuseraddress/page")
     Observable<ResponseBean<Cuseraddress_Info>> adminCuseraddressPage(@Query("current") Integer current,
-                                                         @Query("size") Integer size);
+                                                                      @Query("size") Integer size);
 
     //邮寄地址-新增
     @POST("admin/cuseraddress")
@@ -83,6 +86,7 @@ public interface APIService_AJiTai {
     @GET("admin/cuserreceipt/page")
     Observable<ResponseBean<Cuserreceipt_Info>> adminCuserreceiptPage(@Query("current") Integer current,
                                                                       @Query("size") Integer size);
+
     //发票-新增
     @POST("admin/cuserreceipt")
     Observable<ResponseBean<Boolean>> adminCuserreceiptAdd(@Body A_Cuserreceipt_Bean a_cuserreceipt_bean);
@@ -95,5 +99,16 @@ public interface APIService_AJiTai {
     //发票-删除
     @DELETE("admin/cuserreceipt/{rid}")
     Observable<ResponseBean<Boolean>> adminCuserreceiptDelete(@Path("rid") Integer rid);
+
+
+    //请求地址区域信息
+    @GET("dict/sysarea/gettreelist/1")
+    Observable<ResponseBean<ArrayList<Sysarea_Info>>> dictSysareaGettreelist();
+
+
+
+    //根据上级ID获取所有的区域子节点
+    @GET("dict/sysarea/gettreelistbyupid/{upid}")
+    Observable<ResponseBean<ArrayList<Sysarea_Info>>> dictSysareaegettreelistbyupid(@Path("upid") Integer upid);
 
 }

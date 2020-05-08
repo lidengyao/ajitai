@@ -10,10 +10,14 @@ import com.hxsoft.ajitai.model.api.ResponseBean;
 import com.hxsoft.ajitai.model.api.RetrofitClient;
 import com.hxsoft.ajitai.model.bean.A_Cuseraddress_Bean;
 import com.hxsoft.ajitai.model.info.Cuseraddress_Info;
+import com.hxsoft.ajitai.model.info.Cuserreceipt_Info;
+import com.hxsoft.ajitai.model.info.Sysarea_Info;
 import com.hxsoft.ajitai.ui.view.A_ShouHuoDiZhi_View;
 import com.hxsoft.ajitai.ui.view.A_XinJianShouHuoDiZhi_View;
 import com.hxsoft.ajitai.utils.FileUtils;
 import com.hxsoft.ajitai.utils.LogCode;
+
+import java.util.ArrayList;
 
 import retrofit2.http.Body;
 import retrofit2.http.POST;
@@ -141,4 +145,83 @@ public class A_XinJianShouHuoDiZhi_Present extends BasePresent<A_XinJianShouHuoD
             }
         }, context));
     }
+
+
+    //请求地址区域信息
+    public void dictSysareaGettreelist(Context context) {
+        String tip = "A_XinJianShouHuoDiZhi_Present-dictSysareaGettreelist-请求地址区域信息\r\n";
+        FileUtils.writeLogToFile(tip);
+
+        Observable<ResponseBean<ArrayList<Sysarea_Info>>> observable = RetrofitClient.builderRetrofit(context).create(APIService_AJiTai.class).dictSysareaGettreelist();
+        addIOSubscription(observable, new ApiSubscriber(new ApiCallBack<ArrayList<Sysarea_Info>>() {
+            @Override
+            public void onStart() {
+                super.onStart();
+                if (getView() != null) {
+                    getView().showLoading();
+                }
+            }
+
+            @Override
+            public void onSuccess(ArrayList<Sysarea_Info> model) {
+                if (getView() != null) {
+                    getView().dictSysareaettreelistSuccess(model);
+                }
+            }
+
+            @Override
+            public void onFailure(int code, String msg) {
+                if (getView() != null) {
+                    getView().showMessage(LogCode.GetCode(tip) + msg);
+                }
+            }
+
+            @Override
+            public void onCompleted() {
+                if (getView() != null) {
+                    getView().dismissLoading();
+                }
+            }
+        }, context));
+    }
+
+
+    //根据上级ID获取所有的区域子节点
+    public void dictSysareaegettreelistbyupid(Integer upid, Context context) {
+        String tip = "A_XinJianShouHuoDiZhi_Present-dictSysareaegettreelistbyupid-根据上级ID获取所有的区域子节点\r\n";
+        FileUtils.writeLogToFile(tip);
+
+        Observable<ResponseBean<ArrayList<Sysarea_Info>>> observable = RetrofitClient.builderRetrofit(context).create(APIService_AJiTai.class).dictSysareaegettreelistbyupid(upid);
+        addIOSubscription(observable, new ApiSubscriber(new ApiCallBack<ArrayList<Sysarea_Info>>() {
+            @Override
+            public void onStart() {
+                super.onStart();
+                if (getView() != null) {
+                    getView().showLoading();
+                }
+            }
+
+            @Override
+            public void onSuccess(ArrayList<Sysarea_Info> model) {
+                if (getView() != null) {
+                    getView().dictSysareaegettreelistbyupidSuccess(model);
+                }
+            }
+
+            @Override
+            public void onFailure(int code, String msg) {
+                if (getView() != null) {
+                    getView().showMessage(LogCode.GetCode(tip) + msg);
+                }
+            }
+
+            @Override
+            public void onCompleted() {
+                if (getView() != null) {
+                    getView().dismissLoading();
+                }
+            }
+        }, context));
+    }
+
 }

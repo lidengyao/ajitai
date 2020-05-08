@@ -1,5 +1,6 @@
 package com.hxsoft.ajitai.ui.activity;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -51,8 +52,8 @@ public class A_Activity_GouWuChe extends MvpActivity {
         // TODO: add setContentView(...) invocation
         ButterKnife.bind(this);
 
-        ImageView checkOne_IV=GouWuCheOneLL.findViewById(R.id.Check_IV);
-        ImageView checkTwo_IV=GouWuCheTwoLL.findViewById(R.id.Check_IV);
+        ImageView checkOne_IV = GouWuCheOneLL.findViewById(R.id.Check_IV);
+        ImageView checkTwo_IV = GouWuCheTwoLL.findViewById(R.id.Check_IV);
         GuanLiRL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -72,6 +73,14 @@ public class A_Activity_GouWuChe extends MvpActivity {
                     checkTwo_IV.setVisibility(View.GONE);
                     return;
                 }
+            }
+        });
+
+        JieSuanBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent=new Intent(getContext(),A_Activity_QueRenDingDan.class);
+                startActivity(intent);
             }
         });
     }

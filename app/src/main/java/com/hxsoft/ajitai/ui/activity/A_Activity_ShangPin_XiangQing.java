@@ -29,6 +29,8 @@ public class A_Activity_ShangPin_XiangQing extends MvpActivity {
     LinearLayout BottomLL;
     @Bind(R.id.GouMai_Btn)
     Button GouMaiBtn;
+    @Bind(R.id.TianJiaGouWuChe_Btn)
+    Button TianJiaGouWuCheBtn;
 
     @Override
     protected int getLayoutId() {
@@ -53,6 +55,13 @@ public class A_Activity_ShangPin_XiangQing extends MvpActivity {
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), A_Activity_QueRenDingDan.class);
                 startActivity(intent);
+            }
+        });
+
+        TianJiaGouWuCheBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showMessage("已添加到购物车");
             }
         });
     }
