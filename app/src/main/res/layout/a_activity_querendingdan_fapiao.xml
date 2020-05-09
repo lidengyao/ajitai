@@ -68,12 +68,13 @@
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
+
+                android:background="@color/color2"
                 android:orientation="vertical">
 
 
                 <!--地址-->
                 <RelativeLayout
-                    android:id="@+id/DiZhi_RL"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content">
 
@@ -111,32 +112,29 @@
                                 android:orientation="horizontal">
 
                                 <TextView
-                                    android:id="@+id/username_TV"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
-                                    android:text=""
+                                    android:text="哈哈小猪"
                                     android:textColor="@color/C242424"
                                     android:textSize="@dimen/textsize15" />
 
                                 <TextView
-                                    android:id="@+id/phone_TV"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="12dp"
-                                    android:text=""
+                                    android:text="18888888888"
                                     android:textColor="@color/C242424"
                                     android:textSize="@dimen/textsize12" />
 
                             </LinearLayout>
 
                             <TextView
-                                android:id="@+id/address_TV"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="5dp"
                                 android:ellipsize="end"
                                 android:singleLine="true"
-                                android:text=""
+                                android:text="江苏省南京市鼓楼区万家小区16栋江苏省南京市鼓楼区万家小区16栋"
                                 android:textColor="@color/C242424"
                                 android:textSize="@dimen/textsize13" />
                         </LinearLayout>
@@ -149,7 +147,7 @@
                         android:layout_alignParentRight="true"
                         android:layout_centerVertical="true"
                         android:padding="20dp"
-                        android:src="@mipmap/a_next" />
+                        android:src="@mipmap/a_shanchu_huangse" />
                 </RelativeLayout>
 
                 <View

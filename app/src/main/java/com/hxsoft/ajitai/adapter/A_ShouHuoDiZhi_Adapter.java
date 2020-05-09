@@ -1,6 +1,8 @@
 package com.hxsoft.ajitai.adapter;
 
 import android.content.Context;
+import android.opengl.Visibility;
+import android.view.View;
 import android.widget.ImageView;
 
 import com.hxsoft.ajitai.R;
@@ -15,10 +17,12 @@ import java.util.List;
 public class A_ShouHuoDiZhi_Adapter extends CommonAdapter<Cuseraddress_Info.RecordsBean> {
 
     private Context _Context;
+    private Integer _type;
 
-    public A_ShouHuoDiZhi_Adapter(Context context, List<Cuseraddress_Info.RecordsBean> data, int itemLayoutId) {
+    public A_ShouHuoDiZhi_Adapter(Context context, List<Cuseraddress_Info.RecordsBean> data, int itemLayoutId, Integer type) {
         super(context, data, itemLayoutId);
         _Context = context;
+        _type = type;
     }
 
     @Override
@@ -34,6 +38,15 @@ public class A_ShouHuoDiZhi_Adapter extends CommonAdapter<Cuseraddress_Info.Reco
             if (item.getUsername().length() > 0) {
                 helper.setText(R.id.FirstCharacter_TV, item.getUsername().substring(0, 1));
             }
+        }
+
+        //地址管理
+        if (_type == 0) {
+            helper.setVisibility(R.id.A_Next_IV, View.VISIBLE);
+        }
+        //下单选择地址
+        if (_type == 1) {
+            helper.setVisibility(R.id.A_Next_IV, View.INVISIBLE);
         }
 
         helper.setText(R.id.username_TV, item.getUsername());

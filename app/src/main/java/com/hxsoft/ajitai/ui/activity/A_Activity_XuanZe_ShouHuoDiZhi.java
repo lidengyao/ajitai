@@ -3,6 +3,7 @@ package com.hxsoft.ajitai.ui.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
@@ -12,18 +13,13 @@ import android.widget.TextView;
 import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.adapter.A_ShouHuoDiZhi_Adapter;
 import com.hxsoft.ajitai.base.MvpActivity;
-import com.hxsoft.ajitai.model.info.Brand_Info;
 import com.hxsoft.ajitai.model.info.Cuseraddress_Info;
 import com.hxsoft.ajitai.present.A_ShouHuoDiZhi_Present;
 import com.hxsoft.ajitai.ui.view.A_ShouHuoDiZhi_View;
-import com.hxsoft.ajitai.utils.DbKeyS;
 import com.hxsoft.ajitai.utils.ListData_Control_Normal;
-import com.hxsoft.ajitai.utils.SpUtils;
 import com.hxsoft.ajitai.widget.PullLoadMoreListView;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -31,7 +27,7 @@ import butterknife.ButterKnife;
 /**
  * Created by jinxh on 16/2/1.
  */
-public class A_Activity_ShouHuoDiZhi extends MvpActivity<A_ShouHuoDiZhi_Present> implements A_ShouHuoDiZhi_View {
+public class A_Activity_XuanZe_ShouHuoDiZhi extends MvpActivity<A_ShouHuoDiZhi_Present> implements A_ShouHuoDiZhi_View {
 
 
     @Bind(R.id.SysNameIV)
@@ -52,7 +48,7 @@ public class A_Activity_ShouHuoDiZhi extends MvpActivity<A_ShouHuoDiZhi_Present>
 
     @Override
     protected int getLayoutId() {
-        return R.layout.a_activity_shouhuodizhi;
+        return R.layout.a_activity_xuanze_shouhuodizhi;
     }
 
     @Override
@@ -65,12 +61,12 @@ public class A_Activity_ShouHuoDiZhi extends MvpActivity<A_ShouHuoDiZhi_Present>
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), A_Activity_XinJianShouHuoDiZhi.class);
-                intent.putExtra("type","0");
+                intent.putExtra("type", "0");
                 startActivity(intent);
             }
         });
 
-        adapter = new A_ShouHuoDiZhi_Adapter(getContext(), infoArrayList, R.layout.a_item_shouhuodizhi,0);
+        adapter = new A_ShouHuoDiZhi_Adapter(getContext(), infoArrayList, R.layout.a_item_shouhuodizhi, 1);
 
         DataListView.setAdapter(adapter);
         DataListView.setOnPullLoadMoreListener(new PullLoadMoreListView.PullLoadMoreListener() {
@@ -106,10 +102,17 @@ public class A_Activity_ShouHuoDiZhi extends MvpActivity<A_ShouHuoDiZhi_Present>
         DataListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getContext(), A_Activity_XinJianShouHuoDiZhi.class);
-                intent.putExtra("type","1");
-                intent.putExtra("RecordsBean",infoArrayList.get(position));
-                startActivity(intent);
+
+                Cuseraddress_Info.RecordsBean recordsBean = infoArrayList.get(position);
+                //数据是使用Intent返回
+                Intent intent = new Intent();
+                //把返回数据存入Intent
+                intent.putExtra("RecordsBean", recordsBean);
+                //设置返回数据
+                setResult(RESULT_OK, intent);
+                //关闭Activity
+                finish();
+
             }
         });
 
@@ -120,6 +123,7 @@ public class A_Activity_ShouHuoDiZhi extends MvpActivity<A_ShouHuoDiZhi_Present>
         super.onResume();
         getData();
     }
+
 
     private void getData() {
         mPresenter.adminCuseraddressPage(current, size, getContext());

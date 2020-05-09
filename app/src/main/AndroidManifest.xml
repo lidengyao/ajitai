@@ -78,6 +78,15 @@
         </activity>
 
 
+
+        <activity
+            android:name=".ui.activity.A_Activity_XuanZe_ShouHuoDiZhi"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ui.activity.A_Activity_QueRenDingDan_FaPiao"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
         <activity
             android:name=".ui.activity.A_Activity_ZengPiaoZiZhi"
             android:configChanges="locale"

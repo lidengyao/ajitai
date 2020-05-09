@@ -4,48 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/PageRootLL">
 
-    <ScrollView
+    <com.hxsoft.ajitai.widget.PullLoadMoreListView
+        android:id="@+id/DataListView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:id="@+id/WeiChuLi1_LL"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <include layout="@layout/a_item_daifukuan"></include>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/WeiChuLi2_LL"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <include layout="@layout/a_item_daifahuo"></include>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/WeiChuLi3_LL"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <include layout="@layout/a_item_daishouhuo"></include>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/WeiChuLi4_LL"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content">
-
-                <include layout="@layout/a_item_yiwancheng"></include>
-            </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
-
-
+        android:layout_height="match_parent"
+        android:layout_above="@+id/BottomLL"
+        android:layout_marginTop="12dp"
+        android:divider="@null" />
 </LinearLayout>

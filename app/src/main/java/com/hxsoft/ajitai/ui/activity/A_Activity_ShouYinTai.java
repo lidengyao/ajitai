@@ -10,7 +10,6 @@ import android.widget.TextView;
 import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.base.BasePresent;
 import com.hxsoft.ajitai.base.MvpActivity;
-import com.hxsoft.ajitai.utils.CheckControl_Dialog_ChongZhi_QueRen;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -20,6 +19,27 @@ import butterknife.ButterKnife;
  */
 public class A_Activity_ShouYinTai extends MvpActivity {
 
+
+    @Bind(R.id.SysNameIV)
+    TextView SysNameIV;
+    @Bind(R.id.JianJieRL)
+    RelativeLayout JianJieRL;
+    @Bind(R.id.QianBaoRL)
+    RelativeLayout QianBaoRL;
+    @Bind(R.id.WeiXinRL)
+    RelativeLayout WeiXinRL;
+    @Bind(R.id.ZhiFuBaoRL)
+    RelativeLayout ZhiFuBaoRL;
+    @Bind(R.id.BottomLL)
+    LinearLayout BottomLL;
+    @Bind(R.id.QianBao_IV)
+    ImageView QianBaoIV;
+    @Bind(R.id.WeiXin_IV)
+    ImageView WeiXinIV;
+    @Bind(R.id.ZhiFuBao_IV)
+    ImageView ZhiFuBaoIV;
+
+    private int zhifuType = 0;
 
     @Override
     protected int getLayoutId() {
@@ -31,6 +51,60 @@ public class A_Activity_ShouYinTai extends MvpActivity {
         super.onCreate(savedInstanceState);
         // TODO: add setContentView(...) invocation
         ButterKnife.bind(this);
+
+        QianBaoRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                QianBaoIV.setImageResource(R.mipmap.a_chongzhi_xuanzhong);
+                WeiXinIV.setImageResource(R.mipmap.a_chongzhi_weixuanzhong);
+                ZhiFuBaoIV.setImageResource(R.mipmap.a_chongzhi_weixuanzhong);
+                zhifuType = 0;
+
+            }
+        });
+
+
+        WeiXinRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                QianBaoIV.setImageResource(R.mipmap.a_chongzhi_weixuanzhong);
+                WeiXinIV.setImageResource(R.mipmap.a_chongzhi_xuanzhong);
+                ZhiFuBaoIV.setImageResource(R.mipmap.a_chongzhi_weixuanzhong);
+                zhifuType = 1;
+            }
+        });
+
+
+        ZhiFuBaoRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                QianBaoIV.setImageResource(R.mipmap.a_chongzhi_weixuanzhong);
+                WeiXinIV.setImageResource(R.mipmap.a_chongzhi_weixuanzhong);
+                ZhiFuBaoIV.setImageResource(R.mipmap.a_chongzhi_xuanzhong);
+                zhifuType = 2;
+            }
+        });
+
+        BottomLL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                //钱包
+                if (zhifuType == 0) {
+
+                }
+
+                //微信
+                if (zhifuType == 1) {
+
+                }
+
+                //支付宝
+                if (zhifuType == 2) {
+
+                }
+            }
+        });
     }
 
     @Override

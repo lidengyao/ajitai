@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:id="@+id/DingDan_Root_LL"
     android:layout_height="wrap_content"
     android:background="@color/color2"
     android:orientation="vertical">
@@ -64,6 +65,7 @@
                 android:textSize="@dimen/textsize13" />
 
             <TextView
+                android:id="@+id/goodsNum_TV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="1"
@@ -78,6 +80,7 @@
                 android:textSize="@dimen/textsize13" />
 
             <TextView
+                android:id="@+id/payment_TV"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="99"
@@ -85,6 +88,7 @@
                 android:textSize="@dimen/textsize13" />
         </LinearLayout>
 
+        <!--待付款-->
         <LinearLayout
             android:id="@+id/DaiFuKuanLL"
             android:layout_width="wrap_content"
@@ -95,6 +99,7 @@
             android:orientation="horizontal">
 
             <Button
+                android:id="@+id/QuXiaoDingDan_Btn"
                 android:layout_width="70dp"
                 android:layout_height="28dp"
                 android:layout_marginTop="18dp" style="@style/Button_Style"
@@ -105,6 +110,7 @@
                 android:textSize="@dimen/textsize13" />
 
             <Button
+                android:id="@+id/FuKuan_Btn"
                 android:layout_width="70dp"
                 android:layout_height="28dp"
                 android:layout_marginLeft="10dp"
@@ -113,6 +119,78 @@
                 android:background="@drawable/sysbtn_ffe248_4_shape"
                 android:text="付款"
                 android:textColor="@color/C242424"
+                android:textSize="@dimen/textsize13" />
+        </LinearLayout>
+
+        <!--待发货-->
+        <LinearLayout
+            android:id="@+id/DaiFaHuoLL"
+            android:visibility="gone"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="70dp"
+                android:layout_height="28dp" style="@style/Button_Style"
+                android:layout_marginTop="18dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/sysbtn_f2f2f2_4_shape"
+                android:text="取消订单"
+                android:textColor="#808080"
+                android:textSize="@dimen/textsize13" />
+
+        </LinearLayout>
+
+        <!--待收货-->
+        <LinearLayout
+            android:id="@+id/DaiShouHuoLL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:visibility="gone"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+
+            android:orientation="horizontal">
+
+
+            <Button
+                android:layout_width="70dp"
+                android:layout_height="28dp"
+                android:layout_marginLeft="10dp" style="@style/Button_Style"
+                android:layout_marginTop="18dp"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/sysbtn_ffe248_4_shape"
+                android:text="确认收货"
+                android:textColor="@color/C242424"
+                android:textSize="@dimen/textsize13" />
+        </LinearLayout>
+
+        <!--已完成-->
+        <LinearLayout
+            android:id="@+id/YiWanChengLL"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:visibility="gone"
+            android:layout_centerVertical="true"
+            android:gravity="center_vertical"
+
+            android:orientation="horizontal">
+
+            <Button
+                android:layout_width="70dp"
+                android:layout_height="28dp"
+                android:layout_marginTop="18dp" style="@style/Button_Style"
+                android:layout_marginBottom="15dp"
+                android:background="@drawable/sysbtn_f2f2f2_4_shape"
+                android:text="删除订单"
+                android:textColor="#808080"
                 android:textSize="@dimen/textsize13" />
         </LinearLayout>
     </RelativeLayout>

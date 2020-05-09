@@ -8,19 +8,16 @@ import com.hxsoft.ajitai.model.bean.A_LoginInfo;
 import com.hxsoft.ajitai.model.bean.A_OauthTokenBean;
 import com.hxsoft.ajitai.model.bean.A_PushChecknumBean;
 import com.hxsoft.ajitai.model.bean.A_User_Info;
-import com.hxsoft.ajitai.model.info.AtBrands_Info;
+import com.hxsoft.ajitai.model.info.A_Order_Info;
+import com.hxsoft.ajitai.model.info.A_Order_Total_Info;
 import com.hxsoft.ajitai.model.info.Cuseraddress_Info;
 import com.hxsoft.ajitai.model.info.Cuserreceipt_Info;
 import com.hxsoft.ajitai.model.info.OauthToken_Info;
 import com.hxsoft.ajitai.model.info.Sysarea_Info;
-import com.hxsoft.ajitai.model.info.UpLoadInfo;
 
 import java.util.ArrayList;
 
-import okhttp3.MultipartBody;
 import okhttp3.RequestBody;
-import okhttp3.ResponseBody;
-import retrofit2.Call;
 import retrofit2.http.Body;
 import retrofit2.http.DELETE;
 import retrofit2.http.GET;
@@ -106,9 +103,23 @@ public interface APIService_AJiTai {
     Observable<ResponseBean<ArrayList<Sysarea_Info>>> dictSysareaGettreelist();
 
 
-
     //根据上级ID获取所有的区域子节点
     @GET("dict/sysarea/gettreelistbyupid/{upid}")
     Observable<ResponseBean<ArrayList<Sysarea_Info>>> dictSysareaegettreelistbyupid(@Path("upid") Integer upid);
+
+
+    //订单(APP)
+    @GET("order/order/page")
+    Observable<ResponseBean<A_Order_Total_Info>> orderPage(@Query("current") Integer current,
+                                                           @Query("size") Integer size,
+                                                           @Query("status") Integer status);
+
+    //订单详情(APP)
+    @GET("order/order/query/{orderNo}")
+    Observable<ResponseBean<A_Order_Info>> orderQuery(@Path("orderNo") String orderNo);
+
+    //取消订单
+    @PUT("order/order/cannel/{orderNo}")
+    Observable<ResponseBean<String>> orderCannel(@Path("orderNo") String orderNo);
 
 }

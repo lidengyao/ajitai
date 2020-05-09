@@ -84,6 +84,7 @@
                 </LinearLayout>
 
                 <RelativeLayout
+                    android:id="@+id/QianBaoRL"
                     android:layout_width="wrap_content"
                     android:layout_marginTop="40dp"
                     android:layout_height="60dp">
@@ -111,6 +112,7 @@
                     </LinearLayout>
 
                     <ImageView
+                        android:id="@+id/QianBao_IV"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
@@ -125,6 +127,7 @@
                         android:layout_marginLeft="52dp"></View>
                 </RelativeLayout>
                 <RelativeLayout
+                    android:id="@+id/WeiXinRL"
                     android:layout_width="wrap_content"
                     android:layout_height="60dp">
 
@@ -151,6 +154,7 @@
                     </LinearLayout>
 
                     <ImageView
+                        android:id="@+id/WeiXin_IV"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"
@@ -165,6 +169,7 @@
                         android:layout_marginLeft="52dp"></View>
                 </RelativeLayout>
                 <RelativeLayout
+                    android:id="@+id/ZhiFuBaoRL"
                     android:layout_width="wrap_content"
                     android:layout_height="60dp">
 
@@ -191,6 +196,7 @@
                     </LinearLayout>
 
                     <ImageView
+                        android:id="@+id/ZhiFuBao_IV"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_alignParentRight="true"

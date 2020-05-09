@@ -55,28 +55,6 @@
     </android.support.v7.widget.Toolbar>
 
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="112dp"
-        android:background="#FFE146">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_centerVertical="true"
-            android:layout_marginLeft="30dp"
-            android:text="待付款"
-            android:textColor="@color/C242424"
-            android:textSize="@dimen/textsize16" />
-
-        <ImageView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="30dp"
-            android:src="@mipmap/a_gouwuche" />
-    </RelativeLayout>
 
     <RelativeLayout
         android:layout_width="match_parent"
@@ -95,7 +73,29 @@
                 android:background="@color/color2"
                 android:orientation="vertical">
 
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="112dp"
+                    android:background="#FFE146">
 
+                    <TextView
+                        android:id="@+id/status_TV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="30dp"
+                        android:text="待付款"
+                        android:textColor="@color/C242424"
+                        android:textSize="@dimen/textsize16" />
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="30dp"
+                        android:src="@mipmap/a_gouwuche" />
+                </RelativeLayout>
                 <!--地址-->
                 <RelativeLayout
                     android:layout_width="match_parent"
@@ -135,6 +135,7 @@
                                 android:orientation="horizontal">
 
                                 <TextView
+                                    android:id="@+id/shippingReceiverName_TV"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:text="哈哈小猪"
@@ -142,6 +143,7 @@
                                     android:textSize="@dimen/textsize15" />
 
                                 <TextView
+                                    android:id="@+id/shippingReceiverMobile_TV"
                                     android:layout_width="wrap_content"
                                     android:layout_height="wrap_content"
                                     android:layout_marginLeft="12dp"
@@ -152,6 +154,7 @@
                             </LinearLayout>
 
                             <TextView
+                                android:id="@+id/shippingReceiverAddress_TV"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:layout_marginTop="5dp"
@@ -187,11 +190,12 @@
                             android:layout_height="wrap_content"
                             android:layout_centerVertical="true"
                             android:layout_marginLeft="20dp"
-                            android:text="阿吉泰旗舰店"
+                            android:text="阿吉泰"
                             android:textColor="@color/C242424"
                             android:textSize="@dimen/textsize13" />
 
                         <TextView
+                            android:id="@+id/status_one_TV"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
@@ -204,65 +208,12 @@
                     <View style="@style/LineStyle"></View>
 
                     <LinearLayout
+                        android:id="@+id/productList_LL"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginBottom="20dp"
-                        android:orientation="horizontal">
+                        android:orientation="vertical">
 
-                        <ImageView
-                            android:layout_width="75dp"
-                            android:layout_height="75dp"
-                            android:layout_marginLeft="20dp"
-                            android:layout_marginTop="18dp"
-                            android:src="@mipmap/a_dingdan_img" />
-
-                        <RelativeLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="12dp"
-                            android:layout_marginTop="22dp"
-                            android:layout_marginRight="20dp">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginRight="30dp"
-                                android:layout_toLeftOf="@+id/Price_LL"
-                                android:ellipsize="end"
-                                android:lineSpacingExtra="5dp"
-                                android:maxLines="2"
-                                android:text="蒙古马（精装版蒙语）+赠送平装版汉语+赠送7天"
-                                android:textColor="@color/C242424"
-                                android:textSize="@dimen/textsize13" />
-
-                            <LinearLayout
-                                android:id="@+id/Price_LL"
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_alignParentRight="true"
-                                android:gravity="right"
-                                android:orientation="vertical">
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:ellipsize="end"
-                                    android:maxLines="2"
-                                    android:text="¥99"
-                                    android:textColor="@color/C242424"
-                                    android:textSize="@dimen/textsize13" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:layout_marginTop="20dp"
-                                    android:ellipsize="end"
-                                    android:maxLines="2"
-                                    android:text="x1"
-                                    android:textColor="#7E7E7E"
-                                    android:textSize="@dimen/textsize13" />
-                            </LinearLayout>
-                        </RelativeLayout>
 
                     </LinearLayout>
 
@@ -302,15 +253,24 @@
 
                             <TextView
                                 android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="¥ 99"
+                                android:layout_height="match_parent"
+                                android:text="¥ "
+                                android:textColor="@color/C808080"
+                                android:textSize="@dimen/textsize13" />
+                            <TextView
+                                android:id="@+id/payment_TV"
+                                android:layout_width="wrap_content"
+                                android:layout_height="match_parent"
+                                android:text="99"
                                 android:textColor="@color/C808080"
                                 android:textSize="@dimen/textsize13" />
 
                         </LinearLayout>
                     </RelativeLayout>
 
+                    <!--运费-->
                     <RelativeLayout
+                        android:visibility="gone"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="20dp"
@@ -386,6 +346,7 @@
                             android:orientation="horizontal">
 
                             <TextView
+                                android:id="@+id/payment_one_TV"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
                                 android:text="¥99"
@@ -425,6 +386,7 @@
                         </LinearLayout>
 
                         <TextView
+                            android:id="@+id/orderNo_TV"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
@@ -461,6 +423,7 @@
                         </LinearLayout>
 
                         <TextView
+                            android:id="@+id/createTime_TV"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_alignParentRight="true"
@@ -485,6 +448,7 @@
             android:orientation="horizontal">
 
             <Button
+                android:id="@+id/QuXiaoDingDan_Btn"
                 android:layout_width="70dp"
                 android:layout_height="28dp" style="@style/Button_Style"
                 android:background="@drawable/sysbtn_f2f2f2_4_shape"
@@ -493,6 +457,7 @@
                 android:textSize="@dimen/textsize13" />
 
             <Button
+                android:id="@+id/FuKuan_Btn"
                 android:layout_width="70dp"
                 android:layout_height="28dp"
                 android:layout_marginLeft="10dp" style="@style/Button_Style"

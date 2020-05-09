@@ -4,21 +4,11 @@
     xmlns:tools="http://schemas.android.com/tools"
     style="@style/PageRootLL">
 
-    <LinearLayout
-        android:id="@+id/WeiChuLi1_LL"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <include layout="@layout/a_item_daifahuo"></include>
-    </LinearLayout>
-
-    <LinearLayout
-        android:id="@+id/WeiChuLi2_LL"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content">
-
-        <include layout="@layout/a_item_daifahuo"></include>
-    </LinearLayout>
-
-
+    <com.hxsoft.ajitai.widget.PullLoadMoreListView
+        android:id="@+id/DataListView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_above="@+id/BottomLL"
+        android:layout_marginTop="12dp"
+        android:divider="@null" />
 </LinearLayout>
