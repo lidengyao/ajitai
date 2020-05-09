@@ -122,4 +122,9 @@ public interface APIService_AJiTai {
     @PUT("order/order/cannel/{orderNo}")
     Observable<ResponseBean<String>> orderCannel(@Path("orderNo") String orderNo);
 
+
+    //微信下单
+    @POST("pay/wxPay/appPay")
+    Observable<ResponseBean<String>> wxPayAppPay(@Query("orderNo") String orderNo,
+                                                 @Query("body") String body);
 }

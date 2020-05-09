@@ -1,0 +1,62 @@
+package com.hxsoft.ajitai.present;
+
+import android.content.Context;
+
+import com.hxsoft.ajitai.base.BasePresent;
+import com.hxsoft.ajitai.model.api.APIService_AJiTai;
+import com.hxsoft.ajitai.model.api.ApiCallBack;
+import com.hxsoft.ajitai.model.api.ApiSubscriber;
+import com.hxsoft.ajitai.model.api.ResponseBean;
+import com.hxsoft.ajitai.model.api.RetrofitClient;
+import com.hxsoft.ajitai.model.info.Cuseraddress_Info;
+import com.hxsoft.ajitai.ui.view.A_ShouHuoDiZhi_View;
+import com.hxsoft.ajitai.ui.view.A_ShouYinTai_View;
+import com.hxsoft.ajitai.utils.FileUtils;
+import com.hxsoft.ajitai.utils.LogCode;
+
+import rx.Observable;
+
+/**
+ * Created by jinxh on 16/2/1.
+ */
+public class A_ShouYinTai_Present extends BasePresent<A_ShouYinTai_View> {
+
+
+    public void wxPayAppPay(String orderNo, String body, Context context) {
+        String tip = "A_ShouYinTai_Present-wxPayAppPay-微信预下单(APP)\r\n";
+        FileUtils.writeLogToFile(tip);
+
+        Observable<ResponseBean<String>> observable = RetrofitClient.builderRetrofit(context).create(APIService_AJiTai.class).wxPayAppPay(orderNo, body);
+        addIOSubscription(observable, new ApiSubscriber(new ApiCallBack<String>() {
+            @Override
+            public void onStart() {
+                super.onStart();
+                if (getView() != null) {
+                    getView().showLoading();
+                }
+            }
+
+            @Override
+            public void onSuccess(String model) {
+                if (getView() != null) {
+                    getView().wxPayAppPaySuccess(model);
+                }
+            }
+
+            @Override
+            public void onFailure(int code, String msg) {
+                if (getView() != null) {
+                    getView().showMessage(LogCode.GetCode(tip) + msg);
+                }
+            }
+
+            @Override
+            public void onCompleted() {
+                if (getView() != null) {
+                    getView().dismissLoading();
+                }
+            }
+        }, context));
+    }
+
+}

@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.model.info.A_Order_Info;
 import com.hxsoft.ajitai.model.info.A_Order_Total_Info;
+import com.hxsoft.ajitai.model.info.Order_Info;
 import com.hxsoft.ajitai.ui.activity.A_Activity_DingDanXiangQing;
 import com.hxsoft.ajitai.ui.activity.A_Activity_ShouYinTai;
 import com.hxsoft.ajitai.utils.GlideControl;
@@ -80,10 +81,20 @@ public class A_Order_Adapter extends CommonAdapter<A_Order_Info> {
             Button QuXiaoDingDan_Btn = (Button) DaiFuKuanLL.findViewById(R.id.QuXiaoDingDan_Btn);
             Button FuKuan_Btn = (Button) DaiFuKuanLL.findViewById(R.id.FuKuan_Btn);
 
+            FuKuan_Btn.setTag(R.id.one, item);
             FuKuan_Btn.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+                    A_Order_Info a_order_info = (A_Order_Info) v.getTag(R.id.one);
+
+                    String body = "";
+                    for (int i = 0; i < a_order_info.getProductList().size(); i++) {
+                        body += a_order_info.getProductList().get(i).getTitle();
+                    }
+
                     Intent intent = new Intent(_Context, A_Activity_ShouYinTai.class);
+                    intent.putExtra("orderNo", a_order_info.getOrderNo());
+                    intent.putExtra("body", body);
                     _Context.startActivity(intent);
                 }
             });

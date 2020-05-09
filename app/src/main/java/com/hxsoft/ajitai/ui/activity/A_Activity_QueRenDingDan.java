@@ -45,6 +45,8 @@ public class A_Activity_QueRenDingDan extends MvpActivity {
     TextView phoneTV;
     @Bind(R.id.address_TV)
     TextView addressTV;
+    private String orderNo;
+    private String body;
 
     @Override
     protected int getLayoutId() {
@@ -57,10 +59,14 @@ public class A_Activity_QueRenDingDan extends MvpActivity {
         // TODO: add setContentView(...) invocation
         ButterKnife.bind(this);
 
+        orderNo=getIntent().getStringExtra("orderNo");
+        body=getIntent().getStringExtra("body");
         BottomLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(getContext(), A_Activity_ShouYinTai.class);
+                intent.putExtra("orderNo", orderNo);
+                intent.putExtra("body", body);
                 startActivity(intent);
             }
         });

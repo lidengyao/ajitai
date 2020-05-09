@@ -119,7 +119,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="17dp"
                         android:padding="20dp"
-                        android:src="@mipmap/a_chongzhi_xuanzhong" />
+                        android:src="@mipmap/a_chongzhi_weixuanzhong" />
 
                     <View
                         android:layout_alignParentBottom="true"
@@ -161,7 +161,7 @@
                         android:layout_centerVertical="true"
                         android:layout_marginLeft="17dp"
                         android:padding="20dp"
-                        android:src="@mipmap/a_chongzhi_weixuanzhong" />
+                        android:src="@mipmap/a_chongzhi_xuanzhong" />
 
                     <View
                         android:layout_alignParentBottom="true"
