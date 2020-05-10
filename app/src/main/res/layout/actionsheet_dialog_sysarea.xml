@@ -17,8 +17,8 @@
             android:layout_height="wrap_content"
             android:gravity="center_vertical"
             android:orientation="horizontal"
-            android:paddingTop="20dp"
-            android:paddingBottom="20dp">
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp">
 
             <LinearLayout
                 android:id="@+id/ShengTitleLL"
@@ -27,7 +27,7 @@
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
                 android:paddingLeft="20dp"
-                android:paddingRight="15dp"
+                android:paddingRight="10dp"
                 android:visibility="gone">
 
 
@@ -35,11 +35,14 @@
                     android:id="@+id/ShengTitleTV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:singleLine="true"
                     android:text="四川"
-                    android:textColor="@color/C808080"
-                    android:textSize="@dimen/textsize15" />
+                    android:textColor="@color/color1"
+                    android:textSize="@dimen/textsize13" />
 
                 <ImageView
+                    android:id="@+id/ShengLine"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
@@ -53,8 +56,8 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
                 android:visibility="gone">
 
 
@@ -62,11 +65,14 @@
                     android:id="@+id/OneTitleTV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:singleLine="true"
                     android:text="巴中市"
-                    android:textColor="@color/C808080"
-                    android:textSize="@dimen/textsize15" />
+                    android:textColor="@color/color1"
+                    android:textSize="@dimen/textsize13" />
 
                 <ImageView
+                    android:id="@+id/OneLine"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
@@ -80,8 +86,8 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
                 android:visibility="gone">
 
 
@@ -89,11 +95,14 @@
                     android:id="@+id/TwoTitleTV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:singleLine="true"
                     android:text="巴州区"
-                    android:textColor="@color/C808080"
-                    android:textSize="@dimen/textsize15" />
+                    android:textColor="@color/color1"
+                    android:textSize="@dimen/textsize13" />
 
                 <ImageView
+                    android:id="@+id/TwoLine"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"
@@ -107,8 +116,8 @@
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
                 android:orientation="vertical"
-                android:paddingLeft="15dp"
-                android:paddingRight="15dp"
+                android:paddingLeft="10dp"
+                android:paddingRight="10dp"
                 android:visibility="gone">
 
 
@@ -116,11 +125,14 @@
                     android:id="@+id/ThreeTitleTV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:ellipsize="end"
+                    android:singleLine="true"
                     android:text="巴州镇"
-                    android:textColor="@color/C808080"
-                    android:textSize="@dimen/textsize15" />
+                    android:textColor="@color/color1"
+                    android:textSize="@dimen/textsize13" />
 
                 <ImageView
+                    android:id="@+id/ThreeLine"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="6dp"

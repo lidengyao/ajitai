@@ -1,7 +1,5 @@
 package com.hxsoft.ajitai.ui.activity;
 
-import android.app.Activity;
-import android.content.Context;
 import android.content.DialogInterface;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
@@ -24,9 +22,9 @@ import com.hxsoft.ajitai.model.info.Cuseraddress_Info;
 import com.hxsoft.ajitai.model.info.Sysarea_Info;
 import com.hxsoft.ajitai.present.A_XinJianShouHuoDiZhi_Present;
 import com.hxsoft.ajitai.ui.view.A_XinJianShouHuoDiZhi_View;
-import com.hxsoft.ajitai.utils.CheckControl_Dialog_SysArea;
 import com.hxsoft.ajitai.utils.MStringUtils;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 
 import butterknife.Bind;
@@ -65,18 +63,12 @@ public class A_Activity_XinJianShouHuoDiZhi extends MvpActivity<A_XinJianShouHuo
     private Integer isdefault = 0;
     private String type;
     private Cuseraddress_Info.RecordsBean recordsBean;
-    private Boolean IsCheckArea = false;
     private ArrayList<Sysarea_Info> sheng_sysarea_infoArrayList;
     private ArrayList<Sysarea_Info> One_sysarea_infoArrayList;
     private ArrayList<Sysarea_Info> Two_sysarea_infoArrayList;
     private ArrayList<Sysarea_Info> Three_sysarea_infoArrayList;
-    private Integer AreaIndexOne = 1;
-    private Integer AreaIndexTwo = 2;
-    private Integer AreaIndexThree = 3;
-    private Integer AreaIndexFour = 4;
 
     private View bottomView;
-    private LinearLayout NameListLL;
     private LinearLayout Data_Sheng_LL;
     private LinearLayout DataOneLL;
     private LinearLayout DataTwoLL;
@@ -91,6 +83,41 @@ public class A_Activity_XinJianShouHuoDiZhi extends MvpActivity<A_XinJianShouHuo
     private TextView OneTitleTV;
     private TextView TwoTitleTV;
     private TextView ThreeTitleTV;
+
+
+    private ImageView ShengLine;
+    private ImageView OneLine;
+    private ImageView TwoLine;
+    private ImageView ThreeLine;
+
+
+    private View CheckShengView;
+    private View CheckOneView;
+    private View CheckTwoView;
+    private View CheckThreeView;
+
+    private SysAreaC shengSysAreaC;
+    private SysAreaC OneSysAreaC;
+    private SysAreaC TwoSysAreaC;
+    private SysAreaC ThreeSysAreaC;
+
+    private String shengName;
+    private String oneName;
+    private String twoName;
+    private String threeName;
+
+
+    private Integer shengCode = 31030;
+    private Integer oneCode = 31221;
+    private Integer twoCode = 31246;
+    private Integer threeCode = 31254;
+
+
+    private Integer addrcode;
+    private Boolean IsLastAddCode = false;
+    private PopupWindow pop;
+
+    private ArrayList<SysAreaC> sysAreaCArrayList = new ArrayList<>();
 
 
     @Override
@@ -133,7 +160,6 @@ public class A_Activity_XinJianShouHuoDiZhi extends MvpActivity<A_XinJianShouHuo
             public void onClick(View v) {
                 String username = usernameET.getText().toString();
                 String phone = phoneET.getText().toString();
-                String addrcode = addrcodeET.getText().toString();
                 String address = addressET.getText().toString();
                 if (MStringUtils.IsNullOrEmpty(username)) {
                     showMessage("请填写收货人");
@@ -143,7 +169,7 @@ public class A_Activity_XinJianShouHuoDiZhi extends MvpActivity<A_XinJianShouHuo
                     showMessage("请填写手机号码");
                     return;
                 }
-                if (MStringUtils.IsNullOrEmpty(addrcode)) {
+                if (IsLastAddCode == false) {
                     showMessage("请选择所在地区");
                     return;
                 }
@@ -226,7 +252,6 @@ public class A_Activity_XinJianShouHuoDiZhi extends MvpActivity<A_XinJianShouHuo
 
         bottomView = View.inflate(getContext(), R.layout.actionsheet_dialog_sysarea, null);
 
-        NameListLL = bottomView.findViewById(R.id.NameListLL);
         Data_Sheng_LL = bottomView.findViewById(R.id.Data_Sheng_LL);
         DataOneLL = bottomView.findViewById(R.id.Data_One_LL);
         DataTwoLL = bottomView.findViewById(R.id.Data_Two_LL);
@@ -242,51 +267,115 @@ public class A_Activity_XinJianShouHuoDiZhi extends MvpActivity<A_XinJianShouHuo
         TwoTitleTV = bottomView.findViewById(R.id.TwoTitleTV);
         ThreeTitleTV = bottomView.findViewById(R.id.ThreeTitleTV);
 
+        ShengLine = bottomView.findViewById(R.id.ShengLine);
+        OneLine = bottomView.findViewById(R.id.OneLine);
+        TwoLine = bottomView.findViewById(R.id.TwoLine);
+        ThreeLine = bottomView.findViewById(R.id.ThreeLine);
+
+        shengSysAreaC = new SysAreaC();
+        shengSysAreaC.setTip("sheng");
+        shengSysAreaC.setDataLL(Data_Sheng_LL);
+        shengSysAreaC.setTitleLL(ShengTitleLL);
+        shengSysAreaC.setTitle(ShengTitleTV);
+        shengSysAreaC.setLine(ShengLine);
+        sysAreaCArrayList.add(shengSysAreaC);
+
+
+        OneSysAreaC = new SysAreaC();
+        OneSysAreaC.setTip("one");
+        OneSysAreaC.setDataLL(DataOneLL);
+        OneSysAreaC.setTitleLL(OneTitleLL);
+        OneSysAreaC.setTitle(OneTitleTV);
+        OneSysAreaC.setLine(OneLine);
+        sysAreaCArrayList.add(OneSysAreaC);
+
+
+        TwoSysAreaC = new SysAreaC();
+        TwoSysAreaC.setTip("two");
+        TwoSysAreaC.setDataLL(DataTwoLL);
+        TwoSysAreaC.setTitleLL(TwoTitleLL);
+        TwoSysAreaC.setTitle(TwoTitleTV);
+        TwoSysAreaC.setLine(TwoLine);
+        sysAreaCArrayList.add(TwoSysAreaC);
+
+
+        ThreeSysAreaC = new SysAreaC();
+        ThreeSysAreaC.setTip("three");
+        ThreeSysAreaC.setDataLL(DataThreeLL);
+        ThreeSysAreaC.setTitleLL(ThreeTitleLL);
+        ThreeSysAreaC.setTitle(ThreeTitleTV);
+        ThreeSysAreaC.setLine(ThreeLine);
+        sysAreaCArrayList.add(ThreeSysAreaC);
+
+
         ShengTitleLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Data_Sheng_LL.setVisibility(View.VISIBLE);
-                DataOneLL.setVisibility(View.GONE);
-                DataTwoLL.setVisibility(View.GONE);
-                DataThreeLL.setVisibility(View.GONE);
+                SetClickTitle("sheng");
             }
         });
 
         OneTitleLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Data_Sheng_LL.setVisibility(View.GONE);
-                DataOneLL.setVisibility(View.VISIBLE);
-                DataTwoLL.setVisibility(View.GONE);
-                DataThreeLL.setVisibility(View.GONE);
+                SetClickTitle("one");
             }
         });
 
         TwoTitleLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Data_Sheng_LL.setVisibility(View.GONE);
-                DataOneLL.setVisibility(View.GONE);
-                DataTwoLL.setVisibility(View.VISIBLE);
-                DataThreeLL.setVisibility(View.GONE);
+                SetClickTitle("two");
             }
         });
 
         ThreeTitleLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Data_Sheng_LL.setVisibility(View.GONE);
-                DataOneLL.setVisibility(View.GONE);
-                DataTwoLL.setVisibility(View.GONE);
-                DataThreeLL.setVisibility(View.VISIBLE);
+                SetClickTitle("three");
             }
         });
+    }
+
+    private void SetClickTitle(String tip) {
+        for (int i = 0; i < sysAreaCArrayList.size(); i++) {
+            SysAreaC sysAreaC = sysAreaCArrayList.get(i);
+            if (sysAreaC.getTip().equals(tip)) {
+                sysAreaC.getDataLL().setVisibility(View.VISIBLE);
+                sysAreaC.getLine().setVisibility(View.VISIBLE);
+            } else {
+
+                sysAreaC.getDataLL().setVisibility(View.GONE);
+                sysAreaC.getLine().setVisibility(View.INVISIBLE);
+            }
+        }
+    }
+
+    private void SetCheckArea(String currentTip, String nextTip, String currentTitleVlaue) {
+
+        for (int i = 0; i < sysAreaCArrayList.size(); i++) {
+            SysAreaC sysAreaC = sysAreaCArrayList.get(i);
+            if (sysAreaC.getTip().equals(currentTip)) {
+                sysAreaC.getTitle().setText(currentTitleVlaue);
+                sysAreaC.getDataLL().setVisibility(View.GONE);
+                sysAreaC.getTitleLL().setVisibility(View.VISIBLE);
+                sysAreaC.getLine().setVisibility(View.INVISIBLE);
+            } else if (sysAreaC.getTip().equals(nextTip)) {
+                sysAreaC.getTitle().setText("请选择");
+                sysAreaC.getTitleLL().setVisibility(View.VISIBLE);
+                sysAreaC.getDataLL().setVisibility(View.VISIBLE);
+                sysAreaC.getLine().setVisibility(View.VISIBLE);
+            } else if (!sysAreaC.getTip().equals(currentTip) && !sysAreaC.getTip().equals(nextTip) && sysAreaC.getCheck() == false) {
+                sysAreaC.getTitleLL().setVisibility(View.GONE);
+                sysAreaC.getDataLL().setVisibility(View.GONE);
+            }
+        }
     }
 
 
     private void ShowDialog() {
 
-        PopupWindow pop = new PopupWindow(bottomView, -1, -2);
+        pop = new PopupWindow(bottomView, -1, -2);
         pop.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         pop.setOutsideTouchable(true);
         pop.setFocusable(true);
@@ -362,127 +451,21 @@ public class A_Activity_XinJianShouHuoDiZhi extends MvpActivity<A_XinJianShouHuo
     }
 
     @Override
-    public void dictSysareaegettreelistbyupidOneSuccess(ArrayList<Sysarea_Info> model) {
-        DataOneLL.removeAllViews();
-        if (model == null)
-            return;
-
-        OneTitleTV.setText("请选择");
-        One_sysarea_infoArrayList = model;
-        Data_Sheng_LL.setVisibility(View.GONE);
-        DataOneLL.setVisibility(View.VISIBLE);
-        DataTwoLL.setVisibility(View.GONE);
-        DataThreeLL.setVisibility(View.GONE);
-        if (One_sysarea_infoArrayList.size() > 0) {
-            for (int i = 0; i < One_sysarea_infoArrayList.size(); i++) {
-                Sysarea_Info sysarea_info = One_sysarea_infoArrayList.get(i);
-                View AreaView = View.inflate(getContext(), R.layout.a_item_area, null);
-                ImageView Check_IV = (ImageView) AreaView.findViewById(R.id.Check_IV);
-                TextView AreaTV = (TextView) AreaView.findViewById(R.id.AreaTV);
-                AreaTV.setText(sysarea_info.getAreaname());
-                DataOneLL.addView(AreaView);
-                AreaView.setTag(sysarea_info);
-                AreaView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Sysarea_Info sysarea_info1 = (Sysarea_Info) v.getTag();
-                        OneTitleTV.setText(sysarea_info1.getAreaname());
-                        OneTitleLL.setVisibility(View.VISIBLE);
-                        mPresenter.dictSysareaegettreelistbyupidTwo(sysarea_info1.getAid(), getContext());
-                    }
-                });
-            }
-
-        }
-    }
-
-    @Override
-    public void dictSysareaegettreelistbyupidTwoSuccess(ArrayList<Sysarea_Info> model) {
-        DataTwoLL.removeAllViews();
-        if (model == null)
-            return;
-        TwoTitleTV.setText("请选择");
-        Two_sysarea_infoArrayList = model;
-        Data_Sheng_LL.setVisibility(View.GONE);
-        DataOneLL.setVisibility(View.GONE);
-        DataTwoLL.setVisibility(View.VISIBLE);
-        DataThreeLL.setVisibility(View.GONE);
-        if (Two_sysarea_infoArrayList.size() > 0) {
-            for (int i = 0; i < Two_sysarea_infoArrayList.size(); i++) {
-                Sysarea_Info sysarea_info = Two_sysarea_infoArrayList.get(i);
-                View AreaView = View.inflate(getContext(), R.layout.a_item_area, null);
-                ImageView Check_IV = (ImageView) AreaView.findViewById(R.id.Check_IV);
-                TextView AreaTV = (TextView) AreaView.findViewById(R.id.AreaTV);
-                AreaTV.setText(sysarea_info.getAreaname());
-                DataTwoLL.addView(AreaView);
-                AreaView.setTag(sysarea_info);
-                AreaView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Sysarea_Info sysarea_info1 = (Sysarea_Info) v.getTag();
-                        TwoTitleTV.setText(sysarea_info1.getAreaname());
-                        TwoTitleLL.setVisibility(View.VISIBLE);
-                        mPresenter.dictSysareaegettreelistbyupidTwo(sysarea_info1.getAid(), getContext());
-                    }
-                });
-            }
-
-        }
-    }
-
-    @Override
-    public void dictSysareaegettreelistbyupidThreeSuccess(ArrayList<Sysarea_Info> model) {
-        DataThreeLL.removeAllViews();
-        if (model == null)
-            return;
-        ThreeTitleTV.setText("请选择");
-        Three_sysarea_infoArrayList = model;
-        Data_Sheng_LL.setVisibility(View.GONE);
-        DataOneLL.setVisibility(View.GONE);
-        DataTwoLL.setVisibility(View.GONE);
-        DataThreeLL.setVisibility(View.VISIBLE);
-        if (Three_sysarea_infoArrayList.size() > 0) {
-            for (int i = 0; i < Three_sysarea_infoArrayList.size(); i++) {
-                Sysarea_Info sysarea_info = Three_sysarea_infoArrayList.get(i);
-                View AreaView = View.inflate(getContext(), R.layout.a_item_area, null);
-                ImageView Check_IV = (ImageView) AreaView.findViewById(R.id.Check_IV);
-                TextView AreaTV = (TextView) AreaView.findViewById(R.id.AreaTV);
-                AreaTV.setText(sysarea_info.getAreaname());
-                DataThreeLL.addView(AreaView);
-                AreaView.setTag(sysarea_info);
-                AreaView.setOnClickListener(new View.OnClickListener() {
-                    @Override
-                    public void onClick(View v) {
-                        Sysarea_Info sysarea_info1 = (Sysarea_Info) v.getTag();
-                        ThreeTitleTV.setText(sysarea_info1.getAreaname());
-                        mPresenter.dictSysareaegettreelistbyupidTwo(sysarea_info1.getAid(), getContext());
-                    }
-                });
-            }
-
-        }
-    }
-
-
-    @Override
     public void dictSysareaettreelistSuccess(ArrayList<Sysarea_Info> model) {
         Data_Sheng_LL.removeAllViews();
         if (model == null)
             return;
         sheng_sysarea_infoArrayList = model;
-        //省份
+
+        ShengTitleLL.setVisibility(View.VISIBLE);
+        ShengTitleTV.setText("请选择");
+        ShengLine.setVisibility(View.VISIBLE);
 
         Data_Sheng_LL.setVisibility(View.VISIBLE);
         DataOneLL.setVisibility(View.GONE);
         DataTwoLL.setVisibility(View.GONE);
         DataThreeLL.setVisibility(View.GONE);
-
-        ShengTitleTV.setText("请选择");
-        ShengTitleLL.setVisibility(View.VISIBLE);
-//        ShengTitleLL.setVisibility(View.VISIBLE);
-//        ShengTitleLL.setVisibility(View.VISIBLE);
-//        ShengTitleLL.setVisibility(View.VISIBLE);
-
+        //省份
 
         if (sheng_sysarea_infoArrayList.size() > 0) {
             for (int i = 0; i < sheng_sysarea_infoArrayList.size(); i++) {
@@ -492,14 +475,18 @@ public class A_Activity_XinJianShouHuoDiZhi extends MvpActivity<A_XinJianShouHuo
                 TextView AreaTV = (TextView) AreaView.findViewById(R.id.AreaTV);
                 AreaTV.setText(sysarea_info.getAreaname());
                 Data_Sheng_LL.addView(AreaView);
+
+                if (type.equals("1")) {
+                    if (shengCode.equals(sysarea_info.getAid())) {
+                        ShengCheck(AreaView,sysarea_info);
+                    }
+                }
                 AreaView.setTag(sysarea_info);
                 AreaView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Sysarea_Info sysarea_info1 = (Sysarea_Info) v.getTag();
-                        ShengTitleTV.setText(sysarea_info1.getAreaname());
-                        OneTitleLL.setVisibility(View.VISIBLE);
-                        mPresenter.dictSysareaegettreelistbyupidOne(sysarea_info1.getAid(), getContext());
+                        ShengCheck(v,sysarea_info1);
                     }
                 });
             }
@@ -507,14 +494,322 @@ public class A_Activity_XinJianShouHuoDiZhi extends MvpActivity<A_XinJianShouHuo
         }
 
     }
+    private void ShengCheck(View v,Sysarea_Info sysarea_info)
+    {
+        if (CheckShengView != null) {
+            ImageView Check_IV = (ImageView) CheckShengView.findViewById(R.id.Check_IV);
+            Check_IV.setVisibility(View.GONE);
+        }
+        ImageView Check_IV = (ImageView) v.findViewById(R.id.Check_IV);
+        Check_IV.setVisibility(View.VISIBLE);
+
+        CheckShengView = v;
+        addrcodeET.setText("");
+        IsLastAddCode = false;
+        shengSysAreaC.setCheck(true);
+        OneSysAreaC.setCheck(false);
+        TwoSysAreaC.setCheck(false);
+        ThreeSysAreaC.setCheck(false);
+
+        addrcode = sysarea_info.getAid();
+        shengName = sysarea_info.getAreaname();
+        oneName = "";
+        twoName = "";
+        threeName = "";
+        SetCheckArea("sheng", "one", sysarea_info.getAreaname());
+        mPresenter.dictSysareaegettreelistbyupidOne(sysarea_info.getAid(), getContext());
+    }
+
+    @Override
+    public void dictSysareaegettreelistbyupidOneSuccess(ArrayList<Sysarea_Info> model) {
+        DataOneLL.removeAllViews();
+        if (model == null)
+            return;
+
+        One_sysarea_infoArrayList = model;
+        if (One_sysarea_infoArrayList.size() > 0) {
+            for (int i = 0; i < One_sysarea_infoArrayList.size(); i++) {
+                Sysarea_Info sysarea_info = One_sysarea_infoArrayList.get(i);
+                View AreaView = View.inflate(getContext(), R.layout.a_item_area, null);
+                ImageView Check_IV = (ImageView) AreaView.findViewById(R.id.Check_IV);
+                TextView AreaTV = (TextView) AreaView.findViewById(R.id.AreaTV);
+                AreaTV.setText(sysarea_info.getAreaname());
+                DataOneLL.addView(AreaView);
+                if (type.equals("1")) {
+                    if (oneCode.equals(sysarea_info.getAid())) {
+                        OneCheck(AreaView,sysarea_info);
+                    }
+                }
+
+                AreaView.setTag(sysarea_info);
+                AreaView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Sysarea_Info sysarea_info1 = (Sysarea_Info) v.getTag();
+                        OneCheck(v,sysarea_info1);
+                    }
+                });
+            }
+
+        }
+    }
+    private void OneCheck(View v,Sysarea_Info sysarea_info)
+    {
+        if (CheckOneView != null) {
+            ImageView Check_IV = (ImageView) CheckOneView.findViewById(R.id.Check_IV);
+            Check_IV.setVisibility(View.GONE);
+        }
+        ImageView Check_IV = (ImageView) v.findViewById(R.id.Check_IV);
+        Check_IV.setVisibility(View.VISIBLE);
+
+        CheckOneView = v;
+        addrcodeET.setText("");
+        IsLastAddCode = false;
+        shengSysAreaC.setCheck(true);
+        OneSysAreaC.setCheck(true);
+        TwoSysAreaC.setCheck(false);
+        ThreeSysAreaC.setCheck(false);
+
+        addrcode = sysarea_info.getAid();
+        oneName = sysarea_info.getAreaname();
+        twoName = "";
+        threeName = "";
+        SetCheckArea("one", "two", sysarea_info.getAreaname());
+        mPresenter.dictSysareaegettreelistbyupidTwo(sysarea_info.getAid(), getContext());
+    }
+
+    @Override
+    public void dictSysareaegettreelistbyupidTwoSuccess(ArrayList<Sysarea_Info> model) {
+        DataTwoLL.removeAllViews();
+        if (model == null)
+            return;
+        Two_sysarea_infoArrayList = model;
+        if (Two_sysarea_infoArrayList.size() > 0) {
+            for (int i = 0; i < Two_sysarea_infoArrayList.size(); i++) {
+                Sysarea_Info sysarea_info = Two_sysarea_infoArrayList.get(i);
+                View AreaView = View.inflate(getContext(), R.layout.a_item_area, null);
+                ImageView Check_IV = (ImageView) AreaView.findViewById(R.id.Check_IV);
+                TextView AreaTV = (TextView) AreaView.findViewById(R.id.AreaTV);
+                AreaTV.setText(sysarea_info.getAreaname());
+                DataTwoLL.addView(AreaView);
+
+                if (type.equals("1")) {
+                    if (twoCode.equals(sysarea_info.getAid())) {
+                        TwoCheck(AreaView,sysarea_info);
+                    }
+                }
+
+                AreaView.setTag(sysarea_info);
+                AreaView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+                        Sysarea_Info sysarea_info1 = (Sysarea_Info) v.getTag();
+                        TwoCheck(v,sysarea_info1);
+                    }
+                });
+            }
+
+        }
+    }
+    private void TwoCheck(View v,Sysarea_Info sysarea_info)
+    {
+        if (CheckTwoView != null) {
+            ImageView Check_IV = (ImageView) CheckTwoView.findViewById(R.id.Check_IV);
+            Check_IV.setVisibility(View.GONE);
+        }
+        ImageView Check_IV = (ImageView) v.findViewById(R.id.Check_IV);
+        Check_IV.setVisibility(View.VISIBLE);
+
+        CheckTwoView = v;
+        addrcodeET.setText("");
+        IsLastAddCode = false;
+        shengSysAreaC.setCheck(true);
+        OneSysAreaC.setCheck(true);
+        TwoSysAreaC.setCheck(true);
+        ThreeSysAreaC.setCheck(false);
+
+
+        addrcode = sysarea_info.getAid();
+        twoName = sysarea_info.getAreaname();
+        threeName = "";
+        SetCheckArea("two", "three", sysarea_info.getAreaname());
+        mPresenter.dictSysareaegettreelistbyupidThree(sysarea_info.getAid(), getContext());
+    }
+
+    @Override
+    public void dictSysareaegettreelistbyupidThreeSuccess(ArrayList<Sysarea_Info> model) {
+        DataThreeLL.removeAllViews();
+        if (model == null)
+            return;
+        Three_sysarea_infoArrayList = model;
+        if (Three_sysarea_infoArrayList.size() > 0) {
+            for (int i = 0; i < Three_sysarea_infoArrayList.size(); i++) {
+                Sysarea_Info sysarea_info = Three_sysarea_infoArrayList.get(i);
+                View AreaView = View.inflate(getContext(), R.layout.a_item_area, null);
+                ImageView Check_IV = (ImageView) AreaView.findViewById(R.id.Check_IV);
+                TextView AreaTV = (TextView) AreaView.findViewById(R.id.AreaTV);
+                AreaTV.setText(sysarea_info.getAreaname());
+                DataThreeLL.addView(AreaView);
+
+                if (type.equals("1")) {
+                    if (threeCode.equals(sysarea_info.getAid())) {
+                        ThreeCheck(AreaView,sysarea_info);
+                    }
+                }
+
+
+                AreaView.setTag(sysarea_info);
+                AreaView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+
+
+                        Sysarea_Info sysarea_info1 = (Sysarea_Info) v.getTag();
+                        ThreeCheck(v,sysarea_info1);
+                    }
+                });
+            }
+
+        }
+    }
+    private void ThreeCheck(View v,Sysarea_Info sysarea_info)
+    {
+        if (CheckThreeView != null) {
+            ImageView Check_IV = (ImageView) CheckThreeView.findViewById(R.id.Check_IV);
+            Check_IV.setVisibility(View.GONE);
+        }
+        ImageView Check_IV = (ImageView) v.findViewById(R.id.Check_IV);
+        Check_IV.setVisibility(View.VISIBLE);
+
+        CheckThreeView = v;
+        addrcodeET.setText("");
+        IsLastAddCode = false;
+        shengSysAreaC.setCheck(true);
+        OneSysAreaC.setCheck(true);
+        TwoSysAreaC.setCheck(true);
+        ThreeSysAreaC.setCheck(true);
+
+
+        addrcode = sysarea_info.getAid();
+        threeName = sysarea_info.getAreaname();
+        SetCheckArea("three", "four", sysarea_info.getAreaname());
+        mPresenter.dictSysareaegettreelistbyupidFour(sysarea_info.getAid(), getContext());
+    }
+
+    @Override
+    public void dictSysareaegettreelistbyupidFourSuccess(ArrayList<Sysarea_Info> model) {
+        if (model == null)
+            return;
+    }
+
 
     @Override
     public void onFailure(int code, String msg) {
-        showMessage(msg);
+        IsLastAddCode = true;
+
+        //查询不到省级数据
+        if (code == 0) {
+
+        }
+        //查询不到one级数据
+        if (code == 1) {
+            shengSysAreaC.getTitleLL().setVisibility(View.VISIBLE);
+            shengSysAreaC.getLine().setVisibility(View.VISIBLE);
+            shengSysAreaC.getDataLL().setVisibility(View.VISIBLE);
+
+            OneSysAreaC.getTitleLL().setVisibility(View.GONE);
+            TwoSysAreaC.getTitleLL().setVisibility(View.GONE);
+            ThreeSysAreaC.getTitleLL().setVisibility(View.GONE);
+        }
+        //查询不到two级数据
+        if (code == 2) {
+            OneSysAreaC.getTitleLL().setVisibility(View.VISIBLE);
+            OneSysAreaC.getLine().setVisibility(View.VISIBLE);
+            OneSysAreaC.getDataLL().setVisibility(View.VISIBLE);
+
+            TwoSysAreaC.getTitleLL().setVisibility(View.GONE);
+            ThreeSysAreaC.getTitleLL().setVisibility(View.GONE);
+        }
+        //查询不到three级数据
+        if (code == 3) {
+            TwoSysAreaC.getTitleLL().setVisibility(View.VISIBLE);
+            TwoSysAreaC.getLine().setVisibility(View.VISIBLE);
+            TwoSysAreaC.getDataLL().setVisibility(View.VISIBLE);
+
+            ThreeSysAreaC.getTitleLL().setVisibility(View.GONE);
+        }
+        //查询不到four级数据
+        if (code == 4) {
+            ThreeSysAreaC.getTitleLL().setVisibility(View.VISIBLE);
+            ThreeSysAreaC.getLine().setVisibility(View.VISIBLE);
+            ThreeSysAreaC.getDataLL().setVisibility(View.VISIBLE);
+
+        }
+
+        if (pop != null) {
+            pop.dismiss();
+            addrcodeET.setText(shengName + oneName + twoName + threeName);
+        }
+
     }
 
-    public class SysAreaC {
+    public class SysAreaC implements Serializable {
+        private ImageView Line;
+        private TextView Title;
+        private LinearLayout TitleLL;
+        private LinearLayout DataLL;
+        private String tip;
+        private Boolean IsCheck;
 
+
+        public Boolean getCheck() {
+            return IsCheck;
+        }
+
+        public void setCheck(Boolean check) {
+            IsCheck = check;
+        }
+
+        public String getTip() {
+            return tip;
+        }
+
+        public void setTip(String tip) {
+            this.tip = tip;
+        }
+
+        public ImageView getLine() {
+            return Line;
+        }
+
+        public void setLine(ImageView line) {
+            Line = line;
+        }
+
+        public TextView getTitle() {
+            return Title;
+        }
+
+        public void setTitle(TextView title) {
+            Title = title;
+        }
+
+        public LinearLayout getTitleLL() {
+            return TitleLL;
+        }
+
+        public void setTitleLL(LinearLayout titleLL) {
+            TitleLL = titleLL;
+        }
+
+        public LinearLayout getDataLL() {
+            return DataLL;
+        }
+
+        public void setDataLL(LinearLayout dataLL) {
+            DataLL = dataLL;
+        }
     }
 
 }

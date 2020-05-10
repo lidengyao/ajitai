@@ -172,7 +172,7 @@ public class A_XinJianShouHuoDiZhi_Present extends BasePresent<A_XinJianShouHuoD
             @Override
             public void onFailure(int code, String msg) {
                 if (getView() != null) {
-                    getView().showMessage(LogCode.GetCode(tip) + msg);
+                    getView().onFailure(0, msg);
                 }
             }
 
@@ -211,7 +211,7 @@ public class A_XinJianShouHuoDiZhi_Present extends BasePresent<A_XinJianShouHuoD
             @Override
             public void onFailure(int code, String msg) {
                 if (getView() != null) {
-                    getView().showMessage(LogCode.GetCode(tip) + msg);
+                    getView().onFailure(1, msg);
                 }
             }
 
@@ -249,7 +249,7 @@ public class A_XinJianShouHuoDiZhi_Present extends BasePresent<A_XinJianShouHuoD
             @Override
             public void onFailure(int code, String msg) {
                 if (getView() != null) {
-                    getView().showMessage(LogCode.GetCode(tip) + msg);
+                    getView().onFailure(2, msg);
                 }
             }
 
@@ -287,7 +287,7 @@ public class A_XinJianShouHuoDiZhi_Present extends BasePresent<A_XinJianShouHuoD
             @Override
             public void onFailure(int code, String msg) {
                 if (getView() != null) {
-                    getView().showMessage(LogCode.GetCode(tip) + msg);
+                    getView().onFailure(3, msg);
                 }
             }
 
@@ -300,5 +300,41 @@ public class A_XinJianShouHuoDiZhi_Present extends BasePresent<A_XinJianShouHuoD
         }, context));
     }
 
+    //根据上级ID获取所有的区域子节点_Four
+    public void dictSysareaegettreelistbyupidFour(Integer upid, Context context) {
+        String tip = "A_XinJianShouHuoDiZhi_Present-dictSysareaegettreelistbyupidFour-根据上级ID获取所有的区域子节点\r\n";
+        FileUtils.writeLogToFile(tip);
 
+        Observable<ResponseBean<ArrayList<Sysarea_Info>>> observable = RetrofitClient.builderRetrofit(context).create(APIService_AJiTai.class).dictSysareaegettreelistbyupid(upid);
+        addIOSubscription(observable, new ApiSubscriber(new ApiCallBack<ArrayList<Sysarea_Info>>() {
+            @Override
+            public void onStart() {
+                super.onStart();
+                if (getView() != null) {
+                    getView().showLoading();
+                }
+            }
+
+            @Override
+            public void onSuccess(ArrayList<Sysarea_Info> model) {
+                if (getView() != null) {
+                    getView().dictSysareaegettreelistbyupidFourSuccess(model);
+                }
+            }
+
+            @Override
+            public void onFailure(int code, String msg) {
+                if (getView() != null) {
+                    getView().onFailure(4, msg);
+                }
+            }
+
+            @Override
+            public void onCompleted() {
+                if (getView() != null) {
+                    getView().dismissLoading();
+                }
+            }
+        }, context));
+    }
 }

@@ -22,6 +22,8 @@ public interface A_XinJianShouHuoDiZhi_View extends BaseMvpView {
 
     void dictSysareaegettreelistbyupidThreeSuccess(ArrayList<Sysarea_Info> model);
 
+    void dictSysareaegettreelistbyupidFourSuccess(ArrayList<Sysarea_Info> model);
+
 
     void dictSysareaettreelistSuccess(ArrayList<Sysarea_Info> model);
 

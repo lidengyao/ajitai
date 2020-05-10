@@ -9,8 +9,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginLeft="20dp"
-        android:layout_marginTop="13dp"
-        android:layout_marginBottom="13dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginBottom="10dp"
         android:gravity="center_vertical"
         android:orientation="horizontal">
 
@@ -27,8 +27,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="北京"
-            android:textColor="@color/C808080"
-            android:textSize="@dimen/textsize15" />
+            android:textColor="@color/color1"
+            android:textSize="@dimen/textsize13" />
     </LinearLayout>
 
 </LinearLayout>
