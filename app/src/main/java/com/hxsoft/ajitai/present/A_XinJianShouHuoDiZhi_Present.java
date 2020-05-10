@@ -186,9 +186,9 @@ public class A_XinJianShouHuoDiZhi_Present extends BasePresent<A_XinJianShouHuoD
     }
 
 
-    //根据上级ID获取所有的区域子节点
-    public void dictSysareaegettreelistbyupid(Integer upid, Context context) {
-        String tip = "A_XinJianShouHuoDiZhi_Present-dictSysareaegettreelistbyupid-根据上级ID获取所有的区域子节点\r\n";
+    //根据上级ID获取所有的区域子节点_One
+    public void dictSysareaegettreelistbyupidOne(Integer upid, Context context) {
+        String tip = "A_XinJianShouHuoDiZhi_Present-dictSysareaegettreelistbyupidOne-根据上级ID获取所有的区域子节点\r\n";
         FileUtils.writeLogToFile(tip);
 
         Observable<ResponseBean<ArrayList<Sysarea_Info>>> observable = RetrofitClient.builderRetrofit(context).create(APIService_AJiTai.class).dictSysareaegettreelistbyupid(upid);
@@ -204,7 +204,7 @@ public class A_XinJianShouHuoDiZhi_Present extends BasePresent<A_XinJianShouHuoD
             @Override
             public void onSuccess(ArrayList<Sysarea_Info> model) {
                 if (getView() != null) {
-                    getView().dictSysareaegettreelistbyupidSuccess(model);
+                    getView().dictSysareaegettreelistbyupidOneSuccess(model);
                 }
             }
 
@@ -223,5 +223,82 @@ public class A_XinJianShouHuoDiZhi_Present extends BasePresent<A_XinJianShouHuoD
             }
         }, context));
     }
+
+    //根据上级ID获取所有的区域子节点_Two
+    public void dictSysareaegettreelistbyupidTwo(Integer upid, Context context) {
+        String tip = "A_XinJianShouHuoDiZhi_Present-dictSysareaegettreelistbyupidTwo-根据上级ID获取所有的区域子节点\r\n";
+        FileUtils.writeLogToFile(tip);
+
+        Observable<ResponseBean<ArrayList<Sysarea_Info>>> observable = RetrofitClient.builderRetrofit(context).create(APIService_AJiTai.class).dictSysareaegettreelistbyupid(upid);
+        addIOSubscription(observable, new ApiSubscriber(new ApiCallBack<ArrayList<Sysarea_Info>>() {
+            @Override
+            public void onStart() {
+                super.onStart();
+                if (getView() != null) {
+                    getView().showLoading();
+                }
+            }
+
+            @Override
+            public void onSuccess(ArrayList<Sysarea_Info> model) {
+                if (getView() != null) {
+                    getView().dictSysareaegettreelistbyupidTwoSuccess(model);
+                }
+            }
+
+            @Override
+            public void onFailure(int code, String msg) {
+                if (getView() != null) {
+                    getView().showMessage(LogCode.GetCode(tip) + msg);
+                }
+            }
+
+            @Override
+            public void onCompleted() {
+                if (getView() != null) {
+                    getView().dismissLoading();
+                }
+            }
+        }, context));
+    }
+
+    //根据上级ID获取所有的区域子节点_Three
+    public void dictSysareaegettreelistbyupidThree(Integer upid, Context context) {
+        String tip = "A_XinJianShouHuoDiZhi_Present-dictSysareaegettreelistbyupidThree-根据上级ID获取所有的区域子节点\r\n";
+        FileUtils.writeLogToFile(tip);
+
+        Observable<ResponseBean<ArrayList<Sysarea_Info>>> observable = RetrofitClient.builderRetrofit(context).create(APIService_AJiTai.class).dictSysareaegettreelistbyupid(upid);
+        addIOSubscription(observable, new ApiSubscriber(new ApiCallBack<ArrayList<Sysarea_Info>>() {
+            @Override
+            public void onStart() {
+                super.onStart();
+                if (getView() != null) {
+                    getView().showLoading();
+                }
+            }
+
+            @Override
+            public void onSuccess(ArrayList<Sysarea_Info> model) {
+                if (getView() != null) {
+                    getView().dictSysareaegettreelistbyupidThreeSuccess(model);
+                }
+            }
+
+            @Override
+            public void onFailure(int code, String msg) {
+                if (getView() != null) {
+                    getView().showMessage(LogCode.GetCode(tip) + msg);
+                }
+            }
+
+            @Override
+            public void onCompleted() {
+                if (getView() != null) {
+                    getView().dismissLoading();
+                }
+            }
+        }, context));
+    }
+
 
 }

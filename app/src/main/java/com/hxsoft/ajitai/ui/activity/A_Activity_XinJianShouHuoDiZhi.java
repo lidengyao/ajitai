@@ -67,6 +67,9 @@ public class A_Activity_XinJianShouHuoDiZhi extends MvpActivity<A_XinJianShouHuo
     private Cuseraddress_Info.RecordsBean recordsBean;
     private Boolean IsCheckArea = false;
     private ArrayList<Sysarea_Info> sheng_sysarea_infoArrayList;
+    private ArrayList<Sysarea_Info> One_sysarea_infoArrayList;
+    private ArrayList<Sysarea_Info> Two_sysarea_infoArrayList;
+    private ArrayList<Sysarea_Info> Three_sysarea_infoArrayList;
     private Integer AreaIndexOne = 1;
     private Integer AreaIndexTwo = 2;
     private Integer AreaIndexThree = 3;
@@ -74,7 +77,21 @@ public class A_Activity_XinJianShouHuoDiZhi extends MvpActivity<A_XinJianShouHuo
 
     private View bottomView;
     private LinearLayout NameListLL;
-    private LinearLayout DataLL;
+    private LinearLayout Data_Sheng_LL;
+    private LinearLayout DataOneLL;
+    private LinearLayout DataTwoLL;
+    private LinearLayout DataThreeLL;
+
+    private LinearLayout ShengTitleLL;
+    private LinearLayout OneTitleLL;
+    private LinearLayout TwoTitleLL;
+    private LinearLayout ThreeTitleLL;
+
+    private TextView ShengTitleTV;
+    private TextView OneTitleTV;
+    private TextView TwoTitleTV;
+    private TextView ThreeTitleTV;
+
 
     @Override
     protected int getLayoutId() {
@@ -210,8 +227,60 @@ public class A_Activity_XinJianShouHuoDiZhi extends MvpActivity<A_XinJianShouHuo
         bottomView = View.inflate(getContext(), R.layout.actionsheet_dialog_sysarea, null);
 
         NameListLL = bottomView.findViewById(R.id.NameListLL);
-        DataLL = bottomView.findViewById(R.id.DataLL);
+        Data_Sheng_LL = bottomView.findViewById(R.id.Data_Sheng_LL);
+        DataOneLL = bottomView.findViewById(R.id.Data_One_LL);
+        DataTwoLL = bottomView.findViewById(R.id.Data_Two_LL);
+        DataThreeLL = bottomView.findViewById(R.id.Data_Three_LL);
 
+        ShengTitleLL = bottomView.findViewById(R.id.ShengTitleLL);
+        OneTitleLL = bottomView.findViewById(R.id.OneTitleLL);
+        TwoTitleLL = bottomView.findViewById(R.id.TwoTitleLL);
+        ThreeTitleLL = bottomView.findViewById(R.id.ThreeTitleLL);
+
+        ShengTitleTV = bottomView.findViewById(R.id.ShengTitleTV);
+        OneTitleTV = bottomView.findViewById(R.id.OneTitleTV);
+        TwoTitleTV = bottomView.findViewById(R.id.TwoTitleTV);
+        ThreeTitleTV = bottomView.findViewById(R.id.ThreeTitleTV);
+
+        ShengTitleLL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Data_Sheng_LL.setVisibility(View.VISIBLE);
+                DataOneLL.setVisibility(View.GONE);
+                DataTwoLL.setVisibility(View.GONE);
+                DataThreeLL.setVisibility(View.GONE);
+            }
+        });
+
+        OneTitleLL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Data_Sheng_LL.setVisibility(View.GONE);
+                DataOneLL.setVisibility(View.VISIBLE);
+                DataTwoLL.setVisibility(View.GONE);
+                DataThreeLL.setVisibility(View.GONE);
+            }
+        });
+
+        TwoTitleLL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Data_Sheng_LL.setVisibility(View.GONE);
+                DataOneLL.setVisibility(View.GONE);
+                DataTwoLL.setVisibility(View.VISIBLE);
+                DataThreeLL.setVisibility(View.GONE);
+            }
+        });
+
+        ThreeTitleLL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Data_Sheng_LL.setVisibility(View.GONE);
+                DataOneLL.setVisibility(View.GONE);
+                DataTwoLL.setVisibility(View.GONE);
+                DataThreeLL.setVisibility(View.VISIBLE);
+            }
+        });
     }
 
 
@@ -293,17 +362,126 @@ public class A_Activity_XinJianShouHuoDiZhi extends MvpActivity<A_XinJianShouHuo
     }
 
     @Override
-    public void dictSysareaegettreelistbyupidSuccess(ArrayList<Sysarea_Info> model) {
+    public void dictSysareaegettreelistbyupidOneSuccess(ArrayList<Sysarea_Info> model) {
+        DataOneLL.removeAllViews();
+        if (model == null)
+            return;
 
+        OneTitleTV.setText("请选择");
+        One_sysarea_infoArrayList = model;
+        Data_Sheng_LL.setVisibility(View.GONE);
+        DataOneLL.setVisibility(View.VISIBLE);
+        DataTwoLL.setVisibility(View.GONE);
+        DataThreeLL.setVisibility(View.GONE);
+        if (One_sysarea_infoArrayList.size() > 0) {
+            for (int i = 0; i < One_sysarea_infoArrayList.size(); i++) {
+                Sysarea_Info sysarea_info = One_sysarea_infoArrayList.get(i);
+                View AreaView = View.inflate(getContext(), R.layout.a_item_area, null);
+                ImageView Check_IV = (ImageView) AreaView.findViewById(R.id.Check_IV);
+                TextView AreaTV = (TextView) AreaView.findViewById(R.id.AreaTV);
+                AreaTV.setText(sysarea_info.getAreaname());
+                DataOneLL.addView(AreaView);
+                AreaView.setTag(sysarea_info);
+                AreaView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Sysarea_Info sysarea_info1 = (Sysarea_Info) v.getTag();
+                        OneTitleTV.setText(sysarea_info1.getAreaname());
+                        OneTitleLL.setVisibility(View.VISIBLE);
+                        mPresenter.dictSysareaegettreelistbyupidTwo(sysarea_info1.getAid(), getContext());
+                    }
+                });
+            }
 
+        }
     }
 
     @Override
+    public void dictSysareaegettreelistbyupidTwoSuccess(ArrayList<Sysarea_Info> model) {
+        DataTwoLL.removeAllViews();
+        if (model == null)
+            return;
+        TwoTitleTV.setText("请选择");
+        Two_sysarea_infoArrayList = model;
+        Data_Sheng_LL.setVisibility(View.GONE);
+        DataOneLL.setVisibility(View.GONE);
+        DataTwoLL.setVisibility(View.VISIBLE);
+        DataThreeLL.setVisibility(View.GONE);
+        if (Two_sysarea_infoArrayList.size() > 0) {
+            for (int i = 0; i < Two_sysarea_infoArrayList.size(); i++) {
+                Sysarea_Info sysarea_info = Two_sysarea_infoArrayList.get(i);
+                View AreaView = View.inflate(getContext(), R.layout.a_item_area, null);
+                ImageView Check_IV = (ImageView) AreaView.findViewById(R.id.Check_IV);
+                TextView AreaTV = (TextView) AreaView.findViewById(R.id.AreaTV);
+                AreaTV.setText(sysarea_info.getAreaname());
+                DataTwoLL.addView(AreaView);
+                AreaView.setTag(sysarea_info);
+                AreaView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Sysarea_Info sysarea_info1 = (Sysarea_Info) v.getTag();
+                        TwoTitleTV.setText(sysarea_info1.getAreaname());
+                        TwoTitleLL.setVisibility(View.VISIBLE);
+                        mPresenter.dictSysareaegettreelistbyupidTwo(sysarea_info1.getAid(), getContext());
+                    }
+                });
+            }
+
+        }
+    }
+
+    @Override
+    public void dictSysareaegettreelistbyupidThreeSuccess(ArrayList<Sysarea_Info> model) {
+        DataThreeLL.removeAllViews();
+        if (model == null)
+            return;
+        ThreeTitleTV.setText("请选择");
+        Three_sysarea_infoArrayList = model;
+        Data_Sheng_LL.setVisibility(View.GONE);
+        DataOneLL.setVisibility(View.GONE);
+        DataTwoLL.setVisibility(View.GONE);
+        DataThreeLL.setVisibility(View.VISIBLE);
+        if (Three_sysarea_infoArrayList.size() > 0) {
+            for (int i = 0; i < Three_sysarea_infoArrayList.size(); i++) {
+                Sysarea_Info sysarea_info = Three_sysarea_infoArrayList.get(i);
+                View AreaView = View.inflate(getContext(), R.layout.a_item_area, null);
+                ImageView Check_IV = (ImageView) AreaView.findViewById(R.id.Check_IV);
+                TextView AreaTV = (TextView) AreaView.findViewById(R.id.AreaTV);
+                AreaTV.setText(sysarea_info.getAreaname());
+                DataThreeLL.addView(AreaView);
+                AreaView.setTag(sysarea_info);
+                AreaView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        Sysarea_Info sysarea_info1 = (Sysarea_Info) v.getTag();
+                        ThreeTitleTV.setText(sysarea_info1.getAreaname());
+                        mPresenter.dictSysareaegettreelistbyupidTwo(sysarea_info1.getAid(), getContext());
+                    }
+                });
+            }
+
+        }
+    }
+
+
+    @Override
     public void dictSysareaettreelistSuccess(ArrayList<Sysarea_Info> model) {
+        Data_Sheng_LL.removeAllViews();
         if (model == null)
             return;
         sheng_sysarea_infoArrayList = model;
         //省份
+
+        Data_Sheng_LL.setVisibility(View.VISIBLE);
+        DataOneLL.setVisibility(View.GONE);
+        DataTwoLL.setVisibility(View.GONE);
+        DataThreeLL.setVisibility(View.GONE);
+
+        ShengTitleTV.setText("请选择");
+        ShengTitleLL.setVisibility(View.VISIBLE);
+//        ShengTitleLL.setVisibility(View.VISIBLE);
+//        ShengTitleLL.setVisibility(View.VISIBLE);
+//        ShengTitleLL.setVisibility(View.VISIBLE);
 
 
         if (sheng_sysarea_infoArrayList.size() > 0) {
@@ -313,13 +491,15 @@ public class A_Activity_XinJianShouHuoDiZhi extends MvpActivity<A_XinJianShouHuo
                 ImageView Check_IV = (ImageView) AreaView.findViewById(R.id.Check_IV);
                 TextView AreaTV = (TextView) AreaView.findViewById(R.id.AreaTV);
                 AreaTV.setText(sysarea_info.getAreaname());
-                DataLL.addView(AreaView);
+                Data_Sheng_LL.addView(AreaView);
                 AreaView.setTag(sysarea_info);
                 AreaView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
                         Sysarea_Info sysarea_info1 = (Sysarea_Info) v.getTag();
-                        mPresenter.dictSysareaegettreelistbyupid(sysarea_info1.getAid(), getContext());
+                        ShengTitleTV.setText(sysarea_info1.getAreaname());
+                        OneTitleLL.setVisibility(View.VISIBLE);
+                        mPresenter.dictSysareaegettreelistbyupidOne(sysarea_info1.getAid(), getContext());
                     }
                 });
             }

@@ -70,6 +70,9 @@ public class A_Activity_ShouHuoDiZhi extends MvpActivity<A_ShouHuoDiZhi_Present>
             }
         });
 
+//        View headView=View.inflate(getContext(),R.layout.a_xinliangxiangyue_header,null);
+//        DataListView.addHeaderView(headView);
+
         adapter = new A_ShouHuoDiZhi_Adapter(getContext(), infoArrayList, R.layout.a_item_shouhuodizhi,0);
 
         DataListView.setAdapter(adapter);

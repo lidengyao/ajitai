@@ -21,15 +21,18 @@
             android:paddingBottom="20dp">
 
             <LinearLayout
+                android:id="@+id/ShengTitleLL"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
                 android:paddingLeft="20dp"
                 android:paddingRight="15dp"
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
+                android:visibility="gone">
 
 
                 <TextView
+                    android:id="@+id/ShengTitleTV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="四川"
@@ -45,15 +48,18 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/OneTitleLL"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
+                android:visibility="gone">
 
 
                 <TextView
+                    android:id="@+id/OneTitleTV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="巴中市"
@@ -69,15 +75,18 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/TwoTitleLL"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
+                android:visibility="gone">
 
 
                 <TextView
+                    android:id="@+id/TwoTitleTV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="巴州区"
@@ -93,15 +102,18 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/ThreeTitleLL"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:gravity="center_horizontal"
+                android:orientation="vertical"
                 android:paddingLeft="15dp"
                 android:paddingRight="15dp"
-                android:gravity="center_horizontal"
-                android:orientation="vertical">
+                android:visibility="gone">
 
 
                 <TextView
+                    android:id="@+id/ThreeTitleTV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:text="巴州镇"
@@ -126,6 +138,43 @@
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:orientation="vertical">
+
+                <LinearLayout
+                    android:id="@+id/Data_Sheng_LL"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Data_One_LL"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Data_Two_LL"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/Data_Three_LL"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:orientation="vertical"
+                    android:visibility="gone">
+
+                </LinearLayout>
+
 
             </LinearLayout>
         </ScrollView>
