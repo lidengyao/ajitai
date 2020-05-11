@@ -9,6 +9,11 @@ import android.widget.TextView;
 import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.base.BasePresent;
 import com.hxsoft.ajitai.base.MvpActivity;
+import com.hxsoft.ajitai.model.info.QianBao_Info;
+import com.hxsoft.ajitai.present.A_QianBao_Present;
+import com.hxsoft.ajitai.present.A_WoDeKeCheng_Present;
+import com.hxsoft.ajitai.ui.view.A_QianBao_View;
+import com.hxsoft.ajitai.ui.view.A_WoDeKeCheng_View;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -16,7 +21,7 @@ import butterknife.ButterKnife;
 /**
  * Created by jinxh on 16/2/1.
  */
-public class A_Activity_QianBao extends MvpActivity {
+public class A_Activity_QianBao extends MvpActivity<A_QianBao_Present> implements A_QianBao_View {
 
 
     @Bind(R.id.SysNameIV)
@@ -77,8 +82,8 @@ public class A_Activity_QianBao extends MvpActivity {
     }
 
     @Override
-    protected BasePresent createPresenter() {
-        return null;
+    protected A_QianBao_Present createPresenter() {
+        return new A_QianBao_Present();
     }
 
 
@@ -98,4 +103,13 @@ public class A_Activity_QianBao extends MvpActivity {
     }
 
 
+    @Override
+    public void ajitaipayQueryBalanceSuccess(QianBao_Info model) {
+
+    }
+
+    @Override
+    public void onFailure(int code, String msg) {
+
+    }
 }

@@ -60,7 +60,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     @Override
     public void onBindViewHolder(ViewHolder holder, final int position) {
-        holder.price_TV.setText(dataList.get(position).getPrice() + "");
+        holder.price_TV.setText("¥"+dataList.get(position).getPrice() + "");
         holder.goodsname_TV.setText(dataList.get(position).getGoodsname() + "");
 
         if (position % 2 == 0) {
