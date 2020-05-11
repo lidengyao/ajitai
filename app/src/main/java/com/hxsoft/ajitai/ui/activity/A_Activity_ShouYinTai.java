@@ -1,21 +1,31 @@
 package com.hxsoft.ajitai.ui.activity;
 
+import android.annotation.SuppressLint;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
+import android.text.TextUtils;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.alipay.sdk.app.AuthTask;
+import com.alipay.sdk.app.PayTask;
 import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;
 import com.hxsoft.ajitai.R;
+import com.hxsoft.ajitai.alipay.AuthResult;
+import com.hxsoft.ajitai.alipay.PayResult;
 import com.hxsoft.ajitai.base.MvpActivity;
 import com.hxsoft.ajitai.present.A_ShouYinTai_Present;
 import com.hxsoft.ajitai.ui.view.A_ShouYinTai_View;
 import com.hxsoft.ajitai.wxapi.WXAPI;
 
 import java.io.Serializable;
+import java.util.Map;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -48,6 +58,9 @@ public class A_Activity_ShouYinTai extends MvpActivity<A_ShouYinTai_Present> imp
     private int zhifuType = 1;
     private String orderNo;
     private String body;
+
+    //支付宝配置
+    private static final int SDK_PAY_FLAG = 1;
 
     @Override
     protected int getLayoutId() {
@@ -111,10 +124,46 @@ public class A_Activity_ShouYinTai extends MvpActivity<A_ShouYinTai_Present> imp
                 //支付宝
                 if (zhifuType == 2) {
 
+                    mPresenter.alipay(orderNo, body, getContext());
+
                 }
             }
         });
     }
+
+    @SuppressLint("HandlerLeak")
+    private Handler mHandler = new Handler() {
+        @SuppressWarnings("unused")
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case SDK_PAY_FLAG: {
+                    @SuppressWarnings("unchecked")
+                    PayResult payResult = new PayResult((Map<String, String>) msg.obj);
+                    /**
+                     * 对于支付结果，请商户依赖服务端的异步通知结果。同步通知结果，仅作为支付结束的通知。
+                     */
+                    String resultInfo = payResult.getResult();// 同步返回需要验证的信息
+                    String resultStatus = payResult.getResultStatus();
+                    // 判断resultStatus 为9000则代表支付成功
+                    if (TextUtils.equals(resultStatus, "9000")) {
+                        // 该笔订单是否真实支付成功，需要依赖服务端的异步通知。
+                        showMessage("支付成功");
+//                        showAlert(PayDemoActivity.this, getString(R.string.pay_success) + payResult);
+                    } else {
+                        // 该笔订单真实的支付结果，需要依赖服务端的异步通知。
+                        showMessage("支付失败");
+//                        showAlert(PayDemoActivity.this, getString(R.string.pay_failed) + payResult);
+                    }
+                    break;
+                }
+
+                default:
+                    break;
+            }
+        }
+
+        ;
+    };
 
     @Override
     protected A_ShouYinTai_Present createPresenter() {
@@ -149,6 +198,32 @@ public class A_Activity_ShouYinTai extends MvpActivity<A_ShouYinTai_Present> imp
         WXAPI.WXPay(wxPay.getAppid(), wxPay.getPartnerid(), wxPay.getPrepayid(),
                 wxPay.getNoncestr(), wxPay.getTimestamp(), wxPay.getPackageX(), wxPay.getSign());
 
+    }
+
+    @Override
+    public void alipaySuccess(String model) {
+        if (model == null)
+            return;
+        final String orderInfo = model;
+
+        final Runnable payRunnable = new Runnable() {
+
+            @Override
+            public void run() {
+                PayTask alipay = new PayTask(getActivity());
+                Map<String, String> result = alipay.payV2(orderInfo, true);
+                Log.i("msp", result.toString());
+
+                Message msg = new Message();
+                msg.what = SDK_PAY_FLAG;
+                msg.obj = result;
+                mHandler.sendMessage(msg);
+            }
+        };
+
+        // 必须异步调用
+        Thread payThread = new Thread(payRunnable);
+        payThread.start();
     }
 
     @Override

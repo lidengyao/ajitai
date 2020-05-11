@@ -143,6 +143,9 @@ dependencies {
     implementation 'com.google.android.gms:play-services-cast-framework:11.0.1'
     implementation 'com.google.android.exoplayer:exoplayer:r2.5.0'
     implementation 'cn.hutool:hutool-all:5.3.0'
+
+    // 支付宝 SDK AAR 包所需的配置
+    implementation (name: 'alipaySdk-15.7.5-20200422171619', ext: 'aar')
 }
 repositories {
     mavenCentral()

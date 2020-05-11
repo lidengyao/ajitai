@@ -12,6 +12,7 @@ import com.hxsoft.ajitai.model.info.A_Order_Info;
 import com.hxsoft.ajitai.model.info.A_Order_Total_Info;
 import com.hxsoft.ajitai.model.info.Cuseraddress_Info;
 import com.hxsoft.ajitai.model.info.Cuserreceipt_Info;
+import com.hxsoft.ajitai.model.info.KeCheng_Info;
 import com.hxsoft.ajitai.model.info.OauthToken_Info;
 import com.hxsoft.ajitai.model.info.Sysarea_Info;
 
@@ -45,6 +46,11 @@ public interface APIService_AJiTai {
     //验证码登录
     @POST("oauth/token")
     Observable<ResponseBean<OauthToken_Info>> oauthToken(@Body A_OauthTokenBean a_oauthTokenBean);
+
+    //退出登录
+    @DELETE("auth/token/logout")
+    Observable<ResponseBean<String>> authTokenLogout();
+
 
     //获取当前用户基本信息
     @GET("admin/user/info")
@@ -127,4 +133,14 @@ public interface APIService_AJiTai {
     @POST("pay/wxPay/appPay")
     Observable<ResponseBean<String>> wxPayAppPay(@Query("orderNo") String orderNo,
                                                  @Query("body") String body);
+
+    //支付宝下单
+    @PUT("pay/aliPay/appPay")
+    Observable<ResponseBean<String>> alipay(@Query("orderNo") String orderNo, @Query("subject") String subject);
+
+    //获取当前课程套餐(APP)
+    @GET("goods/cgoods/pagebytype")
+    Observable<ResponseBean<KeCheng_Info>> goodsCgoodsPagebytype(@Query("current") Integer current,
+                                                                 @Query("size") Integer size,
+                                                                 @Query("type") Integer type);
 }

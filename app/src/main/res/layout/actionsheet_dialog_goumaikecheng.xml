@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@color/transparent"
+    android:orientation="vertical">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="34dp"
+            android:layout_marginRight="34dp"
+            android:background="@drawable/sysbtn_ffffff_7_shape"
+            android:gravity="center"
+            android:orientation="vertical">
+
+
+            <com.hxsoft.ajitai.utils.AutoLinefeedLayout
+                android:id="@+id/autoLinefeedLayout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="15dp"
+                android:visibility="gone">
+
+            </com.hxsoft.ajitai.utils.AutoLinefeedLayout>
+
+            <com.hxsoft.ajitai.widget.PullLoadMoreRecyclerView
+                android:id="@+id/pullLoadMoreRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="205dp"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="27dp"
+                android:layout_marginRight="18dp">
+
+            </com.hxsoft.ajitai.widget.PullLoadMoreRecyclerView>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="18dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="18dp"
+                android:orientation="horizontal">
+
+                <Button
+
+                    style="@style/Button_Style"
+                    android:layout_width="0dp"
+                    android:layout_height="42dp"
+                    android:layout_marginRight="6dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/sysbtn_f3f3f3_4_shape"
+                    android:text="取消"
+                    android:textColor="@color/C808080"
+                    android:textSize="@dimen/textsize14" />
+
+                <Button
+                    android:id="@+id/OK_Btn"
+                    style="@style/Button_Style"
+                    android:layout_width="0dp"
+                    android:layout_height="42dp"
+                    android:layout_marginLeft="6dp"
+                    android:layout_marginBottom="16dp"
+                    android:layout_weight="1"
+                    android:background="@drawable/sysbtn_ffe248_4_shape"
+                    android:text="确定"
+                    android:textColor="@color/C242424"
+                    android:textSize="@dimen/textsize14" />
+
+
+            </LinearLayout>
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

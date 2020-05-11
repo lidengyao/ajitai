@@ -185,10 +185,9 @@ public class A_LoginActivity_YanZheng extends MvpActivity<A_YanZhengMa_LoginPres
             return;
         }
         SpUtils.saveSettingNote(getContext(), DbKeyS.token, model.getAccess_token());
-
+        SpUtils.saveSettingNote(getContext(), DbKeyS.isLogin, "1");
         Intent intent = new Intent(getContext(), A_Main_Activity.class);
         startActivity(intent);
-        showMessage("登陆成功");
     }
 
     @Override

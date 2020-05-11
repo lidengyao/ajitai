@@ -61,7 +61,7 @@ public class A_Activity_XinJianShouHuoDiZhi extends MvpActivity<A_XinJianShouHuo
     @Bind(R.id.BottomLL)
     LinearLayout BottomLL;
     private Integer isdefault = 0;
-    private String type;
+    private String type;//0:新增1：详情：2：修改
     private Cuseraddress_Info.RecordsBean recordsBean;
     private ArrayList<Sysarea_Info> sheng_sysarea_infoArrayList;
     private ArrayList<Sysarea_Info> One_sysarea_infoArrayList;
@@ -107,10 +107,10 @@ public class A_Activity_XinJianShouHuoDiZhi extends MvpActivity<A_XinJianShouHuo
     private String threeName;
 
 
-    private Integer shengCode = 31030;
-    private Integer oneCode = 31221;
-    private Integer twoCode = 31246;
-    private Integer threeCode = 31254;
+    private Integer shengCode;
+    private Integer oneCode;
+    private Integer twoCode;
+    private Integer threeCode;
 
 
     private Integer addrcode;
@@ -138,12 +138,24 @@ public class A_Activity_XinJianShouHuoDiZhi extends MvpActivity<A_XinJianShouHuo
             DeleteRL.setVisibility(View.INVISIBLE);
         }
         if (type.equals("1")) {
+
             recordsBean = (Cuseraddress_Info.RecordsBean) getIntent().getSerializableExtra("RecordsBean");
+
+            shengCode = recordsBean.getProvinceid();
+            oneCode = recordsBean.getCityid();
+            twoCode = recordsBean.getDistrictid();
+            threeCode = recordsBean.getStreetid();
+
+            shengName = recordsBean.getProvincename();
+            oneName = recordsBean.getCityname();
+            twoName = recordsBean.getDistrictname();
+            threeName = recordsBean.getStreetname();
             isdefault = recordsBean.getIsdefault();
             usernameET.setText(recordsBean.getUsername());
             phoneET.setText(recordsBean.getPhone());
             addressET.setText(recordsBean.getAddress());
-            addrcodeET.setText(recordsBean.getAddrcode() + "");
+            addrcodeET.setText(shengName + oneName + twoName + threeName);
+            addrcode = recordsBean.getAddrcode();
 
             if (isdefault == 0) {
                 isdefaultIV.setImageResource(R.mipmap.a_moren_hui);
@@ -182,18 +194,18 @@ public class A_Activity_XinJianShouHuoDiZhi extends MvpActivity<A_XinJianShouHuo
                     A_Cuseraddress_Bean a_cuseraddress_bean = new A_Cuseraddress_Bean();
                     a_cuseraddress_bean.setUsername(username);
                     a_cuseraddress_bean.setPhone(phone);
-                    a_cuseraddress_bean.setAddrcode(20);//写死
+                    a_cuseraddress_bean.setAddrcode(addrcode);
                     a_cuseraddress_bean.setAddress(address);
                     a_cuseraddress_bean.setIsdefault(isdefault);
                     mPresenter.adminCuseraddressAdd(a_cuseraddress_bean, getContext());
                 }
 
-                if (type.equals("1")) {
+                if (type.equals("1") || type.equals("2")) {
                     A_Cuseraddress_Bean a_cuseraddress_bean = new A_Cuseraddress_Bean();
                     a_cuseraddress_bean.setAid(recordsBean.getAid());
                     a_cuseraddress_bean.setUsername(username);
                     a_cuseraddress_bean.setPhone(phone);
-                    a_cuseraddress_bean.setAddrcode(20);//写死
+                    a_cuseraddress_bean.setAddrcode(addrcode);
                     a_cuseraddress_bean.setAddress(address);
                     a_cuseraddress_bean.setIsdefault(isdefault);
                     mPresenter.adminCuseraddressUpdate(a_cuseraddress_bean, getContext());
@@ -478,15 +490,20 @@ public class A_Activity_XinJianShouHuoDiZhi extends MvpActivity<A_XinJianShouHuo
 
                 if (type.equals("1")) {
                     if (shengCode.equals(sysarea_info.getAid())) {
-                        ShengCheck(AreaView,sysarea_info);
+                        ShengCheck(AreaView, sysarea_info);
                     }
                 }
                 AreaView.setTag(sysarea_info);
                 AreaView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+
+                        if (type.equals("1")) {
+                            type = "2";
+                        }
                         Sysarea_Info sysarea_info1 = (Sysarea_Info) v.getTag();
-                        ShengCheck(v,sysarea_info1);
+                        shengCode = sysarea_info1.getAid();
+                        ShengCheck(v, sysarea_info1);
                     }
                 });
             }
@@ -494,8 +511,8 @@ public class A_Activity_XinJianShouHuoDiZhi extends MvpActivity<A_XinJianShouHuo
         }
 
     }
-    private void ShengCheck(View v,Sysarea_Info sysarea_info)
-    {
+
+    private void ShengCheck(View v, Sysarea_Info sysarea_info) {
         if (CheckShengView != null) {
             ImageView Check_IV = (ImageView) CheckShengView.findViewById(R.id.Check_IV);
             Check_IV.setVisibility(View.GONE);
@@ -537,7 +554,7 @@ public class A_Activity_XinJianShouHuoDiZhi extends MvpActivity<A_XinJianShouHuo
                 DataOneLL.addView(AreaView);
                 if (type.equals("1")) {
                     if (oneCode.equals(sysarea_info.getAid())) {
-                        OneCheck(AreaView,sysarea_info);
+                        OneCheck(AreaView, sysarea_info);
                     }
                 }
 
@@ -545,16 +562,21 @@ public class A_Activity_XinJianShouHuoDiZhi extends MvpActivity<A_XinJianShouHuo
                 AreaView.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
+
+                        if (type.equals("1")) {
+                            type = "2";
+                        }
                         Sysarea_Info sysarea_info1 = (Sysarea_Info) v.getTag();
-                        OneCheck(v,sysarea_info1);
+                        oneCode = sysarea_info1.getAid();
+                        OneCheck(v, sysarea_info1);
                     }
                 });
             }
 
         }
     }
-    private void OneCheck(View v,Sysarea_Info sysarea_info)
-    {
+
+    private void OneCheck(View v, Sysarea_Info sysarea_info) {
         if (CheckOneView != null) {
             ImageView Check_IV = (ImageView) CheckOneView.findViewById(R.id.Check_IV);
             Check_IV.setVisibility(View.GONE);
@@ -595,7 +617,7 @@ public class A_Activity_XinJianShouHuoDiZhi extends MvpActivity<A_XinJianShouHuo
 
                 if (type.equals("1")) {
                     if (twoCode.equals(sysarea_info.getAid())) {
-                        TwoCheck(AreaView,sysarea_info);
+                        TwoCheck(AreaView, sysarea_info);
                     }
                 }
 
@@ -604,16 +626,20 @@ public class A_Activity_XinJianShouHuoDiZhi extends MvpActivity<A_XinJianShouHuo
                     @Override
                     public void onClick(View v) {
 
+                        if (type.equals("1")) {
+                            type = "2";
+                        }
                         Sysarea_Info sysarea_info1 = (Sysarea_Info) v.getTag();
-                        TwoCheck(v,sysarea_info1);
+                        twoCode = sysarea_info1.getAid();
+                        TwoCheck(v, sysarea_info1);
                     }
                 });
             }
 
         }
     }
-    private void TwoCheck(View v,Sysarea_Info sysarea_info)
-    {
+
+    private void TwoCheck(View v, Sysarea_Info sysarea_info) {
         if (CheckTwoView != null) {
             ImageView Check_IV = (ImageView) CheckTwoView.findViewById(R.id.Check_IV);
             Check_IV.setVisibility(View.GONE);
@@ -654,7 +680,7 @@ public class A_Activity_XinJianShouHuoDiZhi extends MvpActivity<A_XinJianShouHuo
 
                 if (type.equals("1")) {
                     if (threeCode.equals(sysarea_info.getAid())) {
-                        ThreeCheck(AreaView,sysarea_info);
+                        ThreeCheck(AreaView, sysarea_info);
                     }
                 }
 
@@ -664,17 +690,20 @@ public class A_Activity_XinJianShouHuoDiZhi extends MvpActivity<A_XinJianShouHuo
                     @Override
                     public void onClick(View v) {
 
-
+                        if (type.equals("1")) {
+                            type = "2";
+                        }
                         Sysarea_Info sysarea_info1 = (Sysarea_Info) v.getTag();
-                        ThreeCheck(v,sysarea_info1);
+                        threeCode = sysarea_info1.getAid();
+                        ThreeCheck(v, sysarea_info1);
                     }
                 });
             }
 
         }
     }
-    private void ThreeCheck(View v,Sysarea_Info sysarea_info)
-    {
+
+    private void ThreeCheck(View v, Sysarea_Info sysarea_info) {
         if (CheckThreeView != null) {
             ImageView Check_IV = (ImageView) CheckThreeView.findViewById(R.id.Check_IV);
             Check_IV.setVisibility(View.GONE);
@@ -749,8 +778,9 @@ public class A_Activity_XinJianShouHuoDiZhi extends MvpActivity<A_XinJianShouHuo
 
         if (pop != null) {
             pop.dismiss();
-            addrcodeET.setText(shengName + oneName + twoName + threeName);
+
         }
+        addrcodeET.setText(shengName + oneName + twoName + threeName);
 
     }
 

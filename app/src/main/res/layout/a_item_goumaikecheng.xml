@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:id="@+id/RootLL"
+        android:layout_width="match_parent"
+        android:layout_height="83dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/sysbtn_ffffff_4_line_shape"
+        android:gravity="center"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/price_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="¥63"
+            android:textColor="@color/C808080"
+            android:textSize="@dimen/textsize20" />
+
+
+        <TextView
+            android:id="@+id/goodsname_TV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:text="单次课程"
+            android:textColor="@color/C808080"
+            android:textSize="@dimen/textsize13" />
+    </LinearLayout>
+
+</LinearLayout>

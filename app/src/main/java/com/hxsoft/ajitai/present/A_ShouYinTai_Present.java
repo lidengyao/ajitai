@@ -22,6 +22,7 @@ import rx.Observable;
 public class A_ShouYinTai_Present extends BasePresent<A_ShouYinTai_View> {
 
 
+    //微信预下单
     public void wxPayAppPay(String orderNo, String body, Context context) {
         String tip = "A_ShouYinTai_Present-wxPayAppPay-微信预下单(APP)\r\n";
         FileUtils.writeLogToFile(tip);
@@ -59,4 +60,41 @@ public class A_ShouYinTai_Present extends BasePresent<A_ShouYinTai_View> {
         }, context));
     }
 
+    //支付宝预下单
+    public void alipay(String orderNo, String subject, Context context) {
+        String tip = "A_ShouYinTai_Present-alipay-支付宝预下单(APP)\r\n";
+        FileUtils.writeLogToFile(tip);
+
+        Observable<ResponseBean<String>> observable = RetrofitClient.builderRetrofit(context).create(APIService_AJiTai.class).alipay(orderNo, subject);
+        addIOSubscription(observable, new ApiSubscriber(new ApiCallBack<String>() {
+            @Override
+            public void onStart() {
+                super.onStart();
+                if (getView() != null) {
+                    getView().showLoading();
+                }
+            }
+
+            @Override
+            public void onSuccess(String model) {
+                if (getView() != null) {
+                    getView().alipaySuccess(model);
+                }
+            }
+
+            @Override
+            public void onFailure(int code, String msg) {
+                if (getView() != null) {
+                    getView().showMessage(LogCode.GetCode(tip) + msg);
+                }
+            }
+
+            @Override
+            public void onCompleted() {
+                if (getView() != null) {
+                    getView().dismissLoading();
+                }
+            }
+        }, context));
+    }
 }

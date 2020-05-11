@@ -17,13 +17,16 @@ import com.hxsoft.ajitai.base.MvpActivity;
 import com.hxsoft.ajitai.model.info.PhoneLoginInfo;
 import com.hxsoft.ajitai.present.LoginPresent;
 import com.hxsoft.ajitai.ui.view.LoginView;
+import com.hxsoft.ajitai.utils.DbKeyS;
 import com.hxsoft.ajitai.utils.MStringUtils;
+import com.hxsoft.ajitai.utils.SpUtils;
 import com.hxsoft.ajitai.wxapi.WXAPI;
 import com.tencent.mm.opensdk.openapi.IWXAPI;
 import com.tencent.mm.opensdk.openapi.WXAPIFactory;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import cn.hutool.db.Db;
 
 /**
  * Created by jinxh on 16/2/1.
@@ -41,6 +44,7 @@ public class A_LoginActivity extends MvpActivity<LoginPresent> implements View.O
     @Bind(R.id.WeiXinIV)
     ImageView WeiXinIV;
     private IWXAPI api;
+
     @Override
     protected int getLayoutId() {
         return R.layout.a_activity_login;
@@ -50,10 +54,21 @@ public class A_LoginActivity extends MvpActivity<LoginPresent> implements View.O
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         // TODO: add setContentView(...) invocation
+
         ButterKnife.bind(this);
         WXAPI.Init(this);
         api = WXAPIFactory.createWXAPI(this, Constants.APP_ID, false);
         regToWx();
+
+
+
+        String isLogin = SpUtils.getSettingNote(getContext(), DbKeyS.isLogin);
+        if (isLogin != null && isLogin.equals("1")) {
+            Intent intent = new Intent(getContext(), A_Main_Activity.class);
+            startActivity(intent);
+            return;
+        }
+
         MobileET.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {
@@ -119,6 +134,7 @@ public class A_LoginActivity extends MvpActivity<LoginPresent> implements View.O
             }
         });
     }
+
     private void regToWx() {
         api = WXAPIFactory.createWXAPI(this, Constants.APP_ID, false);
         api.registerApp(Constants.APP_ID);
@@ -152,7 +168,7 @@ public class A_LoginActivity extends MvpActivity<LoginPresent> implements View.O
 
     @Override
     public void loginSuccess(PhoneLoginInfo model) {
-        showMessage("登陆成功");
+        SpUtils.saveSettingNote(getContext(), DbKeyS.isLogin, "1");
 
     }
 
