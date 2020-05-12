@@ -61,7 +61,7 @@ public class YiJiCaiDan_Popwindow extends PopupWindow implements View.OnClickLis
                 activity.getWindow().setAttributes(lp);
             }
         });
-        pop.setAnimationStyle(R.style.main_menu_photo_anim);
+        pop.setAnimationStyle(R.style.bottom_dialog_anim);
 
         this.context = context;
         TotalDataList = model;

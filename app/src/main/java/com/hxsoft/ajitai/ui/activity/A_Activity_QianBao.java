@@ -7,13 +7,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.hxsoft.ajitai.R;
-import com.hxsoft.ajitai.base.BasePresent;
 import com.hxsoft.ajitai.base.MvpActivity;
 import com.hxsoft.ajitai.model.info.QianBao_Info;
 import com.hxsoft.ajitai.present.A_QianBao_Present;
-import com.hxsoft.ajitai.present.A_WoDeKeCheng_Present;
 import com.hxsoft.ajitai.ui.view.A_QianBao_View;
-import com.hxsoft.ajitai.ui.view.A_WoDeKeCheng_View;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -36,6 +33,8 @@ public class A_Activity_QianBao extends MvpActivity<A_QianBao_Present> implement
     RelativeLayout ChongZhiHaoYouRL;
     @Bind(R.id.ZhangDan_RL)
     RelativeLayout ZhangDanRL;
+    @Bind(R.id.BalanceTV)
+    TextView BalanceTV;
 
     @Override
     protected int getLayoutId() {
@@ -79,6 +78,12 @@ public class A_Activity_QianBao extends MvpActivity<A_QianBao_Present> implement
             }
         });
 
+        getBalanceData();
+
+    }
+
+    private void getBalanceData() {
+        mPresenter.ajitaipayQueryBalance(getContext());
     }
 
     @Override
@@ -104,12 +109,15 @@ public class A_Activity_QianBao extends MvpActivity<A_QianBao_Present> implement
 
 
     @Override
-    public void ajitaipayQueryBalanceSuccess(QianBao_Info model) {
+    public void ajitaipayQueryBalanceSuccess(Double model) {
+        if (model == null)
+            return;
 
+        BalanceTV.setText("¥" + model);
     }
 
     @Override
     public void onFailure(int code, String msg) {
-
+        showMessage(msg);
     }
 }

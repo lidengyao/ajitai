@@ -36,7 +36,7 @@ public class CheckControl_Dialog_ShiPinZhiBoFenXiang {
                 activity.getWindow().setAttributes(lp);
             }
         });
-        pop.setAnimationStyle(R.style.main_menu_photo_anim);
+        pop.setAnimationStyle(R.style.bottom_dialog_anim);
         pop.showAtLocation(activity.getWindow().getDecorView(), Gravity.BOTTOM, 0, 0);
     }
 

@@ -36,7 +36,7 @@ public class CheckControl_Dialog_yinpinzhibo_yijieshu {
                 activity.getWindow().setAttributes(lp);
             }
         });
-        pop.setAnimationStyle(R.style.main_menu_photo_anim);
+        pop.setAnimationStyle(R.style.center_dialog_anim);
         pop.showAtLocation(activity.getWindow().getDecorView(), Gravity.CENTER, 0, 0);
     }
 

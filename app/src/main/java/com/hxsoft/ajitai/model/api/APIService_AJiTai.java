@@ -11,6 +11,7 @@ import com.hxsoft.ajitai.model.bean.A_User_Info;
 import com.hxsoft.ajitai.model.info.A_Order_Info;
 import com.hxsoft.ajitai.model.info.A_Order_Total_Info;
 import com.hxsoft.ajitai.model.info.Cuseraddress_Info;
+import com.hxsoft.ajitai.model.info.Cuseraddress_Total_Info;
 import com.hxsoft.ajitai.model.info.Cuserreceipt_Info;
 import com.hxsoft.ajitai.model.info.KeCheng_Info;
 import com.hxsoft.ajitai.model.info.OauthToken_Info;
@@ -68,8 +69,8 @@ public interface APIService_AJiTai {
 
     //邮寄地址查询(APP)
     @GET("admin/cuseraddress/page")
-    Observable<ResponseBean<Cuseraddress_Info>> adminCuseraddressPage(@Query("current") Integer current,
-                                                                      @Query("size") Integer size);
+    Observable<ResponseBean<Cuseraddress_Total_Info>> adminCuseraddressPage(@Query("current") Integer current,
+                                                                            @Query("size") Integer size);
 
     //邮寄地址-新增
     @POST("admin/cuseraddress")
@@ -138,9 +139,24 @@ public interface APIService_AJiTai {
     @PUT("pay/aliPay/appPay")
     Observable<ResponseBean<String>> alipay(@Query("orderNo") String orderNo, @Query("subject") String subject);
 
+
+    //阿吉泰钱包支付
+    @PUT("pay/ajitaipay/pay")
+    Observable<ResponseBean<String>> payAjitaipayPay(@Query("orderNo") String orderNo,
+                                                     @Query("originalAmount") Double originalAmount,
+                                                     @Query("password") String password);
+
     //获取当前课程套餐(APP)
     @GET("goods/cgoods/pagebytype")
     Observable<ResponseBean<KeCheng_Info>> goodsCgoodsPagebytype(@Query("current") Integer current,
                                                                  @Query("size") Integer size,
                                                                  @Query("type") Integer type);
+
+    //钱包余额(APP)
+    @GET("pay/ajitaipay/queryBalance")
+    Observable<ResponseBean<Double>> ajitaipayQueryBalance();
+
+    //获取默认寄件地址(APP)
+    @GET("admin/cuseraddress/defaultbyperson")
+    Observable<ResponseBean<Cuseraddress_Info>> adminCuseraddressDefaultbyperson();
 }

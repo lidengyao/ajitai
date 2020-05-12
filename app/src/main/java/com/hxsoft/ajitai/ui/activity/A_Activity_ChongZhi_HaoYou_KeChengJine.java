@@ -11,7 +11,7 @@ import android.widget.TextView;
 import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.base.BasePresent;
 import com.hxsoft.ajitai.base.MvpActivity;
-import com.hxsoft.ajitai.utils.CheckControl_Dialog_ChongZhi_QueRen;
+import com.hxsoft.ajitai.utils.CheckControl_Dialog_GouMaiKeCheng_QueRen;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -59,12 +59,12 @@ public class A_Activity_ChongZhi_HaoYou_KeChengJine extends MvpActivity {
         BottomLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CheckControl_Dialog_ChongZhi_QueRen.ShowDialog(getContext(), getActivity(), "", new CheckControl_Dialog_ChongZhi_QueRen.OnCheckControl_dialogClickListener() {
-                    @Override
-                    public void OnClick(int type) {
-
-                    }
-                });
+//                CheckControl_Dialog_GouMaiKeCheng_QueRen.ShowDialog(getContext(), getActivity(), "", new CheckControl_Dialog_GouMaiKeCheng_QueRen.OnCheckControl_dialogClickListener() {
+//                    @Override
+//                    public void OnClick(int type) {
+//
+//                    }
+//                });
             }
         });
         KeChengTV.setOnClickListener(new View.OnClickListener() {

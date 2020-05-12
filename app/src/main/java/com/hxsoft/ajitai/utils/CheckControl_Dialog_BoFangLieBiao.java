@@ -2,18 +2,15 @@ package com.hxsoft.ajitai.utils;
 
 import android.app.Activity;
 import android.content.Context;
-import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 
 import com.hxsoft.ajitai.R;
-import com.hxsoft.ajitai.ui.activity.A_Activity_ShouYinTai;
 
 
 public class CheckControl_Dialog_BoFangLieBiao {
@@ -47,7 +44,7 @@ public class CheckControl_Dialog_BoFangLieBiao {
                 pop.dismiss();
             }
         });
-        pop.setAnimationStyle(R.style.main_menu_photo_anim);
+        pop.setAnimationStyle(R.style.bottom_dialog_anim);
         pop.showAtLocation(activity.getWindow().getDecorView(), Gravity.BOTTOM, 0, 0);
     }
 

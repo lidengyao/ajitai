@@ -4,14 +4,10 @@ import android.app.Activity;
 import android.content.Context;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
-import android.os.CountDownTimer;
 import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
-import android.widget.Button;
-import android.widget.LinearLayout;
 import android.widget.PopupWindow;
-import android.widget.TextView;
 
 import com.hxsoft.ajitai.R;
 
@@ -40,7 +36,7 @@ public class CheckControl_Dialog_GanWu {
                 activity.getWindow().setAttributes(lp);
             }
         });
-        pop.setAnimationStyle(R.style.main_menu_photo_anim);
+        pop.setAnimationStyle(R.style.bottom_dialog_anim);
         pop.showAtLocation(activity.getWindow().getDecorView(), Gravity.BOTTOM, 0, 0);
     }
 

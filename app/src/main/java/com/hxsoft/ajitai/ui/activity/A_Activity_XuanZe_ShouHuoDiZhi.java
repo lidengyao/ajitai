@@ -3,7 +3,6 @@ package com.hxsoft.ajitai.ui.activity;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
-import android.support.annotation.Nullable;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.LinearLayout;
@@ -14,6 +13,7 @@ import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.adapter.A_ShouHuoDiZhi_Adapter;
 import com.hxsoft.ajitai.base.MvpActivity;
 import com.hxsoft.ajitai.model.info.Cuseraddress_Info;
+import com.hxsoft.ajitai.model.info.Cuseraddress_Total_Info;
 import com.hxsoft.ajitai.present.A_ShouHuoDiZhi_Present;
 import com.hxsoft.ajitai.ui.view.A_ShouHuoDiZhi_View;
 import com.hxsoft.ajitai.utils.ListData_Control_Normal;
@@ -44,7 +44,7 @@ public class A_Activity_XuanZe_ShouHuoDiZhi extends MvpActivity<A_ShouHuoDiZhi_P
     private int current = 1;
     private int size = 10;
     private A_ShouHuoDiZhi_Adapter adapter;
-    private ArrayList<Cuseraddress_Info.RecordsBean> infoArrayList = new ArrayList<>();
+    private ArrayList<Cuseraddress_Info> infoArrayList = new ArrayList<>();
 
     @Override
     protected int getLayoutId() {
@@ -103,7 +103,7 @@ public class A_Activity_XuanZe_ShouHuoDiZhi extends MvpActivity<A_ShouHuoDiZhi_P
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
 
-                Cuseraddress_Info.RecordsBean recordsBean = infoArrayList.get(position);
+                Cuseraddress_Info recordsBean = infoArrayList.get(position);
                 //数据是使用Intent返回
                 Intent intent = new Intent();
                 //把返回数据存入Intent
@@ -151,11 +151,11 @@ public class A_Activity_XuanZe_ShouHuoDiZhi extends MvpActivity<A_ShouHuoDiZhi_P
 
 
     @Override
-    public void adminCuseraddressPageSuccess(Cuseraddress_Info model) {
+    public void adminCuseraddressPageSuccess(Cuseraddress_Total_Info model) {
         SetData(model.getRecords());
     }
 
-    private void SetData(final ArrayList<Cuseraddress_Info.RecordsBean> model) {
+    private void SetData(final ArrayList<Cuseraddress_Info> model) {
         infoArrayList = new ListData_Control_Normal().BandData(infoArrayList, model, this.current, this.size, adapter, DataListView, getActivity(), getContext());
     }
 

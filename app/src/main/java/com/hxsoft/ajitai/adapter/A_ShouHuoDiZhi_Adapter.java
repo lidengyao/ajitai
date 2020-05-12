@@ -1,32 +1,31 @@
 package com.hxsoft.ajitai.adapter;
 
 import android.content.Context;
-import android.opengl.Visibility;
 import android.view.View;
 import android.widget.ImageView;
 
 import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.model.info.Cuseraddress_Info;
-import com.hxsoft.ajitai.model.info.RealtimeInfo;
+import com.hxsoft.ajitai.model.info.Cuseraddress_Total_Info;
 
 import java.util.List;
 
 /**
  * Created by lidengyao on 2016-09-01 0001.
  */
-public class A_ShouHuoDiZhi_Adapter extends CommonAdapter<Cuseraddress_Info.RecordsBean> {
+public class A_ShouHuoDiZhi_Adapter extends CommonAdapter<Cuseraddress_Info> {
 
     private Context _Context;
     private Integer _type;
 
-    public A_ShouHuoDiZhi_Adapter(Context context, List<Cuseraddress_Info.RecordsBean> data, int itemLayoutId, Integer type) {
+    public A_ShouHuoDiZhi_Adapter(Context context, List<Cuseraddress_Info> data, int itemLayoutId, Integer type) {
         super(context, data, itemLayoutId);
         _Context = context;
         _type = type;
     }
 
     @Override
-    public void convert(int position, ViewHolder helper, Cuseraddress_Info.RecordsBean item) {
+    public void convert(int position, ViewHolder helper, Cuseraddress_Info item) {
 
         ImageView Tip_IV = (ImageView) helper.getView(R.id.Tip_IV);
         if (item.getIsdefault() == 1) {

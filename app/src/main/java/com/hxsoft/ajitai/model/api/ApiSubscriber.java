@@ -2,8 +2,13 @@ package com.hxsoft.ajitai.model.api;
 
 
 import android.content.Context;
+import android.content.Intent;
+import android.widget.Toast;
 
 import com.hxsoft.ajitai.AppContext;
+import com.hxsoft.ajitai.ui.activity.A_LoginActivity;
+import com.hxsoft.ajitai.utils.DbKeyS;
+import com.hxsoft.ajitai.utils.SpUtils;
 
 import java.net.UnknownHostException;
 
@@ -42,6 +47,15 @@ public class ApiSubscriber<T> extends Subscriber<ResponseBean<T>> {
         if (e instanceof HttpException || e instanceof UnknownHostException) {
 //            apiCallback.onFailure(UNKNOWN_CODE, AppContext.NET_ERROR_MSG);
             apiCallback.onFailure(UNKNOWN_CODE, e.getMessage());
+
+            if (UNKNOWN_CODE == -1) {
+                Toast.makeText(_context, "登录已过期", Toast.LENGTH_LONG).show();
+                SpUtils.saveSettingNote(_context, DbKeyS.token, null);
+                SpUtils.saveSettingNote(_context, DbKeyS.isLogin, null);
+                Intent intent = new Intent(_context, A_LoginActivity.class);
+                intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
+                _context.startActivity(intent);
+            }
         } else {
             apiCallback.onFailure(UNKNOWN_CODE, e.getMessage());
         }

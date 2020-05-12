@@ -8,13 +8,10 @@ import com.hxsoft.ajitai.model.api.ApiCallBack;
 import com.hxsoft.ajitai.model.api.ApiSubscriber;
 import com.hxsoft.ajitai.model.api.ResponseBean;
 import com.hxsoft.ajitai.model.api.RetrofitClient;
-import com.hxsoft.ajitai.model.info.Cuseraddress_Info;
 import com.hxsoft.ajitai.model.info.KeCheng_Info;
-import com.hxsoft.ajitai.ui.view.A_ShouHuoDiZhi_View;
 import com.hxsoft.ajitai.ui.view.A_WoDeKeCheng_View;
 import com.hxsoft.ajitai.utils.FileUtils;
 import com.hxsoft.ajitai.utils.LogCode;
-import com.j256.ormlite.stmt.query.In;
 
 import rx.Observable;
 

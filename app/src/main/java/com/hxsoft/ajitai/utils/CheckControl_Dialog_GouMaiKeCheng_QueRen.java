@@ -10,19 +10,25 @@ import android.view.View;
 import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.PopupWindow;
+import android.widget.TextView;
 
 import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.ui.activity.A_Activity_ShouYinTai;
 
 
-public class CheckControl_Dialog_ChongZhi_QueRen {
+public class CheckControl_Dialog_GouMaiKeCheng_QueRen {
 
 
-    public static void ShowDialog(final Context context, final Activity activity, String content, final OnCheckControl_dialogClickListener onCheckControl_dialogClickListener) {
+    public static void ShowDialog(final Context context, final Activity activity, String price, String title, final OnCheckControl_dialogClickListener onCheckControl_dialogClickListener) {
 
 
-        View bottomView = View.inflate(context, R.layout.actionsheet_dialog_chongzhi_queren, null);
+        View bottomView = View.inflate(context, R.layout.actionsheet_dialog_goumaikecheng_queren, null);
+        TextView TitleTV = (TextView) bottomView.findViewById(R.id.TitleTV);
+        TextView price_TV = (TextView) bottomView.findViewById(R.id.price_TV);
+        TitleTV.setText("是否确认购买【" + title + "】");
+        price_TV.setText("¥ " + price);
 
+        Button QuXiaoBtn = (Button) bottomView.findViewById(R.id.QuXiaoBtn);
         Button OK_Btn = (Button) bottomView.findViewById(R.id.OK_Btn);
         PopupWindow pop = new PopupWindow(bottomView, -1, -2);
         pop.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
@@ -48,7 +54,13 @@ public class CheckControl_Dialog_ChongZhi_QueRen {
                 context.startActivity(intent);
             }
         });
-        pop.setAnimationStyle(R.style.main_menu_photo_anim);
+        QuXiaoBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pop.dismiss();
+            }
+        });
+        pop.setAnimationStyle(R.style.center_dialog_anim);
         pop.showAtLocation(activity.getWindow().getDecorView(), Gravity.CENTER, 0, 0);
     }
 

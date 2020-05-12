@@ -113,7 +113,7 @@ public class KeCheng_Info implements Serializable {
         private Integer goodstype;
         private String goodsname;
         private String goodsurl;
-        private Integer price;
+        private Double price;
 
         public String getGoodsid() {
             return goodsid;
@@ -147,11 +147,11 @@ public class KeCheng_Info implements Serializable {
             this.goodsurl = goodsurl;
         }
 
-        public Integer getPrice() {
+        public Double getPrice() {
             return price;
         }
 
-        public void setPrice(Integer price) {
+        public void setPrice(Double price) {
             this.price = price;
         }
     }

@@ -154,7 +154,7 @@ public class Picture_Select_Activity extends MvpActivity {
                 getWindow().setAttributes(lp);
             }
         });
-        pop.setAnimationStyle(R.style.main_menu_photo_anim);
+        pop.setAnimationStyle(R.style.bottom_dialog_anim);
         pop.showAtLocation(getWindow().getDecorView(), Gravity.BOTTOM, 0, 0);
 
         View.OnClickListener clickListener = new View.OnClickListener() {

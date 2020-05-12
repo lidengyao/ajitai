@@ -10,14 +10,10 @@ import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.hxsoft.ajitai.R;
-import com.hxsoft.ajitai.adapter.A_ShouHuoDiZhi_Adapter;
 import com.hxsoft.ajitai.adapter.A_ZengPiaoZiZhi_Adapter;
 import com.hxsoft.ajitai.base.MvpActivity;
-import com.hxsoft.ajitai.model.info.Cuseraddress_Info;
 import com.hxsoft.ajitai.model.info.Cuserreceipt_Info;
-import com.hxsoft.ajitai.present.A_ShouHuoDiZhi_Present;
 import com.hxsoft.ajitai.present.A_ZengPiaoZiZhi_Present;
-import com.hxsoft.ajitai.ui.view.A_ShouHuoDiZhi_View;
 import com.hxsoft.ajitai.ui.view.A_ZengPiaoZiZhi_View;
 import com.hxsoft.ajitai.utils.ListData_Control_Normal;
 import com.hxsoft.ajitai.widget.PullLoadMoreListView;

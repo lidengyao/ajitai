@@ -55,7 +55,7 @@ public class CheckControl_Dialog_FaBuGanWu_YuYin {
                 onCheckControl_dialogClickListener.OnClick(0);
             }
         });
-        pop.setAnimationStyle(R.style.main_menu_photo_anim);
+        pop.setAnimationStyle(R.style.center_dialog_anim);
         pop.showAtLocation(activity.getWindow().getDecorView(), Gravity.CENTER, 0, 0);
     }
 

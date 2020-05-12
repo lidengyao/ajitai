@@ -113,6 +113,7 @@ public class A_Activity_ShouYinTai extends MvpActivity<A_ShouYinTai_Present> imp
 
                 //钱包
                 if (zhifuType == 0) {
+                    mPresenter.ajitaipayQueryBalance(getContext());
 
                 }
 
@@ -224,6 +225,24 @@ public class A_Activity_ShouYinTai extends MvpActivity<A_ShouYinTai_Present> imp
         // 必须异步调用
         Thread payThread = new Thread(payRunnable);
         payThread.start();
+    }
+
+    @Override
+    public void payAjitaipayPaySuccess(String model) {
+        //阿吉泰钱包支付成功，跳转到支付成功页面。
+        showMessage("已支付成功");
+        finish();
+    }
+
+    @Override
+    public void ajitaipayQueryBalanceSuccess(Double model) {
+        if (model == null) {
+            showMessage("获取余额失败");
+            return;
+        }
+
+
+        mPresenter.payAjitaipayPay(orderNo, model, "", getContext());
     }
 
     @Override

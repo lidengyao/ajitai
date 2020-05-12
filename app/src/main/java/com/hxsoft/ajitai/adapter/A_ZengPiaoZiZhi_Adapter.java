@@ -4,7 +4,6 @@ import android.content.Context;
 import android.widget.ImageView;
 
 import com.hxsoft.ajitai.R;
-import com.hxsoft.ajitai.model.info.Cuseraddress_Info;
 import com.hxsoft.ajitai.model.info.Cuserreceipt_Info;
 
 import java.util.List;

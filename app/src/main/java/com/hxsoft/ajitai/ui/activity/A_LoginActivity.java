@@ -62,13 +62,6 @@ public class A_LoginActivity extends MvpActivity<LoginPresent> implements View.O
 
 
 
-        String isLogin = SpUtils.getSettingNote(getContext(), DbKeyS.isLogin);
-        if (isLogin != null && isLogin.equals("1")) {
-            Intent intent = new Intent(getContext(), A_Main_Activity.class);
-            startActivity(intent);
-            return;
-        }
-
         MobileET.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {

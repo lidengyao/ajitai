@@ -2,7 +2,6 @@ package com.hxsoft.ajitai.ui.view;
 
 import com.hxsoft.ajitai.base.BaseMvpView;
 import com.hxsoft.ajitai.model.info.A_Order_Info;
-import com.hxsoft.ajitai.model.info.Cuseraddress_Info;
 
 /**
  * Created by jinxh on 16/6/15.

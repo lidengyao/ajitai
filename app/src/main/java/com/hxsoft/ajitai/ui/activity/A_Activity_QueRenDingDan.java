@@ -12,7 +12,10 @@ import android.widget.TextView;
 import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.base.MvpActivity;
 import com.hxsoft.ajitai.model.info.Cuseraddress_Info;
+import com.hxsoft.ajitai.model.info.Cuseraddress_Total_Info;
+import com.hxsoft.ajitai.present.A_QueRenDingDan_Present;
 import com.hxsoft.ajitai.present.LoginPresent;
+import com.hxsoft.ajitai.ui.view.A_QueRenDingDan_View;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -20,7 +23,7 @@ import butterknife.ButterKnife;
 /**
  * Created by jinxh on 16/2/1.
  */
-public class A_Activity_QueRenDingDan extends MvpActivity {
+public class A_Activity_QueRenDingDan extends MvpActivity<A_QueRenDingDan_Present> implements A_QueRenDingDan_View {
 
 
     @Bind(R.id.SysNameIV)
@@ -59,8 +62,8 @@ public class A_Activity_QueRenDingDan extends MvpActivity {
         // TODO: add setContentView(...) invocation
         ButterKnife.bind(this);
 
-        orderNo=getIntent().getStringExtra("orderNo");
-        body=getIntent().getStringExtra("body");
+        orderNo = getIntent().getStringExtra("orderNo");
+        body = getIntent().getStringExtra("body");
         BottomLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -86,25 +89,17 @@ public class A_Activity_QueRenDingDan extends MvpActivity {
                 startActivityForResult(intent, 0);
             }
         });
+
+        getAdminCuseraddressDefaultbyperson();
+    }
+
+    private void getAdminCuseraddressDefaultbyperson() {
+        mPresenter.adminCuseraddressDefaultbyperson(getContext());
     }
 
     @Override
-    protected void onActivityResult(int requestCode, int resultCode, @Nullable Intent data) {
-        super.onActivityResult(requestCode, resultCode, data);
-        if (requestCode == 0) {
-            if (data != null) {
-                Cuseraddress_Info.RecordsBean recordsBean = (Cuseraddress_Info.RecordsBean) data.getSerializableExtra("RecordsBean");
-                usernameTV.setText(recordsBean.getUsername());
-                phoneTV.setText(recordsBean.getPhone());
-                addressTV.setText(recordsBean.getAddress());
-            }
-
-        }
-    }
-
-    @Override
-    protected LoginPresent createPresenter() {
-        return new LoginPresent();
+    protected A_QueRenDingDan_Present createPresenter() {
+        return new A_QueRenDingDan_Present();
     }
 
     @Override
@@ -123,4 +118,18 @@ public class A_Activity_QueRenDingDan extends MvpActivity {
     }
 
 
+    @Override
+    public void adminCuseraddressDefaultbypersonSuccess(Cuseraddress_Info model) {
+        if (model == null)
+            return;
+        usernameTV.setText(model.getUsername());
+        phoneTV.setText(model.getPhone());
+        addressTV.setText(model.getAddress());
+
+    }
+
+    @Override
+    public void onFailure(int code, String msg) {
+        showMessage(msg);
+    }
 }

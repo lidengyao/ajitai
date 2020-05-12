@@ -12,18 +12,14 @@ import android.widget.TextView;
 import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.adapter.A_ShouHuoDiZhi_Adapter;
 import com.hxsoft.ajitai.base.MvpActivity;
-import com.hxsoft.ajitai.model.info.Brand_Info;
 import com.hxsoft.ajitai.model.info.Cuseraddress_Info;
+import com.hxsoft.ajitai.model.info.Cuseraddress_Total_Info;
 import com.hxsoft.ajitai.present.A_ShouHuoDiZhi_Present;
 import com.hxsoft.ajitai.ui.view.A_ShouHuoDiZhi_View;
-import com.hxsoft.ajitai.utils.DbKeyS;
 import com.hxsoft.ajitai.utils.ListData_Control_Normal;
-import com.hxsoft.ajitai.utils.SpUtils;
 import com.hxsoft.ajitai.widget.PullLoadMoreListView;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Map;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -48,7 +44,7 @@ public class A_Activity_ShouHuoDiZhi extends MvpActivity<A_ShouHuoDiZhi_Present>
     private int current = 1;
     private int size = 10;
     private A_ShouHuoDiZhi_Adapter adapter;
-    private ArrayList<Cuseraddress_Info.RecordsBean> infoArrayList = new ArrayList<>();
+    private ArrayList<Cuseraddress_Info> infoArrayList = new ArrayList<>();
 
     @Override
     protected int getLayoutId() {
@@ -150,11 +146,11 @@ public class A_Activity_ShouHuoDiZhi extends MvpActivity<A_ShouHuoDiZhi_Present>
 
 
     @Override
-    public void adminCuseraddressPageSuccess(Cuseraddress_Info model) {
+    public void adminCuseraddressPageSuccess(Cuseraddress_Total_Info model) {
         SetData(model.getRecords());
     }
 
-    private void SetData(final ArrayList<Cuseraddress_Info.RecordsBean> model) {
+    private void SetData(final ArrayList<Cuseraddress_Info> model) {
         infoArrayList = new ListData_Control_Normal().BandData(infoArrayList, model, this.current, this.size, adapter, DataListView, getActivity(), getContext());
     }
 

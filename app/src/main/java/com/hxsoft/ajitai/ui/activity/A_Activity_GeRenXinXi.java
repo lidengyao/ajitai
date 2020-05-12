@@ -21,6 +21,7 @@ import android.widget.TextView;
 import com.google.gson.Gson;
 import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.base.MvpActivity;
+import com.hxsoft.ajitai.model.Inf.OssUpLoadFileListener;
 import com.hxsoft.ajitai.model.bean.A_UserUpdatecurrent_Bean;
 import com.hxsoft.ajitai.model.bean.A_User_Info;
 import com.hxsoft.ajitai.present.A_GeRenXinXi_Present;
@@ -29,6 +30,7 @@ import com.hxsoft.ajitai.ui.view.A_GeRenXinXi_View;
 import com.hxsoft.ajitai.utils.CheckControl_Dialog_XingBie;
 import com.hxsoft.ajitai.utils.DbKeyS;
 import com.hxsoft.ajitai.utils.GlideControl;
+import com.hxsoft.ajitai.utils.OssUploadFileC;
 import com.hxsoft.ajitai.utils.SpUtils;
 import com.luck.picture.lib.PictureSelector;
 import com.luck.picture.lib.config.PictureConfig;
@@ -202,7 +204,7 @@ public class A_Activity_GeRenXinXi extends MvpActivity<A_GeRenXinXi_Present> imp
                 getActivity().getWindow().setAttributes(lp);
             }
         });
-        pop.setAnimationStyle(R.style.main_menu_photo_anim);
+        pop.setAnimationStyle(R.style.bottom_dialog_anim);
         pop.showAtLocation(getActivity().getWindow().getDecorView(), Gravity.BOTTOM, 0, 0);
 
         View.OnClickListener clickListener = new View.OnClickListener() {
@@ -330,7 +332,14 @@ public class A_Activity_GeRenXinXi extends MvpActivity<A_GeRenXinXi_Present> imp
                 LocalMedia localMedia = selectList.get(0);
                 GlideControl.SetCircleImage(getContext(), localMedia.getPath(), avatarIV, R.mipmap.a_touxiang);
                 File upLoadImg = new File(localMedia.getCompressPath());
-                mPresenter.pushUpload(upLoadImg, getContext());
+
+                OssUploadFileC.OssUpFile(getContext(), upLoadImg.getName(), upLoadImg.getPath(), new OssUpLoadFileListener() {
+                    @Override
+                    public void OssUpLoadFile(Boolean IsSuccess) {
+
+                    }
+                });
+//                mPresenter.pushUpload(upLoadImg, getContext());
             }
         }
     }

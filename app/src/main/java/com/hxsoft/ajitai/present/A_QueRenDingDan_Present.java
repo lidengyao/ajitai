@@ -8,28 +8,32 @@ import com.hxsoft.ajitai.model.api.ApiCallBack;
 import com.hxsoft.ajitai.model.api.ApiSubscriber;
 import com.hxsoft.ajitai.model.api.ResponseBean;
 import com.hxsoft.ajitai.model.api.RetrofitClient;
-import com.hxsoft.ajitai.model.info.KeCheng_Info;
-import com.hxsoft.ajitai.model.info.QianBao_Info;
-import com.hxsoft.ajitai.ui.view.A_QianBao_View;
-import com.hxsoft.ajitai.ui.view.A_WoDeKeCheng_View;
+import com.hxsoft.ajitai.model.bean.A_UserUpdatecurrent_Bean;
+import com.hxsoft.ajitai.model.info.Cuseraddress_Info;
+import com.hxsoft.ajitai.ui.view.A_GeRenXinXi_View;
+import com.hxsoft.ajitai.ui.view.A_QueRenDingDan_View;
 import com.hxsoft.ajitai.utils.FileUtils;
 import com.hxsoft.ajitai.utils.LogCode;
 
+import java.io.File;
+
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import rx.Observable;
 
 /**
  * Created by jinxh on 16/2/1.
  */
-public class A_QianBao_Present extends BasePresent<A_QianBao_View> {
+public class A_QueRenDingDan_Present extends BasePresent<A_QueRenDingDan_View> {
 
+    //获取默认地址
+    public void adminCuseraddressDefaultbyperson(Context context) {
 
-    public void ajitaipayQueryBalance(Context context) {
-        String tip = "A_WoDeKeCheng_Present-goodsCgoodsPagebytype-钱包余额(APP)\r\n";
+        String tip = "A_QueRenDingDan_Present-adminCuseraddressDefaultbyperson-获取默认地址\r\n";
         FileUtils.writeLogToFile(tip);
-
-        Observable<ResponseBean<Double>> observable = RetrofitClient.builderRetrofit(context).create(APIService_AJiTai.class).
-                ajitaipayQueryBalance();
-        addIOSubscription(observable, new ApiSubscriber(new ApiCallBack<Double>() {
+        Observable<ResponseBean<Cuseraddress_Info>> observable = RetrofitClient.builderRetrofit(context).create(APIService_AJiTai.class).adminCuseraddressDefaultbyperson();
+        addIOSubscription(observable, new ApiSubscriber(new ApiCallBack<Cuseraddress_Info>() {
             @Override
             public void onStart() {
                 super.onStart();
@@ -39,9 +43,9 @@ public class A_QianBao_Present extends BasePresent<A_QianBao_View> {
             }
 
             @Override
-            public void onSuccess(Double model) {
+            public void onSuccess(Cuseraddress_Info model) {
                 if (getView() != null) {
-                    getView().ajitaipayQueryBalanceSuccess(model);
+                    getView().adminCuseraddressDefaultbypersonSuccess(model);
                 }
             }
 

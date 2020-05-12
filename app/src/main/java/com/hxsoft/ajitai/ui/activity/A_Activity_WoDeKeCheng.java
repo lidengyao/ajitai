@@ -9,6 +9,7 @@ import android.support.v4.view.ViewPager;
 import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
@@ -23,7 +24,7 @@ import com.hxsoft.ajitai.present.A_WoDeKeCheng_Present;
 import com.hxsoft.ajitai.ui.fragment.Y_Fragment_WoDeKeCheng_WeiWanCheng;
 import com.hxsoft.ajitai.ui.fragment.Y_Fragment_WoDeKeCheng_YiWanCheng;
 import com.hxsoft.ajitai.ui.view.A_WoDeKeCheng_View;
-import com.hxsoft.ajitai.utils.CheckControl_Dialog_yinpinzhibo_jianjie;
+import com.hxsoft.ajitai.utils.CheckControl_Dialog_GouMaiKeCheng_QueRen;
 import com.hxsoft.ajitai.widget.PullLoadMoreRecyclerView;
 
 import java.util.ArrayList;
@@ -56,7 +57,10 @@ public class A_Activity_WoDeKeCheng extends MvpActivity<A_WoDeKeCheng_Present> i
 
     private Integer page = 1;
     private Integer size = 10;
+    private PopupWindow pop;
     private View bottomView;
+    private String title;
+    private String price;
 
     private View checkKeChengView;
 
@@ -73,17 +77,6 @@ public class A_Activity_WoDeKeCheng extends MvpActivity<A_WoDeKeCheng_Present> i
 
         init();
 
-        JianJieRL.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                CheckControl_Dialog_yinpinzhibo_jianjie.ShowDialog(getContext(), getActivity(), "", new CheckControl_Dialog_yinpinzhibo_jianjie.OnCheckControl_dialogClickListener() {
-                    @Override
-                    public void OnClick(int type) {
-
-                    }
-                });
-            }
-        });
 
         GouMaiTV.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -92,7 +85,30 @@ public class A_Activity_WoDeKeCheng extends MvpActivity<A_WoDeKeCheng_Present> i
             }
         });
 
+
         bottomView = View.inflate(getContext(), R.layout.actionsheet_dialog_goumaikecheng, null);
+        pop = new PopupWindow(bottomView, -1, -2);
+
+        Button QuXiaoBtn = (Button) bottomView.findViewById(R.id.QuXiaoBtn);
+        Button OK_Btn = (Button) bottomView.findViewById(R.id.OK_Btn);
+        QuXiaoBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pop.dismiss();
+            }
+        });
+
+        OK_Btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                CheckControl_Dialog_GouMaiKeCheng_QueRen.ShowDialog(getContext(), getActivity(), price, title, new CheckControl_Dialog_GouMaiKeCheng_QueRen.OnCheckControl_dialogClickListener() {
+                    @Override
+                    public void OnClick(int type) {
+
+                    }
+                });
+            }
+        });
 
         mPullLoadMoreRecyclerView = (PullLoadMoreRecyclerView) bottomView.findViewById(R.id.pullLoadMoreRecyclerView);
         //mPullLoadMoreRecyclerView.setRefreshing(true);
@@ -119,7 +135,9 @@ public class A_Activity_WoDeKeCheng extends MvpActivity<A_WoDeKeCheng_Present> i
                 price_TV.setTextColor(getResources().getColor(R.color.C242424));
                 goodsname_TV.setTextColor(getResources().getColor(R.color.C242424));
 
-                checkKeChengView=view;
+                title = recordsBean.getGoodsname();
+                price = recordsBean.getPrice() + "";
+                checkKeChengView = view;
             }
         });
         mPullLoadMoreRecyclerView.setAdapter(mRecyclerViewAdapter);
@@ -208,7 +226,7 @@ public class A_Activity_WoDeKeCheng extends MvpActivity<A_WoDeKeCheng_Present> i
 
     private void ShowDialog() {
 
-        PopupWindow pop = new PopupWindow(bottomView, -1, -2);
+
         pop.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
         pop.setOutsideTouchable(true);
         pop.setFocusable(true);
@@ -224,7 +242,7 @@ public class A_Activity_WoDeKeCheng extends MvpActivity<A_WoDeKeCheng_Present> i
                 getWindow().setAttributes(lp);
             }
         });
-        pop.setAnimationStyle(R.style.main_menu_photo_anim);
+        pop.setAnimationStyle(R.style.center_dialog_anim);
         pop.showAtLocation(getWindow().getDecorView(), Gravity.CENTER, 0, 0);
 
 

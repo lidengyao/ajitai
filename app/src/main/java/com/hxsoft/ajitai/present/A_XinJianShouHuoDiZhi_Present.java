@@ -9,18 +9,13 @@ import com.hxsoft.ajitai.model.api.ApiSubscriber;
 import com.hxsoft.ajitai.model.api.ResponseBean;
 import com.hxsoft.ajitai.model.api.RetrofitClient;
 import com.hxsoft.ajitai.model.bean.A_Cuseraddress_Bean;
-import com.hxsoft.ajitai.model.info.Cuseraddress_Info;
-import com.hxsoft.ajitai.model.info.Cuserreceipt_Info;
 import com.hxsoft.ajitai.model.info.Sysarea_Info;
-import com.hxsoft.ajitai.ui.view.A_ShouHuoDiZhi_View;
 import com.hxsoft.ajitai.ui.view.A_XinJianShouHuoDiZhi_View;
 import com.hxsoft.ajitai.utils.FileUtils;
 import com.hxsoft.ajitai.utils.LogCode;
 
 import java.util.ArrayList;
 
-import retrofit2.http.Body;
-import retrofit2.http.POST;
 import rx.Observable;
 
 /**

@@ -47,7 +47,7 @@
                 android:orientation="horizontal">
 
                 <Button
-
+                    android:id="@+id/QuXiaoBtn"
                     style="@style/Button_Style"
                     android:layout_width="0dp"
                     android:layout_height="42dp"

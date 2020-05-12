@@ -146,6 +146,9 @@ dependencies {
 
     // 支付宝 SDK AAR 包所需的配置
     implementation (name: 'alipaySdk-15.7.5-20200422171619', ext: 'aar')
+
+    //oss上传图片
+    implementation 'com.aliyun.dpa:oss-android-sdk:+'
 }
 repositories {
     mavenCentral()

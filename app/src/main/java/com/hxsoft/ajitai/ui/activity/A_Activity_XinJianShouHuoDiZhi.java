@@ -62,7 +62,7 @@ public class A_Activity_XinJianShouHuoDiZhi extends MvpActivity<A_XinJianShouHuo
     LinearLayout BottomLL;
     private Integer isdefault = 0;
     private String type;//0:新增1：详情：2：修改
-    private Cuseraddress_Info.RecordsBean recordsBean;
+    private Cuseraddress_Info recordsBean;
     private ArrayList<Sysarea_Info> sheng_sysarea_infoArrayList;
     private ArrayList<Sysarea_Info> One_sysarea_infoArrayList;
     private ArrayList<Sysarea_Info> Two_sysarea_infoArrayList;
@@ -139,7 +139,7 @@ public class A_Activity_XinJianShouHuoDiZhi extends MvpActivity<A_XinJianShouHuo
         }
         if (type.equals("1")) {
 
-            recordsBean = (Cuseraddress_Info.RecordsBean) getIntent().getSerializableExtra("RecordsBean");
+            recordsBean = (Cuseraddress_Info) getIntent().getSerializableExtra("RecordsBean");
 
             shengCode = recordsBean.getProvinceid();
             oneCode = recordsBean.getCityid();
@@ -403,7 +403,7 @@ public class A_Activity_XinJianShouHuoDiZhi extends MvpActivity<A_XinJianShouHuo
                 getWindow().setAttributes(lp);
             }
         });
-        pop.setAnimationStyle(R.style.main_menu_photo_anim);
+        pop.setAnimationStyle(R.style.bottom_dialog_anim);
         pop.showAtLocation(getWindow().getDecorView(), Gravity.BOTTOM, 0, 0);
 
 
