@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    style="@style/PageRootLL"
+    android:background="@color/color2">
+
+    <!--头部-->
+    <android.support.v7.widget.Toolbar
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/headheight"
+        android:background="@drawable/status_shape"
+        app:contentInsetStart="0dp">
+
+        <LinearLayout style="@style/TopStyle">
+
+            <RelativeLayout style="@style/TopBarStyle">
+
+                <LinearLayout
+                    style="@style/TopBarLeftStyle"
+                    android:visibility="visible">
+
+                    <ImageView style="@style/TopBarBackImageStyle" />
+                </LinearLayout>
+
+                <TextView
+                    android:id="@+id/SysNameIV"
+                    style="@style/TopBarTitleStyle"
+                    android:tag="我的课程"
+                    android:text="选择课程"
+                    android:visibility="visible" />
+
+                <RelativeLayout
+                    android:id="@+id/JianJieRL"
+                    style="@style/TopBarRightStyle"
+                    android:visibility="invisible">
+
+                    <ImageView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerInParent="true"
+                        android:layout_marginRight="20dp"
+                        android:src="@mipmap/a_gengduo_dian" />
+
+                    <TextView
+                        style="@style/TopBarRightTextStyle"
+                        android:text="修改"
+                        android:visibility="gone" />
+                </RelativeLayout>
+            </RelativeLayout>
+
+
+        </LinearLayout>
+
+    </android.support.v7.widget.Toolbar>
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/Bottom_LL"
+            android:orientation="vertical">
+
+            <com.hxsoft.ajitai.widget.PullLoadMoreRecyclerView
+                android:id="@+id/pullLoadMoreRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_marginLeft="20dp"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="20dp">
+
+            </com.hxsoft.ajitai.widget.PullLoadMoreRecyclerView>
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/Bottom_LL"
+            android:layout_width="match_parent"
+            android:layout_height="55dp"
+            android:layout_alignParentBottom="true"
+            android:elevation="10dp"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/QuXiao_TV"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="#F6F6F6"
+                android:gravity="center"
+                android:text="取消"
+                android:textColor="@color/C808080"
+                android:textSize="@dimen/textsize16" />
+
+            <TextView
+                android:id="@+id/QueDing_TV"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background="@color/CFFE248"
+                android:gravity="center"
+                android:text="确定"
+                android:textColor="@color/C242424"
+                android:textSize="@dimen/textsize16" />
+        </LinearLayout>
+    </RelativeLayout>
+
+</LinearLayout>

@@ -9,6 +9,7 @@ import com.hxsoft.ajitai.model.api.ApiSubscriber;
 import com.hxsoft.ajitai.model.api.ResponseBean;
 import com.hxsoft.ajitai.model.api.RetrofitClient;
 import com.hxsoft.ajitai.ui.view.A_ShouYinTai_View;
+import com.hxsoft.ajitai.utils.FailOpeater;
 import com.hxsoft.ajitai.utils.FileUtils;
 import com.hxsoft.ajitai.utils.LogCode;
 
@@ -45,7 +46,7 @@ public class A_ShouYinTai_Present extends BasePresent<A_ShouYinTai_View> {
             @Override
             public void onFailure(int code, String msg) {
                 if (getView() != null) {
-                    getView().showMessage(LogCode.GetCode(tip) + msg);
+                    FailOpeater.SetFail(code, tip, msg, context);
                 }
             }
 

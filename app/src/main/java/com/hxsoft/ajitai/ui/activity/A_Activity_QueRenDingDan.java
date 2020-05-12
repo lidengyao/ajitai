@@ -50,6 +50,7 @@ public class A_Activity_QueRenDingDan extends MvpActivity<A_QueRenDingDan_Presen
     TextView addressTV;
     private String orderNo;
     private String body;
+    private String price;
 
     @Override
     protected int getLayoutId() {
@@ -70,6 +71,7 @@ public class A_Activity_QueRenDingDan extends MvpActivity<A_QueRenDingDan_Presen
                 Intent intent = new Intent(getContext(), A_Activity_ShouYinTai.class);
                 intent.putExtra("orderNo", orderNo);
                 intent.putExtra("body", body);
+                intent.putExtra("price", price);
                 startActivity(intent);
             }
         });

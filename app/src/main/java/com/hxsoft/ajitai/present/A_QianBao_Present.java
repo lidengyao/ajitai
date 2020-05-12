@@ -8,12 +8,9 @@ import com.hxsoft.ajitai.model.api.ApiCallBack;
 import com.hxsoft.ajitai.model.api.ApiSubscriber;
 import com.hxsoft.ajitai.model.api.ResponseBean;
 import com.hxsoft.ajitai.model.api.RetrofitClient;
-import com.hxsoft.ajitai.model.info.KeCheng_Info;
-import com.hxsoft.ajitai.model.info.QianBao_Info;
 import com.hxsoft.ajitai.ui.view.A_QianBao_View;
-import com.hxsoft.ajitai.ui.view.A_WoDeKeCheng_View;
+import com.hxsoft.ajitai.utils.FailOpeater;
 import com.hxsoft.ajitai.utils.FileUtils;
-import com.hxsoft.ajitai.utils.LogCode;
 
 import rx.Observable;
 
@@ -48,7 +45,7 @@ public class A_QianBao_Present extends BasePresent<A_QianBao_View> {
             @Override
             public void onFailure(int code, String msg) {
                 if (getView() != null) {
-                    getView().showMessage(LogCode.GetCode(tip) + msg);
+                    FailOpeater.SetFail(code, tip, msg, context);
                 }
             }
 

@@ -181,6 +181,7 @@ public class A_WoDe_Fragment extends MvpFragment<A_WoDe_Present> implements A_Wo
         Gson gson = new Gson();
         String gsonStr = gson.toJson(model);
         SpUtils.saveSettingNote(getContext(), DbKeyS.A_User_Info, gsonStr);
+        SpUtils.saveSettingNote(getContext(), DbKeyS.uid, model.getSysUser().getUid() + "");
 
         //UI赋值
         GlideControl.SetCircleImage(getContext(), model.getSysUser().getAvatar(), avatarIV, R.mipmap.a_touxiang);

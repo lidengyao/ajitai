@@ -50,14 +50,15 @@ public class CheckControl_Dialog_GouMaiKeCheng_QueRen {
             @Override
             public void onClick(View v) {
                 pop.dismiss();
-                Intent intent = new Intent(context, A_Activity_ShouYinTai.class);
-                context.startActivity(intent);
+                onCheckControl_dialogClickListener.OnClick(1);
+
             }
         });
         QuXiaoBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 pop.dismiss();
+                onCheckControl_dialogClickListener.OnClick(0);
             }
         });
         pop.setAnimationStyle(R.style.center_dialog_anim);

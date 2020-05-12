@@ -3,7 +3,6 @@ package com.hxsoft.ajitai.present;
 import android.content.Context;
 
 import com.hxsoft.ajitai.base.BasePresent;
-import com.hxsoft.ajitai.model.api.APIService;
 import com.hxsoft.ajitai.model.api.APIService_AJiTai;
 import com.hxsoft.ajitai.model.api.ApiCallBack;
 import com.hxsoft.ajitai.model.api.ApiSubscriber;
@@ -12,11 +11,9 @@ import com.hxsoft.ajitai.model.api.RetrofitClient;
 import com.hxsoft.ajitai.model.bean.A_OauthTokenBean;
 import com.hxsoft.ajitai.model.bean.A_PushChecknumBean;
 import com.hxsoft.ajitai.model.info.OauthToken_Info;
-import com.hxsoft.ajitai.model.info.PhoneLoginInfo;
 import com.hxsoft.ajitai.ui.view.A_YanZhengMa_LoginView;
-import com.hxsoft.ajitai.ui.view.LoginView;
+import com.hxsoft.ajitai.utils.FailOpeater;
 import com.hxsoft.ajitai.utils.FileUtils;
-import com.hxsoft.ajitai.utils.LogCode;
 
 import rx.Observable;
 
@@ -49,7 +46,7 @@ public class A_YanZhengMa_LoginPresent extends BasePresent<A_YanZhengMa_LoginVie
             @Override
             public void onFailure(int code, String msg) {
                 if (getView() != null) {
-                    getView().showMessage(LogCode.GetCode(tip) + msg);
+                    FailOpeater.SetFail(code, tip, msg, context);
                 }
             }
 
@@ -86,7 +83,7 @@ public class A_YanZhengMa_LoginPresent extends BasePresent<A_YanZhengMa_LoginVie
             @Override
             public void onFailure(int code, String msg) {
                 if (getView() != null) {
-                    getView().showMessage(LogCode.GetCode(tip) + msg);
+                    FailOpeater.SetFail(code, tip, msg, context);
                 }
             }
 

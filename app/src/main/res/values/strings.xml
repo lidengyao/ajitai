@@ -57,4 +57,9 @@
     <string name="label_pause">Pause</string>
     <string name="label_play">Play</string>
     <string name="cast_application_id">CC1AD845</string>
+
+
+    <!--阿吉泰-->
+    <string name="qingxuanzekecheng">请选择课程</string>
+    <string name="tokentimeout">登录已过期</string>
 </resources>

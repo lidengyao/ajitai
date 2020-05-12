@@ -95,6 +95,7 @@ public class A_Order_Adapter extends CommonAdapter<A_Order_Info> {
                     Intent intent = new Intent(_Context, A_Activity_ShouYinTai.class);
                     intent.putExtra("orderNo", a_order_info.getOrderNo());
                     intent.putExtra("body", body);
+                    intent.putExtra("price", a_order_info.getPayment()+"");
                     _Context.startActivity(intent);
                 }
             });

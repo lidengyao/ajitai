@@ -18,6 +18,7 @@ import android.widget.TextView;
 
 import com.hxsoft.ajitai.BuildConfig;
 import com.hxsoft.ajitai.R;
+import com.hxsoft.ajitai.base.BasePresent;
 import com.hxsoft.ajitai.base.MvpActivity;
 import com.hxsoft.ajitai.jpush.ExampleUtil;
 import com.hxsoft.ajitai.jpush.LocalBroadcastManager;
@@ -89,8 +90,8 @@ public class A_Main_Activity extends MvpActivity implements View.OnClickListener
     }
 
     @Override
-    protected A_WoDe_Present createPresenter() {
-        return new A_WoDe_Present();
+    protected BasePresent createPresenter() {
+        return null;
     }
 
 

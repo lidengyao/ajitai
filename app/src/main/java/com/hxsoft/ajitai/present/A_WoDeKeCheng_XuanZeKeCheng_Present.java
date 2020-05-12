@@ -8,8 +8,10 @@ import com.hxsoft.ajitai.model.api.ApiCallBack;
 import com.hxsoft.ajitai.model.api.ApiSubscriber;
 import com.hxsoft.ajitai.model.api.ResponseBean;
 import com.hxsoft.ajitai.model.api.RetrofitClient;
-import com.hxsoft.ajitai.model.info.A_Order_Info;
-import com.hxsoft.ajitai.ui.view.A_DingDanXiangQing_View;
+import com.hxsoft.ajitai.model.info.CreateOrder_Bean;
+import com.hxsoft.ajitai.model.info.CreateOrder_Info;
+import com.hxsoft.ajitai.model.info.KeCheng_Info;
+import com.hxsoft.ajitai.ui.view.A_WoDeKeCheng_XuanZeKeCheng_View;
 import com.hxsoft.ajitai.utils.FailOpeater;
 import com.hxsoft.ajitai.utils.FileUtils;
 import com.hxsoft.ajitai.utils.LogCode;
@@ -19,16 +21,17 @@ import rx.Observable;
 /**
  * Created by jinxh on 16/2/1.
  */
-public class A_DingDanXiangQing_Present extends BasePresent<A_DingDanXiangQing_View> {
+public class A_WoDeKeCheng_XuanZeKeCheng_Present extends BasePresent<A_WoDeKeCheng_XuanZeKeCheng_View> {
 
 
-    //订单详情
-    public void orderQuery(String orderNo, Context context) {
-        String tip = "A_DingDanXiangQing_Present-orderQuery-订单详情(APP)\r\n";
+    //获取当前课程套餐
+    public void goodsCgoodsPagebytype(Integer current, Integer size, Integer type, Context context) {
+        String tip = "A_WoDeKeCheng_XuanZeKeCheng_Present-goodsCgoodsPagebytype-获取当前课程套餐(APP)\r\n";
         FileUtils.writeLogToFile(tip);
 
-        Observable<ResponseBean<A_Order_Info>> observable = RetrofitClient.builderRetrofit(context).create(APIService_AJiTai.class).orderQuery(orderNo);
-        addIOSubscription(observable, new ApiSubscriber(new ApiCallBack<A_Order_Info>() {
+        Observable<ResponseBean<KeCheng_Info>> observable = RetrofitClient.builderRetrofit(context).create(APIService_AJiTai.class).
+                goodsCgoodsPagebytype(current, size, type);
+        addIOSubscription(observable, new ApiSubscriber(new ApiCallBack<KeCheng_Info>() {
             @Override
             public void onStart() {
                 super.onStart();
@@ -38,16 +41,16 @@ public class A_DingDanXiangQing_Present extends BasePresent<A_DingDanXiangQing_V
             }
 
             @Override
-            public void onSuccess(A_Order_Info model) {
+            public void onSuccess(KeCheng_Info model) {
                 if (getView() != null) {
-                    getView().orderQuerySuccess(model);
+                    getView().goodsCgoodsPagebytypeSuccess(model);
                 }
             }
 
             @Override
             public void onFailure(int code, String msg) {
                 if (getView() != null) {
-                    FailOpeater.SetFail(code, tip, msg, context);
+                    getView().showMessage(LogCode.GetCode(tip) + msg);
                 }
             }
 
@@ -60,14 +63,15 @@ public class A_DingDanXiangQing_Present extends BasePresent<A_DingDanXiangQing_V
         }, context));
     }
 
-    //取消订单
-    public void orderCannel(String orderNo, Context context) {
-        String tip = "A_DingDanXiangQing_Present-orderCannel-取消订单(APP)\r\n";
-        FileUtils.writeLogToFile(tip);
-        Observable<ResponseBean<String>> observable = RetrofitClient.builderRetrofit(context).create(APIService_AJiTai.class).orderCannel(orderNo);
 
-        // 此处请求接口
-        addIOSubscription(observable, new ApiSubscriber(new ApiCallBack<String>() {
+    //创建订单（购买课程）
+    public void orderCreate(CreateOrder_Bean createOrder_bean, Context context) {
+        String tip = "A_WoDeKeCheng_XuanZeKeCheng_Present-goodsCgoodsPagebytype-获取当前课程套餐(APP)\r\n";
+        FileUtils.writeLogToFile(tip);
+
+        Observable<ResponseBean<CreateOrder_Info>> observable = RetrofitClient.builderRetrofit(context).create(APIService_AJiTai.class).
+                orderCreate(createOrder_bean);
+        addIOSubscription(observable, new ApiSubscriber(new ApiCallBack<CreateOrder_Info>() {
             @Override
             public void onStart() {
                 super.onStart();
@@ -77,16 +81,17 @@ public class A_DingDanXiangQing_Present extends BasePresent<A_DingDanXiangQing_V
             }
 
             @Override
-            public void onSuccess(String model) {
+            public void onSuccess(CreateOrder_Info model) {
                 if (getView() != null) {
-                    getView().orderCannelSuccess(model);
+                    getView().orderCreateSuccess(model);
                 }
             }
 
             @Override
             public void onFailure(int code, String msg) {
                 if (getView() != null) {
-                    getView().onFailure(code, LogCode.GetCode(tip) + msg);
+                    getView().showMessage(msg);
+                    FailOpeater.SetFail(code,tip,msg,context);
                 }
             }
 

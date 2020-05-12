@@ -1,73 +1,67 @@
 package com.hxsoft.ajitai.ui.activity;
 
 import android.content.Intent;
-import android.graphics.Color;
-import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
-import android.support.design.widget.TabLayout;
-import android.support.v4.app.Fragment;
-import android.support.v4.view.ViewPager;
-import android.view.Gravity;
+import android.text.TextUtils;
 import android.view.View;
-import android.view.WindowManager;
-import android.widget.Button;
 import android.widget.LinearLayout;
-import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
 import com.hxsoft.ajitai.R;
-import com.hxsoft.ajitai.adapter.FmPagerAdapter;
 import com.hxsoft.ajitai.adapter.RecyclerViewAdapter;
 import com.hxsoft.ajitai.base.MvpActivity;
+import com.hxsoft.ajitai.model.info.CreateOrder_Bean;
+import com.hxsoft.ajitai.model.info.CreateOrder_Info;
 import com.hxsoft.ajitai.model.info.KeCheng_Info;
 import com.hxsoft.ajitai.present.A_WoDeKeCheng_Present;
-import com.hxsoft.ajitai.ui.fragment.Y_Fragment_WoDeKeCheng_WeiWanCheng;
-import com.hxsoft.ajitai.ui.fragment.Y_Fragment_WoDeKeCheng_YiWanCheng;
+import com.hxsoft.ajitai.present.A_WoDeKeCheng_XuanZeKeCheng_Present;
 import com.hxsoft.ajitai.ui.view.A_WoDeKeCheng_View;
+import com.hxsoft.ajitai.ui.view.A_WoDeKeCheng_XuanZeKeCheng_View;
 import com.hxsoft.ajitai.utils.CheckControl_Dialog_GouMaiKeCheng_QueRen;
+import com.hxsoft.ajitai.utils.DbKeyS;
+import com.hxsoft.ajitai.utils.SpUtils;
 import com.hxsoft.ajitai.widget.PullLoadMoreRecyclerView;
 
 import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import cn.hutool.db.Db;
 
 /**
  * Created by jinxh on 16/2/1.
  */
-public class A_Activity_WoDeKeCheng extends MvpActivity<A_WoDeKeCheng_Present> implements A_WoDeKeCheng_View {
+public class A_Activity_WoDeKeCheng_XuanZeKeCheng extends MvpActivity<A_WoDeKeCheng_XuanZeKeCheng_Present> implements A_WoDeKeCheng_XuanZeKeCheng_View {
 
     @Bind(R.id.SysNameIV)
     TextView SysNameIV;
-    @Bind(R.id.MenuTablayout)
-    TabLayout MenuTablayout;
-    @Bind(R.id.viewPager)
-    ViewPager viewPager;
     @Bind(R.id.JianJieRL)
     RelativeLayout JianJieRL;
-    @Bind(R.id.GouMai_TV)
-    TextView GouMaiTV;
+    @Bind(R.id.pullLoadMoreRecyclerView)
+    PullLoadMoreRecyclerView pullLoadMoreRecyclerView;
+    @Bind(R.id.QuXiao_TV)
+    TextView QuXiaoTV;
+    @Bind(R.id.QueDing_TV)
+    TextView QueDingTV;
     @Bind(R.id.Bottom_LL)
     LinearLayout BottomLL;
-    private FmPagerAdapter pagerAdapter;
-    private ArrayList<Fragment> fragments = new ArrayList<>();
-    private String[] titles = new String[]{"未完成", "已完成"};
-    private Y_Fragment_WoDeKeCheng_WeiWanCheng y_fragment_woDeKeCheng_weiWanCheng;
-    private Y_Fragment_WoDeKeCheng_YiWanCheng y_fragment_woDeKeCheng_yiWanCheng;
-
     private Integer page = 1;
     private Integer size = 10;
-    private PopupWindow pop;
-    private View bottomView;
     private String title;
     private String price;
+    private String goodsid;
+    private Integer goodstype;
+
 
     private View checkKeChengView;
 
+    private RecyclerViewAdapter mRecyclerViewAdapter;
+
     @Override
     protected int getLayoutId() {
-        return R.layout.a_activity_wodekecheng;
+        return R.layout.a_activity_wodekecheng_xuanzekecheng;
     }
 
     @Override
@@ -76,46 +70,53 @@ public class A_Activity_WoDeKeCheng extends MvpActivity<A_WoDeKeCheng_Present> i
         // TODO: add setContentView(...) invocation
         ButterKnife.bind(this);
 
-        init();
 
-
-        GouMaiTV.setOnClickListener(new View.OnClickListener() {
+        QuXiaoTV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                Intent intent=new Intent(getContext(),A_Activity_WoDeKeCheng_XuanZeKeCheng.class);
-                startActivity(intent);
+                finish();
             }
         });
 
-
-        bottomView = View.inflate(getContext(), R.layout.actionsheet_dialog_goumaikecheng, null);
-        pop = new PopupWindow(bottomView, -1, -2);
-
-        Button QuXiaoBtn = (Button) bottomView.findViewById(R.id.QuXiaoBtn);
-        Button OK_Btn = (Button) bottomView.findViewById(R.id.OK_Btn);
-        QuXiaoBtn.setOnClickListener(new View.OnClickListener() {
+        QueDingTV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pop.dismiss();
-            }
-        });
 
-        OK_Btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
+                if (TextUtils.isEmpty(title)) {
+                    showMessage(R.string.qingxuanzekecheng);
+                    return;
+                }
                 CheckControl_Dialog_GouMaiKeCheng_QueRen.ShowDialog(getContext(), getActivity(), price, title, new CheckControl_Dialog_GouMaiKeCheng_QueRen.OnCheckControl_dialogClickListener() {
                     @Override
                     public void OnClick(int type) {
+                        if (type == 1) {
+
+                            CreateOrder_Bean createOrder_bean = new CreateOrder_Bean();
+                            createOrder_bean.setConferUid(Integer.parseInt(SpUtils.getSettingNote(getContext(), DbKeyS.uid)));
+                            createOrder_bean.setGoodstype(goodstype);
+                            createOrder_bean.setIsNeedReceipt(0);
+                            createOrder_bean.setIsFormCart(0);
+
+                            CreateOrder_Bean.ProductArrayListBean productArrayListBean = new CreateOrder_Bean.ProductArrayListBean();
+                            productArrayListBean.setGoodsid(goodsid);
+                            productArrayListBean.setNum(1);
+                            productArrayListBean.setRemark("");
+
+                            createOrder_bean.setProductArrayList(new ArrayList<CreateOrder_Bean.ProductArrayListBean>());
+                            createOrder_bean.getProductArrayList().add(productArrayListBean);
+
+                            Gson gson = new Gson();
+                            String gsonStr = gson.toJson(createOrder_bean);
+                            mPresenter.orderCreate(createOrder_bean, getContext());
+                        }
 
                     }
                 });
             }
         });
 
-        mPullLoadMoreRecyclerView = (PullLoadMoreRecyclerView) bottomView.findViewById(R.id.pullLoadMoreRecyclerView);
         //mPullLoadMoreRecyclerView.setRefreshing(true);
-        mPullLoadMoreRecyclerView.setGridLayout(2);
+        pullLoadMoreRecyclerView.setGridLayout(2);
         mRecyclerViewAdapter = new RecyclerViewAdapter(getActivity(), new RecyclerViewAdapter.OnItemClickListener() {
             @Override
             public void OnClick(View view, KeCheng_Info.RecordsBean recordsBean) {
@@ -140,11 +141,13 @@ public class A_Activity_WoDeKeCheng extends MvpActivity<A_WoDeKeCheng_Present> i
 
                 title = recordsBean.getGoodsname();
                 price = recordsBean.getPrice() + "";
+                goodstype = recordsBean.getGoodstype();
+                goodsid = recordsBean.getGoodsid();
                 checkKeChengView = view;
             }
         });
-        mPullLoadMoreRecyclerView.setAdapter(mRecyclerViewAdapter);
-        mPullLoadMoreRecyclerView.setOnPullLoadMoreListener(new PullLoadMoreRecyclerView.PullLoadMoreListener() {
+        pullLoadMoreRecyclerView.setAdapter(mRecyclerViewAdapter);
+        pullLoadMoreRecyclerView.setOnPullLoadMoreListener(new PullLoadMoreRecyclerView.PullLoadMoreListener() {
             @Override
             public void onRefresh() {
                 mRecyclerViewAdapter.clearData();
@@ -167,30 +170,9 @@ public class A_Activity_WoDeKeCheng extends MvpActivity<A_WoDeKeCheng_Present> i
     }
 
 
-    private void init() {
-
-        y_fragment_woDeKeCheng_weiWanCheng = new Y_Fragment_WoDeKeCheng_WeiWanCheng();
-        y_fragment_woDeKeCheng_yiWanCheng = new Y_Fragment_WoDeKeCheng_YiWanCheng();
-        fragments.add(y_fragment_woDeKeCheng_weiWanCheng);
-        fragments.add(y_fragment_woDeKeCheng_yiWanCheng);
-
-        for (int i = 0; i < titles.length; i++) {
-            MenuTablayout.addTab(MenuTablayout.newTab());
-        }
-
-        MenuTablayout.setupWithViewPager(viewPager, false);
-        pagerAdapter = new FmPagerAdapter(fragments, getSupportFragmentManager());
-        viewPager.setAdapter(pagerAdapter);
-
-        for (int i = 0; i < titles.length; i++) {
-            MenuTablayout.getTabAt(i).setText(titles[i]);
-        }
-
-    }
-
     @Override
-    protected A_WoDeKeCheng_Present createPresenter() {
-        return new A_WoDeKeCheng_Present();
+    protected A_WoDeKeCheng_XuanZeKeCheng_Present createPresenter() {
+        return new A_WoDeKeCheng_XuanZeKeCheng_Present();
     }
 
     @Override
@@ -214,41 +196,30 @@ public class A_Activity_WoDeKeCheng extends MvpActivity<A_WoDeKeCheng_Present> i
         if (model == null)
             return;
         mRecyclerViewAdapter.addAllData(model.getRecords());
-        mPullLoadMoreRecyclerView.setPullLoadMoreCompleted();
+        pullLoadMoreRecyclerView.setPullLoadMoreCompleted();
+
+    }
+
+    @Override
+    public void orderCreateSuccess(CreateOrder_Info model) {
+        if (model == null)
+            return;
+        if (model.isIsNeedPay()) {
+            Intent intent = new Intent(getContext(), A_Activity_ShouYinTai.class);
+            intent.putExtra("orderNo", model.getOrderNo());
+            intent.putExtra("body", title);
+            intent.putExtra("price", price);
+            startActivity(intent);
+        } else {
+            showMessage("已下单");
+            finish();
+        }
 
     }
 
     @Override
     public void onFailure(int code, String msg) {
         showMessage(msg);
-    }
-
-
-    private PullLoadMoreRecyclerView mPullLoadMoreRecyclerView;
-    private RecyclerViewAdapter mRecyclerViewAdapter;
-
-    private void ShowDialog() {
-
-
-        pop.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        pop.setOutsideTouchable(true);
-        pop.setFocusable(true);
-        WindowManager.LayoutParams lp = getWindow().getAttributes();
-        lp.alpha = 0.5f;
-        getWindow().setAttributes(lp);
-        pop.setOnDismissListener(new PopupWindow.OnDismissListener() {
-
-            @Override
-            public void onDismiss() {
-                WindowManager.LayoutParams lp = getWindow().getAttributes();
-                lp.alpha = 1f;
-                getWindow().setAttributes(lp);
-            }
-        });
-        pop.setAnimationStyle(R.style.center_dialog_anim);
-        pop.showAtLocation(getWindow().getDecorView(), Gravity.CENTER, 0, 0);
-
-
     }
 
 

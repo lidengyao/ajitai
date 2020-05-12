@@ -12,12 +12,10 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.alipay.sdk.app.AuthTask;
 import com.alipay.sdk.app.PayTask;
 import com.google.gson.Gson;
 import com.google.gson.annotations.SerializedName;
 import com.hxsoft.ajitai.R;
-import com.hxsoft.ajitai.alipay.AuthResult;
 import com.hxsoft.ajitai.alipay.PayResult;
 import com.hxsoft.ajitai.base.MvpActivity;
 import com.hxsoft.ajitai.present.A_ShouYinTai_Present;
@@ -54,10 +52,13 @@ public class A_Activity_ShouYinTai extends MvpActivity<A_ShouYinTai_Present> imp
     ImageView WeiXinIV;
     @Bind(R.id.ZhiFuBao_IV)
     ImageView ZhiFuBaoIV;
+    @Bind(R.id.price_TV)
+    TextView priceTV;
 
     private int zhifuType = 1;
     private String orderNo;
     private String body;
+    private String price;
 
     //支付宝配置
     private static final int SDK_PAY_FLAG = 1;
@@ -74,6 +75,9 @@ public class A_Activity_ShouYinTai extends MvpActivity<A_ShouYinTai_Present> imp
         ButterKnife.bind(this);
         orderNo = getIntent().getStringExtra("orderNo");
         body = getIntent().getStringExtra("body");
+        price = getIntent().getStringExtra("price");
+
+        priceTV.setText("¥ " + price);
         QianBaoRL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {

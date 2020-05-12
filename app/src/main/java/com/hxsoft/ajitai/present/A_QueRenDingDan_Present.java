@@ -8,18 +8,11 @@ import com.hxsoft.ajitai.model.api.ApiCallBack;
 import com.hxsoft.ajitai.model.api.ApiSubscriber;
 import com.hxsoft.ajitai.model.api.ResponseBean;
 import com.hxsoft.ajitai.model.api.RetrofitClient;
-import com.hxsoft.ajitai.model.bean.A_UserUpdatecurrent_Bean;
 import com.hxsoft.ajitai.model.info.Cuseraddress_Info;
-import com.hxsoft.ajitai.ui.view.A_GeRenXinXi_View;
 import com.hxsoft.ajitai.ui.view.A_QueRenDingDan_View;
+import com.hxsoft.ajitai.utils.FailOpeater;
 import com.hxsoft.ajitai.utils.FileUtils;
-import com.hxsoft.ajitai.utils.LogCode;
 
-import java.io.File;
-
-import okhttp3.MediaType;
-import okhttp3.MultipartBody;
-import okhttp3.RequestBody;
 import rx.Observable;
 
 /**
@@ -52,7 +45,7 @@ public class A_QueRenDingDan_Present extends BasePresent<A_QueRenDingDan_View> {
             @Override
             public void onFailure(int code, String msg) {
                 if (getView() != null) {
-                    getView().showMessage(LogCode.GetCode(tip) + msg);
+                    FailOpeater.SetFail(code, tip, msg, context);
                 }
             }
 

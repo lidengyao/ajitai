@@ -8,12 +8,10 @@ import com.hxsoft.ajitai.model.api.ApiCallBack;
 import com.hxsoft.ajitai.model.api.ApiSubscriber;
 import com.hxsoft.ajitai.model.api.ResponseBean;
 import com.hxsoft.ajitai.model.api.RetrofitClient;
-import com.hxsoft.ajitai.model.bean.A_Cuseraddress_Bean;
 import com.hxsoft.ajitai.model.bean.A_Cuserreceipt_Bean;
-import com.hxsoft.ajitai.ui.view.A_XinJianShouHuoDiZhi_View;
 import com.hxsoft.ajitai.ui.view.A_ZengPiaoZiZhi_Add_View;
+import com.hxsoft.ajitai.utils.FailOpeater;
 import com.hxsoft.ajitai.utils.FileUtils;
-import com.hxsoft.ajitai.utils.LogCode;
 
 import rx.Observable;
 
@@ -49,7 +47,7 @@ public class A_ZengPiaoZiZhi_Add_Present extends BasePresent<A_ZengPiaoZiZhi_Add
             @Override
             public void onFailure(int code, String msg) {
                 if (getView() != null) {
-                    getView().onFailure(code, LogCode.GetCode(tip) + msg);
+                    FailOpeater.SetFail(code, tip, msg, context);
                 }
             }
 
@@ -88,7 +86,7 @@ public class A_ZengPiaoZiZhi_Add_Present extends BasePresent<A_ZengPiaoZiZhi_Add
             @Override
             public void onFailure(int code, String msg) {
                 if (getView() != null) {
-                    getView().onFailure(code, LogCode.GetCode(tip) + msg);
+                    FailOpeater.SetFail(code, tip, msg, context);
                 }
             }
 
@@ -127,7 +125,7 @@ public class A_ZengPiaoZiZhi_Add_Present extends BasePresent<A_ZengPiaoZiZhi_Add
             @Override
             public void onFailure(int code, String msg) {
                 if (getView() != null) {
-                    getView().onFailure(code, LogCode.GetCode(tip) + msg);
+                    FailOpeater.SetFail(code, tip, msg, context);
                 }
             }
 

@@ -10,8 +10,8 @@ import com.hxsoft.ajitai.model.api.ResponseBean;
 import com.hxsoft.ajitai.model.api.RetrofitClient;
 import com.hxsoft.ajitai.model.info.Cuseraddress_Total_Info;
 import com.hxsoft.ajitai.ui.view.A_ShouHuoDiZhi_View;
+import com.hxsoft.ajitai.utils.FailOpeater;
 import com.hxsoft.ajitai.utils.FileUtils;
-import com.hxsoft.ajitai.utils.LogCode;
 
 import rx.Observable;
 
@@ -45,7 +45,7 @@ public class A_ShouHuoDiZhi_Present extends BasePresent<A_ShouHuoDiZhi_View> {
             @Override
             public void onFailure(int code, String msg) {
                 if (getView() != null) {
-                    getView().showMessage(LogCode.GetCode(tip) + msg);
+                    FailOpeater.SetFail(code, tip, msg, context);
                 }
             }
 

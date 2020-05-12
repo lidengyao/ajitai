@@ -10,6 +10,8 @@ import com.hxsoft.ajitai.model.bean.A_PushChecknumBean;
 import com.hxsoft.ajitai.model.bean.A_User_Info;
 import com.hxsoft.ajitai.model.info.A_Order_Info;
 import com.hxsoft.ajitai.model.info.A_Order_Total_Info;
+import com.hxsoft.ajitai.model.info.CreateOrder_Bean;
+import com.hxsoft.ajitai.model.info.CreateOrder_Info;
 import com.hxsoft.ajitai.model.info.Cuseraddress_Info;
 import com.hxsoft.ajitai.model.info.Cuseraddress_Total_Info;
 import com.hxsoft.ajitai.model.info.Cuserreceipt_Info;
@@ -159,4 +161,9 @@ public interface APIService_AJiTai {
     //获取默认寄件地址(APP)
     @GET("admin/cuseraddress/defaultbyperson")
     Observable<ResponseBean<Cuseraddress_Info>> adminCuseraddressDefaultbyperson();
+
+
+    //创建订单-购买课程
+    @POST("order/order/create")
+    Observable<ResponseBean<CreateOrder_Info>> orderCreate(@Body CreateOrder_Bean createOrder_bean);
 }

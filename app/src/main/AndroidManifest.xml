@@ -78,7 +78,10 @@
         </activity>
 
 
-
+        <activity
+            android:name=".ui.activity.A_Activity_WoDeKeCheng_XuanZeKeCheng"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
         <activity
             android:name=".ui.activity.A_LoginActivity"
             android:configChanges="locale"
