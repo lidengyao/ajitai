@@ -1,5 +1,7 @@
 package com.hxsoft.ajitai.model.api;
 
+import com.hxsoft.ajitai.model.bean.A_Conscious_Info;
+import com.hxsoft.ajitai.model.bean.A_Conscious_Total_Info;
 import com.hxsoft.ajitai.model.bean.A_Cuseraddress_Bean;
 import com.hxsoft.ajitai.model.bean.A_Cuserreceipt_Bean;
 import com.hxsoft.ajitai.model.bean.A_UserUpdatecurrent_Bean;
@@ -146,6 +148,7 @@ public interface APIService_AJiTai {
     @PUT("pay/ajitaipay/pay")
     Observable<ResponseBean<String>> payAjitaipayPay(@Query("orderNo") String orderNo,
                                                      @Query("originalAmount") Double originalAmount,
+                                                     @Query("subject") String subject,
                                                      @Query("password") String password);
 
     //获取当前课程套餐(APP)
@@ -153,6 +156,10 @@ public interface APIService_AJiTai {
     Observable<ResponseBean<KeCheng_Info>> goodsCgoodsPagebytype(@Query("current") Integer current,
                                                                  @Query("size") Integer size,
                                                                  @Query("type") Integer type);
+
+    //获取当前课程套餐(APP)
+    @GET("goods/cgoods/courselist")
+    Observable<ResponseBean<ArrayList<KeCheng_Info>>> goodsCgoodsCourselist();
 
     //钱包余额(APP)
     @GET("pay/ajitaipay/queryBalance")
@@ -166,4 +173,10 @@ public interface APIService_AJiTai {
     //创建订单-购买课程
     @POST("order/order/create")
     Observable<ResponseBean<CreateOrder_Info>> orderCreate(@Body CreateOrder_Bean createOrder_bean);
+
+
+    //感悟列表
+    @GET("conscious/cconscious")
+    Observable<ResponseBean<A_Conscious_Total_Info>> queryConscious(@Query("page") Integer page,
+                                                                    @Query("size") Integer size);
 }

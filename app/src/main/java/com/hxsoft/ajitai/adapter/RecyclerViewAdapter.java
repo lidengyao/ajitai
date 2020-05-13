@@ -22,10 +22,10 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
     private Context mContext;
     private OnItemClickListener _OnItemClickListener;
-    private ArrayList<KeCheng_Info.RecordsBean> dataList = new ArrayList<>();
+    private ArrayList<KeCheng_Info> dataList = new ArrayList<>();
 
 
-    public void addAllData(ArrayList<KeCheng_Info.RecordsBean> dataList) {
+    public void addAllData(ArrayList<KeCheng_Info> dataList) {
         this.dataList.addAll(dataList);
         notifyDataSetChanged();
     }
@@ -76,8 +76,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
         holder.RootLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                KeCheng_Info.RecordsBean recordsBean = (KeCheng_Info.RecordsBean) v.getTag(R.id.one);
-                _OnItemClickListener.OnClick(v, recordsBean);
+                KeCheng_Info keCheng_info = (KeCheng_Info) v.getTag(R.id.one);
+                _OnItemClickListener.OnClick(v, keCheng_info);
             }
         });
     }
@@ -94,6 +94,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewAdapte
 
 
     public interface OnItemClickListener {
-        void OnClick(View view, KeCheng_Info.RecordsBean recordsBean);
+        void OnClick(View view, KeCheng_Info keCheng_info);
     }
 }

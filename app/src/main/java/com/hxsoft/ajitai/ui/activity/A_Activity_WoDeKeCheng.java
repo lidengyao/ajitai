@@ -50,20 +50,13 @@ public class A_Activity_WoDeKeCheng extends MvpActivity<A_WoDeKeCheng_Present> i
     TextView GouMaiTV;
     @Bind(R.id.Bottom_LL)
     LinearLayout BottomLL;
+    @Bind(R.id.GeiHaoYouGouMaiTV)
+    TextView GeiHaoYouGouMaiTV;
     private FmPagerAdapter pagerAdapter;
     private ArrayList<Fragment> fragments = new ArrayList<>();
     private String[] titles = new String[]{"未完成", "已完成"};
     private Y_Fragment_WoDeKeCheng_WeiWanCheng y_fragment_woDeKeCheng_weiWanCheng;
     private Y_Fragment_WoDeKeCheng_YiWanCheng y_fragment_woDeKeCheng_yiWanCheng;
-
-    private Integer page = 1;
-    private Integer size = 10;
-    private PopupWindow pop;
-    private View bottomView;
-    private String title;
-    private String price;
-
-    private View checkKeChengView;
 
     @Override
     protected int getLayoutId() {
@@ -83,89 +76,20 @@ public class A_Activity_WoDeKeCheng extends MvpActivity<A_WoDeKeCheng_Present> i
             @Override
             public void onClick(View v) {
 
-                Intent intent=new Intent(getContext(),A_Activity_WoDeKeCheng_XuanZeKeCheng.class);
+                Intent intent = new Intent(getContext(), A_Activity_WoDeKeCheng_XuanZeKeCheng.class);
                 startActivity(intent);
             }
         });
 
-
-        bottomView = View.inflate(getContext(), R.layout.actionsheet_dialog_goumaikecheng, null);
-        pop = new PopupWindow(bottomView, -1, -2);
-
-        Button QuXiaoBtn = (Button) bottomView.findViewById(R.id.QuXiaoBtn);
-        Button OK_Btn = (Button) bottomView.findViewById(R.id.OK_Btn);
-        QuXiaoBtn.setOnClickListener(new View.OnClickListener() {
+        GeiHaoYouGouMaiTV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                pop.dismiss();
+                Intent intent = new Intent(getContext(), A_Activity_WoDeKeCheng_XuanZeKeCheng.class);
+                startActivity(intent);
             }
         });
 
-        OK_Btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                CheckControl_Dialog_GouMaiKeCheng_QueRen.ShowDialog(getContext(), getActivity(), price, title, new CheckControl_Dialog_GouMaiKeCheng_QueRen.OnCheckControl_dialogClickListener() {
-                    @Override
-                    public void OnClick(int type) {
-
-                    }
-                });
-            }
-        });
-
-        mPullLoadMoreRecyclerView = (PullLoadMoreRecyclerView) bottomView.findViewById(R.id.pullLoadMoreRecyclerView);
-        //mPullLoadMoreRecyclerView.setRefreshing(true);
-        mPullLoadMoreRecyclerView.setGridLayout(2);
-        mRecyclerViewAdapter = new RecyclerViewAdapter(getActivity(), new RecyclerViewAdapter.OnItemClickListener() {
-            @Override
-            public void OnClick(View view, KeCheng_Info.RecordsBean recordsBean) {
-                if (checkKeChengView == null) {
-
-                } else {
-                    TextView price_TV = (TextView) checkKeChengView.findViewById(R.id.price_TV);
-                    TextView goodsname_TV = (TextView) checkKeChengView.findViewById(R.id.goodsname_TV);
-
-                    price_TV.setTextColor(getResources().getColor(R.color.C808080));
-                    goodsname_TV.setTextColor(getResources().getColor(R.color.C808080));
-
-                    checkKeChengView.setBackground(getResources().getDrawable(R.drawable.sysbtn_ffffff_4_line_shape));
-
-                }
-                view.setBackground(getResources().getDrawable(R.drawable.sysbtn_ffe248_4_shape));
-                TextView price_TV = (TextView) view.findViewById(R.id.price_TV);
-                TextView goodsname_TV = (TextView) view.findViewById(R.id.goodsname_TV);
-
-                price_TV.setTextColor(getResources().getColor(R.color.C242424));
-                goodsname_TV.setTextColor(getResources().getColor(R.color.C242424));
-
-                title = recordsBean.getGoodsname();
-                price = recordsBean.getPrice() + "";
-                checkKeChengView = view;
-            }
-        });
-        mPullLoadMoreRecyclerView.setAdapter(mRecyclerViewAdapter);
-        mPullLoadMoreRecyclerView.setOnPullLoadMoreListener(new PullLoadMoreRecyclerView.PullLoadMoreListener() {
-            @Override
-            public void onRefresh() {
-                mRecyclerViewAdapter.clearData();
-                page = 0;
-                getData();
-            }
-
-            @Override
-            public void onLoadMore() {
-                page = page + 1;
-                getData();
-            }
-        });
-
-        getData();
     }
-
-    private void getData() {
-        mPresenter.goodsCgoodsPagebytype((page - 1) * size, size, 1, getContext());
-    }
-
 
     private void init() {
 
@@ -210,45 +134,8 @@ public class A_Activity_WoDeKeCheng extends MvpActivity<A_WoDeKeCheng_Present> i
 
 
     @Override
-    public void goodsCgoodsPagebytypeSuccess(KeCheng_Info model) {
-        if (model == null)
-            return;
-        mRecyclerViewAdapter.addAllData(model.getRecords());
-        mPullLoadMoreRecyclerView.setPullLoadMoreCompleted();
-
-    }
-
-    @Override
     public void onFailure(int code, String msg) {
         showMessage(msg);
-    }
-
-
-    private PullLoadMoreRecyclerView mPullLoadMoreRecyclerView;
-    private RecyclerViewAdapter mRecyclerViewAdapter;
-
-    private void ShowDialog() {
-
-
-        pop.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
-        pop.setOutsideTouchable(true);
-        pop.setFocusable(true);
-        WindowManager.LayoutParams lp = getWindow().getAttributes();
-        lp.alpha = 0.5f;
-        getWindow().setAttributes(lp);
-        pop.setOnDismissListener(new PopupWindow.OnDismissListener() {
-
-            @Override
-            public void onDismiss() {
-                WindowManager.LayoutParams lp = getWindow().getAttributes();
-                lp.alpha = 1f;
-                getWindow().setAttributes(lp);
-            }
-        });
-        pop.setAnimationStyle(R.style.center_dialog_anim);
-        pop.showAtLocation(getWindow().getDecorView(), Gravity.CENTER, 0, 0);
-
-
     }
 
 

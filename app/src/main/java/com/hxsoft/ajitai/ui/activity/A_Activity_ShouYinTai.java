@@ -54,11 +54,15 @@ public class A_Activity_ShouYinTai extends MvpActivity<A_ShouYinTai_Present> imp
     ImageView ZhiFuBaoIV;
     @Bind(R.id.price_TV)
     TextView priceTV;
+    @Bind(R.id.balanceTV)
+    TextView balanceTV;
 
     private int zhifuType = 1;
     private String orderNo;
     private String body;
     private String price;
+    private Double balance;
+    private String type;
 
     //支付宝配置
     private static final int SDK_PAY_FLAG = 1;
@@ -76,8 +80,13 @@ public class A_Activity_ShouYinTai extends MvpActivity<A_ShouYinTai_Present> imp
         orderNo = getIntent().getStringExtra("orderNo");
         body = getIntent().getStringExtra("body");
         price = getIntent().getStringExtra("price");
+        type = getIntent().getStringExtra("type");
 
+        if (type.equals("4")) {
+            QianBaoRL.setVisibility(View.GONE);
+        }
         priceTV.setText("¥ " + price);
+
         QianBaoRL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -117,8 +126,7 @@ public class A_Activity_ShouYinTai extends MvpActivity<A_ShouYinTai_Present> imp
 
                 //钱包
                 if (zhifuType == 0) {
-                    mPresenter.ajitaipayQueryBalance(getContext());
-
+                    mPresenter.payAjitaipayPay(orderNo, balance, "", body, getContext());
                 }
 
                 //微信
@@ -134,6 +142,12 @@ public class A_Activity_ShouYinTai extends MvpActivity<A_ShouYinTai_Present> imp
                 }
             }
         });
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mPresenter.ajitaipayQueryBalance(getContext());
     }
 
     @SuppressLint("HandlerLeak")
@@ -244,9 +258,9 @@ public class A_Activity_ShouYinTai extends MvpActivity<A_ShouYinTai_Present> imp
             showMessage("获取余额失败");
             return;
         }
+        balance = model;
+        balanceTV.setText("(¥ " + model + ")");
 
-
-        mPresenter.payAjitaipayPay(orderNo, model, "", getContext());
     }
 
     @Override

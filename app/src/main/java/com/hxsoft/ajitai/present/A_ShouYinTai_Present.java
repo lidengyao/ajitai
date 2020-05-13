@@ -98,11 +98,12 @@ public class A_ShouYinTai_Present extends BasePresent<A_ShouYinTai_View> {
     }
 
     //阿吉泰钱包支付
-    public void payAjitaipayPay(String orderNo, Double originalAmount,String password, Context context) {
+    public void payAjitaipayPay(String orderNo, Double originalAmount,String password,String subject, Context context) {
         String tip = "A_ShouYinTai_Present-payAjitaipayPay-阿吉泰钱包支付(APP)\r\n";
         FileUtils.writeLogToFile(tip);
 
-        Observable<ResponseBean<String>> observable = RetrofitClient.builderRetrofit(context).create(APIService_AJiTai.class).payAjitaipayPay(orderNo, originalAmount,password);
+        Observable<ResponseBean<String>> observable = RetrofitClient.builderRetrofit(context).create(APIService_AJiTai.class).
+                payAjitaipayPay(orderNo, originalAmount,subject,password);
         addIOSubscription(observable, new ApiSubscriber(new ApiCallBack<String>() {
             @Override
             public void onStart() {

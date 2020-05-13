@@ -43,8 +43,8 @@ public class A_LoginActivity extends MvpActivity<LoginPresent> implements View.O
     TextView CenterTV;
     @Bind(R.id.WeiXinIV)
     ImageView WeiXinIV;
-    private IWXAPI api;
 
+    private IWXAPI api;
     @Override
     protected int getLayoutId() {
         return R.layout.a_activity_login;
@@ -56,11 +56,8 @@ public class A_LoginActivity extends MvpActivity<LoginPresent> implements View.O
         // TODO: add setContentView(...) invocation
 
         ButterKnife.bind(this);
-        WXAPI.Init(this);
+
         api = WXAPIFactory.createWXAPI(this, Constants.APP_ID, false);
-        regToWx();
-
-
 
         MobileET.addTextChangedListener(new TextWatcher() {
             @Override
@@ -126,11 +123,6 @@ public class A_LoginActivity extends MvpActivity<LoginPresent> implements View.O
                 }
             }
         });
-    }
-
-    private void regToWx() {
-        api = WXAPIFactory.createWXAPI(this, Constants.APP_ID, false);
-        api.registerApp(Constants.APP_ID);
     }
 
     @Override

@@ -11,6 +11,7 @@ import com.hxsoft.ajitai.model.api.RetrofitClient;
 import com.hxsoft.ajitai.model.info.CreateOrder_Bean;
 import com.hxsoft.ajitai.model.info.CreateOrder_Info;
 import com.hxsoft.ajitai.model.info.KeCheng_Info;
+import com.hxsoft.ajitai.ui.view.A_ChongZhi_View;
 import com.hxsoft.ajitai.ui.view.A_WoDeKeCheng_XuanZeKeCheng_View;
 import com.hxsoft.ajitai.utils.FailOpeater;
 import com.hxsoft.ajitai.utils.FileUtils;
@@ -23,52 +24,12 @@ import rx.Observable;
 /**
  * Created by jinxh on 16/2/1.
  */
-public class A_WoDeKeCheng_XuanZeKeCheng_Present extends BasePresent<A_WoDeKeCheng_XuanZeKeCheng_View> {
+public class A_ChongZhi_Present extends BasePresent<A_ChongZhi_View> {
 
 
-    //获取当前课程套餐
-    public void goodsCgoodsCourselist(Context context) {
-        String tip = "A_WoDeKeCheng_XuanZeKeCheng_Present-goodsCgoodsCourselist-获取当前课程套餐(APP)\r\n";
-        FileUtils.writeLogToFile(tip);
-
-        Observable<ResponseBean<ArrayList<KeCheng_Info>>> observable = RetrofitClient.builderRetrofit(context).create(APIService_AJiTai.class).
-                goodsCgoodsCourselist();
-        addIOSubscription(observable, new ApiSubscriber(new ApiCallBack<ArrayList<KeCheng_Info>>() {
-            @Override
-            public void onStart() {
-                super.onStart();
-                if (getView() != null) {
-                    getView().showLoading();
-                }
-            }
-
-            @Override
-            public void onSuccess(ArrayList<KeCheng_Info> model) {
-                if (getView() != null) {
-                    getView().goodsCgoodsCourselistSuccess(model);
-                }
-            }
-
-            @Override
-            public void onFailure(int code, String msg) {
-                if (getView() != null) {
-                    getView().showMessage(LogCode.GetCode(tip) + msg);
-                }
-            }
-
-            @Override
-            public void onCompleted() {
-                if (getView() != null) {
-                    getView().dismissLoading();
-                }
-            }
-        }, context));
-    }
-
-
-    //创建订单（购买课程）
+    //创建订单（充值）
     public void orderCreate(CreateOrder_Bean createOrder_bean, Context context) {
-        String tip = "A_WoDeKeCheng_XuanZeKeCheng_Present-orderCreate-创建订单（购买课程）\r\n";
+        String tip = "A_WoDeKeCheng_XuanZeKeCheng_Present-orderCreate-创建订单（充值）\r\n";
         FileUtils.writeLogToFile(tip);
 
         Observable<ResponseBean<CreateOrder_Info>> observable = RetrofitClient.builderRetrofit(context).create(APIService_AJiTai.class).

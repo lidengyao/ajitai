@@ -25,8 +25,8 @@
                 <TextView
                     android:id="@+id/SysNameIV"
                     style="@style/TopBarTitleStyle"
-                    android:tag="充值"
-                    android:text="充值"
+                    android:tag="@string/titile_chongzhi"
+                    android:text="@string/titile_chongzhi"
                     android:visibility="visible" />
 
                 <RelativeLayout
@@ -112,12 +112,13 @@
                                 android:textSize="@dimen/textsize30" />
 
                             <EditText
+                                android:id="@+id/Jine_ET"
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-
                                 android:background="@null"
+                                android:inputType="numberDecimal"
                                 android:paddingLeft="10dp"
-                                android:text="100"
+                                android:text=""
                                 android:textColor="@color/C242424"
                                 android:textSize="@dimen/textsize30" />
                         </LinearLayout>

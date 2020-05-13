@@ -26,8 +26,8 @@
                 <TextView
                     android:id="@+id/SysNameIV"
                     style="@style/TopBarTitleStyle"
-                    android:tag="成绩单"
-                    android:text="成绩单"
+                    android:tag="@string/title_chengjidan"
+                    android:text="@string/title_chengjidan"
                     android:visibility="visible" />
 
                 <RelativeLayout

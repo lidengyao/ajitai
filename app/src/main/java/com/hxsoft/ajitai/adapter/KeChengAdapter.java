@@ -12,13 +12,13 @@ import java.util.List;
 /**
  * Created by lidengyao on 2016-09-01 0001.
  */
-public class KeChengAdapter extends CommonAdapter<KeCheng_Info.RecordsBean> {
+public class KeChengAdapter extends CommonAdapter<KeCheng_Info> {
 
-    public KeChengAdapter(Context context, List<KeCheng_Info.RecordsBean> data, int itemLayoutId) {
+    public KeChengAdapter(Context context, List<KeCheng_Info> data, int itemLayoutId) {
         super(context, data, itemLayoutId);
     }
 
     @Override
-    public void convert(int position, ViewHolder helper, KeCheng_Info.RecordsBean item) {
+    public void convert(int position, ViewHolder helper, KeCheng_Info item) {
     }
 }

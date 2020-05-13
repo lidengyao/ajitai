@@ -62,4 +62,12 @@
     <!--阿吉泰-->
     <string name="qingxuanzekecheng">请选择课程</string>
     <string name="tokentimeout">登录已过期</string>
+    <string name="chongzhitishi">请输入正确的金额</string>
+
+    <!--标题-->
+    <string name="title_chengjidan">成绩单</string>
+    <string name="titile_chongzhi">充值</string>
+    <string name="titile_haoyouzhanghao">好友账号</string>
+    <string name="titile_dajiangtang">大讲堂</string>
+
 </resources>

@@ -105,8 +105,6 @@ public class A_Activity_WoDeKeCheng_XuanZeKeCheng extends MvpActivity<A_WoDeKeCh
                             createOrder_bean.setProductArrayList(new ArrayList<CreateOrder_Bean.ProductArrayListBean>());
                             createOrder_bean.getProductArrayList().add(productArrayListBean);
 
-                            Gson gson = new Gson();
-                            String gsonStr = gson.toJson(createOrder_bean);
                             mPresenter.orderCreate(createOrder_bean, getContext());
                         }
 
@@ -119,7 +117,7 @@ public class A_Activity_WoDeKeCheng_XuanZeKeCheng extends MvpActivity<A_WoDeKeCh
         pullLoadMoreRecyclerView.setGridLayout(2);
         mRecyclerViewAdapter = new RecyclerViewAdapter(getActivity(), new RecyclerViewAdapter.OnItemClickListener() {
             @Override
-            public void OnClick(View view, KeCheng_Info.RecordsBean recordsBean) {
+            public void OnClick(View view, KeCheng_Info keCheng_info) {
                 if (checkKeChengView == null) {
 
                 } else {
@@ -139,10 +137,10 @@ public class A_Activity_WoDeKeCheng_XuanZeKeCheng extends MvpActivity<A_WoDeKeCh
                 price_TV.setTextColor(getResources().getColor(R.color.C242424));
                 goodsname_TV.setTextColor(getResources().getColor(R.color.C242424));
 
-                title = recordsBean.getGoodsname();
-                price = recordsBean.getPrice() + "";
-                goodstype = recordsBean.getGoodstype();
-                goodsid = recordsBean.getGoodsid();
+                title = keCheng_info.getGoodsname();
+                price = keCheng_info.getPrice() + "";
+                goodstype = keCheng_info.getGoodstype();
+                goodsid = keCheng_info.getGoodsid();
                 checkKeChengView = view;
             }
         });
@@ -166,7 +164,7 @@ public class A_Activity_WoDeKeCheng_XuanZeKeCheng extends MvpActivity<A_WoDeKeCh
     }
 
     private void getData() {
-        mPresenter.goodsCgoodsPagebytype((page - 1) * size, size, 1, getContext());
+        mPresenter.goodsCgoodsCourselist(getContext());
     }
 
 
@@ -192,10 +190,10 @@ public class A_Activity_WoDeKeCheng_XuanZeKeCheng extends MvpActivity<A_WoDeKeCh
 
 
     @Override
-    public void goodsCgoodsPagebytypeSuccess(KeCheng_Info model) {
+    public void goodsCgoodsCourselistSuccess(ArrayList<KeCheng_Info> model) {
         if (model == null)
             return;
-        mRecyclerViewAdapter.addAllData(model.getRecords());
+        mRecyclerViewAdapter.addAllData(model);
         pullLoadMoreRecyclerView.setPullLoadMoreCompleted();
 
     }
@@ -209,6 +207,7 @@ public class A_Activity_WoDeKeCheng_XuanZeKeCheng extends MvpActivity<A_WoDeKeCh
             intent.putExtra("orderNo", model.getOrderNo());
             intent.putExtra("body", title);
             intent.putExtra("price", price);
+            intent.putExtra("type",goodstype+"");
             startActivity(intent);
         } else {
             showMessage("已下单");

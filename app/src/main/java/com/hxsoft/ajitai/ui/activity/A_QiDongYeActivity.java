@@ -36,7 +36,7 @@ import butterknife.ButterKnife;
  * Created by jinxh on 16/2/1.
  */
 public class A_QiDongYeActivity extends MvpActivity {
-
+    private IWXAPI api;
     @Override
     protected int getLayoutId() {
         return R.layout.a_activity_qidongye;
@@ -49,6 +49,9 @@ public class A_QiDongYeActivity extends MvpActivity {
         ButterKnife.bind(this);
         this.getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
+        WXAPI.Init(this);
+        api = WXAPIFactory.createWXAPI(this, Constants.APP_ID, false);
+        regToWx();
 
 
 
@@ -68,6 +71,11 @@ public class A_QiDongYeActivity extends MvpActivity {
         };
         Timer timer = new Timer();
         timer.schedule(task, 1500);
+    }
+
+    private void regToWx() {
+        api = WXAPIFactory.createWXAPI(this, Constants.APP_ID, false);
+        api.registerApp(Constants.APP_ID);
     }
 
     @Override

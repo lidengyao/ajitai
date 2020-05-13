@@ -25,8 +25,8 @@
                 <TextView
                     android:id="@+id/SysNameIV"
                     style="@style/TopBarTitleStyle"
-                    android:tag="充值"
-                    android:text="好友账号"
+                    android:tag="@string/titile_haoyouzhanghao"
+                    android:text="@string/titile_haoyouzhanghao"
                     android:visibility="visible" />
 
                 <RelativeLayout

@@ -117,30 +117,11 @@
         android:layout_marginLeft="18dp"
         android:layout_marginRight="18dp"></View>
 
-    <ScrollView
+    <com.hxsoft.ajitai.widget.PullLoadMoreListView
+        android:id="@+id/DataListView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:id="@+id/GanwuOneLL"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <include layout="@layout/a_item_ganwu"></include>
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/GanwuTwoLL"
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content">
-
-                <include layout="@layout/a_item_ganwu"></include>
-            </LinearLayout>
-        </LinearLayout>
-    </ScrollView>
+        android:layout_height="match_parent"
+        android:layout_above="@+id/BottomLL"
+        android:layout_marginTop="12dp"
+        android:divider="@null" />
 </LinearLayout>

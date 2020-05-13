@@ -78,8 +78,13 @@ public class A_Activity_QianBao extends MvpActivity<A_QianBao_Present> implement
             }
         });
 
-        getBalanceData();
 
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        getBalanceData();
     }
 
     private void getBalanceData() {
