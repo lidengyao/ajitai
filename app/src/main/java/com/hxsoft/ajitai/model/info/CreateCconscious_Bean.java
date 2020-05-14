@@ -3,247 +3,77 @@ package com.hxsoft.ajitai.model.info;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.List;
 
 public class CreateCconscious_Bean implements Serializable {
 
-
     /**
-     * address : string
-     * bankaccount : string
-     * bankname : string
-     * conferUid : 0
-     * goodstype : 0
-     * identifyno : string
-     * isFormCart : 0
-     * isNeedReceipt : 0
-     * phone : string
-     * productArrayList : [{"goodsid":"string","num":0,"price":0,"remark":"string"}]
-     * receiptBelong : 0
-     * receiptReceiverEmail : string
-     * receiptReceiverMobile : string
-     * receiptType : 0
-     * shippingReceiverAddress : string
-     * shippingReceiverMobile : string
-     * shippingReceiverName : string
-     * unitname : string
+     * content : 123
+     * extral : [{"type":2,"uri":"image/1589423537640639.png"},{"type":2,"uri":"image/1589439816668646.jpg"},{"type":2,"uri":"image/1589423537640639.jpg"},{"type":2,"uri":"image/1589423537640639.png"},{"type":2,"uri":"image/1589439816668646.jpg"},{"type":2,"uri":"image/1589423537640639.jpg"}]
+     * lon : 123
+     * lat : 1234
      */
 
-    private Double payment;
-    private String address;
-    private String bankaccount;
-    private String bankname;
-    private Integer conferUid;
-    private Integer goodstype;
-    private String identifyno;
-    private Integer isFormCart;
-    private Integer isNeedReceipt;
-    private String phone;
-    private Integer receiptBelong;
-    private String receiptReceiverEmail;
-    private String receiptReceiverMobile;
-    private Integer receiptType;
-    private String shippingReceiverAddress;
-    private String shippingReceiverMobile;
-    private String shippingReceiverName;
-    private String unitname;
-    private ArrayList<ProductArrayListBean> productList;
+    private String content;
+    private String lon;
+    private String lat;
+    private ArrayList<ExtralBean> extral;
 
-
-    public Double getPayment() {
-        return payment;
+    public String getContent() {
+        return content;
     }
 
-    public void setPayment(Double payment) {
-        this.payment = payment;
+    public void setContent(String content) {
+        this.content = content;
     }
 
-    public String getAddress() {
-        return address;
+    public String getLon() {
+        return lon;
     }
 
-    public void setAddress(String address) {
-        this.address = address;
+    public void setLon(String lon) {
+        this.lon = lon;
     }
 
-    public String getBankaccount() {
-        return bankaccount;
+    public String getLat() {
+        return lat;
     }
 
-    public void setBankaccount(String bankaccount) {
-        this.bankaccount = bankaccount;
+    public void setLat(String lat) {
+        this.lat = lat;
     }
 
-    public String getBankname() {
-        return bankname;
+    public ArrayList<ExtralBean> getExtral() {
+        return extral;
     }
 
-    public void setBankname(String bankname) {
-        this.bankname = bankname;
+    public void setExtral(ArrayList<ExtralBean> extral) {
+        this.extral = extral;
     }
 
-    public Integer getConferUid() {
-        return conferUid;
-    }
-
-    public void setConferUid(Integer conferUid) {
-        this.conferUid = conferUid;
-    }
-
-    public Integer getGoodstype() {
-        return goodstype;
-    }
-
-    public void setGoodstype(Integer goodstype) {
-        this.goodstype = goodstype;
-    }
-
-    public String getIdentifyno() {
-        return identifyno;
-    }
-
-    public void setIdentifyno(String identifyno) {
-        this.identifyno = identifyno;
-    }
-
-    public Integer getIsFormCart() {
-        return isFormCart;
-    }
-
-    public void setIsFormCart(Integer isFormCart) {
-        this.isFormCart = isFormCart;
-    }
-
-    public Integer getIsNeedReceipt() {
-        return isNeedReceipt;
-    }
-
-    public void setIsNeedReceipt(Integer isNeedReceipt) {
-        this.isNeedReceipt = isNeedReceipt;
-    }
-
-    public String getPhone() {
-        return phone;
-    }
-
-    public void setPhone(String phone) {
-        this.phone = phone;
-    }
-
-    public Integer getReceiptBelong() {
-        return receiptBelong;
-    }
-
-    public void setReceiptBelong(Integer receiptBelong) {
-        this.receiptBelong = receiptBelong;
-    }
-
-    public String getReceiptReceiverEmail() {
-        return receiptReceiverEmail;
-    }
-
-    public void setReceiptReceiverEmail(String receiptReceiverEmail) {
-        this.receiptReceiverEmail = receiptReceiverEmail;
-    }
-
-    public String getReceiptReceiverMobile() {
-        return receiptReceiverMobile;
-    }
-
-    public void setReceiptReceiverMobile(String receiptReceiverMobile) {
-        this.receiptReceiverMobile = receiptReceiverMobile;
-    }
-
-    public Integer getReceiptType() {
-        return receiptType;
-    }
-
-    public void setReceiptType(Integer receiptType) {
-        this.receiptType = receiptType;
-    }
-
-    public String getShippingReceiverAddress() {
-        return shippingReceiverAddress;
-    }
-
-    public void setShippingReceiverAddress(String shippingReceiverAddress) {
-        this.shippingReceiverAddress = shippingReceiverAddress;
-    }
-
-    public String getShippingReceiverMobile() {
-        return shippingReceiverMobile;
-    }
-
-    public void setShippingReceiverMobile(String shippingReceiverMobile) {
-        this.shippingReceiverMobile = shippingReceiverMobile;
-    }
-
-    public String getShippingReceiverName() {
-        return shippingReceiverName;
-    }
-
-    public void setShippingReceiverName(String shippingReceiverName) {
-        this.shippingReceiverName = shippingReceiverName;
-    }
-
-    public String getUnitname() {
-        return unitname;
-    }
-
-    public void setUnitname(String unitname) {
-        this.unitname = unitname;
-    }
-
-    public ArrayList<ProductArrayListBean> getProductArrayList() {
-        return productList;
-    }
-
-    public void setProductArrayList(ArrayList<ProductArrayListBean> productArrayList) {
-        this.productList = productArrayList;
-    }
-
-    public static class ProductArrayListBean {
+    public static class ExtralBean implements Serializable{
         /**
-         * goodsid : string
-         * num : 0
-         * price : 0
-         * remark : string
+         * type : 2
+         * uri : image/1589423537640639.png
          */
 
-        private String goodsid;
-        private Integer num;
-        private Double price;
-        private String remark;
+        private Integer type;
+        private String uri;
 
-        public String getGoodsid() {
-            return goodsid;
+        public Integer getType() {
+            return type;
         }
 
-        public void setGoodsid(String goodsid) {
-            this.goodsid = goodsid;
+        public void setType(Integer type) {
+            this.type = type;
         }
 
-        public Integer getNum() {
-            return num;
+        public String getUri() {
+            return uri;
         }
 
-        public void setNum(Integer num) {
-            this.num = num;
-        }
-
-        public Double getPrice() {
-            return price;
-        }
-
-        public void setPrice(Double price) {
-            this.price = price;
-        }
-
-        public String getRemark() {
-            return remark;
-        }
-
-        public void setRemark(String remark) {
-            this.remark = remark;
+        public void setUri(String uri) {
+            this.uri = uri;
         }
     }
 }

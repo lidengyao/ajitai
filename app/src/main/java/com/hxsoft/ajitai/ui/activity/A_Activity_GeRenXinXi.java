@@ -355,10 +355,10 @@ public class A_Activity_GeRenXinXi extends MvpActivity<A_GeRenXinXi_Present> imp
 
                         OssUploadFileC.OssUpFile(getContext(), fileName, filePath, new OssUpLoadFileListener() {
                             @Override
-                            public void OssUpLoadFile(Boolean IsSuccess, String fileName) {
+                            public void OssUpLoadFile(Boolean IsSuccess, String ossFileName,String localFileName) {
 
                                 Map<String, String> result = new HashMap<>();
-                                result.put("avatar", fileName);
+                                result.put("avatar", ossFileName);
                                 Message msg = new Message();
                                 msg.what = UPLOADIMAGE;
                                 msg.obj = result;

@@ -20,6 +20,7 @@ public class A_Cuseraddress_Bean implements Serializable {
     private String username;
     private String phone;
     private Integer addrcode;
+
     private String address;
     private Integer isdefault;
 

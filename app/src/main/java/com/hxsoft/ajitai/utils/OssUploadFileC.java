@@ -13,8 +13,8 @@ public class OssUploadFileC {
         ossService.initOSSClient();
         ossService.beginupload(context, fileName, filePath, null, new OssService.UpLoadListener() {
             @Override
-            public void UpLoad(Boolean IsSuccess,String fileName) {
-                ossUpLoadFileListener.OssUpLoadFile(IsSuccess,fileName);
+            public void UpLoad(Boolean IsSuccess,String ossFileName,String localFileName) {
+                ossUpLoadFileListener.OssUpLoadFile(IsSuccess,ossFileName,localFileName);
             }
         });
 

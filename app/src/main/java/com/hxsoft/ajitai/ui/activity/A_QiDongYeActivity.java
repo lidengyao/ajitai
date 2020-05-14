@@ -67,6 +67,8 @@ public class A_QiDongYeActivity extends MvpActivity {
                     startActivity(intent);
                 }
 
+                finish();
+
             }
         };
         Timer timer = new Timer();

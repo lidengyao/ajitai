@@ -1,5 +1,5 @@
 package com.hxsoft.ajitai.model.Inf;
 
 public interface OssUpLoadFileListener {
-    void OssUpLoadFile(Boolean IsSuccess,String filePrefix);
+    void OssUpLoadFile(Boolean IsSuccess,String ossFileName,String localFileName);
 }

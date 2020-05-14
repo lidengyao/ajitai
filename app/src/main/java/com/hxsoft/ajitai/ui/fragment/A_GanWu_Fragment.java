@@ -204,12 +204,12 @@ public class A_GanWu_Fragment extends MvpFragment<A_GanWu_Present> implements A_
             }
         });
 
-        getData();
     }
 
     @Override
     public void onResume() {
         super.onResume();
+        getData();
     }
 
     private void getData() {

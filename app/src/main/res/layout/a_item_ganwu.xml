@@ -60,6 +60,15 @@
                                 android:text=""
                                 android:textColor="@color/CA8A8A8"
                                 android:textSize="@dimen/textsize10" />
+                            <TextView
+                                android:id="@+id/positionTV"
+                                android:layout_width="wrap_content"
+                                android:layout_marginLeft="10dp"
+                                android:layout_height="wrap_content"
+                                android:text=""
+                                android:textColor="@color/CA8A8A8"
+                                android:textSize="@dimen/textsize10" />
+
 
                         </LinearLayout>
 

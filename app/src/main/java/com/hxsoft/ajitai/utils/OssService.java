@@ -25,7 +25,7 @@ public class OssService {
     private Context context;
     private UpLoadListener _UpLoadListener;
     private ProgressCallback progressCallback;
-
+    private String _localFileName;
     public OssService(Context context) {
         this.context = context;
     }
@@ -47,10 +47,11 @@ public class OssService {
     }
 
 
-    public void beginupload(Context context, String filename, String path, ImageView imageView, UpLoadListener upLoadListener) {
+    public void beginupload(Context context, String localFileName, String path, ImageView imageView, UpLoadListener upLoadListener) {
         _UpLoadListener = upLoadListener;
+        _localFileName=localFileName;
         //通过填写文件名形成objectname,通过这个名字指定上传和下载的文件
-        String objectname = filename;
+        String objectname = localFileName;
         if (objectname == null || objectname.equals("")) {
 //            ToastUtils.showShort("文件名不能为空");
             return;
@@ -82,14 +83,14 @@ public class OssService {
             public void onSuccess(PutObjectRequest request, PutObjectResult result) {
 //                LogUtil.d("UploadSuccess");
                 Log.println(0, "", "成功");
-                _UpLoadListener.UpLoad(true, request.getObjectKey());
+                _UpLoadListener.UpLoad(true, request.getObjectKey(),_localFileName);
 
 
             }
 
             @Override
             public void onFailure(PutObjectRequest request, ClientException clientExcepion, ServiceException serviceException) {
-                _UpLoadListener.UpLoad(false, "");
+                _UpLoadListener.UpLoad(false, "",_localFileName);
                 // 请求异常
 //                LogUtil.d("UploadFailure");
 //                ToastUtils.showShort("UploadFailure");
@@ -127,6 +128,6 @@ public class OssService {
     }
 
     public interface UpLoadListener {
-        void UpLoad(Boolean IsSuccess, String fileName);
+        void UpLoad(Boolean IsSuccess, String ossFileName,String localFileName);
     }
 }

@@ -28,7 +28,7 @@ public class A_Cconscious_Adapter extends CommonAdapter<A_Conscious_Info> {
     private Context _Context;
     private Activity _Activity;
 
-    public A_Cconscious_Adapter(Context context, Activity activity, List<A_Conscious_Info> data, int itemLayoutId ) {
+    public A_Cconscious_Adapter(Context context, Activity activity, List<A_Conscious_Info> data, int itemLayoutId) {
         super(context, data, itemLayoutId);
         _Context = context;
         _Activity = activity;
@@ -42,7 +42,7 @@ public class A_Cconscious_Adapter extends CommonAdapter<A_Conscious_Info> {
         helper.setText(R.id.nicknameTV, item.getNickname());
         helper.setText(R.id.createTimeTV, PrettyTime.friendly_time(item.getCreateTime()));
         helper.setText(R.id.contentTV, item.getContent());
-
+        helper.setText(R.id.positionTV, item.getPosition());
         if (item.getThumbs().size() > 0) {
             helper.setVisibility(R.id.thumbsLL, View.VISIBLE);
             AutoLinefeedLayout thumbsAutoLinefeedLayout = (AutoLinefeedLayout) helper.getView(R.id.thumbsAutoLinefeedLayout);

@@ -508,9 +508,10 @@
                 android:resource="@xml/filepaths" />
         </provider>
 
+        <!--高德地图-->
         <meta-data
             android:name="com.amap.api.v2.apikey"
-            android:value="47d27b5987bd594389826d0fcee20250" />
+            android:value="82741773f7d17b810f72b8d94e5b2d87" />
         <service android:name="com.amap.api.location.APSService" />
         <!-- 推送begin -->
         <!-- For test only 测试高级功能 -->

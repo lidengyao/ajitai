@@ -1,30 +1,43 @@
 package com.hxsoft.ajitai.ui.activity;
 
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.amap.api.location.AMapLocation;
+import com.amap.api.location.AMapLocationClient;
+import com.amap.api.location.AMapLocationClientOption;
+import com.amap.api.location.AMapLocationListener;
 import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.adapter.GridImageAdapter;
 import com.hxsoft.ajitai.base.MvpActivity;
+import com.hxsoft.ajitai.model.Inf.OssUpLoadFileListener;
 import com.hxsoft.ajitai.model.info.CreateCconscious_Bean;
 import com.hxsoft.ajitai.present.A_FaBuGanWu_Present;
 import com.hxsoft.ajitai.ui.view.A_FaBuGanWu_View;
 import com.hxsoft.ajitai.utils.CheckControl_Dialog_FaBuGanWu_YuYin;
+import com.hxsoft.ajitai.utils.OssUploadFileC;
 import com.luck.picture.lib.PictureSelector;
 import com.luck.picture.lib.config.PictureConfig;
 import com.luck.picture.lib.config.PictureMimeType;
 import com.luck.picture.lib.entity.LocalMedia;
 
+import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -32,7 +45,7 @@ import butterknife.ButterKnife;
 /**
  * Created by jinxh on 16/2/1.
  */
-public class A_Activity_GanWu_FaBuGanWu extends MvpActivity<A_FaBuGanWu_Present> implements A_FaBuGanWu_View {
+public class A_Activity_GanWu_FaBuGanWu extends MvpActivity<A_FaBuGanWu_Present> implements A_FaBuGanWu_View, AMapLocationListener {
 
 
     @Bind(R.id.SysNameIV)
@@ -57,9 +70,19 @@ public class A_Activity_GanWu_FaBuGanWu extends MvpActivity<A_FaBuGanWu_Present>
     TextView WanChengTV;
     @Bind(R.id.addRecyclerView)
     RecyclerView addRecyclerView;
+    @Bind(R.id.contentET)
+    EditText contentET;
+    @Bind(R.id.CityTV)
+    TextView CityTV;
+    @Bind(R.id.DingWeiLL)
+    LinearLayout DingWeiLL;
 
+    private String Longitude;
+    private String Latitude;
     private List<LocalMedia> selectList_Add = new ArrayList<>();
     private GridImageAdapter adapterAdd;
+
+    private ArrayList<UpLoadFileControl> upLoadFileControlArrayList = new ArrayList<>();
 
     @Override
     protected int getLayoutId() {
@@ -72,6 +95,9 @@ public class A_Activity_GanWu_FaBuGanWu extends MvpActivity<A_FaBuGanWu_Present>
         // TODO: add setContentView(...) invocation
         ButterKnife.bind(this);
 
+
+        //开始定位
+        showLocation();
         YuYinIV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -107,15 +133,121 @@ public class A_Activity_GanWu_FaBuGanWu extends MvpActivity<A_FaBuGanWu_Present>
         BottomLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-//                CreateCconscious_Bean createCconscious_bean = new CreateCconscious_Bean();
-//
-//                mPresenter.postConscious(createCconscious_bean, getContext());
 
+
+                upLoadFileControlArrayList.clear();
+                for (int i = 0; i < selectList_Add.size(); i++) {
+                    LocalMedia localMedia = selectList_Add.get(i);
+                    File file = new File(localMedia.getCompressPath());
+                    String fileName = file.getName();
+
+                    UpLoadFileControl upLoadFileControl = new UpLoadFileControl();
+                    upLoadFileControl.setFileName(fileName);
+                    upLoadFileControl.setUpload(false);
+
+                    upLoadFileControlArrayList.add(upLoadFileControl);
+                }
+
+                showLoading();
+
+                for (int i = 0; i < selectList_Add.size(); i++) {
+                    LocalMedia localMedia = selectList_Add.get(i);
+                    File file = new File(localMedia.getCompressPath());
+                    String fileName = file.getName();
+
+                    UpLoadFie(fileName, localMedia.getCompressPath());
+                }
             }
         });
 
         initWidget_Add();
     }
+
+    private void UpLoadFie(String fileName, String filePath) {
+
+        final Runnable payRunnable = new Runnable() {
+
+            @Override
+            public void run() {
+
+                OssUploadFileC.OssUpFile(getContext(), fileName, filePath, new OssUpLoadFileListener() {
+                    @Override
+                    public void OssUpLoadFile(Boolean IsSuccess, String ossFileName, String localFileName) {
+
+                        Map<String, String> result = new HashMap<>();
+                        result.put("ossFileName", ossFileName);
+                        result.put("localFileName", localFileName);
+                        Message msg = new Message();
+                        msg.what = 1;
+                        msg.obj = result;
+                        mHandler.sendMessage(msg);
+
+
+                    }
+                });
+
+            }
+        };
+
+        // 必须异步调用
+        Thread payThread = new Thread(payRunnable);
+        payThread.start();
+    }
+
+    @SuppressLint("HandlerLeak")
+    private Handler mHandler = new Handler() {
+        @SuppressWarnings("unused")
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case 1: {
+                    Map<String, String> result = (Map<String, String>) msg.obj;
+                    String ossFileName = result.get("ossFileName");
+                    String localFileName = result.get("localFileName");
+
+                    for (int i = 0; i < upLoadFileControlArrayList.size(); i++) {
+                        UpLoadFileControl upLoadFileControl = upLoadFileControlArrayList.get(i);
+                        if (upLoadFileControl.getFileName().equals(localFileName)) {
+                            upLoadFileControl.setOssFielName(ossFileName);
+                            upLoadFileControl.setUpload(true);
+                        }
+                    }
+
+                    Boolean IsAllUpLoad = true;
+                    for (int i = 0; i < upLoadFileControlArrayList.size(); i++) {
+                        UpLoadFileControl upLoadFileControl = upLoadFileControlArrayList.get(i);
+                        if (upLoadFileControl.getUpload() == false) {
+                            IsAllUpLoad = false;
+                        }
+                    }
+
+                    if (IsAllUpLoad == true) {
+                        CreateCconscious_Bean createCconscious_bean = new CreateCconscious_Bean();
+
+                        createCconscious_bean.setContent(contentET.getText().toString());
+                        createCconscious_bean.setExtral(new ArrayList<CreateCconscious_Bean.ExtralBean>());
+                        for (int i = 0; i < upLoadFileControlArrayList.size(); i++) {
+                            UpLoadFileControl upLoadFileControl = upLoadFileControlArrayList.get(i);
+                            CreateCconscious_Bean.ExtralBean extralBean = new CreateCconscious_Bean.ExtralBean();
+                            extralBean.setType(2);
+                            extralBean.setUri(upLoadFileControl.getOssFielName());
+                            createCconscious_bean.getExtral().add(extralBean);
+                        }
+
+
+//                        Gson gson = new Gson();
+//                        String gsonStr = gson.toJson(createCconscious_bean);
+                        createCconscious_bean.setLat(Latitude);
+                        createCconscious_bean.setLon(Longitude);
+                        mPresenter.postConscious(createCconscious_bean, getContext());
+                    }
+                    break;
+                }
+
+                default:
+                    break;
+            }
+        }
+    };
 
     private void initWidget_Add() {
         FullyGridLayoutManager manager = new FullyGridLayoutManager(getContext(), 3, GridLayoutManager.VERTICAL, false);
@@ -259,12 +391,90 @@ public class A_Activity_GanWu_FaBuGanWu extends MvpActivity<A_FaBuGanWu_Present>
 
     @Override
     public void postConsciousSuccess(Boolean model) {
+        dismissLoading();
         showMessage("发布成功");
         finish();
     }
 
     @Override
     public void onFailure(int code, String msg) {
+        showMessage(msg);
+        dismissLoading();
+    }
 
+    public AMapLocationClient mlocationClient = null;
+    public AMapLocationClientOption mLocationOption = null;
+
+    private void showLocation() {
+        try {
+            mlocationClient = new AMapLocationClient(this);
+            mLocationOption = new AMapLocationClientOption();
+            mlocationClient.setLocationListener(this);
+            //设置定位模式为高精度模式，Battery_Saving为低功耗模式，Device_Sensors是仅设备模式
+            mLocationOption.setLocationMode(AMapLocationClientOption.AMapLocationMode.Hight_Accuracy);
+            mLocationOption.setInterval(5000);
+            //设置定位参数
+            mlocationClient.setLocationOption(mLocationOption);
+            //启动定位
+            mlocationClient.startLocation();
+        } catch (Exception e) {
+
+        }
+    }
+
+    @Override
+    public void onLocationChanged(AMapLocation amapLocation) {
+        try {
+            if (amapLocation != null) {
+                DingWeiLL.setVisibility(View.VISIBLE);
+                if (amapLocation.getErrorCode() == 0) {
+                    Longitude = amapLocation.getLongitude() + "";
+                    Latitude = amapLocation.getLatitude() + "";
+                    //定位成功回调信息，设置相关消息
+                    String cityName = amapLocation.getCity();
+                    CityTV.setTextColor(getResources().getColor(R.color.C242424));
+                    CityTV.setText(cityName);
+                } else {
+                    CityTV.setText("定位失败");
+                    CityTV.setTextColor(getResources().getColor(R.color.sysorange));
+                    //定位失败时，可通过ErrCode（错误码）信息来确定失败的原因，errInfo是错误信息，详见错误码表。
+                }
+
+                // 停止定位
+                mlocationClient.stopLocation();
+            }
+        } catch (Exception e) {
+        }
+    }
+
+    public class UpLoadFileControl {
+        private String fileName;
+        private String ossFielName;
+        private Boolean isUpload;
+
+
+        public String getOssFielName() {
+            return ossFielName;
+        }
+
+        public void setOssFielName(String ossFielName) {
+            this.ossFielName = ossFielName;
+        }
+
+        public String getFileName() {
+            return fileName;
+        }
+
+        public void setFileName(String fileName) {
+            this.fileName = fileName;
+        }
+
+        public Boolean getUpload() {
+            return isUpload;
+        }
+
+        public void setUpload(Boolean upload) {
+            isUpload = upload;
+        }
     }
 }
