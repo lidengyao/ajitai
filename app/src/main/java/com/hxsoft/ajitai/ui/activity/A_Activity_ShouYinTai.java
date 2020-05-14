@@ -180,8 +180,6 @@ public class A_Activity_ShouYinTai extends MvpActivity<A_ShouYinTai_Present> imp
                     break;
             }
         }
-
-        ;
     };
 
     @Override

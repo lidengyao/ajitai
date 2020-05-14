@@ -14,6 +14,7 @@ import com.alibaba.sdk.android.oss.callback.OSSProgressCallback;
 import com.alibaba.sdk.android.oss.common.auth.OSSAuthCredentialsProvider;
 import com.alibaba.sdk.android.oss.common.auth.OSSCredentialProvider;
 import com.alibaba.sdk.android.oss.internal.OSSAsyncTask;
+import com.alibaba.sdk.android.oss.model.GetObjectRequest;
 import com.alibaba.sdk.android.oss.model.PutObjectRequest;
 import com.alibaba.sdk.android.oss.model.PutObjectResult;
 import com.hxsoft.ajitai.Constants;
@@ -25,7 +26,7 @@ public class OssService {
     private UpLoadListener _UpLoadListener;
     private ProgressCallback progressCallback;
 
-    public OssService(Context context  ) {
+    public OssService(Context context) {
         this.context = context;
     }
 
@@ -55,7 +56,7 @@ public class OssService {
             return;
         }
         //下面3个参数依次为bucket名，Object名，上传文件路径
-        PutObjectRequest put = new PutObjectRequest(Constants.BUCKET_NAME, objectname, path);
+        PutObjectRequest put = new PutObjectRequest(Constants.BUCKET_NAME, Constants.BUCKET_NAME_IMAGE + "/" + objectname, path);
         if (path == null || path.equals("")) {
 //            LogUtil.d("请选择图片....");
             //ToastUtils.showShort("请选择图片....");
@@ -81,12 +82,14 @@ public class OssService {
             public void onSuccess(PutObjectRequest request, PutObjectResult result) {
 //                LogUtil.d("UploadSuccess");
                 Log.println(0, "", "成功");
-                _UpLoadListener.UpLoad(true);
+                _UpLoadListener.UpLoad(true, request.getObjectKey());
+
+
             }
 
             @Override
             public void onFailure(PutObjectRequest request, ClientException clientExcepion, ServiceException serviceException) {
-                _UpLoadListener.UpLoad(false);
+                _UpLoadListener.UpLoad(false, "");
                 // 请求异常
 //                LogUtil.d("UploadFailure");
 //                ToastUtils.showShort("UploadFailure");
@@ -124,6 +127,6 @@ public class OssService {
     }
 
     public interface UpLoadListener {
-        void UpLoad(Boolean IsSuccess);
+        void UpLoad(Boolean IsSuccess, String fileName);
     }
 }

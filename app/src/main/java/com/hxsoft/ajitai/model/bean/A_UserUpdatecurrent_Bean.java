@@ -20,8 +20,8 @@ public class A_UserUpdatecurrent_Bean implements Serializable {
     private String phone;
     private String udesc;
     private String avatar;
-    private int address;
-    private int sex;
+    private Integer address;
+    private Integer sex;
 
     public String getNickname() {
         return nickname;
@@ -55,19 +55,19 @@ public class A_UserUpdatecurrent_Bean implements Serializable {
         this.avatar = avatar;
     }
 
-    public int getAddress() {
+    public Integer getAddress() {
         return address;
     }
 
-    public void setAddress(int address) {
+    public void setAddress(Integer address) {
         this.address = address;
     }
 
-    public int getSex() {
+    public Integer getSex() {
         return sex;
     }
 
-    public void setSex(int sex) {
+    public void setSex(Integer sex) {
         this.sex = sex;
     }
 }

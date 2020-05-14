@@ -12,6 +12,7 @@ import com.hxsoft.ajitai.model.bean.A_PushChecknumBean;
 import com.hxsoft.ajitai.model.bean.A_User_Info;
 import com.hxsoft.ajitai.model.info.A_Order_Info;
 import com.hxsoft.ajitai.model.info.A_Order_Total_Info;
+import com.hxsoft.ajitai.model.info.CreateCconscious_Bean;
 import com.hxsoft.ajitai.model.info.CreateOrder_Bean;
 import com.hxsoft.ajitai.model.info.CreateOrder_Info;
 import com.hxsoft.ajitai.model.info.Cuseraddress_Info;
@@ -179,4 +180,8 @@ public interface APIService_AJiTai {
     @GET("conscious/cconscious")
     Observable<ResponseBean<A_Conscious_Total_Info>> queryConscious(@Query("page") Integer page,
                                                                     @Query("size") Integer size);
+
+    //发布感悟
+    @POST("conscious/cconscious")
+    Observable<ResponseBean<Boolean>> postConscious(@Body CreateCconscious_Bean  createCconscious_bean);
 }

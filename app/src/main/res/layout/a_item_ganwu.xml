@@ -85,62 +85,15 @@
                     android:textColor="#4C4C4C"
                     android:textSize="@dimen/textsize14" />
 
-                <!--图片-->
-                <LinearLayout
+                <com.hxsoft.ajitai.utils.AutoLinefeedLayout
+                    android:id="@+id/PicAutoLinefeedLayout"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="20dp"
-                    android:orientation="vertical">
+                    android:layout_marginTop="15dp"
+                    android:layout_marginRight="25dp">
 
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginRight="25dp"
-                        android:orientation="horizontal">
+                </com.hxsoft.ajitai.utils.AutoLinefeedLayout>
 
-                        <ImageView
-                            android:layout_width="95dp"
-                            android:layout_height="95dp"
-                            android:src="@mipmap/a_ganwu_item_img" />
-
-                        <ImageView
-                            android:layout_width="95dp"
-                            android:layout_height="95dp"
-                            android:layout_centerInParent="true"
-                            android:src="@mipmap/a_ganwu_item_img" />
-
-                        <ImageView
-                            android:layout_width="95dp"
-                            android:layout_height="95dp"
-                            android:layout_alignParentRight="true"
-                            android:src="@mipmap/a_ganwu_item_img" />
-                    </RelativeLayout>
-
-                    <RelativeLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="5dp"
-                        android:layout_marginRight="25dp"
-                        android:orientation="horizontal">
-
-                        <ImageView
-                            android:layout_width="95dp"
-                            android:layout_height="95dp"
-                            android:src="@mipmap/a_ganwu_item_img" />
-
-                        <ImageView
-                            android:layout_width="95dp"
-                            android:layout_height="95dp"
-                            android:layout_centerInParent="true"
-                            android:src="@mipmap/a_ganwu_item_img" />
-
-                        <ImageView
-                            android:layout_width="95dp"
-                            android:layout_height="95dp"
-                            android:layout_alignParentRight="true"
-                            android:src="@mipmap/a_ganwu_item_img" />
-                    </RelativeLayout>
-                </LinearLayout>
 
                 <!--转发分享等-->
 
@@ -148,19 +101,19 @@
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginTop="15dp"
-                    android:gravity="center_vertical"
                     android:layout_marginRight="25dp"
+                    android:gravity="center_vertical"
                     android:orientation="horizontal">
 
                     <LinearLayout
                         android:id="@+id/ZhuanFa_LL"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:paddingBottom="10dp"
                         android:layout_weight="1"
                         android:gravity="center"
                         android:orientation="horizontal"
-                        android:paddingTop="10dp">
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp">
 
                         <ImageView
                             android:layout_width="wrap_content"
@@ -180,11 +133,11 @@
                         android:id="@+id/FenXiang_LL"
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:paddingBottom="10dp"
                         android:layout_weight="1"
                         android:gravity="center"
                         android:orientation="horizontal"
-                        android:paddingTop="10dp">
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp">
 
                         <ImageView
                             android:layout_width="wrap_content"
@@ -203,11 +156,11 @@
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:paddingBottom="10dp"
                         android:layout_weight="1"
                         android:gravity="center"
                         android:orientation="horizontal"
-                        android:paddingTop="10dp">
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp">
 
                         <ImageView
                             android:layout_width="wrap_content"
@@ -226,11 +179,11 @@
                     <LinearLayout
                         android:layout_width="0dp"
                         android:layout_height="wrap_content"
-                        android:paddingBottom="10dp"
                         android:layout_weight="1"
                         android:gravity="center"
                         android:orientation="horizontal"
-                        android:paddingTop="10dp">
+                        android:paddingTop="10dp"
+                        android:paddingBottom="10dp">
 
                         <ImageView
                             android:layout_width="wrap_content"

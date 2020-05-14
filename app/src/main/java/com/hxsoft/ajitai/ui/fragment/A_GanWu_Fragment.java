@@ -171,7 +171,7 @@ public class A_GanWu_Fragment extends MvpFragment<A_GanWu_Present> implements A_
                 startActivity(intent);
             }
         });
-        adapter = new A_Cconscious_Adapter(getContext(), infoArrayList, R.layout.a_item_ganwu, 0);
+        adapter = new A_Cconscious_Adapter(getContext(), getActivity(), infoArrayList, R.layout.a_item_ganwu);
 
         DataListView.setAdapter(adapter);
         DataListView.setOnPullLoadMoreListener(new PullLoadMoreListView.PullLoadMoreListener() {

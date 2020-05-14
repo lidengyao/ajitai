@@ -1,11 +1,14 @@
 package com.hxsoft.ajitai.ui.activity;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
+import android.os.Handler;
+import android.os.Message;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.view.Gravity;
@@ -30,6 +33,7 @@ import com.hxsoft.ajitai.ui.view.A_GeRenXinXi_View;
 import com.hxsoft.ajitai.utils.CheckControl_Dialog_XingBie;
 import com.hxsoft.ajitai.utils.DbKeyS;
 import com.hxsoft.ajitai.utils.GlideControl;
+import com.hxsoft.ajitai.utils.MStringUtils;
 import com.hxsoft.ajitai.utils.OssUploadFileC;
 import com.hxsoft.ajitai.utils.SpUtils;
 import com.luck.picture.lib.PictureSelector;
@@ -39,7 +43,9 @@ import com.luck.picture.lib.entity.LocalMedia;
 
 import java.io.File;
 import java.util.ArrayList;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -80,7 +86,7 @@ public class A_Activity_GeRenXinXi extends MvpActivity<A_GeRenXinXi_Present> imp
     EditText phoneET;
     private String[] needPermissions = {Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE};
     private static final int REQUEST_STORAGE_PERMISSION = 104;
-    private String avatar;
+    private Boolean saveOp = false;
 
     @Override
     protected int getLayoutId() {
@@ -145,10 +151,9 @@ public class A_Activity_GeRenXinXi extends MvpActivity<A_GeRenXinXi_Present> imp
         BottomLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
+                saveOp = true;
                 A_UserUpdatecurrent_Bean a_userUpdatecurrent_bean = new A_UserUpdatecurrent_Bean();
                 a_userUpdatecurrent_bean.setNickname(nicknameET.getText().toString());
-                a_userUpdatecurrent_bean.setAvatar(avatar);
 
                 mPresenter.adminUserUpdatecurrent(a_userUpdatecurrent_bean, getContext());
             }
@@ -298,10 +303,20 @@ public class A_Activity_GeRenXinXi extends MvpActivity<A_GeRenXinXi_Present> imp
     @Override
     public void userUpdatecurrentSuccess(Boolean model) {
         if (model) {
-            showMessage("保存成功");
-            finish();
+            if (saveOp) {
+                showMessage("保存成功");
+                finish();
+            } else {
+                showMessage("头像更新成功");
+            }
+
         } else {
-            showMessage("保存失败");
+            if (saveOp) {
+                showMessage("保存失败");
+            } else {
+                showMessage("头像更新失败");
+            }
+
         }
 
 
@@ -311,8 +326,6 @@ public class A_Activity_GeRenXinXi extends MvpActivity<A_GeRenXinXi_Present> imp
     public void pushUploadSuccess(String model) {
         if (model == null)
             return;
-
-        avatar = model;
         showMessage(model);
     }
 
@@ -332,17 +345,62 @@ public class A_Activity_GeRenXinXi extends MvpActivity<A_GeRenXinXi_Present> imp
                 LocalMedia localMedia = selectList.get(0);
                 GlideControl.SetCircleImage(getContext(), localMedia.getPath(), avatarIV, R.mipmap.a_touxiang);
                 File upLoadImg = new File(localMedia.getCompressPath());
+                String fileName = upLoadImg.getName();
+                String filePath = upLoadImg.getPath();
 
-                OssUploadFileC.OssUpFile(getContext(), upLoadImg.getName(), upLoadImg.getPath(), new OssUpLoadFileListener() {
+                final Runnable payRunnable = new Runnable() {
+
                     @Override
-                    public void OssUpLoadFile(Boolean IsSuccess) {
+                    public void run() {
+
+                        OssUploadFileC.OssUpFile(getContext(), fileName, filePath, new OssUpLoadFileListener() {
+                            @Override
+                            public void OssUpLoadFile(Boolean IsSuccess, String fileName) {
+
+                                Map<String, String> result = new HashMap<>();
+                                result.put("avatar", fileName);
+                                Message msg = new Message();
+                                msg.what = UPLOADIMAGE;
+                                msg.obj = result;
+                                mHandler.sendMessage(msg);
+
+
+                            }
+                        });
 
                     }
-                });
+                };
+
+                // 必须异步调用
+                Thread payThread = new Thread(payRunnable);
+                payThread.start();
+
+
 //                mPresenter.pushUpload(upLoadImg, getContext());
             }
         }
     }
 
+    private static final int UPLOADIMAGE = 1;
+    @SuppressLint("HandlerLeak")
+    private Handler mHandler = new Handler() {
+        @SuppressWarnings("unused")
+        public void handleMessage(Message msg) {
+            switch (msg.what) {
+                case UPLOADIMAGE: {
+                    Map<String, String> result = (Map<String, String>) msg.obj;
+                    A_UserUpdatecurrent_Bean a_userUpdatecurrent_bean = new A_UserUpdatecurrent_Bean();
+                    if (!MStringUtils.IsNullOrEmpty(result.get("avatar"))) {
+                        a_userUpdatecurrent_bean.setAvatar(result.get("avatar"));
+                        mPresenter.adminUserUpdatecurrent(a_userUpdatecurrent_bean, getContext());
+                    }
+                    break;
+                }
+
+                default:
+                    break;
+            }
+        }
+    };
 
 }

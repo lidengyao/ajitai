@@ -29,7 +29,7 @@ public class A_GeRenXinXi_Present extends BasePresent<A_GeRenXinXi_View> {
     //修改当前用户基本信息
     public void adminUserUpdatecurrent(A_UserUpdatecurrent_Bean a_userUpdatecurrent_bean, Context context) {
 
-        String tip = "A_GeRenXinXi_Present-adminUserUpdatecurrent-密码登录\r\n";
+        String tip = "A_GeRenXinXi_Present-adminUserUpdatecurrent-修改当前用户基本信息\r\n";
         FileUtils.writeLogToFile(tip);
         Observable<ResponseBean<Boolean>> observable = RetrofitClient.builderRetrofit(context).create(APIService_AJiTai.class).adminUserUpdatecurrent(a_userUpdatecurrent_bean);
         addIOSubscription(observable, new ApiSubscriber(new ApiCallBack<Boolean>() {

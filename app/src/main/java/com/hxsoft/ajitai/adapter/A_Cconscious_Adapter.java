@@ -1,17 +1,23 @@
 package com.hxsoft.ajitai.adapter;
 
+import android.app.Activity;
 import android.content.Context;
+import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.model.bean.A_Conscious_Info;
-import com.hxsoft.ajitai.model.info.Cuseraddress_Info;
+import com.hxsoft.ajitai.ui.activity.FullyGridLayoutManager;
 import com.hxsoft.ajitai.utils.AutoLinefeedLayout;
 import com.hxsoft.ajitai.utils.GlideControl;
 import com.hxsoft.ajitai.utils.PrettyTime;
+import com.luck.picture.lib.PictureSelector;
+import com.luck.picture.lib.entity.LocalMedia;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -20,12 +26,12 @@ import java.util.List;
 public class A_Cconscious_Adapter extends CommonAdapter<A_Conscious_Info> {
 
     private Context _Context;
-    private Integer _type;
+    private Activity _Activity;
 
-    public A_Cconscious_Adapter(Context context, List<A_Conscious_Info> data, int itemLayoutId, Integer type) {
+    public A_Cconscious_Adapter(Context context, Activity activity, List<A_Conscious_Info> data, int itemLayoutId ) {
         super(context, data, itemLayoutId);
         _Context = context;
-        _type = type;
+        _Activity = activity;
     }
 
     @Override
@@ -56,9 +62,68 @@ public class A_Cconscious_Adapter extends CommonAdapter<A_Conscious_Info> {
         } else {
             helper.setVisibility(R.id.thumbsLL, View.GONE);
         }
-//        helper.setText(R.id.username_TV, item.getUsername());
-//        helper.setText(R.id.phone_TV, item.getPhone());
-//        helper.setText(R.id.address_TV, item.getAddress());
 
+        AutoLinefeedLayout PicAutoLinefeedLayout = (AutoLinefeedLayout) helper.getView(R.id.PicAutoLinefeedLayout);
+        PicAutoLinefeedLayout.removeAllViews();
+        if (item.getExtrals().size() > 0) {
+            for (int i = 0; i < item.getExtrals().size(); i++) {
+                View a_item_ganwu_pic = View.inflate(_Context, R.layout.a_item_ganwu_pic, null);
+                ImageView ganwuIV = (ImageView) a_item_ganwu_pic.findViewById(R.id.ganwuIV);
+                GlideControl.SetImage(_Context, item.getExtrals().get(i).getUri(), ganwuIV, R.mipmap.jiazaiing);
+                PicAutoLinefeedLayout.addView(a_item_ganwu_pic);
+
+                ganwuIV.setTag(R.id.one, item.getExtrals());
+                ganwuIV.setTag(R.id.two, i);
+                ganwuIV.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        ArrayList<A_Conscious_Info.ExtralsBean> extralsBeanArrayList = (ArrayList<A_Conscious_Info.ExtralsBean>) v.getTag(R.id.one);
+                        List<LocalMedia> selectList_Detail = new ArrayList<>();
+                        if (extralsBeanArrayList != null) {
+
+                            for (int i = 0; i < extralsBeanArrayList.size(); i++) {
+                                A_Conscious_Info.ExtralsBean extralsBean = extralsBeanArrayList.get(i);
+                                LocalMedia localMedia = new LocalMedia();
+                                localMedia.setChecked(false);
+                                localMedia.setCut(false);
+                                localMedia.setCompressed(false);
+                                localMedia.setPath(extralsBean.getUri());
+                                localMedia.setMimeType(extralsBean.getType());
+                                selectList_Detail.add(localMedia);
+
+
+                            }
+                        }
+
+                        int Index = (int) v.getTag(R.id.two);
+
+                        LocalMedia media = selectList_Detail.get(Index);
+                        int mediaType = media.getMimeType();
+                        switch (mediaType) {
+                            case 1:
+//                            Intent intent = new Intent(getContext(), W_KuFangJianKong_Detail_Activity.class);
+//                            intent.putExtra("url", media.getPath());
+//                            startActivity(intent);
+                                // 预览视频
+//                            PictureSelector.create(getActivity()).externalPictureVideo(media.getPath());
+//                            OpenVideo(media.getPath());
+                                break;
+                            case 2:
+                                // 预览图片 可自定长按保存路径
+                                PictureSelector.create(_Activity).themeStyle(R.style.picture_default_style).openExternalPreview(Index, "/custom_file", selectList_Detail);
+//                                PictureSelector.create(_Activity).externalPicturePreview(Index, selectList_Detail);
+                                break;
+
+                            case 3:
+                                // 预览音频
+                                PictureSelector.create(_Activity).externalPictureAudio(media.getPath());
+                                break;
+
+                        }
+
+                    }
+                });
+            }
+        }
     }
 }
