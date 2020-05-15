@@ -229,6 +229,11 @@
         <item name="android:layout_height">@dimen/line</item>
         <item name="android:background">@color/linecolor</item>
     </style>
+    <style name="LineStyle_One">
+        <item name="android:layout_width">match_parent</item>
+        <item name="android:layout_height">@dimen/line_one</item>
+        <item name="android:background">@color/linecolor</item>
+    </style>
 
     <style name="LineStyle_Vertical">
         <item name="android:layout_width">@dimen/line</item>

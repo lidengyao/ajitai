@@ -3,7 +3,6 @@ package com.hxsoft.ajitai.model.bean;
 
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.ArrayList;
 
 public class A_Conscious_Info implements Serializable {
 
@@ -184,17 +183,23 @@ public class A_Conscious_Info implements Serializable {
         }
 
         public static class CommentsBean {
+
+
             /**
-             * cmid : 2
+             * cmid : 18
              * uid : 1
              * nickname : 修
-             * content : 测试评论
+             * content : 12
+             * replyid : 0
+             * replynickname :
              */
 
             private Integer cmid;
             private Integer uid;
             private String nickname;
             private String content;
+            private Integer replyid;
+            private String replynickname;
 
             public Integer getCmid() {
                 return cmid;
@@ -226,6 +231,22 @@ public class A_Conscious_Info implements Serializable {
 
             public void setContent(String content) {
                 this.content = content;
+            }
+
+            public Integer getReplyid() {
+                return replyid;
+            }
+
+            public void setReplyid(Integer replyid) {
+                this.replyid = replyid;
+            }
+
+            public String getReplynickname() {
+                return replynickname;
+            }
+
+            public void setReplynickname(String replynickname) {
+                this.replynickname = replynickname;
             }
         }
     }

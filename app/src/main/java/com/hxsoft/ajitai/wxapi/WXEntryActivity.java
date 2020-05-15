@@ -123,6 +123,18 @@ public class WXEntryActivity extends Activity implements IWXAPIEventHandler {
                     SpUtils.saveSettingNote(this, DbKeyS.weixindenglu, "1");
                     SpUtils.saveSettingNote(this, DbKeyS.wx_code, authResp.code);
                 }
+                //分享微信好友
+                if (WXAPI.Type == 4) {
+//                    SendAuth.Resp authResp = (SendAuth.Resp) resp;
+//                    SpUtils.saveSettingNote(this, DbKeyS.weixindenglu, "1");
+//                    SpUtils.saveSettingNote(this, DbKeyS.wx_code, authResp.code);
+                }
+                //分享微信朋友圈
+                if (WXAPI.Type == 5) {
+//                    SendAuth.Resp authResp = (SendAuth.Resp) resp;
+//                    SpUtils.saveSettingNote(this, DbKeyS.weixindenglu, "1");
+//                    SpUtils.saveSettingNote(this, DbKeyS.wx_code, authResp.code);
+                }
                 break;
             case BaseResp.ErrCode.ERR_USER_CANCEL:
                 result = R.string.errcode_cancel;

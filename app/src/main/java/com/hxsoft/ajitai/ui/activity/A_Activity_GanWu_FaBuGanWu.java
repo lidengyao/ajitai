@@ -81,7 +81,7 @@ public class A_Activity_GanWu_FaBuGanWu extends MvpActivity<A_FaBuGanWu_Present>
     private String Latitude;
     private List<LocalMedia> selectList_Add = new ArrayList<>();
     private GridImageAdapter adapterAdd;
-
+    private String cityName;
     private ArrayList<UpLoadFileControl> upLoadFileControlArrayList = new ArrayList<>();
 
     @Override
@@ -133,6 +133,20 @@ public class A_Activity_GanWu_FaBuGanWu extends MvpActivity<A_FaBuGanWu_Present>
         BottomLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+
+                if (selectList_Add.size() == 0 && contentET.getText().toString().trim().equals("")) {
+                    showMessage("你还没有填写感悟的内容哦");
+                    return;
+                }
+
+                if (!contentET.getText().toString().equals("") && selectList_Add.size() == 0) {
+                    CreateCconscious_Bean createCconscious_bean = new CreateCconscious_Bean();
+
+                    createCconscious_bean.setContent(contentET.getText().toString());
+                    createCconscious_bean.setPosition(cityName);
+                    mPresenter.postConscious(createCconscious_bean, getContext());
+                    return;
+                }
 
 
                 upLoadFileControlArrayList.clear();
@@ -232,12 +246,7 @@ public class A_Activity_GanWu_FaBuGanWu extends MvpActivity<A_FaBuGanWu_Present>
                             extralBean.setUri(upLoadFileControl.getOssFielName());
                             createCconscious_bean.getExtral().add(extralBean);
                         }
-
-
-//                        Gson gson = new Gson();
-//                        String gsonStr = gson.toJson(createCconscious_bean);
-                        createCconscious_bean.setLat(Latitude);
-                        createCconscious_bean.setLon(Longitude);
+                        createCconscious_bean.setPosition(cityName);
                         mPresenter.postConscious(createCconscious_bean, getContext());
                     }
                     break;
@@ -431,7 +440,7 @@ public class A_Activity_GanWu_FaBuGanWu extends MvpActivity<A_FaBuGanWu_Present>
                     Longitude = amapLocation.getLongitude() + "";
                     Latitude = amapLocation.getLatitude() + "";
                     //定位成功回调信息，设置相关消息
-                    String cityName = amapLocation.getCity();
+                    cityName = amapLocation.getProvince() + amapLocation.getCity() + amapLocation.getDistrict();
                     CityTV.setTextColor(getResources().getColor(R.color.C242424));
                     CityTV.setText(cityName);
                 } else {

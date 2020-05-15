@@ -134,7 +134,6 @@
                             android:maxWidth="150dp"
                             android:minWidth="100dp"
                             android:paddingRight="12dp"
-                            android:text="18810269999"
                             android:textColor="#7F7F7F"
                             android:textSize="@dimen/textsize13" />
 
@@ -182,7 +181,6 @@
                             android:maxWidth="150dp"
                             android:minWidth="100dp"
                             android:paddingRight="12dp"
-                            android:text="哈哈小猪"
                             android:textColor="#7F7F7F"
                             android:textSize="@dimen/textsize13" />
 
@@ -230,7 +228,6 @@
                             android:maxWidth="150dp"
                             android:minWidth="100dp"
                             android:paddingRight="12dp"
-                            android:text="哈哈小猪"
                             android:textColor="#7F7F7F"
                             android:textSize="@dimen/textsize13" />
 
@@ -278,7 +275,6 @@
                             android:maxWidth="150dp"
                             android:minWidth="100dp"
                             android:paddingRight="12dp"
-                            android:text="男"
                             android:textColor="#7F7F7F"
                             android:textSize="@dimen/textsize13" />
 
@@ -326,7 +322,6 @@
                             android:maxWidth="150dp"
                             android:minWidth="100dp"
                             android:paddingRight="12dp"
-                            android:text="1997-07-07"
                             android:textColor="#7F7F7F"
                             android:textSize="@dimen/textsize13" />
 
@@ -375,7 +370,6 @@
                             android:maxWidth="150dp"
                             android:minWidth="100dp"
                             android:paddingRight="12dp"
-                            android:text="18810269999"
                             android:textColor="#7F7F7F"
                             android:textSize="@dimen/textsize13" />
 

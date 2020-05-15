@@ -8,25 +8,33 @@ import com.hxsoft.ajitai.model.api.ApiCallBack;
 import com.hxsoft.ajitai.model.api.ApiSubscriber;
 import com.hxsoft.ajitai.model.api.ResponseBean;
 import com.hxsoft.ajitai.model.api.RetrofitClient;
-import com.hxsoft.ajitai.model.info.Cuseraddress_Total_Info;
-import com.hxsoft.ajitai.ui.view.A_ShouHuoDiZhi_View;
+import com.hxsoft.ajitai.model.bean.A_UserUpdatecurrent_Bean;
+import com.hxsoft.ajitai.model.info.A_ALive_Total_Info;
+import com.hxsoft.ajitai.ui.view.A_GeRenXinXi_View;
+import com.hxsoft.ajitai.ui.view.A_ShiPinZhiBo_View;
 import com.hxsoft.ajitai.utils.FailOpeater;
 import com.hxsoft.ajitai.utils.FileUtils;
+import com.hxsoft.ajitai.utils.LogCode;
 
+import java.io.File;
+
+import okhttp3.MediaType;
+import okhttp3.MultipartBody;
+import okhttp3.RequestBody;
 import rx.Observable;
 
 /**
  * Created by jinxh on 16/2/1.
  */
-public class A_ShouHuoDiZhi_Present extends BasePresent<A_ShouHuoDiZhi_View> {
+public class A_ShiPinZhiBo_Present extends BasePresent<A_ShiPinZhiBo_View> {
 
+    //直播列表
+    public void cvideostreamAlivepage(Context context) {
 
-    public void adminCuseraddressPage(Integer page, Integer size, Context context) {
-        String tip = "A_ShouHuoDiZhi_Present-adminCuseraddressPage-邮寄地址查询(APP)\r\n";
+        String tip = "A_ShiPinZhiBo_Present-cvideostreamAlivepage-直播列表\r\n";
         FileUtils.writeLogToFile(tip);
-
-        Observable<ResponseBean<Cuseraddress_Total_Info>> observable = RetrofitClient.builderRetrofit(context).create(APIService_AJiTai.class).adminCuseraddressPage(page, size);
-        addIOSubscription(observable, new ApiSubscriber(new ApiCallBack<Cuseraddress_Total_Info>() {
+        Observable<ResponseBean<A_ALive_Total_Info>> observable = RetrofitClient.builderRetrofit(context).create(APIService_AJiTai.class).cvideostreamAlivepage();
+        addIOSubscription(observable, new ApiSubscriber(new ApiCallBack<A_ALive_Total_Info>() {
             @Override
             public void onStart() {
                 super.onStart();
@@ -36,9 +44,9 @@ public class A_ShouHuoDiZhi_Present extends BasePresent<A_ShouHuoDiZhi_View> {
             }
 
             @Override
-            public void onSuccess(Cuseraddress_Total_Info model) {
+            public void onSuccess(A_ALive_Total_Info model) {
                 if (getView() != null) {
-                    getView().adminCuseraddressPageSuccess(model);
+                    getView().cvideostreamAlivepageSuccess(model);
                 }
             }
 
@@ -57,5 +65,6 @@ public class A_ShouHuoDiZhi_Present extends BasePresent<A_ShouHuoDiZhi_View> {
             }
         }, context));
     }
+
 
 }

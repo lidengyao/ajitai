@@ -41,7 +41,7 @@ public class A_Activity_ShouHuoDiZhi extends MvpActivity<A_ShouHuoDiZhi_Present>
     @Bind(R.id.textView)
     TextView textView;
 
-    private int current = 1;
+    private int page = 1;
     private int size = 10;
     private A_ShouHuoDiZhi_Adapter adapter;
     private ArrayList<Cuseraddress_Info> infoArrayList = new ArrayList<>();
@@ -76,7 +76,7 @@ public class A_Activity_ShouHuoDiZhi extends MvpActivity<A_ShouHuoDiZhi_Present>
             @Override
             public void onRefresh() {
 
-                current = 1;
+                page = 1;
                 getData();
 
                 new Handler().postDelayed(new Runnable() {
@@ -90,7 +90,7 @@ public class A_Activity_ShouHuoDiZhi extends MvpActivity<A_ShouHuoDiZhi_Present>
 
             @Override
             public void onLoadMore() {
-                current += 1;
+                page += 1;
                 getData();
 
                 new Handler().postDelayed(new Runnable() {
@@ -121,7 +121,7 @@ public class A_Activity_ShouHuoDiZhi extends MvpActivity<A_ShouHuoDiZhi_Present>
     }
 
     private void getData() {
-        mPresenter.adminCuseraddressPage(current, size, getContext());
+        mPresenter.adminCuseraddressPage(page, size, getContext());
     }
 
     @Override
@@ -151,7 +151,7 @@ public class A_Activity_ShouHuoDiZhi extends MvpActivity<A_ShouHuoDiZhi_Present>
     }
 
     private void SetData(final ArrayList<Cuseraddress_Info> model) {
-        infoArrayList = new ListData_Control_Normal().BandData(infoArrayList, model, this.current, this.size, adapter, DataListView, getActivity(), getContext());
+        infoArrayList = new ListData_Control_Normal().BandData(infoArrayList, model, this.page, this.size, adapter, DataListView, getActivity(), getContext());
     }
 
     @Override

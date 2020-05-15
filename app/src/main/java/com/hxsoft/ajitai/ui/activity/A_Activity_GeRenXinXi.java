@@ -154,7 +154,7 @@ public class A_Activity_GeRenXinXi extends MvpActivity<A_GeRenXinXi_Present> imp
                 saveOp = true;
                 A_UserUpdatecurrent_Bean a_userUpdatecurrent_bean = new A_UserUpdatecurrent_Bean();
                 a_userUpdatecurrent_bean.setNickname(nicknameET.getText().toString());
-
+//                a_userUpdatecurrent_bean.setAddress();
                 mPresenter.adminUserUpdatecurrent(a_userUpdatecurrent_bean, getContext());
             }
         });

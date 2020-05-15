@@ -2,16 +2,24 @@ package com.hxsoft.ajitai.ui.activity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.LinearLayout;
+import android.widget.AdapterView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.hxsoft.ajitai.R;
-import com.hxsoft.ajitai.base.BasePresent;
+import com.hxsoft.ajitai.adapter.A_ALive_Adapter;
+import com.hxsoft.ajitai.adapter.A_ShouHuoDiZhi_Adapter;
 import com.hxsoft.ajitai.base.MvpActivity;
-import com.hxsoft.ajitai.utils.GlideControl;
+import com.hxsoft.ajitai.model.info.A_ALive_Info;
+import com.hxsoft.ajitai.model.info.A_ALive_Total_Info;
+import com.hxsoft.ajitai.present.A_ShiPinZhiBo_Present;
+import com.hxsoft.ajitai.ui.view.A_ShiPinZhiBo_View;
+import com.hxsoft.ajitai.utils.ListData_Control_Normal;
+import com.hxsoft.ajitai.widget.PullLoadMoreListView;
+
+import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -19,18 +27,19 @@ import butterknife.ButterKnife;
 /**
  * Created by jinxh on 16/2/1.
  */
-public class A_Activity_ShiPinZhiBo extends MvpActivity {
+public class A_Activity_ShiPinZhiBo extends MvpActivity<A_ShiPinZhiBo_Present> implements A_ShiPinZhiBo_View {
+
 
     @Bind(R.id.SysNameIV)
     TextView SysNameIV;
     @Bind(R.id.QieHuanZhangHaoRL)
     RelativeLayout QieHuanZhangHaoRL;
-    @Bind(R.id.IncludeLL1)
-    LinearLayout IncludeLL1;
-    @Bind(R.id.IncludeLL2)
-    LinearLayout IncludeLL2;
-    @Bind(R.id.IncludeLL3)
-    LinearLayout IncludeLL3;
+    @Bind(R.id.DataListView)
+    PullLoadMoreListView DataListView;
+    private int page = 1;
+    private int size = 10;
+    private A_ALive_Adapter adapter;
+    private ArrayList<A_ALive_Info> infoArrayList = new ArrayList<>();
 
     @Override
     protected int getLayoutId() {
@@ -43,43 +52,90 @@ public class A_Activity_ShiPinZhiBo extends MvpActivity {
         // TODO: add setContentView(...) invocation
         ButterKnife.bind(this);
 
-        ImageView imageView1 = (ImageView) IncludeLL1.findViewById(R.id.zhibo_item_bg);
-        ImageView imageView2 = (ImageView) IncludeLL2.findViewById(R.id.zhibo_item_bg);
-        ImageView imageView3 = (ImageView) IncludeLL3.findViewById(R.id.zhibo_item_bg);
+//        ImageView imageView1 = (ImageView) IncludeLL1.findViewById(R.id.zhibo_item_bg);
+//        ImageView imageView2 = (ImageView) IncludeLL2.findViewById(R.id.zhibo_item_bg);
+//        ImageView imageView3 = (ImageView) IncludeLL3.findViewById(R.id.zhibo_item_bg);
+//
+//        GlideControl.SetFilletImage(getContext(), "http://47.92.221.41/image/a_ditu3.png", imageView1, R.mipmap.jiazaiing, 5);
+//        GlideControl.SetFilletImage(getContext(), "http://47.92.221.41/image/a_ditu3.png", imageView2, R.mipmap.jiazaiing, 5);
+//        GlideControl.SetFilletImage(getContext(), "http://47.92.221.41/image/a_ditu3.png", imageView3, R.mipmap.jiazaiing, 5);
+//
+//        IncludeLL1.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getContext(), A_Activity_ShiPinZhiBo_XiangQing.class);
+//                startActivity(intent);
+//            }
+//        });
+//
+//        IncludeLL2.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getContext(), A_Activity_ShiPinZhiBo_XiangQing.class);
+//                startActivity(intent);
+//            }
+//        });
+//
+//        IncludeLL3.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getContext(), A_Activity_ShiPinZhiBo_XiangQing.class);
+//                startActivity(intent);
+//            }
+//        });
+        adapter = new A_ALive_Adapter(getContext(), infoArrayList, R.layout.a_item_zhibo, 0);
 
-        GlideControl.SetFilletImage(getContext(), "http://47.92.221.41/image/a_ditu3.png", imageView1, R.mipmap.jiazaiing, 5);
-        GlideControl.SetFilletImage(getContext(), "http://47.92.221.41/image/a_ditu3.png", imageView2, R.mipmap.jiazaiing, 5);
-        GlideControl.SetFilletImage(getContext(), "http://47.92.221.41/image/a_ditu3.png", imageView3, R.mipmap.jiazaiing, 5);
-
-        IncludeLL1.setOnClickListener(new View.OnClickListener() {
+        DataListView.setAdapter(adapter);
+        DataListView.setOnPullLoadMoreListener(new PullLoadMoreListView.PullLoadMoreListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(getContext(),A_Activity_ShiPinZhiBo_XiangQing.class);
+            public void onRefresh() {
+
+                page = 1;
+                getData();
+
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+
+                    }
+                }, 500);
+
+            }
+
+            @Override
+            public void onLoadMore() {
+                page += 1;
+                getData();
+
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+
+                    }
+                }, 500);
+            }
+        });
+
+        DataListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Intent intent = new Intent(getContext(), A_Activity_XinJianShouHuoDiZhi.class);
+                intent.putExtra("type", "1");
+                intent.putExtra("RecordsBean", infoArrayList.get(position));
                 startActivity(intent);
             }
         });
 
-        IncludeLL2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(getContext(),A_Activity_ShiPinZhiBo_XiangQing.class);
-                startActivity(intent);
-            }
-        });
+        getData();
+    }
 
-        IncludeLL3.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent=new Intent(getContext(),A_Activity_ShiPinZhiBo_XiangQing.class);
-                startActivity(intent);
-            }
-        });
-
+    private void getData() {
+        mPresenter.cvideostreamAlivepage(getContext());
     }
 
     @Override
-    protected BasePresent createPresenter() {
-        return null;
+    protected A_ShiPinZhiBo_Present createPresenter() {
+        return new A_ShiPinZhiBo_Present();
     }
 
     @Override
@@ -98,4 +154,17 @@ public class A_Activity_ShiPinZhiBo extends MvpActivity {
     }
 
 
+    @Override
+    public void cvideostreamAlivepageSuccess(A_ALive_Total_Info model) {
+        SetData(model.getRecords());
+    }
+
+    private void SetData(final ArrayList<A_ALive_Info> model) {
+        infoArrayList = new ListData_Control_Normal().BandData(infoArrayList, model, this.page, this.size, adapter, DataListView, getActivity(), getContext());
+    }
+
+    @Override
+    public void onFailure(int code, String msg) {
+        showMessage(msg);
+    }
 }

@@ -732,7 +732,6 @@ public class A_Activity_XinJianShouHuoDiZhi extends MvpActivity<A_XinJianShouHuo
             return;
     }
 
-
     @Override
     public void onFailure(int code, String msg) {
         IsLastAddCode = true;

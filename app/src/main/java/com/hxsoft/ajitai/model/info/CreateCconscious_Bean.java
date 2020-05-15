@@ -18,6 +18,15 @@ public class CreateCconscious_Bean implements Serializable {
     private String lon;
     private String lat;
     private ArrayList<ExtralBean> extral;
+    private String position;
+
+    public String getPosition() {
+        return position;
+    }
+
+    public void setPosition(String position) {
+        this.position = position;
+    }
 
     public String getContent() {
         return content;

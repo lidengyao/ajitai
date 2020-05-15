@@ -10,8 +10,10 @@ import com.hxsoft.ajitai.model.bean.A_LoginInfo;
 import com.hxsoft.ajitai.model.bean.A_OauthTokenBean;
 import com.hxsoft.ajitai.model.bean.A_PushChecknumBean;
 import com.hxsoft.ajitai.model.bean.A_User_Info;
+import com.hxsoft.ajitai.model.info.A_ALive_Total_Info;
 import com.hxsoft.ajitai.model.info.A_Order_Info;
 import com.hxsoft.ajitai.model.info.A_Order_Total_Info;
+import com.hxsoft.ajitai.model.info.CommentConscious_Bean;
 import com.hxsoft.ajitai.model.info.CreateCconscious_Bean;
 import com.hxsoft.ajitai.model.info.CreateOrder_Bean;
 import com.hxsoft.ajitai.model.info.CreateOrder_Info;
@@ -50,7 +52,7 @@ public interface APIService_AJiTai {
     Observable<ResponseBean<Boolean>> pushChecknum(@Body A_PushChecknumBean a_pushChecknumBean);
 
     //验证码登录
-    @POST("oauth/token")
+    @POST("auth/oauth/token")
     Observable<ResponseBean<OauthToken_Info>> oauthToken(@Body A_OauthTokenBean a_oauthTokenBean);
 
     //退出登录
@@ -74,7 +76,7 @@ public interface APIService_AJiTai {
 
     //邮寄地址查询(APP)
     @GET("admin/cuseraddress/page")
-    Observable<ResponseBean<Cuseraddress_Total_Info>> adminCuseraddressPage(@Query("current") Integer current,
+    Observable<ResponseBean<Cuseraddress_Total_Info>> adminCuseraddressPage(@Query("page") Integer current,
                                                                             @Query("size") Integer size);
 
     //邮寄地址-新增
@@ -183,5 +185,22 @@ public interface APIService_AJiTai {
 
     //发布感悟
     @POST("conscious/cconscious")
-    Observable<ResponseBean<Boolean>> postConscious(@Body CreateCconscious_Bean  createCconscious_bean);
+    Observable<ResponseBean<Boolean>> postConscious(@Body CreateCconscious_Bean createCconscious_bean);
+
+    //感悟点攒
+    @POST("conscious/cconscious/thumb/{cid}")
+    Observable<ResponseBean<Boolean>> thumbConscious(@Path("cid") String cid);
+
+    //取消点攒
+    @DELETE("conscious/cconscious/thumb/{cid}")
+    Observable<ResponseBean<Boolean>> deleteThumbConscious(@Path("cid") String cid);
+
+
+    //评论
+    @POST("conscious/cconscious/comment")
+    Observable<ResponseBean<ArrayList<A_Conscious_Info.CommentsBean>>> commentConscious(@Body CommentConscious_Bean commentConscious_bean);
+
+    //直播列表
+    @GET("course/cvideostream/alivepage")
+    Observable<ResponseBean<A_ALive_Total_Info>> cvideostreamAlivepage();
 }

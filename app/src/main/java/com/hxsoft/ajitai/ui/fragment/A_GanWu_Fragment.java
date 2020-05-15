@@ -1,36 +1,38 @@
 package com.hxsoft.ajitai.ui.fragment;
 
+import android.app.DialogFragment;
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.AdapterView;
-import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import com.google.gson.Gson;
 import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.adapter.A_Cconscious_Adapter;
-import com.hxsoft.ajitai.adapter.A_ShouHuoDiZhi_Adapter;
 import com.hxsoft.ajitai.base.MvpFragment;
+import com.hxsoft.ajitai.model.Inf.OnGanWuClickListener;
 import com.hxsoft.ajitai.model.bean.A_Conscious_Info;
 import com.hxsoft.ajitai.model.bean.A_Conscious_Total_Info;
-import com.hxsoft.ajitai.model.info.Cuseraddress_Info;
+import com.hxsoft.ajitai.model.bean.A_User_Info;
+import com.hxsoft.ajitai.model.info.CommentConscious_Bean;
 import com.hxsoft.ajitai.present.A_GanWu_Present;
 import com.hxsoft.ajitai.ui.activity.A_Activity_GanWu_FaBuGanWu;
 import com.hxsoft.ajitai.ui.activity.A_Activity_GanWu_GuanZhuHaoYou;
-import com.hxsoft.ajitai.ui.activity.A_Activity_GanWu_SouSuo;
-import com.hxsoft.ajitai.ui.activity.A_Activity_GanWu_ZhuanFa;
-import com.hxsoft.ajitai.ui.activity.A_Activity_XinJianShouHuoDiZhi;
 import com.hxsoft.ajitai.ui.view.A_GanWu_View;
-import com.hxsoft.ajitai.utils.CheckControl_Dialog_GanWu;
-import com.hxsoft.ajitai.utils.CheckControl_Dialog_ShiPinZhiBoFenXiang;
+import com.hxsoft.ajitai.utils.CheckControl_Dialog_GanWu_FenXiang;
+import com.hxsoft.ajitai.utils.DbKeyS;
+import com.hxsoft.ajitai.utils.DownLoadFileManager;
 import com.hxsoft.ajitai.utils.ListData_Control_Normal;
+import com.hxsoft.ajitai.utils.SpUtils;
 import com.hxsoft.ajitai.widget.PullLoadMoreListView;
+import com.hxsoft.ajitai.wxapi.WXAPI;
 
 import java.util.ArrayList;
+import java.util.TreeMap;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -55,6 +57,8 @@ public class A_GanWu_Fragment extends MvpFragment<A_GanWu_Present> implements A_
     private int size = 10;
     private A_Cconscious_Adapter adapter;
     private ArrayList<A_Conscious_Info> infoArrayList = new ArrayList<>();
+    private DialogFragment dialogFragment;
+    private A_Conscious_Info currentA_Conscious_Info;
 
     @Override
     protected A_GanWu_Present createPresenter() {
@@ -171,7 +175,106 @@ public class A_GanWu_Fragment extends MvpFragment<A_GanWu_Present> implements A_
                 startActivity(intent);
             }
         });
-        adapter = new A_Cconscious_Adapter(getContext(), getActivity(), infoArrayList, R.layout.a_item_ganwu);
+        adapter = new A_Cconscious_Adapter(getContext(), getActivity(), infoArrayList, R.layout.a_item_ganwu, new OnGanWuClickListener() {
+            @Override
+            public void OnClick(int type, A_Conscious_Info a_conscious_info) {
+                currentA_Conscious_Info = a_conscious_info;
+
+                //分享
+                if (type == 1) {
+                    CheckControl_Dialog_GanWu_FenXiang.ShowDialog(getContext(), getActivity(), "", new CheckControl_Dialog_GanWu_FenXiang.OnCheckControl_dialogClickListener() {
+                        @Override
+                        public void OnClick(int type) {
+
+                            //微信好友
+                            if (type == 0) {
+
+                                String url = currentA_Conscious_Info.getExtrals().size() > 0 ?
+                                        currentA_Conscious_Info.getExtrals().get(0).getUri() : null;
+
+
+                                if (url == null) {
+                                    WXAPI.Share("www.baidu.com", "来自" + currentA_Conscious_Info.getNickname() + "的分享", currentA_Conscious_Info.getContent(), "", false);
+                                } else {
+                                    String fileName = url.substring(url.lastIndexOf("/") + 1);
+                                    DownLoadFileManager updateManager = new DownLoadFileManager(getContext());
+                                    updateManager.downLoadFile(url, fileName, new DownLoadFileManager.IsDownLoadFinishListener() {
+                                        @Override
+                                        public void IsDownLoadFinish(Boolean IsFinish) {
+                                            WXAPI.Share("www.baidu.com", "来自" + currentA_Conscious_Info.getNickname() + "的分享", currentA_Conscious_Info.getContent(), fileName, true);
+                                        }
+                                    });
+                                }
+
+
+                            }
+
+                            //朋友圈
+                            if (type == 1) {
+
+                                String url = currentA_Conscious_Info.getExtrals().size() > 0 ?
+                                        currentA_Conscious_Info.getExtrals().get(0).getUri() : null;
+
+                                if (url == null) {
+                                    WXAPI.ShareCOF("www.baidu.com", "来自" + currentA_Conscious_Info.getNickname() + "的分享",
+                                            currentA_Conscious_Info.getContent(), "", false);
+                                } else {
+                                    String fileName = url.substring(url.lastIndexOf("/") + 1);
+                                    DownLoadFileManager updateManager = new DownLoadFileManager(getContext());
+                                    updateManager.downLoadFile(url, fileName, new DownLoadFileManager.IsDownLoadFinishListener() {
+                                        @Override
+                                        public void IsDownLoadFinish(Boolean IsFinish) {
+                                            WXAPI.ShareCOF("www.baidu.com", "来自" + currentA_Conscious_Info.getNickname() + "的分享",
+                                                    currentA_Conscious_Info.getContent(), fileName, true);
+                                        }
+                                    });
+                                }
+
+
+                            }
+                        }
+                    });
+                }
+
+                //评论
+                if (type == 2) {
+                    dialogFragment = new DefaultDialogFragment(new DefaultDialogFragment.OnSendMsgListener() {
+                        @Override
+                        public void SendMsg(String msg) {
+                            CommentConscious_Bean commentConscious_bean = new CommentConscious_Bean();
+                            commentConscious_bean.setCid(currentA_Conscious_Info.getCid());
+                            commentConscious_bean.setContent(msg);
+                            presenter.commentConscious(commentConscious_bean, getContext());
+                        }
+                    });
+                    dialogFragment.show(getActivity().getFragmentManager(), "DefaultDialogFragment");
+                }
+
+                //点攒
+                if (type == 3) {
+
+                    Gson gson = new Gson();
+                    String gsonData = SpUtils.getSettingNote(getContext(), DbKeyS.A_User_Info);
+                    A_User_Info a_user_info = gson.fromJson(gsonData, A_User_Info.class);
+                    //判断是否当前操作人是否已经点攒
+                    Boolean IsThumb = false;
+                    for (int i = 0; i < currentA_Conscious_Info.getThumbs().size(); i++) {
+                        A_Conscious_Info.ThumbsBean thumbsBean = currentA_Conscious_Info.getThumbs().get(i);
+                        if (thumbsBean.getUid() == a_user_info.getSysUser().getUid()) {
+                            IsThumb = true;
+                        }
+                    }
+
+                    if (IsThumb == true) {
+                        deleteThumbConscious();
+                    } else {
+                        thumbConscious();
+                    }
+
+
+                }
+            }
+        });
 
         DataListView.setAdapter(adapter);
         DataListView.setOnPullLoadMoreListener(new PullLoadMoreListView.PullLoadMoreListener() {
@@ -206,6 +309,7 @@ public class A_GanWu_Fragment extends MvpFragment<A_GanWu_Present> implements A_
 
     }
 
+
     @Override
     public void onResume() {
         super.onResume();
@@ -216,16 +320,83 @@ public class A_GanWu_Fragment extends MvpFragment<A_GanWu_Present> implements A_
         presenter.queryConscious(page, size, getContext());
     }
 
+    private void thumbConscious() {
+        presenter.thumbConscious(currentA_Conscious_Info.getCid() + "", getContext());
+    }
+
+    private void deleteThumbConscious() {
+        presenter.deleteThumbConscious(currentA_Conscious_Info.getCid() + "", getContext());
+    }
+
     @Override
     public void onDestroyView() {
         super.onDestroyView();
         ButterKnife.unbind(this);
     }
 
+    //点攒
+    @Override
+    public void thumbConsciousSuccess(Boolean model) {
+        if (model == true) {
+
+            Gson gson = new Gson();
+            String gsonData = SpUtils.getSettingNote(getContext(), DbKeyS.A_User_Info);
+            A_User_Info a_user_info = gson.fromJson(gsonData, A_User_Info.class);
+            //判断是否当前操作人是否已经点攒
+            Boolean IsThumb = false;
+            for (int i = 0; i < currentA_Conscious_Info.getThumbs().size(); i++) {
+                A_Conscious_Info.ThumbsBean thumbsBean = currentA_Conscious_Info.getThumbs().get(i);
+                if (thumbsBean.getUid() == a_user_info.getSysUser().getUid()) {
+                    IsThumb = true;
+                }
+            }
+
+            if (IsThumb == true)
+                return;
+
+            A_Conscious_Info.ThumbsBean thumbsBean = new A_Conscious_Info.ThumbsBean();
+            thumbsBean.setUid(a_user_info.getSysUser().getUid());
+            thumbsBean.setNickname(a_user_info.getSysUser().getNickname());
+            currentA_Conscious_Info.getThumbs().add(thumbsBean);
+
+            adapter.notifyDataSetChanged();
+        }
+    }
+
+    //取消点攒
+    @Override
+    public void deleteThumbConsciousSuccess(Boolean model) {
+        if (model == true) {
+
+            Gson gson = new Gson();
+            String gsonData = SpUtils.getSettingNote(getContext(), DbKeyS.A_User_Info);
+            A_User_Info a_user_info = gson.fromJson(gsonData, A_User_Info.class);
+            for (int i = 0; i < currentA_Conscious_Info.getThumbs().size(); i++) {
+                A_Conscious_Info.ThumbsBean thumbsBean = currentA_Conscious_Info.getThumbs().get(i);
+                if (thumbsBean.getUid() == a_user_info.getSysUser().getUid()) {
+                    currentA_Conscious_Info.getThumbs().remove(thumbsBean);
+                }
+            }
+
+            adapter.notifyDataSetChanged();
+        }
+    }
+
+    //评论结果
+    @Override
+    public void commentConsciousSuccess(ArrayList<A_Conscious_Info.CommentsBean> model) {
+        if (model != null && model.size() > 0) {
+            dialogFragment.dismiss();
+            currentA_Conscious_Info.setComments(model);
+            adapter.notifyDataSetChanged();
+//            getData();
+        }
+    }
+
     @Override
     public void queryConsciousSuccess(A_Conscious_Total_Info model) {
-//        if (model == null)
-//            return;
+        if (model == null)
+            return;
         SetData(model.getRecords());
     }
 
