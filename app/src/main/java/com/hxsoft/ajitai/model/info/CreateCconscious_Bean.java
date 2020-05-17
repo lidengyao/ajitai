@@ -19,6 +19,15 @@ public class CreateCconscious_Bean implements Serializable {
     private String lat;
     private ArrayList<ExtralBean> extral;
     private String position;
+    private Integer relaycid;
+
+    public Integer getRelaycid() {
+        return relaycid;
+    }
+
+    public void setRelaycid(Integer relaycid) {
+        this.relaycid = relaycid;
+    }
 
     public String getPosition() {
         return position;

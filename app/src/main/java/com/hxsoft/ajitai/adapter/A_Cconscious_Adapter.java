@@ -2,22 +2,31 @@ package com.hxsoft.ajitai.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.graphics.Color;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.model.Inf.OnGanWuClickListener;
+import com.hxsoft.ajitai.model.Inf.OnGanWu_HuiFuPingLun_ClickListener;
 import com.hxsoft.ajitai.model.bean.A_Conscious_Info;
 import com.hxsoft.ajitai.model.bean.A_User_Info;
+import com.hxsoft.ajitai.model.bean.ExtralsBean;
 import com.hxsoft.ajitai.ui.activity.FullyGridLayoutManager;
 import com.hxsoft.ajitai.utils.AutoLinefeedLayout;
 import com.hxsoft.ajitai.utils.DbKeyS;
 import com.hxsoft.ajitai.utils.GlideControl;
+import com.hxsoft.ajitai.utils.NoLineClickSpan;
 import com.hxsoft.ajitai.utils.PrettyTime;
 import com.hxsoft.ajitai.utils.SpUtils;
 import com.luck.picture.lib.PictureSelector;
@@ -34,12 +43,14 @@ public class A_Cconscious_Adapter extends CommonAdapter<A_Conscious_Info> {
     private Context _Context;
     private Activity _Activity;
     private OnGanWuClickListener _OnGanWuClickListener;
+    private OnGanWu_HuiFuPingLun_ClickListener _OnGanWu_HuiFuPingLun_ClickListener;
 
-    public A_Cconscious_Adapter(Context context, Activity activity, List<A_Conscious_Info> data, int itemLayoutId, OnGanWuClickListener onGanWuClickListener) {
+    public A_Cconscious_Adapter(Context context, Activity activity, List<A_Conscious_Info> data, int itemLayoutId, OnGanWuClickListener onGanWuClickListener, OnGanWu_HuiFuPingLun_ClickListener onGanWu_huiFuPingLun_clickListener) {
         super(context, data, itemLayoutId);
         _Context = context;
         _Activity = activity;
         _OnGanWuClickListener = onGanWuClickListener;
+        _OnGanWu_HuiFuPingLun_ClickListener = onGanWu_huiFuPingLun_clickListener;
     }
 
     @Override
@@ -64,7 +75,17 @@ public class A_Cconscious_Adapter extends CommonAdapter<A_Conscious_Info> {
         LinearLayout PingLunLL = (LinearLayout) helper.getView(R.id.PingLunLL);
         LinearLayout JiaoHuLL = (LinearLayout) helper.getView(R.id.JiaoHuLL);
         LinearLayout commentsLL = (LinearLayout) helper.getView(R.id.commentsLL);
+        LinearLayout ZhuanFa_LL = (LinearLayout) helper.getView(R.id.ZhuanFa_LL);
 
+
+        ZhuanFa_LL.setTag(R.id.one, item);
+        ZhuanFa_LL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                A_Conscious_Info a_conscious_info = (A_Conscious_Info) v.getTag(R.id.one);
+                _OnGanWuClickListener.OnClick(5, a_conscious_info);
+            }
+        });
 
         FenXiang_LL.setTag(R.id.one, item);
         FenXiang_LL.setOnClickListener(new View.OnClickListener() {
@@ -145,24 +166,31 @@ public class A_Cconscious_Adapter extends CommonAdapter<A_Conscious_Info> {
         //region 图片
         AutoLinefeedLayout PicAutoLinefeedLayout = (AutoLinefeedLayout) helper.getView(R.id.PicAutoLinefeedLayout);
         PicAutoLinefeedLayout.removeAllViews();
-        if (item.getExtrals().size() > 0) {
-            for (int i = 0; i < item.getExtrals().size(); i++) {
+
+        ArrayList<ExtralsBean> yuanshiImgs = item.getExtrals();
+//        if (item.getRelayObject() == null) {
+//            yuanshiImgs = item.getExtrals();
+//        } else {
+//            yuanshiImgs = item.getRelayObject().getExtrals();
+//        }
+        if (yuanshiImgs.size() > 0) {
+            for (int i = 0; i < yuanshiImgs.size(); i++) {
                 View a_item_ganwu_pic = View.inflate(_Context, R.layout.a_item_ganwu_pic, null);
                 ImageView ganwuIV = (ImageView) a_item_ganwu_pic.findViewById(R.id.ganwuIV);
-                GlideControl.SetImage(_Context, item.getExtrals().get(i).getUri(), ganwuIV, R.mipmap.jiazaiing);
+                GlideControl.SetImage(_Context, yuanshiImgs.get(i).getUri(), ganwuIV, R.mipmap.jiazaiing);
                 PicAutoLinefeedLayout.addView(a_item_ganwu_pic);
 
-                ganwuIV.setTag(R.id.one, item.getExtrals());
+                ganwuIV.setTag(R.id.one, yuanshiImgs);
                 ganwuIV.setTag(R.id.two, i);
                 ganwuIV.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        ArrayList<A_Conscious_Info.ExtralsBean> extralsBeanArrayList = (ArrayList<A_Conscious_Info.ExtralsBean>) v.getTag(R.id.one);
+                        ArrayList<ExtralsBean> extralsBeanArrayList = (ArrayList<ExtralsBean>) v.getTag(R.id.one);
                         List<LocalMedia> selectList_Detail = new ArrayList<>();
                         if (extralsBeanArrayList != null) {
 
                             for (int i = 0; i < extralsBeanArrayList.size(); i++) {
-                                A_Conscious_Info.ExtralsBean extralsBean = extralsBeanArrayList.get(i);
+                                ExtralsBean extralsBean = extralsBeanArrayList.get(i);
                                 LocalMedia localMedia = new LocalMedia();
                                 localMedia.setChecked(false);
                                 localMedia.setCut(false);
@@ -215,17 +243,148 @@ public class A_Cconscious_Adapter extends CommonAdapter<A_Conscious_Info> {
 
             for (int i = 0; i < item.getComments().size(); i++) {
                 A_Conscious_Info.CommentsBean commentsBean = item.getComments().get(i);
-                View a_item_ganwu_pinglun = View.inflate(_Context, R.layout.a_item_ganwu_pinglun, null);
-                TextView nicknameTV = (TextView) a_item_ganwu_pinglun.findViewById(R.id.nicknameTV);
-                TextView contentTV = (TextView) a_item_ganwu_pinglun.findViewById(R.id.contentTV);
 
-                nicknameTV.setText(commentsBean.getNickname() + ":");
-                contentTV.setText(commentsBean.getContent());
+                if (commentsBean.getReplyid() == 0) {
+                    View a_item_ganwu_pinglun = View.inflate(_Context, R.layout.a_item_ganwu_pinglun, null);
+                    LinearLayout ganWuPingLunLL = (LinearLayout) a_item_ganwu_pinglun.findViewById(R.id.ganWuPingLunLL);
+                    TextView nicknameTV = (TextView) a_item_ganwu_pinglun.findViewById(R.id.nicknameTV);
+                    TextView contentTV = (TextView) a_item_ganwu_pinglun.findViewById(R.id.contentTV);
 
-                commentsLL.addView(a_item_ganwu_pinglun);
+                    nicknameTV.setText(commentsBean.getNickname() + ":");
+                    contentTV.setText(commentsBean.getContent());
+
+                    ganWuPingLunLL.setTag(R.id.one, commentsBean);
+                    ganWuPingLunLL.setTag(R.id.two, item);
+                    ganWuPingLunLL.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            A_Conscious_Info.CommentsBean commentsBean1 = (A_Conscious_Info.CommentsBean) v.getTag(R.id.one);
+                            A_Conscious_Info a_conscious_info = (A_Conscious_Info) v.getTag(R.id.two);
+                            _OnGanWu_HuiFuPingLun_ClickListener.OnClick(4, a_conscious_info, commentsBean1);
+                        }
+                    });
+                    commentsLL.addView(a_item_ganwu_pinglun);
+                } else {
+                    View a_item_ganwu_pinglun = View.inflate(_Context, R.layout.a_item_ganwu_huifupinglun, null);
+                    LinearLayout ganWuPingLunLL = (LinearLayout) a_item_ganwu_pinglun.findViewById(R.id.ganWuPingLunLL);
+                    TextView nicknameTV = (TextView) a_item_ganwu_pinglun.findViewById(R.id.nicknameTV);
+                    TextView replynicknameTV = (TextView) a_item_ganwu_pinglun.findViewById(R.id.replynicknameTV);
+                    TextView contentTV = (TextView) a_item_ganwu_pinglun.findViewById(R.id.contentTV);
+
+                    nicknameTV.setText(commentsBean.getNickname());
+                    contentTV.setText(commentsBean.getContent());
+                    replynicknameTV.setText(commentsBean.getReplynickname() + ":");
+
+                    ganWuPingLunLL.setTag(R.id.one, commentsBean);
+                    ganWuPingLunLL.setTag(R.id.two, item);
+                    ganWuPingLunLL.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            A_Conscious_Info.CommentsBean commentsBean1 = (A_Conscious_Info.CommentsBean) v.getTag(R.id.one);
+                            A_Conscious_Info a_conscious_info = (A_Conscious_Info) v.getTag(R.id.two);
+                            _OnGanWu_HuiFuPingLun_ClickListener.OnClick(4, a_conscious_info, commentsBean1);
+                        }
+                    });
+                    commentsLL.addView(a_item_ganwu_pinglun);
+                }
+
 
             }
         }
+        //endregion
+
+        //region 转发内容
+        LinearLayout relayLL = (LinearLayout) helper.getView(R.id.relayLL);
+        TextView RelayContentTV = (TextView) helper.getView(R.id.RelayContentTV);
+        AutoLinefeedLayout RelayImgAutoLinefeedLayout = (AutoLinefeedLayout) helper.getView(R.id.RelayImgAutoLinefeedLayout);
+        if (item.getRelayObject() == null) {
+            relayLL.setVisibility(View.GONE);
+        } else {
+            relayLL.setVisibility(View.VISIBLE);
+//            PicAutoLinefeedLayout.setVisibility(View.GONE);
+            RelayContentTV.setText("");
+            String name = "@" + item.getRelayObject().getNickname() + ":";
+            String content = item.getRelayObject().getContent();
+            SpannableString spStr = new SpannableString(name + content);
+//            NoLineClickSpan clickSpan = new NoLineClickSpan("#268F83"); //设置超链接
+            NoLineClickSpan clickSpan2 = new NoLineClickSpan("#268F83") {
+                @Override
+                public void onClick(View widget) {
+                    Toast.makeText(_Context, name, Toast.LENGTH_SHORT).show();
+                }
+            }; //设置超链接
+//            spStr.setSpan(clickSpan, 0, name.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+            spStr.setSpan(clickSpan2, 0, name.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+            RelayContentTV.append(spStr);
+            RelayContentTV.setMovementMethod(LinkMovementMethod.getInstance());
+            //设置文本不高亮，如果需要点击后高亮文本，删掉这句即可
+//            RelayContentTV.setHighlightColor(Color.parseColor("#00000000"));
+
+            ArrayList<ExtralsBean> zhuanfaImgs = item.getRelayObject().getExtrals();
+            RelayImgAutoLinefeedLayout.removeAllViews();
+            if (zhuanfaImgs.size() > 0) {
+                for (int i = 0; i < zhuanfaImgs.size(); i++) {
+                    View a_item_ganwu_pic = View.inflate(_Context, R.layout.a_item_ganwu_pic, null);
+                    ImageView ganwuIV = (ImageView) a_item_ganwu_pic.findViewById(R.id.ganwuIV);
+                    GlideControl.SetImage(_Context, zhuanfaImgs.get(i).getUri(), ganwuIV, R.mipmap.jiazaiing);
+                    RelayImgAutoLinefeedLayout.addView(a_item_ganwu_pic);
+
+                    ganwuIV.setTag(R.id.one, zhuanfaImgs);
+                    ganwuIV.setTag(R.id.two, i);
+                    ganwuIV.setOnClickListener(new View.OnClickListener() {
+                        @Override
+                        public void onClick(View v) {
+                            ArrayList<ExtralsBean> extralsBeanArrayList = (ArrayList<ExtralsBean>) v.getTag(R.id.one);
+                            List<LocalMedia> selectList_Detail = new ArrayList<>();
+                            if (extralsBeanArrayList != null) {
+
+                                for (int i = 0; i < extralsBeanArrayList.size(); i++) {
+                                    ExtralsBean extralsBean = extralsBeanArrayList.get(i);
+                                    LocalMedia localMedia = new LocalMedia();
+                                    localMedia.setChecked(false);
+                                    localMedia.setCut(false);
+                                    localMedia.setCompressed(false);
+                                    localMedia.setPath(extralsBean.getUri());
+                                    localMedia.setMimeType(extralsBean.getType());
+                                    selectList_Detail.add(localMedia);
+
+
+                                }
+                            }
+
+                            int Index = (int) v.getTag(R.id.two);
+
+                            LocalMedia media = selectList_Detail.get(Index);
+                            int mediaType = media.getMimeType();
+                            switch (mediaType) {
+                                case 1:
+//                            Intent intent = new Intent(getContext(), W_KuFangJianKong_Detail_Activity.class);
+//                            intent.putExtra("url", media.getPath());
+//                            startActivity(intent);
+                                    // 预览视频
+//                            PictureSelector.create(getActivity()).externalPictureVideo(media.getPath());
+//                            OpenVideo(media.getPath());
+                                    break;
+                                case 2:
+                                    // 预览图片 可自定长按保存路径
+                                    PictureSelector.create(_Activity).themeStyle(R.style.picture_default_style).openExternalPreview(Index, "/custom_file", selectList_Detail);
+//                                PictureSelector.create(_Activity).externalPicturePreview(Index, selectList_Detail);
+                                    break;
+
+                                case 3:
+                                    // 预览音频
+                                    PictureSelector.create(_Activity).externalPictureAudio(media.getPath());
+                                    break;
+
+                            }
+
+                        }
+                    });
+                }
+            }
+        }
+
+
         //endregion
 
         if (isJiaoHu == true)

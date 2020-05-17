@@ -105,6 +105,31 @@
 
                 </com.hxsoft.ajitai.utils.AutoLinefeedLayout>
 
+                <LinearLayout
+                    android:id="@+id/relayLL"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginRight="25dp"
+                    android:background="@drawable/sysbtn_f2f2f2_4_shape"
+                    android:orientation="vertical"
+                    android:padding="10dp">
+
+                    <TextView
+                        android:id="@+id/RelayContentTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="" />
+
+                    <com.hxsoft.ajitai.utils.AutoLinefeedLayout
+                        android:id="@+id/RelayImgAutoLinefeedLayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="10dp"
+                        android:layout_marginRight="25dp"
+                        android:layout_marginBottom="5dp">
+
+                    </com.hxsoft.ajitai.utils.AutoLinefeedLayout>
+                </LinearLayout>
 
                 <!--转发分享等-->
 
@@ -267,7 +292,7 @@
 
                     <LinearLayout
                         android:id="@+id/commentsLL"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
                         android:layout_marginTop="5dp"
                         android:orientation="vertical">

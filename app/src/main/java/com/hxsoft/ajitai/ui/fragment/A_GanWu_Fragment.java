@@ -2,37 +2,47 @@ package com.hxsoft.ajitai.ui.fragment;
 
 import android.app.DialogFragment;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.text.SpannableString;
+import android.text.Spanned;
+import android.text.method.LinkMovementMethod;
+import android.text.style.ClickableSpan;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
+import android.widget.Toast;
 
 import com.google.gson.Gson;
 import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.adapter.A_Cconscious_Adapter;
 import com.hxsoft.ajitai.base.MvpFragment;
 import com.hxsoft.ajitai.model.Inf.OnGanWuClickListener;
+import com.hxsoft.ajitai.model.Inf.OnGanWu_HuiFuPingLun_ClickListener;
 import com.hxsoft.ajitai.model.bean.A_Conscious_Info;
 import com.hxsoft.ajitai.model.bean.A_Conscious_Total_Info;
 import com.hxsoft.ajitai.model.bean.A_User_Info;
 import com.hxsoft.ajitai.model.info.CommentConscious_Bean;
+import com.hxsoft.ajitai.model.info.CommentreplyConscious_Bean;
 import com.hxsoft.ajitai.present.A_GanWu_Present;
 import com.hxsoft.ajitai.ui.activity.A_Activity_GanWu_FaBuGanWu;
 import com.hxsoft.ajitai.ui.activity.A_Activity_GanWu_GuanZhuHaoYou;
+import com.hxsoft.ajitai.ui.activity.A_Activity_GanWu_ZhuanFa;
 import com.hxsoft.ajitai.ui.view.A_GanWu_View;
 import com.hxsoft.ajitai.utils.CheckControl_Dialog_GanWu_FenXiang;
 import com.hxsoft.ajitai.utils.DbKeyS;
 import com.hxsoft.ajitai.utils.DownLoadFileManager;
 import com.hxsoft.ajitai.utils.ListData_Control_Normal;
+import com.hxsoft.ajitai.utils.NoLineClickSpan;
 import com.hxsoft.ajitai.utils.SpUtils;
 import com.hxsoft.ajitai.widget.PullLoadMoreListView;
 import com.hxsoft.ajitai.wxapi.WXAPI;
 
 import java.util.ArrayList;
-import java.util.TreeMap;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -53,6 +63,8 @@ public class A_GanWu_Fragment extends MvpFragment<A_GanWu_Present> implements A_
     RelativeLayout FaBuGanWuRL;
     @Bind(R.id.DataListView)
     PullLoadMoreListView DataListView;
+    @Bind(R.id.TestTV)
+    TextView TestTV;
     private int page = 1;
     private int size = 10;
     private A_Cconscious_Adapter adapter;
@@ -81,6 +93,27 @@ public class A_GanWu_Fragment extends MvpFragment<A_GanWu_Present> implements A_
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+
+
+//        TestTV.setText("这是一个spannable文本：");
+//
+//        SpannableString spStr = new SpannableString("sunflowerseat的博客:http://my.csdn.net/Fancy_xty");
+//        String s1 = "sunflowerseat";
+//        String s2 = "http://my.csdn.net/Fancy_xty";
+//        NoLineClickSpan clickSpan = new NoLineClickSpan("#268F83"); //设置超链接
+//        ClickableSpan clickSpan2 = new ClickableSpan() {
+//            @Override
+//            public void onClick(View widget) {
+//                Toast.makeText(getContext(), "你点击了" + s2, Toast.LENGTH_SHORT).show();
+//            }
+//        }; //设置超链接
+//        spStr.setSpan(clickSpan, 0, s1.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+//        spStr.setSpan(clickSpan2, spStr.length() - s2.length(), spStr.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+//        TestTV.append(spStr);
+//        TestTV.setMovementMethod(LinkMovementMethod.getInstance());
+//        //设置文本不高亮，如果需要点击后高亮文本，删掉这句即可
+//        TestTV.setHighlightColor(Color.parseColor("#00000000"));
+
 
 //        ImageView OperateIVOne = (ImageView) GanwuOneLL.findViewById(R.id.OperateIV);
 //        ImageView OperateIVTwo = (ImageView) GanwuTwoLL.findViewById(R.id.OperateIV);
@@ -180,7 +213,7 @@ public class A_GanWu_Fragment extends MvpFragment<A_GanWu_Present> implements A_
             public void OnClick(int type, A_Conscious_Info a_conscious_info) {
                 currentA_Conscious_Info = a_conscious_info;
 
-                //分享
+                //region 分享
                 if (type == 1) {
                     CheckControl_Dialog_GanWu_FenXiang.ShowDialog(getContext(), getActivity(), "", new CheckControl_Dialog_GanWu_FenXiang.OnCheckControl_dialogClickListener() {
                         @Override
@@ -235,8 +268,9 @@ public class A_GanWu_Fragment extends MvpFragment<A_GanWu_Present> implements A_
                         }
                     });
                 }
+                //endregion
 
-                //评论
+                //region 评论
                 if (type == 2) {
                     dialogFragment = new DefaultDialogFragment(new DefaultDialogFragment.OnSendMsgListener() {
                         @Override
@@ -246,11 +280,12 @@ public class A_GanWu_Fragment extends MvpFragment<A_GanWu_Present> implements A_
                             commentConscious_bean.setContent(msg);
                             presenter.commentConscious(commentConscious_bean, getContext());
                         }
-                    });
+                    }, "评论：" + currentA_Conscious_Info.getNickname());
                     dialogFragment.show(getActivity().getFragmentManager(), "DefaultDialogFragment");
                 }
+                //endregion
 
-                //点攒
+                //region 点攒
                 if (type == 3) {
 
                     Gson gson = new Gson();
@@ -273,6 +308,38 @@ public class A_GanWu_Fragment extends MvpFragment<A_GanWu_Present> implements A_
 
 
                 }
+                //endregion
+
+                //region 转发
+                if (type == 5) {
+
+                    Intent intent = new Intent(getContext(), A_Activity_GanWu_ZhuanFa.class);
+                    intent.putExtra("A_Conscious_Info", currentA_Conscious_Info);
+                    startActivity(intent);
+
+                }
+                //endregion
+
+
+            }
+        }, new OnGanWu_HuiFuPingLun_ClickListener() {
+            @Override
+            public void OnClick(int type, A_Conscious_Info a_conscious_info, A_Conscious_Info.CommentsBean commentsBean) {
+                currentA_Conscious_Info = a_conscious_info;
+                //region 回复评论
+                if (type == 4) {
+                    dialogFragment = new DefaultDialogFragment(new DefaultDialogFragment.OnSendMsgListener() {
+                        @Override
+                        public void SendMsg(String msg) {
+                            CommentreplyConscious_Bean commentreplyConscious_bean = new CommentreplyConscious_Bean();
+                            commentreplyConscious_bean.setCmid(commentsBean.getCmid());
+                            commentreplyConscious_bean.setContent(msg);
+                            presenter.commentreplyConscious(commentreplyConscious_bean, getContext());
+                        }
+                    }, "回复：" + commentsBean.getNickname());
+                    dialogFragment.show(getActivity().getFragmentManager(), "DefaultDialogFragment");
+                }
+                //endregion
             }
         });
 
@@ -389,7 +456,16 @@ public class A_GanWu_Fragment extends MvpFragment<A_GanWu_Present> implements A_
             dialogFragment.dismiss();
             currentA_Conscious_Info.setComments(model);
             adapter.notifyDataSetChanged();
-//            getData();
+        }
+    }
+
+    //回复评论
+    @Override
+    public void commentreplyConsciousSuccess(ArrayList<A_Conscious_Info.CommentsBean> model) {
+        if (model != null && model.size() > 0) {
+            dialogFragment.dismiss();
+            currentA_Conscious_Info.setComments(model);
+            adapter.notifyDataSetChanged();
         }
     }
 

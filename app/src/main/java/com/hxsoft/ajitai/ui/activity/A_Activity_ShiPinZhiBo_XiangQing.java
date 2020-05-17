@@ -18,9 +18,14 @@ import android.widget.TextView;
 import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.adapter.FmPagerAdapter;
 import com.hxsoft.ajitai.base.MvpActivity;
+import com.hxsoft.ajitai.model.info.A_Cvideostream_Info;
+import com.hxsoft.ajitai.present.A_ShiPinZhiBo_Present;
+import com.hxsoft.ajitai.present.A_ShiPinZhiBo_XiangQing_Present;
 import com.hxsoft.ajitai.present.LoginPresent;
 import com.hxsoft.ajitai.ui.fragment.Y_Fragment_ShiPinZhiBo_XiangQing_HuDong;
 import com.hxsoft.ajitai.ui.fragment.Y_Fragment_ShiPinZhiBo_XiangQing_ZhuBan;
+import com.hxsoft.ajitai.ui.view.A_ShiPinZhiBo_View;
+import com.hxsoft.ajitai.ui.view.A_ShiPinZhiBo_XiangQing_View;
 import com.hxsoft.ajitai.utils.CheckControl_Dialog_ShiPinZhiBoFenXiang;
 
 import java.util.ArrayList;
@@ -31,7 +36,7 @@ import butterknife.ButterKnife;
 /**
  * Created by jinxh on 16/2/1.
  */
-public class A_Activity_ShiPinZhiBo_XiangQing extends MvpActivity {
+public class A_Activity_ShiPinZhiBo_XiangQing extends MvpActivity<A_ShiPinZhiBo_XiangQing_Present> implements A_ShiPinZhiBo_XiangQing_View {
 
     @Bind(R.id.SysNameIV)
     TextView SysNameIV;
@@ -149,8 +154,8 @@ public class A_Activity_ShiPinZhiBo_XiangQing extends MvpActivity {
     }
 
     @Override
-    protected LoginPresent createPresenter() {
-        return new LoginPresent();
+    protected A_ShiPinZhiBo_XiangQing_Present createPresenter() {
+        return new A_ShiPinZhiBo_XiangQing_Present();
     }
 
     @Override
@@ -169,4 +174,13 @@ public class A_Activity_ShiPinZhiBo_XiangQing extends MvpActivity {
     }
 
 
+    @Override
+    public void cvideostreamViewSuccess(A_Cvideostream_Info model) {
+
+    }
+
+    @Override
+    public void onFailure(int code, String msg) {
+
+    }
 }

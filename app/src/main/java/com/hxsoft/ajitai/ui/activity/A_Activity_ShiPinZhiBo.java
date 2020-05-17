@@ -116,15 +116,15 @@ public class A_Activity_ShiPinZhiBo extends MvpActivity<A_ShiPinZhiBo_Present> i
             }
         });
 
-        DataListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Intent intent = new Intent(getContext(), A_Activity_XinJianShouHuoDiZhi.class);
-                intent.putExtra("type", "1");
-                intent.putExtra("RecordsBean", infoArrayList.get(position));
-                startActivity(intent);
-            }
-        });
+//        DataListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+//            @Override
+//            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//                Intent intent = new Intent(getContext(), A_Activity_XinJianShouHuoDiZhi.class);
+//                intent.putExtra("type", "1");
+//                intent.putExtra("RecordsBean", infoArrayList.get(position));
+//                startActivity(intent);
+//            }
+//        });
 
         getData();
     }

@@ -21,6 +21,26 @@ public class A_ALive_Info implements Serializable {
     private Integer status;
     private String starttime;
     private String endtime;
+    private String timelabel;
+    private String faceurl;
+
+
+    public String getTimelabel() {
+        return timelabel;
+    }
+
+    public void setTimelabel(String timelabel) {
+        this.timelabel = timelabel;
+    }
+
+    public String getFaceurl() {
+        return faceurl;
+    }
+
+    public void setFaceurl(String faceurl) {
+        this.faceurl = faceurl;
+    }
+
     private Integer number;
 
     public Integer getVid() {

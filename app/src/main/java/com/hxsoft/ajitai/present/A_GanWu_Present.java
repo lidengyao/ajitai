@@ -12,6 +12,7 @@ import com.hxsoft.ajitai.model.bean.A_Conscious_Info;
 import com.hxsoft.ajitai.model.bean.A_Conscious_Total_Info;
 import com.hxsoft.ajitai.model.bean.A_User_Info;
 import com.hxsoft.ajitai.model.info.CommentConscious_Bean;
+import com.hxsoft.ajitai.model.info.CommentreplyConscious_Bean;
 import com.hxsoft.ajitai.ui.view.A_GanWu_View;
 import com.hxsoft.ajitai.ui.view.A_WoDe_View;
 import com.hxsoft.ajitai.utils.FailOpeater;
@@ -170,6 +171,43 @@ public class A_GanWu_Present extends BasePresent<A_GanWu_View> {
             public void onCompleted() {
                 if (getView() != null) {
                     getView().dismissLoading();
+                }
+            }
+        }, context));
+    }
+
+    //回复评论
+    public void commentreplyConscious(CommentreplyConscious_Bean commentreplyConscious_bean, Context context) {
+        String tip = "A_GanWu_Present-commentreplyConsciousSuccess-回复评论\r\n";
+        FileUtils.writeLogToFile(tip);
+        Observable<ResponseBean<ArrayList<A_Conscious_Info.CommentsBean>>> observable = RetrofitClient.builderRetrofit(context).create(APIService_AJiTai.class).commentreplyConscious(commentreplyConscious_bean);
+        addIOSubscription(observable, new ApiSubscriber(new ApiCallBack<ArrayList<A_Conscious_Info.CommentsBean>>() {
+            @Override
+            public void onStart() {
+                super.onStart();
+                if (getView() != null) {
+//                    getView().showLoading();
+                }
+            }
+
+            @Override
+            public void onSuccess(ArrayList<A_Conscious_Info.CommentsBean> model) {
+                if (getView() != null) {
+                    getView().commentreplyConsciousSuccess(model);
+                }
+            }
+
+            @Override
+            public void onFailure(int code, String msg) {
+                if (getView() != null) {
+                    FailOpeater.SetFail(code, tip, msg, context);
+                }
+            }
+
+            @Override
+            public void onCompleted() {
+                if (getView() != null) {
+//                    getView().dismissLoading();
                 }
             }
         }, context));

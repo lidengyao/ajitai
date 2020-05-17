@@ -23,5 +23,8 @@ public interface A_GanWu_View extends BaseMvpView {
     //评论
     void commentConsciousSuccess(ArrayList<A_Conscious_Info.CommentsBean> model);
 
+    //回复评论
+    void commentreplyConsciousSuccess(ArrayList<A_Conscious_Info.CommentsBean> model);
+
     void onFailure(int code, String msg);
 }

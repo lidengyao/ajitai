@@ -35,7 +35,7 @@ public class A_ALive_Adapter extends CommonAdapter<A_ALive_Info> {
     public void convert(int position, ViewHolder helper, A_ALive_Info item) {
 
         ImageView zhibo_item_bg = (ImageView) helper.getView(R.id.zhibo_item_bg);
-        GlideControl.SetImage(_Context, "http://47.92.221.41/image/a_ditu3.png", zhibo_item_bg, R.mipmap.jiazaiing);
+        GlideControl.SetFilletImage(_Context, item.getFaceurl(), zhibo_item_bg, R.mipmap.jiazaiing,6);
 
         Button statusBtn = (Button) helper.getView(R.id.statusBtn);
         TextView snameTV = (TextView) helper.getView(R.id.snameTV);

@@ -14,6 +14,7 @@ import com.hxsoft.ajitai.model.info.A_ALive_Total_Info;
 import com.hxsoft.ajitai.model.info.A_Order_Info;
 import com.hxsoft.ajitai.model.info.A_Order_Total_Info;
 import com.hxsoft.ajitai.model.info.CommentConscious_Bean;
+import com.hxsoft.ajitai.model.info.CommentreplyConscious_Bean;
 import com.hxsoft.ajitai.model.info.CreateCconscious_Bean;
 import com.hxsoft.ajitai.model.info.CreateOrder_Bean;
 import com.hxsoft.ajitai.model.info.CreateOrder_Info;
@@ -199,6 +200,10 @@ public interface APIService_AJiTai {
     //评论
     @POST("conscious/cconscious/comment")
     Observable<ResponseBean<ArrayList<A_Conscious_Info.CommentsBean>>> commentConscious(@Body CommentConscious_Bean commentConscious_bean);
+
+    //回复评论
+    @POST("conscious/cconscious/commentreply")
+    Observable<ResponseBean<ArrayList<A_Conscious_Info.CommentsBean>>> commentreplyConscious(@Body CommentreplyConscious_Bean commentreplyConscious_bean);
 
     //直播列表
     @GET("course/cvideostream/alivepage")

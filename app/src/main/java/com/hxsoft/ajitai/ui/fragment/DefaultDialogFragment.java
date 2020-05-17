@@ -37,10 +37,12 @@ public class DefaultDialogFragment extends DialogFragment {
     private EditText editText;
     private Button send;
     private OnSendMsgListener _OnSendMsgListener;
+    private String _hintTxt;
 
-    public DefaultDialogFragment(OnSendMsgListener onSendMsgListener) {
+    public DefaultDialogFragment(OnSendMsgListener onSendMsgListener, String hintTxt) {
         // Required empty public constructor
         _OnSendMsgListener = onSendMsgListener;
+        _hintTxt = hintTxt;
     }
 
     @Override
@@ -64,6 +66,7 @@ public class DefaultDialogFragment extends DialogFragment {
         llRL = (RelativeLayout) view.findViewById(R.id.BottomLL);
         close = (TextView) view.findViewById(R.id.close);
         editText = (EditText) view.findViewById(R.id.edit_send_message);
+        editText.setHint(_hintTxt);
         send = (Button) view.findViewById(R.id.FaBu_Btn);
         LinearLayout RootLL = (LinearLayout) view.findViewById(R.id.RootLL);
 //        setListenerFotEditText(RootLL);

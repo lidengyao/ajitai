@@ -19,7 +19,24 @@
             android:id="@+id/nicknameTV"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text=""
+            android:text="小李"
+            android:textColor="#4D4D4D"
+            android:textSize="@dimen/textsize13" />
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:layout_marginRight="5dp"
+            android:text="回复"
+            android:textColor="#909090"
+            android:textSize="@dimen/textsize13" />
+
+        <TextView
+            android:id="@+id/replynicknameTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="小王："
             android:textColor="#4D4D4D"
             android:textSize="@dimen/textsize13" />
 
@@ -29,7 +46,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="5dp"
             android:layout_marginRight="5dp"
-            android:text=""
+            android:text="回复"
             android:textColor="#909090"
             android:textSize="@dimen/textsize13" />
     </LinearLayout>
