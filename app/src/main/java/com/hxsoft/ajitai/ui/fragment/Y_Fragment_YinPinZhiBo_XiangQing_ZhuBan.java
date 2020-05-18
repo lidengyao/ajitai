@@ -1,16 +1,16 @@
 package com.hxsoft.ajitai.ui.fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
+import android.webkit.WebView;
 
 import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.base.BasePresent;
 import com.hxsoft.ajitai.base.MvpFragment;
-import com.hxsoft.ajitai.ui.activity.A_Activity_YinPinZhiBo_XiangQing;
+import com.hxsoft.ajitai.model.info.A_Cmediaclasses_Info;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -21,6 +21,8 @@ import butterknife.ButterKnife;
 public class Y_Fragment_YinPinZhiBo_XiangQing_ZhuBan extends MvpFragment {
 
 
+    @Bind(R.id.descriptionWebView)
+    WebView descriptionWebView;
 
     @Override
     protected int getLayoutId() {
@@ -45,6 +47,9 @@ public class Y_Fragment_YinPinZhiBo_XiangQing_ZhuBan extends MvpFragment {
 
     }
 
+    public void SetData(A_Cmediaclasses_Info a_cmediaclasses_info) {
+        descriptionWebView.loadData(Html.fromHtml(a_cmediaclasses_info.getDescription()).toString(), "text/html", "UTF-8");
+    }
 
     @Override
     public void onResume() {

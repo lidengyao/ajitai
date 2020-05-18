@@ -255,6 +255,7 @@
                 </RelativeLayout>
 
                 <LinearLayout
+                    android:id="@+id/DingWeiLL"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginLeft="20dp"
@@ -267,10 +268,11 @@
                         android:src="@mipmap/a_ganwu_fabuganwu_dingwei" />
 
                     <TextView
+                        android:id="@+id/CityTV"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="5dp"
-                        android:text="呼和浩特"
+                        android:text=""
                         android:textColor="@color/C242424"
                         android:textSize="@dimen/textsize14" />
                 </LinearLayout>

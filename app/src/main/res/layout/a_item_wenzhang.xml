@@ -22,21 +22,21 @@
                 android:layout_height="match_parent">
 
                 <ImageView
-                    android:id="@+id/zhibo_item_bg"
+                    android:id="@+id/faceurlIV"
                     android:layout_width="120dp"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
                     android:src="@mipmap/a_ditu1" />
 
                 <ImageView
-                    android:visibility="gone"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentBottom="true"
                     android:layout_marginRight="7dp"
                     android:layout_marginBottom="7dp"
-                    android:src="@mipmap/a_yinyue_item_kaishi" />
+                    android:src="@mipmap/a_yinyue_item_kaishi"
+                    android:visibility="gone" />
             </RelativeLayout>
 
 
@@ -49,11 +49,12 @@
                 android:orientation="vertical">
 
                 <TextView
+                    android:id="@+id/titleTV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:ellipsize="end"
                     android:singleLine="true"
-                    android:text="催眠放松引导"
+                    android:text=""
                     android:textColor="@color/C242424"
                     android:textSize="@dimen/textsize15" />
 
@@ -84,20 +85,23 @@
                             android:src="@mipmap/a_ganwu_dianzan" />
 
                         <TextView
+                            android:id="@+id/thumbTV"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_marginLeft="7dp"
-                            android:text="8743"
+                            android:text=""
                             android:textColor="@color/CA8A8A8"
                             android:textSize="@dimen/textsize12" />
 
                     </LinearLayout>
+
                     <TextView
+                        android:id="@+id/createtimeTV"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:layout_alignParentRight="true"
                         android:text="2020-02-21"
                         android:textColor="@color/CA8A8A8"
-                        android:layout_alignParentRight="true"
                         android:textSize="@dimen/textsize12" />
 
 

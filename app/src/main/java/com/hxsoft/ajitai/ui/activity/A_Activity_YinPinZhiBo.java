@@ -10,10 +10,16 @@ import android.widget.TextView;
 
 import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.adapter.FmPagerAdapter;
+import com.hxsoft.ajitai.base.BasePresent;
 import com.hxsoft.ajitai.base.MvpActivity;
+import com.hxsoft.ajitai.model.info.A_Cmediaclasses_Total_Info;
+import com.hxsoft.ajitai.present.A_ShiPinZhiBo_Present;
+import com.hxsoft.ajitai.present.A_YinPinZhiBo_Present;
 import com.hxsoft.ajitai.present.LoginPresent;
 import com.hxsoft.ajitai.ui.fragment.Y_Fragment_YinPinZhiBo_HanYu;
 import com.hxsoft.ajitai.ui.fragment.Y_Fragment_YinPinZhiBo_MengYu;
+import com.hxsoft.ajitai.ui.view.A_ShiPinZhiBo_View;
+import com.hxsoft.ajitai.ui.view.A_YinPinZhiBo_View;
 import com.hxsoft.ajitai.utils.CheckControl_Dialog_yinpinzhibo_jianjie;
 
 import java.util.ArrayList;
@@ -66,6 +72,11 @@ public class A_Activity_YinPinZhiBo extends MvpActivity {
         });
     }
 
+    @Override
+    protected BasePresent createPresenter() {
+        return null;
+    }
+
     private void init() {
 
         y_fragment_yinPinZhiBo_mengYu = new Y_Fragment_YinPinZhiBo_MengYu();
@@ -88,11 +99,6 @@ public class A_Activity_YinPinZhiBo extends MvpActivity {
     }
 
     @Override
-    protected LoginPresent createPresenter() {
-        return new LoginPresent();
-    }
-
-    @Override
     protected void initEvent() {
         super.initEvent();
     }
@@ -106,6 +112,5 @@ public class A_Activity_YinPinZhiBo extends MvpActivity {
     protected void initView() {
         super.initView();
     }
-
 
 }

@@ -79,6 +79,11 @@ public class A_Activity_GanWu_FaBuGanWu extends MvpActivity<A_FaBuGanWu_Present>
 
     private String Longitude;
     private String Latitude;
+    public AMapLocationClient mlocationClient = null;
+    public AMapLocationClientOption mLocationOption = null;
+
+
+
     private List<LocalMedia> selectList_Add = new ArrayList<>();
     private GridImageAdapter adapterAdd;
     private String cityName;
@@ -411,8 +416,6 @@ public class A_Activity_GanWu_FaBuGanWu extends MvpActivity<A_FaBuGanWu_Present>
         dismissLoading();
     }
 
-    public AMapLocationClient mlocationClient = null;
-    public AMapLocationClientOption mLocationOption = null;
 
     private void showLocation() {
         try {

@@ -31,7 +31,7 @@
                     android:id="@+id/SysNameIV"
                     style="@style/TopBarTitleStyle"
                     android:tag="给世界一个惊喜"
-                    android:text="给世界一个惊喜"
+                    android:text="给世界一个惊喜给世界一个惊喜给世界一个惊喜给世界一个惊喜"
                     android:visibility="visible" />
 
                 <RelativeLayout
@@ -74,6 +74,7 @@
                 android:layout_height="181dp">
 
                 <ImageView
+                    android:id="@+id/faceIV"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
@@ -84,15 +85,18 @@
                     android:layout_height="27dp"
                     android:layout_alignParentBottom="true"
                     android:background="#60242424"
-                    android:gravity="center_vertical">
+                    android:gravity="center_vertical"
+                    android:orientation="horizontal">
 
                     <TextView
+                        android:id="@+id/DaoJiShiTV"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_marginLeft="20dp"
                         android:text="距离直播开始：0天0时00分60秒"
                         android:textColor="@color/color2"
                         android:textSize="@dimen/textsize14" />
+
                 </LinearLayout>
             </RelativeLayout>
 
@@ -100,20 +104,38 @@
                 android:layout_width="match_parent"
                 android:layout_height="68dp">
 
-                <TextView
+                <LinearLayout
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginLeft="27dp"
-                    android:text="在线直播互动交流（24号晚9：00）"
-                    android:textColor="@color/C242424"
-                    android:textSize="@dimen/textsize15" />
+                    android:layout_marginLeft="20dp"
+                    android:orientation="horizontal">
+
+                    <TextView
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+
+
+                        android:text="在线直播互动交流"
+                        android:textColor="@color/C242424"
+                        android:textSize="@dimen/textsize15" />
+
+                    <TextView
+                        android:id="@+id/StartTimeTV"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text=""
+                        android:textColor="@color/C242424"
+                        android:textSize="@dimen/textsize15" />
+                </LinearLayout>
+
 
                 <Button
                     android:id="@+id/BaoMingBtn"
+                    style="@style/Button_Style"
                     android:layout_width="65dp"
                     android:layout_height="32dp"
-                    android:layout_alignParentRight="true" style="@style/Button_Style"
+                    android:layout_alignParentRight="true"
                     android:layout_centerVertical="true"
                     android:layout_marginRight="20dp"
                     android:background="@drawable/sysbtn_ffe248_4_shape"
@@ -202,7 +224,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:orientation="horizontal"
-                    android:visibility="visible">
+                    android:visibility="gone">
 
                     <ImageView
                         android:layout_width="wrap_content"
@@ -228,13 +250,14 @@
 
                 <Button
                     android:id="@+id/SendBtn"
+                    style="@style/Button_Style"
                     android:layout_width="64dp"
-                    android:layout_height="32dp" style="@style/Button_Style"
+                    android:layout_height="32dp"
                     android:background="@drawable/sysbtn_ffe248_4_shape"
                     android:text="发送"
                     android:textColor="@color/C242424"
                     android:textSize="@dimen/textsize12"
-                    android:visibility="gone" />
+                    android:visibility="visible" />
             </LinearLayout>
         </RelativeLayout>
 

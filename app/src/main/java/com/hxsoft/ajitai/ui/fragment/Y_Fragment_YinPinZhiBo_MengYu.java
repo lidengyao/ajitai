@@ -1,18 +1,22 @@
 package com.hxsoft.ajitai.ui.fragment;
 
-import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
 
 import com.hxsoft.ajitai.R;
-import com.hxsoft.ajitai.base.BasePresent;
+import com.hxsoft.ajitai.adapter.A_YinPinZhiBo_Adapter;
 import com.hxsoft.ajitai.base.MvpFragment;
-import com.hxsoft.ajitai.music.ui.MusicPlayerActivity;
-import com.hxsoft.ajitai.ui.activity.A_Activity_YinPinZhiBo_XiangQing;
-import com.hxsoft.ajitai.utils.CheckControl_Dialog_yinpinzhibo_yijieshu;
+import com.hxsoft.ajitai.model.info.A_Cmediaclasses_Info;
+import com.hxsoft.ajitai.model.info.A_Cmediaclasses_Total_Info;
+import com.hxsoft.ajitai.present.A_YinPinZhiBo_Present;
+import com.hxsoft.ajitai.ui.view.A_YinPinZhiBo_View;
+import com.hxsoft.ajitai.utils.ListData_Control_Normal;
+import com.hxsoft.ajitai.widget.PullLoadMoreListView;
+
+import java.util.ArrayList;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -20,16 +24,17 @@ import butterknife.ButterKnife;
 /**
  * Created by lidengyao on 2016-10-12 0012.
  */
-public class Y_Fragment_YinPinZhiBo_MengYu extends MvpFragment {
+public class Y_Fragment_YinPinZhiBo_MengYu extends MvpFragment<A_YinPinZhiBo_Present> implements A_YinPinZhiBo_View {
 
 
-    @Bind(R.id.Item1LL)
-    LinearLayout Item1LL;
-    @Bind(R.id.Item2LL)
-    LinearLayout Item2LL;
-    @Bind(R.id.Item3LL)
-    LinearLayout Item3LL;
+    @Bind(R.id.DataListView)
+    PullLoadMoreListView DataListView;
 
+
+    private int page = 1;
+    private int size = 10;
+    private A_YinPinZhiBo_Adapter adapter;
+    private ArrayList<A_Cmediaclasses_Info> infoArrayList = new ArrayList<>();
     @Override
     protected int getLayoutId() {
         return R.layout.a_fragment_yinpinzhibo_mengyu;
@@ -50,35 +55,75 @@ public class Y_Fragment_YinPinZhiBo_MengYu extends MvpFragment {
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
+//a_item_yinpinzhibo
+//        Item1LL.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getContext(), A_Activity_YinPinZhiBo_XiangQing.class);
+//                startActivity(intent);
+//            }
+//        });
+//
+//        Item2LL.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                CheckControl_Dialog_yinpinzhibo_yijieshu.ShowDialog(getContext(), getActivity(), "", new CheckControl_Dialog_yinpinzhibo_yijieshu.OnCheckControl_dialogClickListener() {
+//                    @Override
+//                    public void OnClick(int type) {
+//
+//                    }
+//                });
+//            }
+//        });
+//
+//        Item3LL.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//                Intent intent = new Intent(getContext(), A_Activity_YinPinZhiBo_XiangQing.class);
+//                startActivity(intent);
+//            }
+//        });
+        adapter = new A_YinPinZhiBo_Adapter(getContext(), infoArrayList, R.layout.a_item_yinpinzhibo, 0);
 
-        Item1LL.setOnClickListener(new View.OnClickListener() {
+        DataListView.setAdapter(adapter);
+        DataListView.setOnPullLoadMoreListener(new PullLoadMoreListView.PullLoadMoreListener() {
             @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), A_Activity_YinPinZhiBo_XiangQing.class);
-                startActivity(intent);
-            }
-        });
+            public void onRefresh() {
 
-        Item2LL.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                CheckControl_Dialog_yinpinzhibo_yijieshu.ShowDialog(getContext(), getActivity(), "", new CheckControl_Dialog_yinpinzhibo_yijieshu.OnCheckControl_dialogClickListener() {
+                page = 1;
+                getData();
+
+                new Handler().postDelayed(new Runnable() {
                     @Override
-                    public void OnClick(int type) {
+                    public void run() {
 
                     }
-                });
+                }, 500);
+
+            }
+
+            @Override
+            public void onLoadMore() {
+                page += 1;
+                getData();
+
+                new Handler().postDelayed(new Runnable() {
+                    @Override
+                    public void run() {
+
+                    }
+                }, 500);
             }
         });
 
-        Item3LL.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(getContext(), A_Activity_YinPinZhiBo_XiangQing.class);
-                startActivity(intent);
-            }
-        });
+        getData();
     }
+
+    private void getData() {
+        presenter.cmediaclassesPageSuccess(page, size, 2, getContext());
+    }
+
+
 
 
     @Override
@@ -98,8 +143,22 @@ public class Y_Fragment_YinPinZhiBo_MengYu extends MvpFragment {
     }
 
     @Override
-    protected BasePresent createPresenter() {
-        return null;
+    protected A_YinPinZhiBo_Present createPresenter() {
+        return new A_YinPinZhiBo_Present();
     }
 
+    @Override
+    public void cmediaclassesPageSuccess(A_Cmediaclasses_Total_Info model) {
+        SetData(model.getRecords());
+    }
+
+    private void SetData(final ArrayList<A_Cmediaclasses_Info> model) {
+        infoArrayList = new ListData_Control_Normal().BandData(infoArrayList, model, this.page, this.size, adapter, DataListView, getActivity(), getContext());
+    }
+
+
+    @Override
+    public void onFailure(int code, String msg) {
+        showMessage(msg);
+    }
 }

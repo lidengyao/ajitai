@@ -11,8 +11,18 @@ import com.hxsoft.ajitai.model.bean.A_OauthTokenBean;
 import com.hxsoft.ajitai.model.bean.A_PushChecknumBean;
 import com.hxsoft.ajitai.model.bean.A_User_Info;
 import com.hxsoft.ajitai.model.info.A_ALive_Total_Info;
+import com.hxsoft.ajitai.model.info.A_Carticlecomment_Total_Info;
+import com.hxsoft.ajitai.model.info.A_Caudiocomment_Total_Info;
+import com.hxsoft.ajitai.model.info.A_Cmediaclasses_Info;
+import com.hxsoft.ajitai.model.info.A_Cmediaclasses_Total_Info;
+import com.hxsoft.ajitai.model.info.A_Cvideocomment_Total_Info;
+import com.hxsoft.ajitai.model.info.A_Cvideostream_Info;
 import com.hxsoft.ajitai.model.info.A_Order_Info;
 import com.hxsoft.ajitai.model.info.A_Order_Total_Info;
+import com.hxsoft.ajitai.model.info.A_addcomment_Bean;
+import com.hxsoft.ajitai.model.info.A_carticlecomment_Bean;
+import com.hxsoft.ajitai.model.info.A_caudiocomment_Bean;
+import com.hxsoft.ajitai.model.info.Carticle_Info;
 import com.hxsoft.ajitai.model.info.CommentConscious_Bean;
 import com.hxsoft.ajitai.model.info.CommentreplyConscious_Bean;
 import com.hxsoft.ajitai.model.info.CreateCconscious_Bean;
@@ -24,6 +34,7 @@ import com.hxsoft.ajitai.model.info.Cuserreceipt_Info;
 import com.hxsoft.ajitai.model.info.KeCheng_Info;
 import com.hxsoft.ajitai.model.info.OauthToken_Info;
 import com.hxsoft.ajitai.model.info.Sysarea_Info;
+import com.hxsoft.ajitai.model.info.WenZhang_Total_Info;
 
 import java.util.ArrayList;
 
@@ -208,4 +219,107 @@ public interface APIService_AJiTai {
     //直播列表
     @GET("course/cvideostream/alivepage")
     Observable<ResponseBean<A_ALive_Total_Info>> cvideostreamAlivepage();
+
+    //直播详情(APP)
+    @GET("course/cvideostream/view/{vid}")
+    Observable<ResponseBean<A_Cvideostream_Info>> courseCvideostreamView(@Path("vid") Integer vid);
+
+    //参加直播(APP)
+    @GET("course/cvideostream/attend/{vid}")
+    Observable<ResponseBean<Boolean>> cvideostreamAttend(@Path("vid") Integer vid);
+
+    //取消参加详情(APP)
+    @GET("course/cvideostream/cancle/{vid}")
+    Observable<ResponseBean<Boolean>> cvideostreamCancle(@Path("vid") Integer vid);
+
+    //进入直播间(APP)
+    @GET("course/cvideostream/enter/{vid}")
+    Observable<ResponseBean<Boolean>> cvideostreamEnter(@Path("vid") Integer vid);
+
+    //离开直播间(APP)
+    @GET("course/cvideostream/leave/{vid}")
+    Observable<ResponseBean<Boolean>> cvideostreamLeave(@Path("vid") Integer vid);
+
+
+    //直播添加评论(APP)
+    @POST("course/cvideocomment/addcomment")
+    Observable<ResponseBean<Boolean>> cvideocommentAddcomment(@Body A_addcomment_Bean a_addcomment_bean);
+
+
+    //直播评论分页查询(APP)
+    @GET("course/cvideocomment/page/{vid}")
+    Observable<ResponseBean<A_Cvideocomment_Total_Info>> cvideostreamPage(@Path("vid") Integer vid, @Query("page") Integer page,
+                                                                          @Query("size") Integer size);
+
+    //心灵甘露列表(APP)
+    @GET("course/carticle/heartnectar")
+    Observable<ResponseBean<WenZhang_Total_Info>> heartnectarPage(@Query("page") Integer page,
+                                                                  @Query("size") Integer size);
+
+    //心灵甘露详情(APP)
+    @GET("course/carticle/{aid}")
+    Observable<ResponseBean<Carticle_Info>> carticleDetail(@Path("aid") Integer aid);
+
+
+    //心灵甘露-评论(APP)
+    @GET("course/carticlecomment/page/{aid}")
+    Observable<ResponseBean<A_Carticlecomment_Total_Info>> carticlecommentPage(@Path("aid") Integer aid, @Query("page") Integer page,
+                                                                               @Query("size") Integer size);
+
+    //添加评论(APP)
+    @POST("course/carticlecomment/addcomment")
+    Observable<ResponseBean<Boolean>> carticlecommentAddcomment(@Body A_carticlecomment_Bean a_carticlecomment_bean);
+
+
+    //文章点攒(APP)
+    @POST("course/carticle/heartnectar/thumb/{articleId}")
+    Observable<ResponseBean<Boolean>> heartnectarThumb(@Path("articleId") Integer articleId);
+
+    //文章取消点攒(APP)
+    @POST("course/carticle/heartnectar/canclethumb/{articleId}")
+    Observable<ResponseBean<Boolean>> heartnectarcancleThumb(@Path("articleId") Integer articleId);
+
+
+    //文章阅读(APP)
+    @POST("course/carticle/heartnectar/click/{articleId}")
+    Observable<ResponseBean<Boolean>> heartnectarClick(@Path("articleId") Integer articleId);
+
+
+    //音频直播列表
+    @GET("course/cmediaclasses/page")
+    Observable<ResponseBean<A_Cmediaclasses_Total_Info>> cmediaclassesPage(@Query("page") Integer page,
+                                                                           @Query("size") Integer size,
+                                                                           @Query("skind") Integer skind);
+
+    //音频直播详情(APP)
+    @GET("course/cmediaclasses/{cid}")
+    Observable<ResponseBean<A_Cmediaclasses_Info>> cmediaclasses(@Path("cid") Integer cid);
+
+    //参加音频直播(APP)
+    @GET("course/cmediaclasses/attend/{cid}")
+    Observable<ResponseBean<Boolean>> cmediaclassesAttend(@Path("cid") Integer cid);
+
+    //取消参加详情(APP)
+    @GET("course/cmediaclasses/cancle/{cid}")
+    Observable<ResponseBean<Boolean>> cmediaclassesCancle(@Path("cid") Integer cid);
+
+    //进入直播间(APP)
+    @GET("course/cmediaclasses/enter/{cid}")
+    Observable<ResponseBean<Boolean>> cmediaclassesEnter(@Path("cid") Integer cid);
+
+    //离开直播间(APP)
+    @GET("course/cmediaclasses/leave/{cid}")
+    Observable<ResponseBean<Boolean>> cmediaclassesLeave(@Path("cid") Integer cid);
+
+
+    //直播添加评论(APP)
+    @POST("course/caudiocomment/addcomment")
+    Observable<ResponseBean<Boolean>> caudiocommentAddcomment(@Body A_caudiocomment_Bean  a_caudiocomment_bean);
+
+
+    //直播评论分页查询(APP)
+    @GET("course/caudiocomment/page/{vid}")
+    Observable<ResponseBean<A_Caudiocomment_Total_Info>> caudiocommentPage(@Path("vid") Integer vid, @Query("page") Integer page,
+                                                                           @Query("size") Integer size);
+
 }

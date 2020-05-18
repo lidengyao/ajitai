@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
+    android:id="@+id/YinPinLL"
     android:layout_height="match_parent"
     android:background="@color/color2"
     android:orientation="vertical">
@@ -23,16 +24,18 @@
                 android:layout_height="170dp">
 
                 <ImageView
-                    android:id="@+id/zhibo_item_bg"
+                    android:id="@+id/faceurlIV"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
                     android:src="@mipmap/a_ditu1" />
 
                 <Button
+                    android:id="@+id/timelabelBtn"
+                    style="@style/Button_Style"
                     android:layout_width="wrap_content"
                     android:layout_height="25dp"
-                    android:layout_alignParentRight="true" style="@style/Button_Style"
+                    android:layout_alignParentRight="true"
                     android:layout_marginTop="10dp"
                     android:layout_marginRight="10dp"
                     android:background="@drawable/sysbtn_gray_222222_40_4_shape"
@@ -43,8 +46,10 @@
                     android:textSize="@dimen/textsize12" />
 
                 <Button
+                    android:id="@+id/statusBtn"
+                    style="@style/Button_Style"
                     android:layout_width="47dp"
-                    android:layout_height="25dp" style="@style/Button_Style"
+                    android:layout_height="25dp"
                     android:layout_alignParentRight="true"
                     android:layout_alignParentBottom="true"
                     android:layout_marginRight="10dp"
@@ -62,11 +67,12 @@
                 android:layout_marginTop="10dp">
 
                 <TextView
+                    android:id="@+id/classnameTV"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
                     android:layout_marginLeft="10dp"
-                    android:text="《心身互动养生健康教育讲座》"
+                    android:text=""
                     android:textColor="@color/C242424"
                     android:textSize="@dimen/textsize15" />
 
@@ -81,9 +87,10 @@
 
 
                     <TextView
+                        android:id="@+id/joinnumberTV"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:text="14901"
+                        android:text=""
                         android:textColor="@color/CA8A8A8"
                         android:textSize="@dimen/textsize12" />
 

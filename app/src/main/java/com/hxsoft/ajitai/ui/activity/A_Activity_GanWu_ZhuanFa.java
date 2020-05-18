@@ -8,6 +8,10 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.amap.api.location.AMapLocation;
+import com.amap.api.location.AMapLocationClient;
+import com.amap.api.location.AMapLocationClientOption;
+import com.amap.api.location.AMapLocationListener;
 import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.base.MvpActivity;
 import com.hxsoft.ajitai.model.bean.A_Conscious_Info;
@@ -22,7 +26,7 @@ import butterknife.ButterKnife;
 /**
  * Created by jinxh on 16/2/1.
  */
-public class A_Activity_GanWu_ZhuanFa extends MvpActivity<A_ZhuanFaGanWu_Present> implements A_ZhuanFaGanWu_View {
+public class A_Activity_GanWu_ZhuanFa extends MvpActivity<A_ZhuanFaGanWu_Present> implements A_ZhuanFaGanWu_View, AMapLocationListener {
 
 
     @Bind(R.id.SysNameIV)
@@ -51,7 +55,19 @@ public class A_Activity_GanWu_ZhuanFa extends MvpActivity<A_ZhuanFaGanWu_Present
     LinearLayout BottomLL;
     @Bind(R.id.ZhuanFaContentET)
     EditText ZhuanFaContentET;
+    @Bind(R.id.DingWeiLL)
+    LinearLayout DingWeiLL;
+    @Bind(R.id.CityTV)
+    TextView CityTV;
+
+
     private A_Conscious_Info a_conscious_info;
+    private String Longitude;
+    private String Latitude;
+    public AMapLocationClient mlocationClient = null;
+    public AMapLocationClientOption mLocationOption = null;
+    private String cityName;
+
 
     @Override
     protected int getLayoutId() {
@@ -67,6 +83,8 @@ public class A_Activity_GanWu_ZhuanFa extends MvpActivity<A_ZhuanFaGanWu_Present
         a_conscious_info = (A_Conscious_Info) getIntent().getSerializableExtra("A_Conscious_Info");
 
 
+        //开始定位
+        showLocation();
         if (a_conscious_info.getRelayObject() == null) {
             if (a_conscious_info.getExtrals().size() > 0) {
                 ZhuanFaIV.setVisibility(View.VISIBLE);
@@ -83,6 +101,17 @@ public class A_Activity_GanWu_ZhuanFa extends MvpActivity<A_ZhuanFaGanWu_Present
                 GlideControl.SetImage(getContext(), a_conscious_info.getRelayObject().getExtrals().get(0).getUri(), ZhuanFaIV, R.mipmap.jiazaiing);
                 ContentTV.setText(a_conscious_info.getRelayObject().getContent());
                 ZuoZheTV.setText("@" + a_conscious_info.getNickname());
+
+                String replayTxt = "//";
+
+                for (int i = 0; i < a_conscious_info.getRelayObject().getReplylist().size(); i++) {
+                    if (i != a_conscious_info.getRelayObject().getReplylist().size() - 1) {
+                        A_Conscious_Info.relayObjectBean.ReplylistBean replylistBean = a_conscious_info.getRelayObject().getReplylist().get(i);
+                        replayTxt += "@" + replylistBean.getNickname() + ":" + replylistBean.getContent();
+                    }
+                }
+                ZhuanFaContentET.setText(replayTxt);
+                ZhuanFaContentET.setSelection(0);
 
             } else {
                 ZhuanFaIV.setVisibility(View.GONE);
@@ -101,11 +130,28 @@ public class A_Activity_GanWu_ZhuanFa extends MvpActivity<A_ZhuanFaGanWu_Present
                 CreateCconscious_Bean createCconscious_bean = new CreateCconscious_Bean();
 
                 createCconscious_bean.setContent(ZhuanFaContentET.getText().toString());
-                createCconscious_bean.setPosition("测试位置");
+                createCconscious_bean.setPosition(cityName);
                 createCconscious_bean.setRelaycid(a_conscious_info.getCid());
                 mPresenter.postConscious(createCconscious_bean, getContext());
             }
         });
+    }
+
+    private void showLocation() {
+        try {
+            mlocationClient = new AMapLocationClient(this);
+            mLocationOption = new AMapLocationClientOption();
+            mlocationClient.setLocationListener(this);
+            //设置定位模式为高精度模式，Battery_Saving为低功耗模式，Device_Sensors是仅设备模式
+            mLocationOption.setLocationMode(AMapLocationClientOption.AMapLocationMode.Hight_Accuracy);
+            mLocationOption.setInterval(5000);
+            //设置定位参数
+            mlocationClient.setLocationOption(mLocationOption);
+            //启动定位
+            mlocationClient.startLocation();
+        } catch (Exception e) {
+
+        }
     }
 
     @Override
@@ -138,5 +184,30 @@ public class A_Activity_GanWu_ZhuanFa extends MvpActivity<A_ZhuanFaGanWu_Present
     @Override
     public void onFailure(int code, String msg) {
         showMessage(msg);
+    }
+
+    @Override
+    public void onLocationChanged(AMapLocation amapLocation) {
+        try {
+            if (amapLocation != null) {
+                DingWeiLL.setVisibility(View.VISIBLE);
+                if (amapLocation.getErrorCode() == 0) {
+                    Longitude = amapLocation.getLongitude() + "";
+                    Latitude = amapLocation.getLatitude() + "";
+                    //定位成功回调信息，设置相关消息
+                    cityName = amapLocation.getProvince() + amapLocation.getCity() + amapLocation.getDistrict();
+                    CityTV.setTextColor(getResources().getColor(R.color.C242424));
+                    CityTV.setText(cityName);
+                } else {
+                    CityTV.setText("定位失败");
+                    CityTV.setTextColor(getResources().getColor(R.color.sysorange));
+                    //定位失败时，可通过ErrCode（错误码）信息来确定失败的原因，errInfo是错误信息，详见错误码表。
+                }
+
+                // 停止定位
+                mlocationClient.stopLocation();
+            }
+        } catch (Exception e) {
+        }
     }
 }

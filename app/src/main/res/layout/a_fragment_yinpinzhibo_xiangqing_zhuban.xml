@@ -6,6 +6,7 @@
 
 
     <ScrollView
+        android:visibility="gone"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
@@ -34,5 +35,10 @@
         </LinearLayout>
     </ScrollView>
 
+    <WebView
+        android:id="@+id/descriptionWebView"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
 
+    </WebView>
 </LinearLayout>

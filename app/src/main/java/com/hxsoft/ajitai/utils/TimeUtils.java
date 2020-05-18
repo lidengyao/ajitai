@@ -2,6 +2,7 @@ package com.hxsoft.ajitai.utils;
 
 import android.util.Log;
 
+import java.text.DateFormat;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.Date;
@@ -135,4 +136,19 @@ public class TimeUtils {
         String dateString = simpleDateFormat.format(new Date());
         return dateString;
     }
+
+    public static Date parseTimeString2Date(String timeString) {
+        if ((timeString == null) || (timeString.equals(""))) {
+            return null;
+        }
+        Date date = null;
+        DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+        try {
+            date = new Date(dateFormat.parse(timeString).getTime());
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
+        return date;
+    }
+
 }

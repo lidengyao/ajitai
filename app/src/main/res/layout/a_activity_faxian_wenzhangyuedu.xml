@@ -45,7 +45,6 @@
                         android:layout_marginLeft="14dp"
                         android:background="@null"
                         android:hint="搜索"
-                        android:text="哈哈"
                         android:textColor="@color/C242424"
                         android:textSize="@dimen/textsize12" />
                 </LinearLayout>
@@ -80,28 +79,12 @@
     </android.support.v7.widget.Toolbar>
 
 
-    <ScrollView
+
+    <com.hxsoft.ajitai.widget.PullLoadMoreListView
+        android:id="@+id/DataListView"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_marginTop="12dp"
+        android:divider="@null" />
 
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_marginTop="16dp"
-            android:orientation="vertical">
-
-            <include layout="@layout/a_item_wenzhang"></include>
-
-            <include layout="@layout/a_item_wenzhang"></include>
-
-            <include layout="@layout/a_item_wenzhang"></include>
-
-            <include layout="@layout/a_item_wenzhang"></include>
-
-            <include layout="@layout/a_item_wenzhang"></include>
-
-            <include layout="@layout/a_item_wenzhang"></include>
-
-        </LinearLayout>
-    </ScrollView>
 </LinearLayout>

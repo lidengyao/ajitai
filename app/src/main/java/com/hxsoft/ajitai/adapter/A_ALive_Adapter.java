@@ -35,7 +35,7 @@ public class A_ALive_Adapter extends CommonAdapter<A_ALive_Info> {
     public void convert(int position, ViewHolder helper, A_ALive_Info item) {
 
         ImageView zhibo_item_bg = (ImageView) helper.getView(R.id.zhibo_item_bg);
-        GlideControl.SetFilletImage(_Context, item.getFaceurl(), zhibo_item_bg, R.mipmap.jiazaiing,6);
+        GlideControl.SetFilletImage(_Context, item.getFaceurl(), zhibo_item_bg, R.mipmap.jiazaiing, 6);
 
         Button statusBtn = (Button) helper.getView(R.id.statusBtn);
         TextView snameTV = (TextView) helper.getView(R.id.snameTV);
@@ -65,6 +65,7 @@ public class A_ALive_Adapter extends CommonAdapter<A_ALive_Info> {
                 }
                 if (a_aLive_info.getStatus() == 1) {
                     Intent intent = new Intent(_Context, A_Activity_ShiPinZhiBo_XiangQing.class);
+                    intent.putExtra("vid", a_aLive_info.getVid() + "");
                     _Context.startActivity(intent);
                     return;
                 }
