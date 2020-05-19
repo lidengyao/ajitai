@@ -1,5 +1,6 @@
 package com.hxsoft.ajitai.ui.activity;
 
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -28,6 +29,7 @@ import com.hxsoft.ajitai.ui.view.A_ShiPinZhiBo_XiangQing_View;
 import com.hxsoft.ajitai.utils.CheckControl_Dialog_ShiPinZhiBoFenXiang;
 import com.hxsoft.ajitai.utils.GlideControl;
 import com.hxsoft.ajitai.utils.TimeUtils;
+import com.hxsoft.ajitai.utils.VideoControl;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -39,6 +41,7 @@ import java.util.TimerTask;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
+import cn.jzvd.JzvdStd;
 
 /**
  * Created by jinxh on 16/2/1.
@@ -77,6 +80,8 @@ public class A_Activity_ShiPinZhiBo_XiangQing extends MvpActivity<A_ShiPinZhiBo_
     TextView DaoJiShiTV;
     @Bind(R.id.StartTimeTV)
     TextView StartTimeTV;
+    @Bind(R.id.ShiPin_Video)
+    JzvdStd ShiPinVideo;
     private FmPagerAdapter pagerAdapter;
     private ArrayList<Fragment> fragments = new ArrayList<>();
     private String[] titles = new String[]{"主办", "互动"};
@@ -235,6 +240,11 @@ public class A_Activity_ShiPinZhiBo_XiangQing extends MvpActivity<A_ShiPinZhiBo_
         init();
         SysNameIV.setText(model.getSname());
         GlideControl.SetImage(getContext(), model.getFaceurl(), faceIV, R.mipmap.jiazaiing);
+
+        //播放器
+        ShiPinVideo.setUp(model.getVideourl(), model.getSname());
+
+        GlideControl.SetImage(getContext(),model.getFaceurl(),ShiPinVideo.thumbImageView,R.mipmap.jiazaiing);
 
         Date startDate = TimeUtils.parseTimeString2Date(model.getStarttime());
         Calendar calendar = Calendar.getInstance();

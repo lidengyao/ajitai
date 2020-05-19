@@ -187,6 +187,7 @@ public class Y_Fragment_YinPinZhiBo_XiangQing_HuDong extends MvpFragment<A_YinPi
     @Override
     public void caudiocommentAddcommentSuccess(Boolean model) {
         ContentET.setText("");
+        getData();
     }
 
     @Override
@@ -200,6 +201,6 @@ public class Y_Fragment_YinPinZhiBo_XiangQing_HuDong extends MvpFragment<A_YinPi
 
     @Override
     public void onFailure(int code, String msg) {
-
+        showMessage(msg);
     }
 }

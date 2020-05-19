@@ -5,26 +5,22 @@ public class A_LoginInfo {
 
 
     /**
-     * dept_id : 1
      * user_id : 1
-     * username : 哈哈and小猪
-     * access_token : 3c91a379-9ec4-4321-be72-41edfa23052b
-     * refresh_token : 076dc134-84f4-4c01-be81-a13ea61fb0cd
+     * nickname : 测试
+     * avator : http://image.hxsoft.net/asdfasdfsadfasdf
+     * dept_id : 1
+     * username : admin
+     * access_token : 8b3feab1-8351-4252-bc2e-f511d3f3014f
+     * refresh_token : 3d46f54a-d8cb-4806-b98e-1dcfbd02ec21
      */
 
-    private Integer dept_id;
     private Integer user_id;
+    private String nickname;
+    private String avator;
+    private Integer dept_id;
     private String username;
     private String access_token;
     private String refresh_token;
-
-    public int getDept_id() {
-        return dept_id;
-    }
-
-    public void setDept_id(int dept_id) {
-        this.dept_id = dept_id;
-    }
 
     public Integer getUser_id() {
         return user_id;
@@ -32,6 +28,30 @@ public class A_LoginInfo {
 
     public void setUser_id(Integer user_id) {
         this.user_id = user_id;
+    }
+
+    public String getNickname() {
+        return nickname;
+    }
+
+    public void setNickname(String nickname) {
+        this.nickname = nickname;
+    }
+
+    public String getAvator() {
+        return avator;
+    }
+
+    public void setAvator(String avator) {
+        this.avator = avator;
+    }
+
+    public Integer getDept_id() {
+        return dept_id;
+    }
+
+    public void setDept_id(Integer dept_id) {
+        this.dept_id = dept_id;
     }
 
     public String getUsername() {

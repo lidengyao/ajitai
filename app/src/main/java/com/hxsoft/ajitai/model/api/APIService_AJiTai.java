@@ -65,7 +65,7 @@ public interface APIService_AJiTai {
 
     //验证码登录
     @POST("auth/oauth/token")
-    Observable<ResponseBean<OauthToken_Info>> oauthToken(@Body A_OauthTokenBean a_oauthTokenBean);
+    Observable<ResponseBean<A_LoginInfo>> oauthToken(@Body A_OauthTokenBean a_oauthTokenBean);
 
     //退出登录
     @DELETE("auth/token/logout")

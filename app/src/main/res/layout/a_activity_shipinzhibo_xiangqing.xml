@@ -78,7 +78,13 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:scaleType="centerCrop"
-                    android:src="@mipmap/a_ditu1" />
+                    android:src="@mipmap/a_ditu1"
+                    android:visibility="gone" />
+
+                <cn.jzvd.JzvdStd
+                    android:id="@+id/ShiPin_Video"
+                    android:layout_width="match_parent"
+                    android:layout_height="217dp" />
 
                 <LinearLayout
                     android:layout_width="match_parent"

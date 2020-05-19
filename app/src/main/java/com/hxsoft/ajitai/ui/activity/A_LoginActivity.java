@@ -18,6 +18,7 @@ import com.hxsoft.ajitai.model.info.PhoneLoginInfo;
 import com.hxsoft.ajitai.present.LoginPresent;
 import com.hxsoft.ajitai.ui.view.LoginView;
 import com.hxsoft.ajitai.utils.DbKeyS;
+import com.hxsoft.ajitai.utils.JPushControl;
 import com.hxsoft.ajitai.utils.MStringUtils;
 import com.hxsoft.ajitai.utils.SpUtils;
 import com.hxsoft.ajitai.wxapi.WXAPI;

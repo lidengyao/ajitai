@@ -119,8 +119,9 @@ public class A_FaXian_Fragment extends MvpFragment {
         DaJiangTangLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), A_Activity_DaJiangTang.class);
-                startActivity(intent);
+                showMessage("敬请期待");
+//                Intent intent = new Intent(getContext(), A_Activity_DaJiangTang.class);
+//                startActivity(intent);
             }
         });
         ZiXunLL.setOnClickListener(new View.OnClickListener() {
@@ -133,16 +134,18 @@ public class A_FaXian_Fragment extends MvpFragment {
         JianKangLvYouLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), A_Activity_FaXian_WenZhangYueDu.class);
-                startActivity(intent);
+                showMessage("敬请期待");
+//                Intent intent = new Intent(getContext(), A_Activity_FaXian_WenZhangYueDu.class);
+//                startActivity(intent);
             }
         });
 
         XianChangJiangZuoLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), A_Activity_XianChangJiangZuo.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getContext(), A_Activity_XianChangJiangZuo.class);
+//                startActivity(intent);
+                showMessage("敬请期待");
             }
         });
 
@@ -156,8 +159,9 @@ public class A_FaXian_Fragment extends MvpFragment {
         XiaoXiLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), A_Activity_XiaoXi.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getContext(), A_Activity_XiaoXi.class);
+//                startActivity(intent);
+                showMessage("敬请期待");
             }
         });
 
@@ -165,68 +169,77 @@ public class A_FaXian_Fragment extends MvpFragment {
         ShangPin1LL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), A_Activity_ShangPin_XiangQing.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getContext(), A_Activity_ShangPin_XiangQing.class);
+//                startActivity(intent);
+                showMessage("敬请期待");
             }
         });
         WenZhangYueDuLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), A_Activity_FaXian_WenZhangYueDu.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getContext(), A_Activity_FaXian_WenZhangYueDu.class);
+//                startActivity(intent);
+                showMessage("敬请期待");
             }
         });
         SouSuoLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), A_Activity_FaXian_SouSuo.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getContext(), A_Activity_FaXian_SouSuo.class);
+//                startActivity(intent);
+                showMessage("敬请期待");
             }
         });
         DuShuHuiRL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), A_Activity_DuShuHui.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getContext(), A_Activity_DuShuHui.class);
+//                startActivity(intent);
+                showMessage("敬请期待");
             }
         });
 
         ShangChengLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), A_Activity_ShangCheng.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getContext(), A_Activity_ShangCheng.class);
+//                startActivity(intent);
+                showMessage("敬请期待");
             }
         });
 
         TuiJiangRL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), A_Activity_ShangCheng.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getContext(), A_Activity_ShangCheng.class);
+//                startActivity(intent);
+                showMessage("敬请期待");
             }
         });
 
         XinLingXiangYueRL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), A_Activity_XinLingXiangYue.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getContext(), A_Activity_XinLingXiangYue.class);
+//                startActivity(intent);
+                showMessage("敬请期待");
             }
         });
 
         XueYuanHuiBaoLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), A_Activity_XueYuanHuiBao.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getContext(), A_Activity_XueYuanHuiBao.class);
+//                startActivity(intent);
+                showMessage("敬请期待");
             }
         });
         YangShengLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), A_Activity_YangShengGuan.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getContext(), A_Activity_YangShengGuan.class);
+//                startActivity(intent);
+                showMessage("敬请期待");
             }
         });
 
@@ -241,24 +254,27 @@ public class A_FaXian_Fragment extends MvpFragment {
         YinYueLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), A_Activity_YinYue.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getContext(), A_Activity_YinYue.class);
+//                startActivity(intent);
+                showMessage("敬请期待");
             }
         });
 
         LianMengYiYuanLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), A_Activity_LianMengYiYuan.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getContext(), A_Activity_LianMengYiYuan.class);
+//                startActivity(intent);
+                showMessage("敬请期待");
             }
         });
 
         XinYuanQiangLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), A_Activity_XinYuanQiang.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getContext(), A_Activity_XinYuanQiang.class);
+//                startActivity(intent);
+                showMessage("敬请期待");
             }
         });
 
@@ -273,43 +289,49 @@ public class A_FaXian_Fragment extends MvpFragment {
         DuShuHuiIV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), A_Activity_DuShuHui_List.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getContext(), A_Activity_DuShuHui_List.class);
+//                startActivity(intent);
+                showMessage("敬请期待");
             }
         });
         XinShenHuDongIV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), A_Activity_XinShenHuDong.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getContext(), A_Activity_XinShenHuDong.class);
+//                startActivity(intent);
+                showMessage("敬请期待");
             }
         });
         XinLingGanLuIV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), A_Activity_XinLingGanLu.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getContext(), A_Activity_XinLingGanLu.class);
+//                startActivity(intent);
+                showMessage("敬请期待");
             }
         });
         DuShuHui4IV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), A_Activity_XinLingXiangYue_XiangQing.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getContext(), A_Activity_XinLingXiangYue_XiangQing.class);
+//                startActivity(intent);
+                showMessage("敬请期待");
             }
         });
         DuShuHui5IV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), A_Activity_XinLingXiangYue_XiangQing.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getContext(), A_Activity_XinLingXiangYue_XiangQing.class);
+//                startActivity(intent);
+                showMessage("敬请期待");
             }
         });
         DuShuHui6IV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), A_Activity_XinLingXiangYue_XiangQing.class);
-                startActivity(intent);
+//                Intent intent = new Intent(getContext(), A_Activity_XinLingXiangYue_XiangQing.class);
+//                startActivity(intent);
+                showMessage("敬请期待");
             }
         });
 

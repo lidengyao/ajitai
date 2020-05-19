@@ -29,7 +29,7 @@ public class A_WenZhang_Adapter extends CommonAdapter<Heartnectar_Info> {
     public void convert(int position, ViewHolder helper, Heartnectar_Info item) {
 
         ImageView faceurlIV = (ImageView) helper.getView(R.id.faceurlIV);
-        GlideControl.SetImage(_Context, item.getFaceurl(), faceurlIV, R.mipmap.jiazaiing);
+        GlideControl.SetFilletImage(_Context, item.getFaceurl(), faceurlIV, R.mipmap.jiazaiing,5);
 
         helper.setText(R.id.titleTV, item.getTitle());
         helper.setText(R.id.thumbTV, item.getThumb() + "");

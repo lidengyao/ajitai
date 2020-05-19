@@ -10,6 +10,7 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
 import com.hxsoft.ajitai.AppContext;
 import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.base.MvpActivity;
@@ -19,6 +20,7 @@ import com.hxsoft.ajitai.present.A_LoginPresent;
 import com.hxsoft.ajitai.ui.view.A_LoginView;
 import com.hxsoft.ajitai.utils.DbKeyS;
 import com.hxsoft.ajitai.utils.EncryptionUtil;
+import com.hxsoft.ajitai.utils.JPushControl;
 import com.hxsoft.ajitai.utils.MStringUtils;
 import com.hxsoft.ajitai.utils.SpUtils;
 
@@ -161,6 +163,11 @@ public class A_LoginActivity_MiMa extends MvpActivity<A_LoginPresent> implements
         }
         SpUtils.saveSettingNote(getContext(), DbKeyS.token, model.getAccess_token());
         SpUtils.saveSettingNote(getContext(), DbKeyS.isLogin, "1");
+
+        Gson gson = new Gson();
+        String gsonStr = gson.toJson(model);
+        SpUtils.saveSettingNote(getContext(), DbKeyS.A_LoginInfo, gsonStr);
+        JPushControl.SetJPush(getContext());
         Intent intent = new Intent(getContext(), A_Main_Activity.class);
         startActivity(intent);
     }

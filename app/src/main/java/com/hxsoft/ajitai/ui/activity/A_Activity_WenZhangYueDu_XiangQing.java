@@ -10,6 +10,7 @@ import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
@@ -62,6 +63,7 @@ public class A_Activity_WenZhangYueDu_XiangQing extends MvpActivity<A_WenZhangYu
     private WebView desWebView;
     private TextView clicknumTV;
     private TextView supportnumTV;
+    private ImageView DianZanIV;
 
     @Override
     protected int getLayoutId() {
@@ -139,10 +141,10 @@ public class A_Activity_WenZhangYueDu_XiangQing extends MvpActivity<A_WenZhangYu
         View a_activity_xinlingganlu_xiangqing_header = View.inflate(getContext(), R.layout.a_activity_xinlingganlu_xiangqing_header, null);
         desWebView = (WebView) a_activity_xinlingganlu_xiangqing_header.findViewById(R.id.desWebView);
 
-        WebSettings settings = desWebView.getSettings();
-        settings.setJavaScriptEnabled(true);
-        settings.setSupportZoom(true);
-        settings.setBuiltInZoomControls(true);
+//        WebSettings settings = desWebView.getSettings();
+//        settings.setJavaScriptEnabled(true);
+//        settings.setSupportZoom(true);
+//        settings.setBuiltInZoomControls(true);
 
 
         DataListView.addHeaderView(a_activity_xinlingganlu_xiangqing_header);
@@ -150,13 +152,20 @@ public class A_Activity_WenZhangYueDu_XiangQing extends MvpActivity<A_WenZhangYu
         View a_activity_xinlingganlu_xiangqing_header_dianzan = View.inflate(getContext(), R.layout.a_activity_xinlingganlu_xiangqing_header_dianzan, null);
         clicknumTV = (TextView) a_activity_xinlingganlu_xiangqing_header_dianzan.findViewById(R.id.clicknumTV);
         supportnumTV = (TextView) a_activity_xinlingganlu_xiangqing_header_dianzan.findViewById(R.id.supportnumTV);
+        DianZanIV = (ImageView) a_activity_xinlingganlu_xiangqing_header_dianzan.findViewById(R.id.DianZanIV);
 
 
         LinearLayout supportLL = (LinearLayout) a_activity_xinlingganlu_xiangqing_header_dianzan.findViewById(R.id.supportLL);
         supportLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                mPresenter.heartnectarThumb(Integer.parseInt(aid), getContext());
+
+
+                if (carticle_info.getIsthumb() == 1) {
+                    mPresenter.heartnectarCancleThumb(Integer.parseInt(aid), getContext());
+                } else {
+                    mPresenter.heartnectarThumb(Integer.parseInt(aid), getContext());
+                }
             }
         });
 
@@ -204,10 +213,16 @@ public class A_Activity_WenZhangYueDu_XiangQing extends MvpActivity<A_WenZhangYu
             return;
         carticle_info = model;
 
-        desWebView.loadData(Html.fromHtml(carticle_info.getDescription()).toString(), "text/html", "UTF-8");
+        desWebView.loadData(carticle_info.getDescription(), "text/html", "UTF-8");
         clicknumTV.setText(model.getClicknum() + "");
         if (model.getSupportnum() > 0) {
             supportnumTV.setText(model.getSupportnum() + "");
+        }
+
+        if (carticle_info.getIsthumb() == 1) {
+            DianZanIV.setImageResource(R.mipmap.ganwu_dianzianhou);
+        } else {
+            DianZanIV.setImageResource(R.mipmap.a_ganwu_dianzan);
         }
 
         getCarticlecomment();
@@ -227,14 +242,16 @@ public class A_Activity_WenZhangYueDu_XiangQing extends MvpActivity<A_WenZhangYu
 
     @Override
     public void heartnectarThumbSuccess(Boolean model) {
+        DianZanIV.setImageResource(R.mipmap.ganwu_dianzianhou);
+        carticle_info.setIsthumb(1);
         getData();
     }
 
     @Override
     public void heartnectarCancleThumbSuccess(Boolean model) {
-        //ganwu_dianzianhou
-        //a_ganwu_dianzan
         getData();
+        DianZanIV.setImageResource(R.mipmap.a_ganwu_dianzan);
+        carticle_info.setIsthumb(0);
     }
 
     @Override

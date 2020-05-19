@@ -167,14 +167,6 @@ public class A_Activity_YinPinZhiBo_XiangQing extends MvpActivity<A_YinPinZhiBo_
         Date startDate = TimeUtils.parseTimeString2Date(model.getStarttime());
         Calendar calendar = Calendar.getInstance();
         calendar.setTime(startDate);
-//        Log.i("cp", "year=" + calendar.get(Calendar.YEAR) + " month=" + (calendar.get(Calendar.MONTH) + 1) +
-//                " day=" + calendar.get(Calendar.DAY_OF_MONTH) + "hour= " + calendar.get(Calendar.HOUR) + " minute= " + calendar.get(Calendar.MINUTE));
-//        Log.i("cp", "year=" + calendar.get(Calendar.YEAR) + " month=" + (calendar.get(Calendar.MONTH) + 1) +
-//                " day=" + calendar.get(Calendar.DAY_OF_MONTH) + "hour= " + calendar.get(Calendar.HOUR_OF_DAY) + " minute= " + calendar.get(Calendar.MINUTE));
-        int day = calendar.get(Calendar.DAY_OF_MONTH);
-        int hour = calendar.get(Calendar.HOUR);
-        int minute = calendar.get(Calendar.MINUTE);
-//        StartTimeTV.setText("（" + day + "号" + hour + "点" + minute + "分）");
 
 
         Calendar c = Calendar.getInstance();//

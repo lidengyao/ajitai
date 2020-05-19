@@ -5,7 +5,10 @@ import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebResourceRequest;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
+import android.webkit.WebViewClient;
 
 import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.base.BasePresent;
@@ -48,7 +51,10 @@ public class Y_Fragment_ShiPinZhiBo_XiangQing_ZhuBan extends MvpFragment {
     }
 
     public void SetData(A_Cvideostream_Info a_cvideostream_info) {
-        descriptionWebView.loadData(Html.fromHtml(a_cvideostream_info.getDescription()).toString(), "text/html", "UTF-8");
+
+//        descriptionWebView.getSettings().setDefaultTextEncodingName("UTF-8");
+        descriptionWebView.loadData(a_cvideostream_info.getDescription(), "text/html", "UTF-8");
+
     }
 
 

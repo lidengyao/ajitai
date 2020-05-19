@@ -16,6 +16,15 @@ public class Carticle_Info implements Serializable {
     private String audiourl;
     private Integer idx;
     private String createTime;
+    private Integer isthumb;
+
+    public Integer getIsthumb() {
+        return isthumb;
+    }
+
+    public void setIsthumb(Integer isthumb) {
+        this.isthumb = isthumb;
+    }
 
     public Integer getAid() {
         return aid;

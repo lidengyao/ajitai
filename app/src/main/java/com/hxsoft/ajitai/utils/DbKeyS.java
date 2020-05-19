@@ -1,5 +1,7 @@
 package com.hxsoft.ajitai.utils;
 
+import com.hxsoft.ajitai.model.bean.A_LoginInfo;
+
 public class DbKeyS {
 
     public static String test = "test";
@@ -13,6 +15,7 @@ public class DbKeyS {
     public static  String isLogin="isLogin";
     public static  String uid="uid";
     public static  String pwd="pwd";
+    public static String A_LoginInfo="A_LoginInfo";
 
     //endregion
 

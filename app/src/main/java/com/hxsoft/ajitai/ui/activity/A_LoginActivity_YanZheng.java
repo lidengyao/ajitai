@@ -11,14 +11,17 @@ import android.widget.EditText;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.google.gson.Gson;
 import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.base.MvpActivity;
+import com.hxsoft.ajitai.model.bean.A_LoginInfo;
 import com.hxsoft.ajitai.model.bean.A_OauthTokenBean;
 import com.hxsoft.ajitai.model.bean.A_PushChecknumBean;
 import com.hxsoft.ajitai.model.info.OauthToken_Info;
 import com.hxsoft.ajitai.present.A_YanZhengMa_LoginPresent;
 import com.hxsoft.ajitai.ui.view.A_YanZhengMa_LoginView;
 import com.hxsoft.ajitai.utils.DbKeyS;
+import com.hxsoft.ajitai.utils.JPushControl;
 import com.hxsoft.ajitai.utils.SpUtils;
 
 import java.util.UUID;
@@ -179,13 +182,18 @@ public class A_LoginActivity_YanZheng extends MvpActivity<A_YanZhengMa_LoginPres
     }
 
     @Override
-    public void oauthTokenSuccess(OauthToken_Info model) {
+    public void oauthTokenSuccess(A_LoginInfo model) {
         if (model == null) {
             showMessage("登陆失败");
             return;
         }
         SpUtils.saveSettingNote(getContext(), DbKeyS.token, model.getAccess_token());
         SpUtils.saveSettingNote(getContext(), DbKeyS.isLogin, "1");
+
+        Gson gson = new Gson();
+        String gsonStr = gson.toJson(model);
+        SpUtils.saveSettingNote(getContext(), DbKeyS.A_LoginInfo, gsonStr);
+        JPushControl.SetJPush(getContext());
         Intent intent = new Intent(getContext(), A_Main_Activity.class);
         startActivity(intent);
     }

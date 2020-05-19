@@ -48,7 +48,7 @@ public class Y_Fragment_YinPinZhiBo_XiangQing_ZhuBan extends MvpFragment {
     }
 
     public void SetData(A_Cmediaclasses_Info a_cmediaclasses_info) {
-        descriptionWebView.loadData(Html.fromHtml(a_cmediaclasses_info.getDescription()).toString(), "text/html", "UTF-8");
+        descriptionWebView.loadData(a_cmediaclasses_info.getDescription().toString(), "text/html", "UTF-8");
     }
 
     @Override

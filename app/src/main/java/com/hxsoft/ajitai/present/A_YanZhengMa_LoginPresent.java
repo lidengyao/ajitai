@@ -8,6 +8,7 @@ import com.hxsoft.ajitai.model.api.ApiCallBack;
 import com.hxsoft.ajitai.model.api.ApiSubscriber;
 import com.hxsoft.ajitai.model.api.ResponseBean;
 import com.hxsoft.ajitai.model.api.RetrofitClient;
+import com.hxsoft.ajitai.model.bean.A_LoginInfo;
 import com.hxsoft.ajitai.model.bean.A_OauthTokenBean;
 import com.hxsoft.ajitai.model.bean.A_PushChecknumBean;
 import com.hxsoft.ajitai.model.info.OauthToken_Info;
@@ -63,8 +64,8 @@ public class A_YanZhengMa_LoginPresent extends BasePresent<A_YanZhengMa_LoginVie
     public void oauthToken(A_OauthTokenBean a_oauthTokenBean, Context context) {
         String tip = "A_YanZhengMa_LoginPresent-oauthToken-验证码登陆\r\n";
         FileUtils.writeLogToFile(tip);
-        Observable<ResponseBean<OauthToken_Info>> observable = RetrofitClient.builderRetrofit(context).create(APIService_AJiTai.class).oauthToken(a_oauthTokenBean);
-        addIOSubscription(observable, new ApiSubscriber(new ApiCallBack<OauthToken_Info>() {
+        Observable<ResponseBean<A_LoginInfo>> observable = RetrofitClient.builderRetrofit(context).create(APIService_AJiTai.class).oauthToken(a_oauthTokenBean);
+        addIOSubscription(observable, new ApiSubscriber(new ApiCallBack<A_LoginInfo>() {
             @Override
             public void onStart() {
                 super.onStart();
@@ -74,7 +75,7 @@ public class A_YanZhengMa_LoginPresent extends BasePresent<A_YanZhengMa_LoginVie
             }
 
             @Override
-            public void onSuccess(OauthToken_Info model) {
+            public void onSuccess(A_LoginInfo model) {
                 if (getView() != null) {
                     getView().oauthTokenSuccess(model);
                 }
