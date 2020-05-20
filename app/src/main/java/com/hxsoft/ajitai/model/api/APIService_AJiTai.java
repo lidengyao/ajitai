@@ -34,6 +34,7 @@ import com.hxsoft.ajitai.model.info.Cuserreceipt_Info;
 import com.hxsoft.ajitai.model.info.KeCheng_Info;
 import com.hxsoft.ajitai.model.info.OauthToken_Info;
 import com.hxsoft.ajitai.model.info.Sysarea_Info;
+import com.hxsoft.ajitai.model.info.VersionInfo;
 import com.hxsoft.ajitai.model.info.WenZhang_Total_Info;
 
 import java.util.ArrayList;
@@ -54,6 +55,11 @@ import rx.Observable;
  * Created by jinxh on 16/2/17.
  */
 public interface APIService_AJiTai {
+
+
+    //更新版本检测
+    @GET("dict/sysappinfo/lastversionbytype/1")
+    Observable<ResponseBean<VersionInfo>> checkVersion();
 
     //密码登录
     @POST("auth/oauth/token")

@@ -2,16 +2,21 @@ package com.hxsoft.ajitai.ui.activity;
 
 import android.annotation.SuppressLint;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.util.Log;
+import android.view.Gravity;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
@@ -83,11 +88,12 @@ public class A_Activity_GanWu_FaBuGanWu extends MvpActivity<A_FaBuGanWu_Present>
     public AMapLocationClientOption mLocationOption = null;
 
 
-
     private List<LocalMedia> selectList_Add = new ArrayList<>();
     private GridImageAdapter adapterAdd;
     private String cityName;
     private ArrayList<UpLoadFileControl> upLoadFileControlArrayList = new ArrayList<>();
+
+//    private int fileType = 0;//0:图片1：视频
 
     @Override
     protected int getLayoutId() {
@@ -157,10 +163,20 @@ public class A_Activity_GanWu_FaBuGanWu extends MvpActivity<A_FaBuGanWu_Present>
                 upLoadFileControlArrayList.clear();
                 for (int i = 0; i < selectList_Add.size(); i++) {
                     LocalMedia localMedia = selectList_Add.get(i);
-                    File file = new File(localMedia.getCompressPath());
-                    String fileName = file.getName();
-
+                    String fileName = "";
                     UpLoadFileControl upLoadFileControl = new UpLoadFileControl();
+                    if (localMedia.getMimeType() == 1) {
+                        File file = new File(localMedia.getCompressPath());
+                        fileName = file.getName();
+                        upLoadFileControl.setType(2);
+                    }
+                    if (localMedia.getMimeType() == 2) {
+                        File file = new File(localMedia.getPath());
+                        fileName = file.getName();
+                        upLoadFileControl.setType(1);
+                    }
+
+
                     upLoadFileControl.setFileName(fileName);
                     upLoadFileControl.setUpload(false);
 
@@ -171,10 +187,18 @@ public class A_Activity_GanWu_FaBuGanWu extends MvpActivity<A_FaBuGanWu_Present>
 
                 for (int i = 0; i < selectList_Add.size(); i++) {
                     LocalMedia localMedia = selectList_Add.get(i);
-                    File file = new File(localMedia.getCompressPath());
-                    String fileName = file.getName();
 
-                    UpLoadFie(fileName, localMedia.getCompressPath());
+                    if (localMedia.getMimeType() == 1) {
+                        File file = new File(localMedia.getCompressPath());
+                        String fileName = file.getName();
+                        UpLoadFie(fileName, localMedia.getCompressPath());
+                    }
+                    if (localMedia.getMimeType() == 2) {
+                        File file = new File(localMedia.getPath());
+                        String fileName = file.getName();
+                        UpLoadFie(fileName, localMedia.getPath());
+                    }
+
                 }
             }
         });
@@ -247,7 +271,7 @@ public class A_Activity_GanWu_FaBuGanWu extends MvpActivity<A_FaBuGanWu_Present>
                         for (int i = 0; i < upLoadFileControlArrayList.size(); i++) {
                             UpLoadFileControl upLoadFileControl = upLoadFileControlArrayList.get(i);
                             CreateCconscious_Bean.ExtralBean extralBean = new CreateCconscious_Bean.ExtralBean();
-                            extralBean.setType(2);
+                            extralBean.setType(upLoadFileControl.getType());
                             extralBean.setUri(upLoadFileControl.getOssFielName());
                             createCconscious_bean.getExtral().add(extralBean);
                         }
@@ -278,14 +302,18 @@ public class A_Activity_GanWu_FaBuGanWu extends MvpActivity<A_FaBuGanWu_Present>
                     int mediaType = media.getMimeType();
                     switch (mediaType) {
                         case 1:
-                            // 预览视频
-                            PictureSelector.create(getActivity()).externalPictureVideo(media.getPath());
-                            break;
-                        case 2:
                             // 预览图片 可自定长按保存路径
                             PictureSelector.create(getActivity()).themeStyle(R.style.picture_default_style).openExternalPreview(position, "/custom_file", selectList_Add);
 //                            PictureSelector.create(getActivity()).themeStyle(R.style.picture_default_style).openExternalPreview(position, selectList_Add);
 
+                            break;
+                        case 2:
+                            // 预览视频
+                            Intent intent = new Intent(getContext(), A_Activity_Vedio.class);
+                            intent.putExtra("url", media.getPath());
+                            startActivity(intent);
+
+//                            PictureSelector.create(getActivity()).externalPictureVideo(media.getPath());
                             break;
                         case 3:
                             // 预览音频
@@ -297,10 +325,89 @@ public class A_Activity_GanWu_FaBuGanWu extends MvpActivity<A_FaBuGanWu_Present>
         });
     }
 
+    private PopupWindow pop;
+
+    private void showPop() {
+        View bottomView = View.inflate(getContext(), R.layout.layout_bottom_dialog, null);
+        TextView mAlbum = bottomView.findViewById(R.id.tv_album);
+        TextView mCamera = bottomView.findViewById(R.id.tv_camera);
+        TextView tv_vedio = bottomView.findViewById(R.id.tv_vedio);
+        TextView mCancel = bottomView.findViewById(R.id.tv_cancel);
+
+        pop = new PopupWindow(bottomView, -1, -2);
+        pop.setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        pop.setOutsideTouchable(true);
+        pop.setFocusable(true);
+        WindowManager.LayoutParams lp = getActivity().getWindow().getAttributes();
+        lp.alpha = 0.5f;
+        getActivity().getWindow().setAttributes(lp);
+        pop.setOnDismissListener(new PopupWindow.OnDismissListener() {
+
+            @Override
+            public void onDismiss() {
+                WindowManager.LayoutParams lp = getActivity().getWindow().getAttributes();
+                lp.alpha = 1f;
+                getActivity().getWindow().setAttributes(lp);
+            }
+        });
+        pop.setAnimationStyle(R.style.main_menu_photo_anim);
+        pop.showAtLocation(getActivity().getWindow().getDecorView(), Gravity.BOTTOM, 0, 0);
+
+        View.OnClickListener clickListener = new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                switch (view.getId()) {
+                    case R.id.tv_album:
+                        //相册
+                        commonAction_Add(PictureMimeType.ofImage(), selectList_Add);
+                        break;
+                    case R.id.tv_camera:
+                        //拍照
+                        PictureSelector.create(getActivity())
+                                .openCamera(PictureMimeType.ofImage()).compress(true)
+                                .forResult(PictureConfig.CHOOSE_REQUEST);
+                        break;
+                    case R.id.tv_vedio:
+                        //视频
+                        PictureSelector.create(getActivity())
+                                .openGallery(PictureMimeType.ofVideo()).compress(true)
+                                .maxSelectNum(1)
+                                .minSelectNum(1)
+                                .previewVideo(true)// 是否可预览视频
+                                .videoQuality(1)// 视频录制质量 0 or 1
+                                .videoMaxSecond(15)//显示多少秒以内的视频or音频也可适用
+                                .recordVideoSecond(15)//录制视频秒数 默认60s
+                                .forResult(PictureConfig.CHOOSE_REQUEST);
+//                        commonAction_Add(PictureMimeType.ofVideo(), selectList_Add);
+                        break;
+                    case R.id.tv_cancel:
+                        //取消
+                        //closePopupWindow();
+                        break;
+                }
+                closePopupWindow();
+            }
+        };
+
+        mAlbum.setOnClickListener(clickListener);
+        mCamera.setOnClickListener(clickListener);
+        tv_vedio.setOnClickListener(clickListener);
+        mCancel.setOnClickListener(clickListener);
+    }
+
+    public void closePopupWindow() {
+        if (pop != null && pop.isShowing()) {
+            pop.dismiss();
+            pop = null;
+        }
+    }
+
     private GridImageAdapter.onAddPicClickListener onAddPicClickListener = new GridImageAdapter.onAddPicClickListener() {
         @Override
         public void onAddPicClick() {
-            commonAction_Add(PictureMimeType.ofImage(), selectList_Add);
+
+            showPop();
+
         }
     };
 
@@ -463,7 +570,15 @@ public class A_Activity_GanWu_FaBuGanWu extends MvpActivity<A_FaBuGanWu_Present>
         private String fileName;
         private String ossFielName;
         private Boolean isUpload;
+        private Integer type;
 
+        public Integer getType() {
+            return type;
+        }
+
+        public void setType(Integer type) {
+            this.type = type;
+        }
 
         public String getOssFielName() {
             return ossFielName;

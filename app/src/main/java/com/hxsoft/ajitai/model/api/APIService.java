@@ -78,7 +78,7 @@ public interface APIService {
 
 
     //更新版本检测
-    @GET("apppic/apkinfo")
+    @GET("dict/sysapp/info")
     Observable<ResponseBean<VersionInfo>> checkVersion();
 
     @GET("user/getuserinfo")

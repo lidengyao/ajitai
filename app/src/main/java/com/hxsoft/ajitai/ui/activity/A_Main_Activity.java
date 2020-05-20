@@ -22,11 +22,17 @@ import com.hxsoft.ajitai.base.BasePresent;
 import com.hxsoft.ajitai.base.MvpActivity;
 import com.hxsoft.ajitai.jpush.ExampleUtil;
 import com.hxsoft.ajitai.jpush.LocalBroadcastManager;
+import com.hxsoft.ajitai.model.info.VersionInfo;
+import com.hxsoft.ajitai.present.A_Main_Present;
 import com.hxsoft.ajitai.present.A_WoDe_Present;
+import com.hxsoft.ajitai.present.LoginPresent;
 import com.hxsoft.ajitai.ui.fragment.A_FaXian_Fragment;
 import com.hxsoft.ajitai.ui.fragment.A_GanWu_Fragment;
 import com.hxsoft.ajitai.ui.fragment.A_WoDe_Fragment;
+import com.hxsoft.ajitai.ui.view.A_Main_View;
+import com.hxsoft.ajitai.ui.view.LoginView;
 import com.hxsoft.ajitai.widget.ScrollViewPager;
+import com.hxsoft.ajitai.widget.UpdateManager;
 import com.yanzhenjie.permission.Action;
 import com.yanzhenjie.permission.AndPermission;
 import com.yanzhenjie.permission.Permission;
@@ -40,7 +46,7 @@ import java.util.Set;
 import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class A_Main_Activity extends MvpActivity implements View.OnClickListener, ViewPager.OnPageChangeListener {
+public class A_Main_Activity extends MvpActivity<A_Main_Present> implements A_Main_View, View.OnClickListener, ViewPager.OnPageChangeListener {
 
     ArrayList<Fragment> fragments = new ArrayList<>();
     @Bind(R.id.ContentSP)
@@ -87,11 +93,12 @@ public class A_Main_Activity extends MvpActivity implements View.OnClickListener
         ButterKnife.bind(this);
         Init();
 
+        mPresenter.checkVersion(getContext());
     }
 
     @Override
-    protected BasePresent createPresenter() {
-        return null;
+    protected A_Main_Present createPresenter() {
+        return new A_Main_Present();
     }
 
 
@@ -283,6 +290,26 @@ public class A_Main_Activity extends MvpActivity implements View.OnClickListener
         }
     }
 
+    @Override
+    public void checkVersionSuccess(VersionInfo model) {
+        if (model == null)
+            return;
+        else {
+            int versionCode = getVersionCode(getContext());
+            int serviceCode = model.getAppvernum();
+            if (serviceCode > versionCode) {
+                UpdateManager updateManager = new UpdateManager(getContext());
+                updateManager.forceCheckUpdate(model.getAppurl());
+
+            }
+        }
+
+    }
+
+    @Override
+    public void onFailure(int code, String msg) {
+        showMessage(msg);
+    }
 
 
     public class MyFragmentPagerAdapter extends FragmentPagerAdapter {

@@ -1,10 +1,14 @@
 package com.hxsoft.ajitai.ui.fragment;
 
+import android.Manifest;
 import android.app.DialogFragment;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.content.ContextCompat;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.method.LinkMovementMethod;
@@ -188,8 +192,8 @@ public class A_GanWu_Fragment extends MvpFragment<A_GanWu_Present> implements A_
         FaBuGanWuRL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(getContext(), A_Activity_GanWu_FaBuGanWu.class);
-                startActivity(intent);
+                startDingWei();
+
             }
         });
 
@@ -376,6 +380,32 @@ public class A_GanWu_Fragment extends MvpFragment<A_GanWu_Present> implements A_
 
     }
 
+    private String[] permissions = new String[]{Manifest.permission.ACCESS_FINE_LOCATION, Manifest.permission.ACCESS_COARSE_LOCATION, Manifest.permission.ACCESS_LOCATION_EXTRA_COMMANDS};
+    private static final int OPEN_SET_REQUEST_CODE = 100;
+
+    // 开始定位
+    private void startDingWei() {
+        if (lacksPermission(permissions)) {//判断是否拥有权限
+            //请求权限，第二参数权限String数据，第三个参数是请求码便于在onRequestPermissionsResult 方法中根据code进行判断
+            ActivityCompat.requestPermissions(getActivity(), permissions, OPEN_SET_REQUEST_CODE);
+        } else {
+            //拥有权限执行操作
+            //开始定位
+            Intent intent = new Intent(getContext(), A_Activity_GanWu_FaBuGanWu.class);
+            startActivity(intent);
+        }
+    }
+
+    //如果返回true表示缺少权限
+    public boolean lacksPermission(String[] permissions) {
+        for (String permission : permissions) {
+            //判断是否缺少权限，true=缺少权限
+            if (ContextCompat.checkSelfPermission(getContext(), permission) != PackageManager.PERMISSION_GRANTED) {
+                return true;
+            }
+        }
+        return false;
+    }
 
     @Override
     public void onResume() {

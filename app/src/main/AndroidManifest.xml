@@ -79,6 +79,14 @@
 
 
         <activity
+            android:name=".ui.activity.A_Activity_Vedio"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
+            android:name=".ui.activity.A_ZiXunActivity"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
             android:name=".ui.activity.A_Activity_WenZhangYueDu_XiangQing"
             android:configChanges="locale"
             android:launchMode="singleTop" />

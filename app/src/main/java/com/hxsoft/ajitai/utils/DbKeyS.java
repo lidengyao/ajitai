@@ -16,6 +16,7 @@ public class DbKeyS {
     public static  String uid="uid";
     public static  String pwd="pwd";
     public static String A_LoginInfo="A_LoginInfo";
+    public static String yuanxingtu="yuanxingtu";
 
     //endregion
 

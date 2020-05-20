@@ -15,10 +15,15 @@ import com.amap.api.location.AMapLocationListener;
 import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.base.MvpActivity;
 import com.hxsoft.ajitai.model.bean.A_Conscious_Info;
+import com.hxsoft.ajitai.model.bean.ExtralsBean;
 import com.hxsoft.ajitai.model.info.CreateCconscious_Bean;
 import com.hxsoft.ajitai.present.A_ZhuanFaGanWu_Present;
 import com.hxsoft.ajitai.ui.view.A_ZhuanFaGanWu_View;
 import com.hxsoft.ajitai.utils.GlideControl;
+import com.hxsoft.ajitai.utils.SoftKeyboardUtil;
+
+import java.util.Timer;
+import java.util.TimerTask;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -45,8 +50,6 @@ public class A_Activity_GanWu_ZhuanFa extends MvpActivity<A_ZhuanFaGanWu_Present
     TextView WanChengTV;
     @Bind(R.id.LuYinIngRL)
     RelativeLayout LuYinIngRL;
-    @Bind(R.id.BoFang_IV)
-    ImageView BoFangIV;
     @Bind(R.id.ShiJian_TV)
     TextView ShiJianTV;
     @Bind(R.id.WanChengLuYin_RL)
@@ -59,6 +62,10 @@ public class A_Activity_GanWu_ZhuanFa extends MvpActivity<A_ZhuanFaGanWu_Present
     LinearLayout DingWeiLL;
     @Bind(R.id.CityTV)
     TextView CityTV;
+    @Bind(R.id.BoFangVedioIV)
+    ImageView BoFangVedioIV;
+    @Bind(R.id.BoFang_IV)
+    ImageView BoFangIV;
 
 
     private A_Conscious_Info a_conscious_info;
@@ -67,6 +74,7 @@ public class A_Activity_GanWu_ZhuanFa extends MvpActivity<A_ZhuanFaGanWu_Present
     public AMapLocationClient mlocationClient = null;
     public AMapLocationClientOption mLocationOption = null;
     private String cityName;
+    private String oldContent = "";
 
 
     @Override
@@ -85,37 +93,67 @@ public class A_Activity_GanWu_ZhuanFa extends MvpActivity<A_ZhuanFaGanWu_Present
 
         //开始定位
         showLocation();
-        if (a_conscious_info.getRelayObject() == null) {
+        if (a_conscious_info.getExtrals() != null) {
             if (a_conscious_info.getExtrals().size() > 0) {
                 ZhuanFaIV.setVisibility(View.VISIBLE);
                 GlideControl.SetImage(getContext(), a_conscious_info.getExtrals().get(0).getUri(), ZhuanFaIV, R.mipmap.jiazaiing);
+
+                ExtralsBean extralsBean = a_conscious_info.getExtrals().get(0);
+                if (extralsBean.getType() == 1) {
+                    BoFangVedioIV.setVisibility(View.VISIBLE);
+                } else {
+                    BoFangVedioIV.setVisibility(View.GONE);
+                }
+
+
                 ContentTV.setText(a_conscious_info.getContent());
                 ZuoZheTV.setText("@" + a_conscious_info.getNickname());
 
             } else {
-                ZhuanFaIV.setVisibility(View.GONE);
+                if (a_conscious_info.getRelayObject().getExtrals().size() > 0) {
+                    ZhuanFaIV.setVisibility(View.VISIBLE);
+                    GlideControl.SetImage(getContext(), a_conscious_info.getRelayObject().getExtrals().get(0).getUri(), ZhuanFaIV, R.mipmap.jiazaiing);
+
+                    ExtralsBean extralsBean = a_conscious_info.getRelayObject().getExtrals().get(0);
+                    if (extralsBean.getType() == 1) {
+                        BoFangVedioIV.setVisibility(View.VISIBLE);
+                    } else {
+                        BoFangVedioIV.setVisibility(View.GONE);
+                    }
+
+
+                    ContentTV.setText(a_conscious_info.getRelayObject().getContent());
+                    ZuoZheTV.setText("@" + a_conscious_info.getNickname());
+
+                    String replayTxt = "//";
+
+                    for (int i = 0; i < a_conscious_info.getRelayObject().getReplylist().size(); i++) {
+                        if (i != a_conscious_info.getRelayObject().getReplylist().size() - 1) {
+                            A_Conscious_Info.relayObjectBean.ReplylistBean replylistBean = a_conscious_info.getRelayObject().getReplylist().get(i);
+                            replayTxt += "@" + replylistBean.getNickname() + ":" + replylistBean.getContent();
+                        }
+                    }
+                    oldContent = replayTxt;
+                    ZhuanFaContentET.setText(replayTxt);
+
+
+                    ZhuanFaContentET.setFocusable(true);
+                    ZhuanFaContentET.setFocusableInTouchMode(true);
+                    ZhuanFaContentET.requestFocus();
+                    Timer timer = new Timer();
+                    timer.schedule(new TimerTask() {
+                                       public void run() {
+                                           ZhuanFaContentET.setSelection(0);
+                                           SoftKeyboardUtil.showKeyboard(ZhuanFaContentET.getContext(), ZhuanFaContentET);
+                                       }
+                                   },
+                            150);//这里键盘没有自动弹起可以把时间值设大一点
+
+                } else {
+                    ZhuanFaIV.setVisibility(View.GONE);
+                }
             }
         } else {
-            if (a_conscious_info.getRelayObject().getExtrals().size() > 0) {
-                ZhuanFaIV.setVisibility(View.VISIBLE);
-                GlideControl.SetImage(getContext(), a_conscious_info.getRelayObject().getExtrals().get(0).getUri(), ZhuanFaIV, R.mipmap.jiazaiing);
-                ContentTV.setText(a_conscious_info.getRelayObject().getContent());
-                ZuoZheTV.setText("@" + a_conscious_info.getNickname());
-
-                String replayTxt = "//";
-
-                for (int i = 0; i < a_conscious_info.getRelayObject().getReplylist().size(); i++) {
-                    if (i != a_conscious_info.getRelayObject().getReplylist().size() - 1) {
-                        A_Conscious_Info.relayObjectBean.ReplylistBean replylistBean = a_conscious_info.getRelayObject().getReplylist().get(i);
-                        replayTxt += "@" + replylistBean.getNickname() + ":" + replylistBean.getContent();
-                    }
-                }
-                ZhuanFaContentET.setText(replayTxt);
-                ZhuanFaContentET.setSelection(0);
-
-            } else {
-                ZhuanFaIV.setVisibility(View.GONE);
-            }
         }
 
 
@@ -127,9 +165,11 @@ public class A_Activity_GanWu_ZhuanFa extends MvpActivity<A_ZhuanFaGanWu_Present
                     return;
                 }
 
+                String sendMsg = ZhuanFaContentET.getText().toString().replace(oldContent, "");
+
                 CreateCconscious_Bean createCconscious_bean = new CreateCconscious_Bean();
 
-                createCconscious_bean.setContent(ZhuanFaContentET.getText().toString());
+                createCconscious_bean.setContent(sendMsg);
                 createCconscious_bean.setPosition(cityName);
                 createCconscious_bean.setRelaycid(a_conscious_info.getCid());
                 mPresenter.postConscious(createCconscious_bean, getContext());

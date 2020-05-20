@@ -90,7 +90,10 @@
         <item name="android:id">@id/btn_back</item>
         <item name="android:onClick">backButtonPressed</item>
     </style>
-
+    <style name="main_menu_photo_anim">
+        <item name="android:windowEnterAnimation">@anim/photo_dialog_in_anim</item>
+        <item name="android:windowExitAnimation">@anim/photo_dialog_out_anim</item>
+    </style>
     <!-- animation 样式 -->
     <style name="activityAnimation" parent="@android:style/Animation">
         <item name="android:activityOpenEnterAnimation">@anim/slide_right_in</item>

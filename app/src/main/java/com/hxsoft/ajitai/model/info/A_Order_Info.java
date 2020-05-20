@@ -31,6 +31,15 @@ public class A_Order_Info implements Serializable {
     private String time;
     private Integer goodsNum;
     private ArrayList<ProductListBean> productList;
+    private Integer goodstype;
+
+    public Integer getGoodstype() {
+        return goodstype;
+    }
+
+    public void setGoodstype(Integer goodstype) {
+        this.goodstype = goodstype;
+    }
 
     public String getOrderNo() {
         return orderNo;

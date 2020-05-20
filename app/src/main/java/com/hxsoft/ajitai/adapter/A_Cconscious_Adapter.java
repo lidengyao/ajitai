@@ -2,11 +2,13 @@ package com.hxsoft.ajitai.adapter;
 
 import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.text.SpannableString;
 import android.text.Spanned;
+import android.text.TextUtils;
 import android.text.method.LinkMovementMethod;
 import android.text.style.ClickableSpan;
 import android.view.View;
@@ -22,7 +24,10 @@ import com.hxsoft.ajitai.model.Inf.OnGanWu_HuiFuPingLun_ClickListener;
 import com.hxsoft.ajitai.model.bean.A_Conscious_Info;
 import com.hxsoft.ajitai.model.bean.A_User_Info;
 import com.hxsoft.ajitai.model.bean.ExtralsBean;
+import com.hxsoft.ajitai.ui.activity.A_Activity_Vedio;
 import com.hxsoft.ajitai.ui.activity.FullyGridLayoutManager;
+import com.hxsoft.ajitai.ui.activity.MainActivity;
+import com.hxsoft.ajitai.ui.activity.Picture_Select_Activity;
 import com.hxsoft.ajitai.utils.AutoLinefeedLayout;
 import com.hxsoft.ajitai.utils.DbKeyS;
 import com.hxsoft.ajitai.utils.GlideControl;
@@ -175,9 +180,16 @@ public class A_Cconscious_Adapter extends CommonAdapter<A_Conscious_Info> {
 //        }
         if (yuanshiImgs.size() > 0) {
             for (int i = 0; i < yuanshiImgs.size(); i++) {
+                ExtralsBean extralsBean = yuanshiImgs.get(i);
                 View a_item_ganwu_pic = View.inflate(_Context, R.layout.a_item_ganwu_pic, null);
                 ImageView ganwuIV = (ImageView) a_item_ganwu_pic.findViewById(R.id.ganwuIV);
-                GlideControl.SetImage(_Context, yuanshiImgs.get(i).getUri(), ganwuIV, R.mipmap.jiazaiing);
+                ImageView BoFangIV = (ImageView) a_item_ganwu_pic.findViewById(R.id.BoFangIV);
+                if (extralsBean.getType() == 1) {
+                    BoFangIV.setVisibility(View.VISIBLE);
+                } else {
+                    BoFangIV.setVisibility(View.GONE);
+                }
+                GlideControl.SetImage(_Context, extralsBean.getUri(), ganwuIV, R.mipmap.jiazaiing);
                 PicAutoLinefeedLayout.addView(a_item_ganwu_pic);
 
                 ganwuIV.setTag(R.id.one, yuanshiImgs);
@@ -209,12 +221,11 @@ public class A_Cconscious_Adapter extends CommonAdapter<A_Conscious_Info> {
                         int mediaType = media.getMimeType();
                         switch (mediaType) {
                             case 1:
-//                            Intent intent = new Intent(getContext(), W_KuFangJianKong_Detail_Activity.class);
-//                            intent.putExtra("url", media.getPath());
-//                            startActivity(intent);
                                 // 预览视频
-//                            PictureSelector.create(getActivity()).externalPictureVideo(media.getPath());
-//                            OpenVideo(media.getPath());
+                                Intent intent = new Intent(_Context, A_Activity_Vedio.class);
+                                intent.putExtra("url",media.getPath());
+                                _Context.startActivity(intent);
+//                                PictureSelector.create(_Activity).externalPictureVideo(media.getPath());
                                 break;
                             case 2:
                                 // 预览图片 可自定长按保存路径
@@ -297,92 +308,105 @@ public class A_Cconscious_Adapter extends CommonAdapter<A_Conscious_Info> {
         LinearLayout relayLL = (LinearLayout) helper.getView(R.id.relayLL);
         TextView RelayContentTV = (TextView) helper.getView(R.id.RelayContentTV);
         AutoLinefeedLayout RelayImgAutoLinefeedLayout = (AutoLinefeedLayout) helper.getView(R.id.RelayImgAutoLinefeedLayout);
-        if (item.getRelayObject() == null) {
-            relayLL.setVisibility(View.GONE);
-        } else {
-            relayLL.setVisibility(View.VISIBLE);
+        if (item.getExtrals() != null) {
+            if (item.getExtrals().size() > 0) {
+                relayLL.setVisibility(View.GONE);
+            } else {
+                relayLL.setVisibility(View.VISIBLE);
 //            PicAutoLinefeedLayout.setVisibility(View.GONE);
-            RelayContentTV.setText("");
-            String name = "@" + item.getRelayObject().getNickname() + ":";
-            String content = item.getRelayObject().getContent();
-            SpannableString spStr = new SpannableString(name + content);
+                RelayContentTV.setText("");
+                String name = "@" + item.getRelayObject().getNickname() + ":";
+                String content = item.getRelayObject().getContent();
+                SpannableString spStr = new SpannableString(name + content);
 //            NoLineClickSpan clickSpan = new NoLineClickSpan("#268F83"); //设置超链接
-            NoLineClickSpan clickSpan2 = new NoLineClickSpan("#268F83") {
-                @Override
-                public void onClick(View widget) {
-                    Toast.makeText(_Context, name, Toast.LENGTH_SHORT).show();
-                }
-            }; //设置超链接
+                NoLineClickSpan clickSpan2 = new NoLineClickSpan("#268F83") {
+                    @Override
+                    public void onClick(View widget) {
+                        Toast.makeText(_Context, name, Toast.LENGTH_SHORT).show();
+                    }
+                }; //设置超链接
 //            spStr.setSpan(clickSpan, 0, name.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
-            spStr.setSpan(clickSpan2, 0, name.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
-            RelayContentTV.append(spStr);
-            RelayContentTV.setMovementMethod(LinkMovementMethod.getInstance());
-            //设置文本不高亮，如果需要点击后高亮文本，删掉这句即可
+                spStr.setSpan(clickSpan2, 0, name.length(), Spanned.SPAN_INCLUSIVE_EXCLUSIVE);
+                RelayContentTV.append(spStr);
+                RelayContentTV.setMovementMethod(LinkMovementMethod.getInstance());
+                //设置文本不高亮，如果需要点击后高亮文本，删掉这句即可
 //            RelayContentTV.setHighlightColor(Color.parseColor("#00000000"));
 
-            ArrayList<ExtralsBean> zhuanfaImgs = item.getRelayObject().getExtrals();
-            RelayImgAutoLinefeedLayout.removeAllViews();
-            if (zhuanfaImgs.size() > 0) {
-                for (int i = 0; i < zhuanfaImgs.size(); i++) {
-                    View a_item_ganwu_pic = View.inflate(_Context, R.layout.a_item_ganwu_pic, null);
-                    ImageView ganwuIV = (ImageView) a_item_ganwu_pic.findViewById(R.id.ganwuIV);
-                    GlideControl.SetImage(_Context, zhuanfaImgs.get(i).getUri(), ganwuIV, R.mipmap.jiazaiing);
-                    RelayImgAutoLinefeedLayout.addView(a_item_ganwu_pic);
+                ArrayList<ExtralsBean> zhuanfaImgs = item.getRelayObject().getExtrals();
+                RelayImgAutoLinefeedLayout.removeAllViews();
+                if (zhuanfaImgs != null && zhuanfaImgs.size() > 0) {
+                    for (int i = 0; i < zhuanfaImgs.size(); i++) {
+                        ExtralsBean extralsBean = zhuanfaImgs.get(i);
+                        View a_item_ganwu_pic = View.inflate(_Context, R.layout.a_item_ganwu_pic, null);
+                        ImageView ganwuIV = (ImageView) a_item_ganwu_pic.findViewById(R.id.ganwuIV);
+                        ImageView BoFangIV = (ImageView) a_item_ganwu_pic.findViewById(R.id.BoFangIV);
+                        if (extralsBean.getType() == 1) {
+                            BoFangIV.setVisibility(View.VISIBLE);
+                        } else {
+                            BoFangIV.setVisibility(View.GONE);
+                        }
 
-                    ganwuIV.setTag(R.id.one, zhuanfaImgs);
-                    ganwuIV.setTag(R.id.two, i);
-                    ganwuIV.setOnClickListener(new View.OnClickListener() {
-                        @Override
-                        public void onClick(View v) {
-                            ArrayList<ExtralsBean> extralsBeanArrayList = (ArrayList<ExtralsBean>) v.getTag(R.id.one);
-                            List<LocalMedia> selectList_Detail = new ArrayList<>();
-                            if (extralsBeanArrayList != null) {
+                        GlideControl.SetImage(_Context, zhuanfaImgs.get(i).getUri(), ganwuIV, R.mipmap.jiazaiing);
+                        RelayImgAutoLinefeedLayout.addView(a_item_ganwu_pic);
 
-                                for (int i = 0; i < extralsBeanArrayList.size(); i++) {
-                                    ExtralsBean extralsBean = extralsBeanArrayList.get(i);
-                                    LocalMedia localMedia = new LocalMedia();
-                                    localMedia.setChecked(false);
-                                    localMedia.setCut(false);
-                                    localMedia.setCompressed(false);
-                                    localMedia.setPath(extralsBean.getUri());
-                                    localMedia.setMimeType(extralsBean.getType());
-                                    selectList_Detail.add(localMedia);
+                        ganwuIV.setTag(R.id.one, zhuanfaImgs);
+                        ganwuIV.setTag(R.id.two, i);
+                        ganwuIV.setOnClickListener(new View.OnClickListener() {
+                            @Override
+                            public void onClick(View v) {
+                                ArrayList<ExtralsBean> extralsBeanArrayList = (ArrayList<ExtralsBean>) v.getTag(R.id.one);
+                                List<LocalMedia> selectList_Detail = new ArrayList<>();
+                                if (extralsBeanArrayList != null) {
 
+                                    for (int i = 0; i < extralsBeanArrayList.size(); i++) {
+                                        ExtralsBean extralsBean = extralsBeanArrayList.get(i);
+                                        LocalMedia localMedia = new LocalMedia();
+                                        localMedia.setChecked(false);
+                                        localMedia.setCut(false);
+                                        localMedia.setCompressed(false);
+                                        localMedia.setPath(extralsBean.getUri());
+                                        localMedia.setMimeType(extralsBean.getType());
+                                        selectList_Detail.add(localMedia);
+
+
+                                    }
+                                }
+
+                                int Index = (int) v.getTag(R.id.two);
+
+                                LocalMedia media = selectList_Detail.get(Index);
+                                int mediaType = media.getMimeType();
+                                switch (mediaType) {
+                                    case 1:
+                                        Intent intent = new Intent(_Context, A_Activity_Vedio.class);
+                                        intent.putExtra("url",media.getPath());
+                                        _Context.startActivity(intent);
+//                                        PictureSelector.create(_Activity).externalPictureVideo(media.getPath());
+                                        break;
+                                    case 2:
+                                        // 预览图片 可自定长按保存路径
+                                        PictureSelector.create(_Activity).themeStyle(R.style.picture_default_style).openExternalPreview(Index, "/custom_file", selectList_Detail);
+//                                PictureSelector.create(_Activity).externalPicturePreview(Index, selectList_Detail);
+                                        break;
+
+                                    case 3:
+                                        // 预览音频
+                                        PictureSelector.create(_Activity).externalPictureAudio(media.getPath());
+                                        break;
 
                                 }
-                            }
-
-                            int Index = (int) v.getTag(R.id.two);
-
-                            LocalMedia media = selectList_Detail.get(Index);
-                            int mediaType = media.getMimeType();
-                            switch (mediaType) {
-                                case 1:
-//                            Intent intent = new Intent(getContext(), W_KuFangJianKong_Detail_Activity.class);
-//                            intent.putExtra("url", media.getPath());
-//                            startActivity(intent);
-                                    // 预览视频
-//                            PictureSelector.create(getActivity()).externalPictureVideo(media.getPath());
-//                            OpenVideo(media.getPath());
-                                    break;
-                                case 2:
-                                    // 预览图片 可自定长按保存路径
-                                    PictureSelector.create(_Activity).themeStyle(R.style.picture_default_style).openExternalPreview(Index, "/custom_file", selectList_Detail);
-//                                PictureSelector.create(_Activity).externalPicturePreview(Index, selectList_Detail);
-                                    break;
-
-                                case 3:
-                                    // 预览音频
-                                    PictureSelector.create(_Activity).externalPictureAudio(media.getPath());
-                                    break;
 
                             }
-
-                        }
-                    });
+                        });
+                    }
                 }
             }
         }
+//        if (item.getRelayObject() == null) {
+//            relayLL.setVisibility(View.GONE);
+//        } else {
+//
+//        }
 
 
         //endregion

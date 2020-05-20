@@ -4,10 +4,13 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.text.Editable;
 import android.text.TextWatcher;
+import android.view.MenuInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
+import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
@@ -18,7 +21,6 @@ import com.hxsoft.ajitai.model.info.PhoneLoginInfo;
 import com.hxsoft.ajitai.present.LoginPresent;
 import com.hxsoft.ajitai.ui.view.LoginView;
 import com.hxsoft.ajitai.utils.DbKeyS;
-import com.hxsoft.ajitai.utils.JPushControl;
 import com.hxsoft.ajitai.utils.MStringUtils;
 import com.hxsoft.ajitai.utils.SpUtils;
 import com.hxsoft.ajitai.wxapi.WXAPI;
@@ -44,8 +46,11 @@ public class A_LoginActivity extends MvpActivity<LoginPresent> implements View.O
     TextView CenterTV;
     @Bind(R.id.WeiXinIV)
     ImageView WeiXinIV;
+    @Bind(R.id.MenuIV)
+    ImageView MenuIV;
 
     private IWXAPI api;
+
     @Override
     protected int getLayoutId() {
         return R.layout.a_activity_login;
@@ -124,6 +129,39 @@ public class A_LoginActivity extends MvpActivity<LoginPresent> implements View.O
                 }
             }
         });
+
+        MenuIV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                //创建弹出式菜单对象（最低版本11）
+                PopupMenu popup = new PopupMenu(getContext(), v);//第二个参数是绑定的那个view
+                //获取菜单填充器
+                MenuInflater inflater = popup.getMenuInflater();
+                //填充菜单
+                inflater.inflate(R.menu.setmenu, popup.getMenu());
+                //绑定菜单项的点击事件
+                popup.setOnMenuItemClickListener(new PopupMenu.OnMenuItemClickListener() {
+                    @Override
+                    public boolean onMenuItemClick(MenuItem item) {
+                        switch (item.getItemId()) {
+
+                            case R.id.yuanxingtu:
+                                SpUtils.saveSettingNote(getContext(), DbKeyS.yuanxingtu, "1");
+                                break;
+                            case R.id.fabu:
+                                SpUtils.saveSettingNote(getContext(), DbKeyS.yuanxingtu, "0");
+                                break;
+                            default:
+                                break;
+                        }
+                        return false;
+                    }
+                });
+                //显示(这一行代码不要忘记了)
+                popup.show();
+            }
+        });
+        SpUtils.saveSettingNote(getContext(), DbKeyS.yuanxingtu, "0");
     }
 
     @Override

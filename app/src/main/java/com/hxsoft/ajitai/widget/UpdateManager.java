@@ -49,7 +49,7 @@ public class UpdateManager {
     /* 下载路径 */
     private String AppUrl;
     /* 下载文件名称 */
-    private String AppName = "智慧危管";
+    private String AppName = "阿吉泰";
     ;
     /* 记录进度条数量 */
     private int progress;
@@ -99,7 +99,7 @@ public class UpdateManager {
         }
     }
 
-    public void forceCheckUpdate(String appAddress ) {
+    public void forceCheckUpdate(String appAddress) {
         AppUrl = appAddress;
         force = true;
         AlertDialog.Builder builder = new AlertDialog.Builder(mContext);
@@ -113,7 +113,7 @@ public class UpdateManager {
         }).show();
     }
 
-    public void noForceCheckUpdate(String appAddress ) {
+    public void noForceCheckUpdate(String appAddress) {
         AppUrl = appAddress;
         force = false;
 //        showNoticeDialogNoForce();
@@ -367,7 +367,7 @@ public class UpdateManager {
 
         Uri fileUri = null;
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
-            fileUri = FileProvider.getUriForFile(mContext, "com.qjrj.yck.fileProvider",
+            fileUri = FileProvider.getUriForFile(mContext, "com.hxsoft.ajitai.fileProvider",
                     apkfile);
         } else {
             fileUri = Uri.fromFile(apkfile);

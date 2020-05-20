@@ -2,8 +2,8 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android">
 
     <item
-        android:id="@+id/kaifazhe"
-        android:title="开发者模式" />
+        android:id="@+id/yuanxingtu"
+        android:title="原型图模式" />
     <item
         android:id="@+id/fabu"
         android:title="发布模式" />

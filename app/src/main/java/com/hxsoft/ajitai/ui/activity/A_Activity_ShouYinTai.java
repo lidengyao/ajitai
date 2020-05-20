@@ -82,7 +82,7 @@ public class A_Activity_ShouYinTai extends MvpActivity<A_ShouYinTai_Present> imp
         price = getIntent().getStringExtra("price");
         type = getIntent().getStringExtra("type");
 
-        if (type.equals("4")) {
+        if (type != null && type.equals("4")) {
             QianBaoRL.setVisibility(View.GONE);
         }
         priceTV.setText("¥ " + price);

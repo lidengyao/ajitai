@@ -56,7 +56,7 @@ public class A_Order_Adapter extends CommonAdapter<A_Order_Info> {
             }
         }
 
-        //0：待付款；1：待发货；2：已发货；3：取消订单；4：支付失败;5:已完成
+        //状态 0.待付款 1.待发货 2.已发货,3.取消订单,4.支付失败,5.支付成功,6.交易完成
 
         TextView status_TV = (TextView) helper.getView(R.id.status_TV);
         TextView payment_TV = (TextView) helper.getView(R.id.payment_TV);
@@ -70,7 +70,7 @@ public class A_Order_Adapter extends CommonAdapter<A_Order_Info> {
         payment_TV.setText(item.getPayment() + "");
         goodsNum_TV.setText(item.getGoodsNum() + "");
 
-        //待付款
+        //region 待付款
         if (item.getStatus() == 0) {
             status_TV.setText("待付款");
             DaiFuKuanLL.setVisibility(View.VISIBLE);
@@ -95,7 +95,8 @@ public class A_Order_Adapter extends CommonAdapter<A_Order_Info> {
                     Intent intent = new Intent(_Context, A_Activity_ShouYinTai.class);
                     intent.putExtra("orderNo", a_order_info.getOrderNo());
                     intent.putExtra("body", body);
-                    intent.putExtra("price", a_order_info.getPayment()+"");
+                    intent.putExtra("price", a_order_info.getPayment() + "");
+                    intent.putExtra("type", a_order_info.getGoodstype() + "");
                     _Context.startActivity(intent);
                 }
             });
@@ -109,8 +110,9 @@ public class A_Order_Adapter extends CommonAdapter<A_Order_Info> {
                 }
             });
         }
+        //endregion
 
-        //待发货
+        //region 待发货
         if (item.getStatus() == 1) {
             status_TV.setText("待发货");
             DaiFuKuanLL.setVisibility(View.GONE);
@@ -118,8 +120,9 @@ public class A_Order_Adapter extends CommonAdapter<A_Order_Info> {
             DaiShouHuoLL.setVisibility(View.GONE);
             YiWanChengLL.setVisibility(View.GONE);
         }
+        //endregion
 
-        //待收货
+        //region （已发货）待收货
         if (item.getStatus() == 2) {
             status_TV.setText("待收货");
             DaiFuKuanLL.setVisibility(View.GONE);
@@ -127,8 +130,9 @@ public class A_Order_Adapter extends CommonAdapter<A_Order_Info> {
             DaiShouHuoLL.setVisibility(View.VISIBLE);
             YiWanChengLL.setVisibility(View.GONE);
         }
+        //endregion
 
-        //已取消
+        //region  已取消
         if (item.getStatus() == 3) {
             status_TV.setText("交易关闭");
             DaiFuKuanLL.setVisibility(View.INVISIBLE);
@@ -136,15 +140,29 @@ public class A_Order_Adapter extends CommonAdapter<A_Order_Info> {
             DaiShouHuoLL.setVisibility(View.GONE);
             YiWanChengLL.setVisibility(View.GONE);
         }
+        //endregion
 
-        //已完成
+        //region 异常订单
         if (item.getStatus() == 5) {
+            status_TV.setText("异常订单");
+            DaiFuKuanLL.setVisibility(View.GONE);
+            DaiFaHuoLL.setVisibility(View.GONE);
+            DaiShouHuoLL.setVisibility(View.GONE);
+            YiWanChengLL.setVisibility(View.VISIBLE);
+        }
+        //endregion
+
+        //region 交易完成
+        if (item.getStatus() == 6) {
             status_TV.setText("已完成");
             DaiFuKuanLL.setVisibility(View.GONE);
             DaiFaHuoLL.setVisibility(View.GONE);
             DaiShouHuoLL.setVisibility(View.GONE);
             YiWanChengLL.setVisibility(View.VISIBLE);
         }
+        //endregion
+
+
         DingDan_Root_LL.setTag(R.id.one, item);
         DingDan_Root_LL.setOnClickListener(new View.OnClickListener() {
             @Override
