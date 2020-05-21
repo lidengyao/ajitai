@@ -132,38 +132,39 @@ public abstract class BaseFragment extends Fragment implements View.OnTouchListe
     protected abstract int getLayoutId();
 
     protected void initView() {
+        if (AppContext.debug == true) {
+            RelativeLayout RootView = (RelativeLayout) mRootView.findViewById(R.id.RootView);
+            if (RootView != null) {
 
-        RelativeLayout RootView = (RelativeLayout)mRootView.findViewById(R.id.RootView);
-        if (RootView != null) {
+                View tipView = View.inflate(getContext(), R.layout.a_tip, null);
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                layoutParams.rightMargin = DensityUtils.px2dp(getContext(), 25);
+                layoutParams.bottomMargin = DensityUtils.px2dp(getContext(), 70);
+                layoutParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+                layoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+                tipView.setLayoutParams(layoutParams);
+                RootView.addView(tipView);
 
-            View tipView = View.inflate(getContext(), R.layout.a_tip, null);
-            RelativeLayout.LayoutParams layoutParams =new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
-            layoutParams.rightMargin =  DensityUtils.px2dp(getContext(), 25);
-            layoutParams.bottomMargin =  DensityUtils.px2dp(getContext(), 70);
-            layoutParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-            layoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
-            tipView.setLayoutParams(layoutParams);
-            RootView.addView(tipView);
+                tipView.setOnTouchListener(new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View v, MotionEvent motionEvent) {
+                        switch (motionEvent.getAction()) {
+                            case MotionEvent.ACTION_DOWN:
+                                tipView.setScaleX((float) 0.85);
+                                tipView.setScaleY((float) 0.85);
+                                break;
 
-            tipView.setOnTouchListener(new View.OnTouchListener() {
-                @Override
-                public boolean onTouch(View v, MotionEvent motionEvent) {
-                    switch (motionEvent.getAction()) {
-                        case MotionEvent.ACTION_DOWN:
-                            tipView.setScaleX((float) 0.85);
-                            tipView.setScaleY((float) 0.85);
-                            break;
+                            case MotionEvent.ACTION_UP:
+                                tipView.setScaleX(1);
+                                tipView.setScaleY(1);
+                                break;
+                            default:
+                        }
 
-                        case MotionEvent.ACTION_UP:
-                            tipView.setScaleX(1);
-                            tipView.setScaleY(1);
-                            break;
-                        default:
+                        return false;
                     }
-
-                    return false;
-                }
-            });
+                });
+            }
         }
     }
 

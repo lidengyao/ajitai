@@ -14,6 +14,7 @@ import android.widget.PopupMenu;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.hxsoft.ajitai.AppContext;
 import com.hxsoft.ajitai.Constants;
 import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.base.MvpActivity;
@@ -146,10 +147,10 @@ public class A_LoginActivity extends MvpActivity<LoginPresent> implements View.O
                         switch (item.getItemId()) {
 
                             case R.id.yuanxingtu:
-                                SpUtils.saveSettingNote(getContext(), DbKeyS.yuanxingtu, "1");
+                                AppContext.debug=true;
                                 break;
                             case R.id.fabu:
-                                SpUtils.saveSettingNote(getContext(), DbKeyS.yuanxingtu, "0");
+                                AppContext.debug=false;
                                 break;
                             default:
                                 break;
@@ -161,7 +162,6 @@ public class A_LoginActivity extends MvpActivity<LoginPresent> implements View.O
                 popup.show();
             }
         });
-        SpUtils.saveSettingNote(getContext(), DbKeyS.yuanxingtu, "0");
     }
 
     @Override

@@ -10,6 +10,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 
+import com.hxsoft.ajitai.AppContext;
 import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.base.BasePresent;
 import com.hxsoft.ajitai.base.MvpFragment;
@@ -104,7 +105,6 @@ public class A_FaXian_Fragment extends MvpFragment {
     LinearLayout XinLingGanLuLL;
     @Bind(R.id.DaJiangTang_LL)
     LinearLayout DaJiangTangLL;
-    private String yuanxingtu;
 
     @Override
     protected BasePresent createPresenter() {
@@ -121,13 +121,11 @@ public class A_FaXian_Fragment extends MvpFragment {
         super.onViewCreated(view, savedInstanceState);
 
 
-        yuanxingtu = SpUtils.getSettingNote(getContext(), DbKeyS.yuanxingtu);
-        if (yuanxingtu == null)
-            yuanxingtu = "0";
+
         DaJiangTangLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (yuanxingtu.equals("0"))
+                if (AppContext.debug == false)
                     showMessage("敬请期待");
                 else {
                     Intent intent = new Intent(getContext(), A_Activity_DaJiangTang.class);
@@ -139,7 +137,7 @@ public class A_FaXian_Fragment extends MvpFragment {
         ZiXunLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (yuanxingtu.equals("0"))
+                if (AppContext.debug == false)
                     showMessage("敬请期待");
                 else {
                     Intent intent = new Intent(getContext(), A_ZiXunActivity.class);
@@ -151,7 +149,7 @@ public class A_FaXian_Fragment extends MvpFragment {
         JianKangLvYouLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (yuanxingtu.equals("0"))
+                if (AppContext.debug == false)
                     showMessage("敬请期待");
                 else {
                     Intent intent = new Intent(getContext(), A_Activity_FaXian_WenZhangYueDu.class);
@@ -165,7 +163,7 @@ public class A_FaXian_Fragment extends MvpFragment {
             @Override
             public void onClick(View v) {
 
-                if (yuanxingtu.equals("0"))
+                if (AppContext.debug == false)
                     showMessage("敬请期待");
                 else {
                     Intent intent = new Intent(getContext(), A_Activity_XianChangJiangZuo.class);
@@ -185,7 +183,7 @@ public class A_FaXian_Fragment extends MvpFragment {
             @Override
             public void onClick(View v) {
 
-                if (yuanxingtu.equals("0"))
+                if (AppContext.debug == false)
                     showMessage("敬请期待");
                 else {
                     Intent intent = new Intent(getContext(), A_Activity_XiaoXi.class);
@@ -199,7 +197,7 @@ public class A_FaXian_Fragment extends MvpFragment {
             @Override
             public void onClick(View v) {
 
-                if (yuanxingtu.equals("0"))
+                if (AppContext.debug == false)
                     showMessage("敬请期待");
                 else {
                     Intent intent = new Intent(getContext(), A_Activity_ShangPin_XiangQing.class);
@@ -211,7 +209,7 @@ public class A_FaXian_Fragment extends MvpFragment {
             @Override
             public void onClick(View v) {
 
-                if (yuanxingtu.equals("0"))
+                if (AppContext.debug == false)
                     showMessage("敬请期待");
                 else {
                     Intent intent = new Intent(getContext(), A_Activity_FaXian_WenZhangYueDu.class);
@@ -223,7 +221,7 @@ public class A_FaXian_Fragment extends MvpFragment {
             @Override
             public void onClick(View v) {
 
-                if (yuanxingtu.equals("0"))
+                if (AppContext.debug == false)
                     showMessage("敬请期待");
                 else {
                     Intent intent = new Intent(getContext(), A_Activity_FaXian_SouSuo.class);
@@ -235,7 +233,7 @@ public class A_FaXian_Fragment extends MvpFragment {
             @Override
             public void onClick(View v) {
 
-                if (yuanxingtu.equals("0"))
+                if (AppContext.debug == false)
                     showMessage("敬请期待");
                 else {
                     Intent intent = new Intent(getContext(), A_Activity_DuShuHui.class);
@@ -248,7 +246,7 @@ public class A_FaXian_Fragment extends MvpFragment {
             @Override
             public void onClick(View v) {
 
-                if (yuanxingtu.equals("0"))
+                if (AppContext.debug == false)
                     showMessage("敬请期待");
                 else {
                     Intent intent = new Intent(getContext(), A_Activity_ShangCheng.class);
@@ -261,7 +259,7 @@ public class A_FaXian_Fragment extends MvpFragment {
             @Override
             public void onClick(View v) {
 
-                if (yuanxingtu.equals("0"))
+                if (AppContext.debug == false)
                     showMessage("敬请期待");
                 else {
                     Intent intent = new Intent(getContext(), A_Activity_ShangCheng.class);
@@ -274,7 +272,7 @@ public class A_FaXian_Fragment extends MvpFragment {
             @Override
             public void onClick(View v) {
 
-                if (yuanxingtu.equals("0"))
+                if (AppContext.debug == false)
                     showMessage("敬请期待");
                 else {
                     Intent intent = new Intent(getContext(), A_Activity_XinLingXiangYue.class);
@@ -287,7 +285,7 @@ public class A_FaXian_Fragment extends MvpFragment {
             @Override
             public void onClick(View v) {
 
-                if (yuanxingtu.equals("0"))
+                if (AppContext.debug == false)
                     showMessage("敬请期待");
                 else {
                     Intent intent = new Intent(getContext(), A_Activity_XueYuanHuiBao.class);
@@ -299,7 +297,7 @@ public class A_FaXian_Fragment extends MvpFragment {
             @Override
             public void onClick(View v) {
 
-                if (yuanxingtu.equals("0"))
+                if (AppContext.debug == false)
                     showMessage("敬请期待");
                 else {
                     Intent intent = new Intent(getContext(), A_Activity_YangShengGuan.class);
@@ -320,7 +318,7 @@ public class A_FaXian_Fragment extends MvpFragment {
             @Override
             public void onClick(View v) {
 
-                if (yuanxingtu.equals("0"))
+                if (AppContext.debug == false)
                     showMessage("敬请期待");
                 else {
                     Intent intent = new Intent(getContext(), A_Activity_YinYue.class);
@@ -333,7 +331,7 @@ public class A_FaXian_Fragment extends MvpFragment {
             @Override
             public void onClick(View v) {
 
-                if (yuanxingtu.equals("0"))
+                if (AppContext.debug == false)
                     showMessage("敬请期待");
                 else {
                     Intent intent = new Intent(getContext(), A_Activity_LianMengYiYuan.class);
@@ -346,7 +344,7 @@ public class A_FaXian_Fragment extends MvpFragment {
             @Override
             public void onClick(View v) {
 
-                if (yuanxingtu.equals("0"))
+                if (AppContext.debug == false)
                     showMessage("敬请期待");
                 else {
                     Intent intent = new Intent(getContext(), A_Activity_XinYuanQiang.class);
@@ -367,7 +365,7 @@ public class A_FaXian_Fragment extends MvpFragment {
             @Override
             public void onClick(View v) {
 
-                if (yuanxingtu.equals("0"))
+                if (AppContext.debug == false)
                     showMessage("敬请期待");
                 else {
                     Intent intent = new Intent(getContext(), A_Activity_DuShuHui_List.class);
@@ -379,7 +377,7 @@ public class A_FaXian_Fragment extends MvpFragment {
             @Override
             public void onClick(View v) {
 
-                if (yuanxingtu.equals("0"))
+                if (AppContext.debug == false)
                     showMessage("敬请期待");
                 else {
                     Intent intent = new Intent(getContext(), A_Activity_DuShuHui_List.class);
@@ -391,7 +389,7 @@ public class A_FaXian_Fragment extends MvpFragment {
             @Override
             public void onClick(View v) {
 
-                if (yuanxingtu.equals("0"))
+                if (AppContext.debug == false)
                     showMessage("敬请期待");
                 else {
                     Intent intent = new Intent(getContext(), A_Activity_XinLingGanLu.class);
@@ -403,7 +401,7 @@ public class A_FaXian_Fragment extends MvpFragment {
             @Override
             public void onClick(View v) {
 
-                if (yuanxingtu.equals("0"))
+                if (AppContext.debug == false)
                     showMessage("敬请期待");
                 else {
                     Intent intent = new Intent(getContext(), A_Activity_XinLingXiangYue_XiangQing.class);
@@ -415,7 +413,7 @@ public class A_FaXian_Fragment extends MvpFragment {
             @Override
             public void onClick(View v) {
 
-                if (yuanxingtu.equals("0"))
+                if (AppContext.debug == false)
                     showMessage("敬请期待");
                 else {
                     Intent intent = new Intent(getContext(), A_Activity_XinLingXiangYue_XiangQing.class);
@@ -426,8 +424,7 @@ public class A_FaXian_Fragment extends MvpFragment {
         DuShuHui6IV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-
-                if (yuanxingtu.equals("0"))
+                if (AppContext.debug == false)
                     showMessage("敬请期待");
                 else {
                     Intent intent = new Intent(getContext(), A_Activity_XinLingXiangYue_XiangQing.class);

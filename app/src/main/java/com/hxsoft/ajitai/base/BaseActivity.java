@@ -6,26 +6,34 @@ import android.content.Context;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import android.support.v7.app.AppCompatActivity;
+import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hxsoft.ajitai.AppContext;
 import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.utils.DensityUtils;
+import com.hxsoft.ajitai.utils.DialogFromCenter;
+import com.hxsoft.ajitai.utils.DicUtils;
+import com.hxsoft.ajitai.utils.FileUtils;
 import com.hxsoft.ajitai.widget.LoadingDialog;
 import com.jakewharton.rxbinding.view.RxView;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
 import java.io.BufferedReader;
+import java.io.File;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.util.concurrent.TimeUnit;
@@ -147,43 +155,109 @@ public abstract class BaseActivity extends AppCompatActivity {
 
     protected void initView() {
 
+        if (AppContext.debug == true) {
+            RelativeLayout RootView = (RelativeLayout) findViewById(R.id.RootView);
+            if (RootView != null) {
+                View tipView = View.inflate(getContext(), R.layout.a_tip, null);
+                RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+                layoutParams.rightMargin = (int) DensityUtils.px2dp(getContext(), 25);
+                layoutParams.bottomMargin = (int) DensityUtils.px2dp(getContext(), 400);
+                layoutParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+                layoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+                tipView.setLayoutParams(layoutParams);
+                RootView.addView(tipView);
 
-        RelativeLayout RootView = (RelativeLayout) findViewById(R.id.RootView);
-        if (RootView != null) {
-            View tipView = View.inflate(getContext(), R.layout.a_tip, null);
-            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
-            layoutParams.rightMargin = (int) DensityUtils.px2dp(getContext(), 25);
-            layoutParams.bottomMargin = (int) DensityUtils.px2dp(getContext(), 400);
-            layoutParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
-            layoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
-            tipView.setLayoutParams(layoutParams);
-            RootView.addView(tipView);
+                tipView.setOnTouchListener(new View.OnTouchListener() {
+                    @Override
+                    public boolean onTouch(View v, MotionEvent motionEvent) {
+                        switch (motionEvent.getAction()) {
+                            case MotionEvent.ACTION_DOWN:
+                                tipView.setScaleX((float) 0.85);
+                                tipView.setScaleY((float) 0.85);
+                                break;
 
-            tipView.setOnTouchListener(new View.OnTouchListener() {
-                @Override
-                public boolean onTouch(View v, MotionEvent motionEvent) {
-                    switch (motionEvent.getAction()) {
-                        case MotionEvent.ACTION_DOWN:
-                            tipView.setScaleX((float) 0.85);
-                            tipView.setScaleY((float) 0.85);
-                            break;
+                            case MotionEvent.ACTION_UP:
+                                tipView.setScaleX(1);
+                                tipView.setScaleY(1);
+                                break;
+                            default:
+                        }
 
-                        case MotionEvent.ACTION_UP:
-                            tipView.setScaleX(1);
-                            tipView.setScaleY(1);
-                            break;
-                        default:
+                        return false;
                     }
+                });
+                tipView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        try {
+                            ;
+                            String name = RootView.getTag().toString();
 
-                    return false;
-                }
-            });
-            tipView.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View v) {
+                            //0-0首页
+                            //0-1购买许可证查询
+                            //0-2购买许可详情
+                            //0-3企业锁定
 
-                }
-            });
+
+                            View view_dolog = View.inflate(getContext(), R.layout.w_dialog_help, null);
+                            final TextView GongNeng_Menu_TV = (TextView) view_dolog.findViewById(R.id.GongNeng_Menu_TV);
+                            final TextView Log_Menu_TV = (TextView) view_dolog.findViewById(R.id.Log_Menu_TV);
+                            LinearLayout closeLL = (LinearLayout) view_dolog.findViewById(R.id.CloseLL);
+                            final TextView GongNengContentET = (TextView) view_dolog.findViewById(R.id.GongNengContentET);
+                            final TextView LogContentTV = (TextView) view_dolog.findViewById(R.id.LogContentTV);
+
+
+                            GongNengContentET.setText(DicUtils.getHelpData(name, context));
+
+                            try {
+                                String strFilePath = Environment.getExternalStorageDirectory() + "/wgga/log.txt";
+                                File file = new File(strFilePath);
+                                String content = FileUtils.getFileContent(file);
+                                LogContentTV.setText(content);
+                            } catch (Exception e) {
+
+                            }
+
+
+                            GongNeng_Menu_TV.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    GongNengContentET.setVisibility(View.VISIBLE);
+                                    LogContentTV.setVisibility(View.GONE);
+                                    GongNeng_Menu_TV.setTextColor(getResources().getColor(R.color.color21));
+                                    Log_Menu_TV.setTextColor(getResources().getColor(R.color.color1));
+                                }
+                            });
+
+                            Log_Menu_TV.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    GongNengContentET.setVisibility(View.GONE);
+                                    LogContentTV.setVisibility(View.VISIBLE);
+                                    GongNeng_Menu_TV.setTextColor(getResources().getColor(R.color.color1));
+                                    Log_Menu_TV.setTextColor(getResources().getColor(R.color.color21));
+                                }
+                            });
+                            TextView TitleTV = (TextView) view_dolog.findViewById(R.id.TitleTV);
+                            TitleTV.setText(name);
+
+                            final DialogFromCenter dialogFromCenter_tip = new DialogFromCenter(getContext());
+                            dialogFromCenter_tip.setContentView(view_dolog);
+                            dialogFromCenter_tip.show();
+
+                            closeLL.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    dialogFromCenter_tip.dismiss();
+                                }
+                            });
+                        } catch (Exception e) {
+                            showMessage("没有帮助信息");
+                        }
+
+                    }
+                });
+            }
         }
     }
 

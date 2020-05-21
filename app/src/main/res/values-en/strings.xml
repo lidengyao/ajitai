@@ -1,0 +1,71 @@
+<resources>
+    <string name="app_name">阿吉泰(新版)</string>
+    <string name="alert_net_error">网络异常,请重试。</string>
+    <string name="alert_no_mobile">请输入正确的手机号</string>
+    <string name="alert_null_mobile">请输入手机号</string>
+    <string name="alert_null_password">请输入密码</string>
+    <string name="label_login">登录</string>
+    <string name="label_register">注册</string>
+    <string name="label_mobile_validate">输入手机号码登录</string>
+    <string name="label_use_mobile_login">登录</string>
+    <string name="hint_input_mobile">请输入你的手机号</string>
+    <string name="hint_input_password">请输入密码</string>
+    <string name="hint_input_verification_code">请输入短信验证码</string>
+    <string name="load_more_text">正在加载</string>
+
+    <string name="load_more">加载中</string>
+    <string name="loaded_empty"></string>
+    <string name="loaded_no_more">全部数据加载完毕</string>
+    <string name="load_more_click_to_load_more">点击加载更多</string>
+    <string name="load_more_error">加载失败,点击重试</string>
+    <string name="message_permission_rationale">允许以下权限以便程序继续执行：\n\n%1$s</string>
+    <string name="title_dialog">提示</string>
+    <string name="resume">继续</string>
+    <string name="chongzhi">重置</string>
+    <string name="queding">确定</string>
+
+    <item name="filepositon" type="id"></item>
+    <item name="files" type="id"></item>
+
+    <string name="floating">悬浮窗口</string>
+    <string name="start">启动悬浮窗口</string>
+    <string name="stop">移除悬浮窗口</string>
+
+    <string name="accessibility">开启悬浮球辅助功能</string>
+    <string name="switch_on">ON</string>
+    <string name="switch_off">OFF</string>
+
+    <string name="errcode_success">发送成功</string>
+    <string name="errcode_cancel">发送取消</string>
+    <string name="errcode_deny">发送被拒绝</string>
+    <string name="errcode_unsupported">不支持错误</string>
+    <string name="errcode_unknown">发送返回</string>
+
+    <string name="browse_musics_by_genre_subtitle">%1$s songs</string>
+    <string name="browse_genres">Genres</string>
+    <string name="browse_genre_subtitle">Songs by genre</string>
+    <string name="favorite">Favorite</string>
+    <string name="search_queue_title">Search results</string>
+    <string name="random_queue_title">Random music</string>
+    <string name="error_no_metadata">Unable to retrieve metadata.</string>
+    <string name="stop_casting">Stop Casting</string>
+    <string name="casting_to_device">Casting to %1$s</string>
+    <string name="label_next">Next</string>
+    <string name="notification_channel">UAMP_Channel_ID</string>
+    <string name="notification_channel_description">Channel ID for UAMP</string>
+    <string name="label_previous">Previous</string>
+    <string name="label_pause">Pause</string>
+    <string name="label_play">Play</string>
+    <string name="cast_application_id">CC1AD845</string>
+
+
+    <!--阿吉泰-->
+    <string name="qingxuanzekecheng">Please select a course</string>
+    <string name="tokentimeout">Login expired</string>
+    <string name="chongzhitishi">Please enter the correct amount</string>
+    <!--标题-->
+    <string name="title_chengjidan">School Report</string>
+    <string name="titile_chongzhi">Recharge</string>
+    <string name="titile_haoyouzhanghao">Friend Account</string>
+    <string name="titile_dajiangtang">Lecture Hall</string>
+</resources>

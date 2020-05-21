@@ -23,7 +23,7 @@ public class AppContext extends Application {
 
     public static boolean offLine = false;//是否设置为离线版本
     public static String sKey = "thanks,pig4cloud";
-    public static boolean debug = true;
+    public static boolean debug = false;
     public static String API_BASE_URL = "http://139.196.137.228:9999/";
     //                public static String API_BASE_URL = "http://zejun.free.idcfengye.com/";
     public static String API_BASE_URL_1 = "http://app.hxsoft.net:8081/";
