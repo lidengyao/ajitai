@@ -1,91 +1,97 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    style="@style/PageRootLL"
-    android:background="@color/color2">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/RootView"
+    style="@style/PageRootLL">
 
-
-    <!--头部-->
-    <android.support.v7.widget.Toolbar
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/headheight"
-        android:background="@drawable/status_shape"
-        app:contentInsetStart="0dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <LinearLayout style="@style/TopStyle">
+        <!--头部-->
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/headheight"
+            android:background="@drawable/status_shape"
+            app:contentInsetStart="0dp">
 
-            <RelativeLayout style="@style/TopBarStyle">
+            <LinearLayout style="@style/TopStyle">
 
-                <LinearLayout
-                    style="@style/TopBarLeftStyle"
-                    android:visibility="visible">
+                <RelativeLayout style="@style/TopBarStyle">
 
-                    <ImageView style="@style/TopBarBackImageStyle" />
-                </LinearLayout>
+                    <LinearLayout
+                        style="@style/TopBarLeftStyle"
+                        android:visibility="visible">
 
-                <TextView
-                    android:id="@+id/SysNameIV"
-                    style="@style/TopBarTitleStyle"
-                    android:tag="增票资质"
-                    android:text="增票资质"
-                    android:visibility="visible" />
-
-                <RelativeLayout
-                    android:id="@+id/QieHuanZhangHaoRL"
-                    style="@style/TopBarRightStyle"
-                    android:visibility="invisible">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_marginRight="20dp"
-                        android:src="@mipmap/qiehuanzhanghao" />
+                        <ImageView style="@style/TopBarBackImageStyle" />
+                    </LinearLayout>
 
                     <TextView
-                        style="@style/TopBarRightTextStyle"
-                        android:text="修改"
-                        android:visibility="gone" />
+                        android:id="@+id/SysNameIV"
+                        style="@style/TopBarTitleStyle"
+                        android:tag="增票资质"
+                        android:text="增票资质"
+                        android:visibility="visible" />
+
+                    <RelativeLayout
+                        android:id="@+id/QieHuanZhangHaoRL"
+                        style="@style/TopBarRightStyle"
+                        android:visibility="invisible">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginRight="20dp"
+                            android:src="@mipmap/qiehuanzhanghao" />
+
+                        <TextView
+                            style="@style/TopBarRightTextStyle"
+                            android:text="修改"
+                            android:visibility="gone" />
+                    </RelativeLayout>
                 </RelativeLayout>
-            </RelativeLayout>
 
 
-        </LinearLayout>
+            </LinearLayout>
 
-    </android.support.v7.widget.Toolbar>
+        </android.support.v7.widget.Toolbar>
 
-    <View style="@style/LineStyle"></View>
+        <View style="@style/LineStyle"></View>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-
-        <com.hxsoft.ajitai.widget.PullLoadMoreListView
-            android:id="@+id/DataListView"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@+id/BottomLL"
-            android:layout_marginTop="12dp"
-            android:divider="@null" />
+            android:layout_height="match_parent">
 
-        <LinearLayout
-            android:id="@+id/BottomLL"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_alignParentBottom="true"
-            android:background="#F1D649"
-            android:gravity="center"
-            android:orientation="horizontal">
 
-            <TextView
-                android:id="@+id/textView"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="新建增票资质"
-                android:textColor="@color/C242424"
-                android:textSize="@dimen/textsize16" />
-        </LinearLayout>
-    </RelativeLayout>
+            <com.hxsoft.ajitai.widget.PullLoadMoreListView
+                android:id="@+id/DataListView"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/BottomLL"
+                android:layout_marginTop="12dp"
+                android:divider="@null" />
 
-</LinearLayout>
+            <LinearLayout
+                android:id="@+id/BottomLL"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_alignParentBottom="true"
+                android:background="#F1D649"
+                android:gravity="center"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="新建增票资质"
+                    android:textColor="@color/C242424"
+                    android:textSize="@dimen/textsize16" />
+            </LinearLayout>
+        </RelativeLayout>
+
+    </LinearLayout>
+</RelativeLayout>

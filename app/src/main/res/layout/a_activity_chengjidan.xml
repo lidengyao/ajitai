@@ -1,170 +1,178 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    style="@style/PageRootLL"
-    android:background="@color/color2">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/RootView"
+    style="@style/PageRootLL">
 
-
-    <!--头部-->
-    <android.support.v7.widget.Toolbar
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/headheight"
-        android:background="@drawable/status_shape"
-        app:contentInsetStart="0dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <LinearLayout style="@style/TopStyle">
 
-            <RelativeLayout style="@style/TopBarStyle">
+        <!--头部-->
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/headheight"
+            android:background="@drawable/status_shape"
+            app:contentInsetStart="0dp">
 
-                <LinearLayout
-                    style="@style/TopBarLeftStyle"
-                    android:visibility="visible">
+            <LinearLayout style="@style/TopStyle">
 
-                    <ImageView style="@style/TopBarBackImageStyle" />
-                </LinearLayout>
+                <RelativeLayout style="@style/TopBarStyle">
 
-                <TextView
-                    android:id="@+id/SysNameIV"
-                    style="@style/TopBarTitleStyle"
-                    android:tag="@string/title_chengjidan"
-                    android:text="@string/title_chengjidan"
-                    android:visibility="visible" />
+                    <LinearLayout
+                        style="@style/TopBarLeftStyle"
+                        android:visibility="visible">
 
-                <RelativeLayout
-                    android:id="@+id/QieHuanZhangHaoRL"
-                    style="@style/TopBarRightStyle"
-                    android:visibility="invisible">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_marginRight="20dp"
-                        android:src="@mipmap/qiehuanzhanghao" />
+                        <ImageView style="@style/TopBarBackImageStyle" />
+                    </LinearLayout>
 
                     <TextView
-                        style="@style/TopBarRightTextStyle"
-                        android:text="修改"
-                        android:visibility="gone" />
+                        android:id="@+id/SysNameIV"
+                        style="@style/TopBarTitleStyle"
+                        android:tag="@string/title_chengjidan"
+                        android:text="@string/title_chengjidan"
+                        android:visibility="visible" />
+
+                    <RelativeLayout
+                        android:id="@+id/QieHuanZhangHaoRL"
+                        style="@style/TopBarRightStyle"
+                        android:visibility="invisible">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginRight="20dp"
+                            android:src="@mipmap/qiehuanzhanghao" />
+
+                        <TextView
+                            style="@style/TopBarRightTextStyle"
+                            android:text="修改"
+                            android:visibility="gone" />
+                    </RelativeLayout>
                 </RelativeLayout>
-            </RelativeLayout>
 
 
-        </LinearLayout>
+            </LinearLayout>
 
-    </android.support.v7.widget.Toolbar>
+        </android.support.v7.widget.Toolbar>
 
-    <View style="@style/LineStyle"></View>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="175dp"
-        android:orientation="horizontal">
+        <View style="@style/LineStyle"></View>
 
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:layout_width="match_parent"
+            android:layout_height="175dp"
+            android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="8"
-                android:textColor="@color/C242424"
-                android:textSize="@dimen/textsize30" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="学习大课次数"
-                android:textColor="#666666"
-                android:textSize="@dimen/textsize15" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="8"
+                    android:textColor="@color/C242424"
+                    android:textSize="@dimen/textsize30" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="学习大课次数"
+                    android:textColor="#666666"
+                    android:textSize="@dimen/textsize15" />
+            </LinearLayout>
+
+            <View style="@style/LineStyle_Vertical"></View>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="3"
+                    android:textColor="@color/C242424"
+                    android:textSize="@dimen/textsize30" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="听音频课天数"
+                    android:textColor="#666666"
+                    android:textSize="@dimen/textsize15" />
+            </LinearLayout>
+
         </LinearLayout>
-
-        <View style="@style/LineStyle_Vertical"></View>
 
         <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
+            android:layout_width="match_parent"
+            android:layout_height="175dp"
+            android:orientation="horizontal">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="3"
-                android:textColor="@color/C242424"
-                android:textSize="@dimen/textsize30" />
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="听音频课天数"
-                android:textColor="#666666"
-                android:textSize="@dimen/textsize15" />
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="1"
+                    android:textColor="@color/C242424"
+                    android:textSize="@dimen/textsize30" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="写感悟次数"
+                    android:textColor="#666666"
+                    android:textSize="@dimen/textsize15" />
+            </LinearLayout>
+
+            <View style="@style/LineStyle_Vertical"></View>
+
+            <LinearLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
+                    android:textColor="@color/C242424"
+                    android:textSize="@dimen/textsize30" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="20dp"
+                    android:text="参与读书次数"
+                    android:textColor="#666666"
+                    android:textSize="@dimen/textsize15" />
+            </LinearLayout>
+
         </LinearLayout>
+
+        <View style="@style/LineStyle"></View>
 
     </LinearLayout>
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="175dp"
-        android:orientation="horizontal">
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="1"
-                android:textColor="@color/C242424"
-                android:textSize="@dimen/textsize30" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="写感悟次数"
-                android:textColor="#666666"
-                android:textSize="@dimen/textsize15" />
-        </LinearLayout>
-
-        <View style="@style/LineStyle_Vertical"></View>
-
-        <LinearLayout
-            android:layout_width="0dp"
-            android:layout_height="match_parent"
-            android:layout_weight="1"
-            android:gravity="center"
-            android:orientation="vertical">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="0"
-                android:textColor="@color/C242424"
-                android:textSize="@dimen/textsize30" />
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="20dp"
-                android:text="参与读书次数"
-                android:textColor="#666666"
-                android:textSize="@dimen/textsize15" />
-        </LinearLayout>
-
-    </LinearLayout>
-
-    <View style="@style/LineStyle"></View>
-
-</LinearLayout>
+</RelativeLayout>

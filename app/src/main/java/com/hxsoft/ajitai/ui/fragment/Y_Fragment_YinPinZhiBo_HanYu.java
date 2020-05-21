@@ -84,7 +84,7 @@ public class Y_Fragment_YinPinZhiBo_HanYu extends MvpFragment<A_YinPinZhiBo_Pres
 //            }
 //        });
 
-        adapter = new A_YinPinZhiBo_Adapter(getContext(), infoArrayList, R.layout.a_item_yinpinzhibo, 0);
+        adapter = new A_YinPinZhiBo_Adapter(getContext(), getActivity(), infoArrayList, R.layout.a_item_yinpinzhibo, 0);
 
         DataListView.setAdapter(adapter);
         DataListView.setOnPullLoadMoreListener(new PullLoadMoreListView.PullLoadMoreListener() {

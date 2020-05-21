@@ -1,142 +1,150 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    style="@style/PageRootLL"
-    android:background="@color/color2">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/RootView"
+    style="@style/PageRootLL">
 
-
-    <!--头部-->
-    <android.support.v7.widget.Toolbar
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/headheight"
-        android:background="@drawable/status_shape"
-        app:contentInsetStart="0dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <LinearLayout style="@style/TopStyle">
 
-            <RelativeLayout style="@style/TopBarStyle">
+        <!--头部-->
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/headheight"
+            android:background="@drawable/status_shape"
+            app:contentInsetStart="0dp">
 
-                <LinearLayout
-                    style="@style/TopBarLeftStyle"
-                    android:visibility="visible">
+            <LinearLayout style="@style/TopStyle">
 
-                    <ImageView style="@style/TopBarBackImageStyle" />
-                </LinearLayout>
+                <RelativeLayout style="@style/TopBarStyle">
 
-                <TextView
-                    android:id="@+id/SysNameIV"
-                    style="@style/TopBarTitleStyle"
-                    android:tag="设置"
-                    android:text="留言建议"
-                    android:visibility="visible" />
+                    <LinearLayout
+                        style="@style/TopBarLeftStyle"
+                        android:visibility="visible">
 
-                <RelativeLayout
-                    android:id="@+id/QieHuanZhangHaoRL"
-                    style="@style/TopBarRightStyle"
-                    android:visibility="invisible">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_marginRight="20dp"
-                        android:src="@mipmap/qiehuanzhanghao" />
+                        <ImageView style="@style/TopBarBackImageStyle" />
+                    </LinearLayout>
 
                     <TextView
-                        style="@style/TopBarRightTextStyle"
-                        android:text="修改"
-                        android:visibility="gone" />
+                        android:id="@+id/SysNameIV"
+                        style="@style/TopBarTitleStyle"
+                        android:tag="设置"
+                        android:text="留言建议"
+                        android:visibility="visible" />
+
+                    <RelativeLayout
+                        android:id="@+id/QieHuanZhangHaoRL"
+                        style="@style/TopBarRightStyle"
+                        android:visibility="invisible">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginRight="20dp"
+                            android:src="@mipmap/qiehuanzhanghao" />
+
+                        <TextView
+                            style="@style/TopBarRightTextStyle"
+                            android:text="修改"
+                            android:visibility="gone" />
+                    </RelativeLayout>
                 </RelativeLayout>
-            </RelativeLayout>
 
-
-        </LinearLayout>
-
-    </android.support.v7.widget.Toolbar>
-
-
-    <View style="@style/LineStyle"></View>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <ScrollView
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@+id/BottomLL">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:background="@color/color2"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:id="@+id/LiuYan1_LL"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <include layout="@layout/a_item_liuyanjianyi"></include>
-
-                </LinearLayout>
-
-
-                <LinearLayout
-                    android:id="@+id/LiuYan2_LL"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content">
-
-                    <include layout="@layout/a_item_liuyanjianyi"></include>
-
-                </LinearLayout>
 
             </LinearLayout>
-        </ScrollView>
 
-        <!--管理员不显示底部栏-->
+        </android.support.v7.widget.Toolbar>
+
+
+        <View style="@style/LineStyle"></View>
+
         <RelativeLayout
-            android:id="@+id/BottomLL"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_alignParentBottom="true"
-            android:background="@color/color2"
-            android:elevation="10dp"
+            android:layout_height="match_parent">
 
-            android:orientation="horizontal">
-
-            <LinearLayout
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="32dp"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="18dp"
-                android:layout_marginRight="12dp"
-                android:layout_toLeftOf="@+id/FaBu_Btn"
-                android:background="@drawable/sysbtn_gray_f6f6f6_4_shape">
+                android:layout_height="match_parent"
+                android:layout_above="@+id/BottomLL">
 
-                <EditText
+                <LinearLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:background="@null"
-                    android:maxLines="1"
-                    android:paddingLeft="10dp"
-                    android:paddingRight="10dp"
-                    android:singleLine="true"
-                    android:textSize="@dimen/textsize14" />
-            </LinearLayout>
+                    android:layout_height="wrap_content"
+                    android:background="@color/color2"
+                    android:orientation="vertical">
 
-            <Button
-                android:id="@+id/FaBu_Btn"
-                android:layout_width="65dp"
-                android:layout_height="32dp"
-                android:layout_alignParentRight="true" style="@style/Button_Style"
-                android:layout_centerVertical="true"
-                android:layout_marginRight="18dp"
-                android:background="@drawable/sysbtn_ffe248_4_shape"
-                android:text="发布"
-                android:textColor="@color/C242424"
-                android:textSize="@dimen/textsize15" />
+                    <LinearLayout
+                        android:id="@+id/LiuYan1_LL"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
 
+                        <include layout="@layout/a_item_liuyanjianyi"></include>
+
+                    </LinearLayout>
+
+
+                    <LinearLayout
+                        android:id="@+id/LiuYan2_LL"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <include layout="@layout/a_item_liuyanjianyi"></include>
+
+                    </LinearLayout>
+
+                </LinearLayout>
+            </ScrollView>
+
+            <!--管理员不显示底部栏-->
+            <RelativeLayout
+                android:id="@+id/BottomLL"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/color2"
+                android:elevation="10dp"
+
+                android:orientation="horizontal">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginRight="12dp"
+                    android:layout_toLeftOf="@+id/FaBu_Btn"
+                    android:background="@drawable/sysbtn_gray_f6f6f6_4_shape">
+
+                    <EditText
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:background="@null"
+                        android:maxLines="1"
+                        android:paddingLeft="10dp"
+                        android:paddingRight="10dp"
+                        android:singleLine="true"
+                        android:textSize="@dimen/textsize14" />
+                </LinearLayout>
+
+                <Button
+                    android:id="@+id/FaBu_Btn"
+                    style="@style/Button_Style"
+                    android:layout_width="65dp"
+                    android:layout_height="32dp"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginRight="18dp"
+                    android:background="@drawable/sysbtn_ffe248_4_shape"
+                    android:text="发布"
+                    android:textColor="@color/C242424"
+                    android:textSize="@dimen/textsize15" />
+
+            </RelativeLayout>
         </RelativeLayout>
-    </RelativeLayout>
-</LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

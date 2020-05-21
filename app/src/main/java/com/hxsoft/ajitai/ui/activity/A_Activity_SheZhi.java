@@ -1,23 +1,25 @@
 package com.hxsoft.ajitai.ui.activity;
 
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AlertDialog;
 import android.view.View;
+import android.widget.Button;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.hxsoft.ajitai.BuildConfig;
 import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.base.MvpActivity;
+import com.hxsoft.ajitai.model.info.VersionInfo;
 import com.hxsoft.ajitai.present.A_SheZhi_Present;
-import com.hxsoft.ajitai.present.A_ShouHuoDiZhi_Present;
-import com.hxsoft.ajitai.present.LoginPresent;
 import com.hxsoft.ajitai.ui.view.A_SheZhi_View;
-import com.hxsoft.ajitai.ui.view.A_ShouHuoDiZhi_View;
 import com.hxsoft.ajitai.utils.DbKeyS;
 import com.hxsoft.ajitai.utils.SpUtils;
+import com.hxsoft.ajitai.widget.UpdateManager;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -38,6 +40,16 @@ public class A_Activity_SheZhi extends MvpActivity<A_SheZhi_Present> implements 
     TextView textView;
     @Bind(R.id.BottomLL)
     LinearLayout BottomLL;
+    @Bind(R.id.GeRenXinXi_RL)
+    RelativeLayout GeRenXinXiRL;
+    @Bind(R.id.XiuGaiMiMaRL)
+    RelativeLayout XiuGaiMiMaRL;
+    @Bind(R.id.UpdateVersionLL)
+    LinearLayout UpdateVersionLL;
+    @Bind(R.id.UpdateVersionLLBtn)
+    Button UpdateVersionLLBtn;
+    @Bind(R.id.versionNameTV)
+    TextView versionNameTV;
 
     @Override
     protected int getLayoutId() {
@@ -50,7 +62,34 @@ public class A_Activity_SheZhi extends MvpActivity<A_SheZhi_Present> implements 
         // TODO: add setContentView(...) invocation
         ButterKnife.bind(this);
 
+        UpdateVersionLLBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPresenter.checkVersion(getContext());
+            }
+        });
+        UpdateVersionLL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                mPresenter.checkVersion(getContext());
+            }
+        });
+        XiuGaiMiMaRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
 
+                Intent intent = new Intent(getContext(), A_Activity_XiuGaiMiMa.class);
+                startActivity(intent);
+            }
+        });
+
+        GeRenXinXiRL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent intent = new Intent(getContext(), A_Activity_GeRenXinXi.class);
+                startActivity(intent);
+            }
+        });
         GuanYuRL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -78,6 +117,8 @@ public class A_Activity_SheZhi extends MvpActivity<A_SheZhi_Present> implements 
                 }).show();
             }
         });
+
+        versionNameTV.setText("V " + getVersionName(getContext()));
     }
 
 
@@ -110,6 +151,33 @@ public class A_Activity_SheZhi extends MvpActivity<A_SheZhi_Present> implements 
         Intent intent = new Intent(getContext(), A_LoginActivity.class);
         intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TASK);
         startActivity(intent);
+    }
+
+    @Override
+    public void checkVersionSuccess(VersionInfo model) {
+        if (model == null)
+            return;
+        else {
+            int versionCode = getVersionCode(getContext());
+            int serviceCode = model.getAppvernum();
+            if (serviceCode > versionCode) {
+                UpdateManager updateManager = new UpdateManager(getContext());
+                updateManager.forceCheckUpdate(model.getAppurl());
+
+            }
+        }
+    }
+
+    private int getVersionCode(Context context) {
+        int versionCode = 0;
+        versionCode = BuildConfig.VERSION_CODE;
+        return versionCode;
+    }
+
+    private String getVersionName(Context context) {
+        String versionName = "";
+        versionName = BuildConfig.VERSION_NAME;
+        return versionName;
     }
 
     @Override

@@ -3,7 +3,7 @@
 
     <item
         android:id="@+id/yuanxingtu"
-        android:title="原型图模式" />
+        android:title="开发者模式" />
     <item
         android:id="@+id/fabu"
         android:title="发布模式" />

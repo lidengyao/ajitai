@@ -83,7 +83,7 @@ public class A_Activity_ShiPinZhiBo extends MvpActivity<A_ShiPinZhiBo_Present> i
 //                startActivity(intent);
 //            }
 //        });
-        adapter = new A_ALive_Adapter(getContext(), infoArrayList, R.layout.a_item_zhibo, 0);
+        adapter = new A_ALive_Adapter(getContext(),getActivity(), infoArrayList, R.layout.a_item_zhibo, 0);
 
         DataListView.setAdapter(adapter);
         DataListView.setOnPullLoadMoreListener(new PullLoadMoreListView.PullLoadMoreListener() {

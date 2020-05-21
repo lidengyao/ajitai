@@ -17,6 +17,7 @@
             android:orientation="vertical">
 
             <LinearLayout
+                android:id="@+id/NanLL"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:gravity="center_vertical">
@@ -35,6 +36,7 @@
                 android:layout_marginLeft="20dp"></View>
 
             <LinearLayout
+                android:id="@+id/NvLL"
                 android:layout_width="match_parent"
                 android:layout_height="60dp"
                 android:gravity="center_vertical">

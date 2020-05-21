@@ -1,185 +1,191 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    style="@style/PageRootLL"
-    android:background="@color/color2">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/RootView"
+    style="@style/PageRootLL">
 
-    <!--头部-->
-    <android.support.v7.widget.Toolbar
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/headheight"
-        android:background="@drawable/status_shape"
-        app:contentInsetStart="0dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <!--头部-->
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/headheight"
+            android:background="@drawable/status_shape"
+            app:contentInsetStart="0dp">
 
-        <LinearLayout style="@style/TopStyle">
+            <LinearLayout style="@style/TopStyle">
 
-            <RelativeLayout style="@style/TopBarStyle">
-
-                <LinearLayout
-                    style="@style/TopBarLeftStyle"
-                    android:visibility="visible">
-
-                    <ImageView style="@style/TopBarBackImageStyle" />
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/SysNameIV"
-                    style="@style/TopBarTitleStyle"
-                    android:tag="音乐"
-                    android:text="联盟医院"
-                    android:visibility="visible" />
-
-                <RelativeLayout
-                    android:id="@+id/QieHuanZhangHaoRL"
-                    style="@style/TopBarRightStyle"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="18dp"
-                    android:visibility="visible">
+                <RelativeLayout style="@style/TopBarStyle">
 
                     <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
+                        style="@style/TopBarLeftStyle"
+                        android:visibility="visible">
+
+                        <ImageView style="@style/TopBarBackImageStyle" />
+                    </LinearLayout>
+
+                    <TextView
+                        android:id="@+id/SysNameIV"
+                        style="@style/TopBarTitleStyle"
+                        android:tag="音乐"
+                        android:text="联盟医院"
+                        android:visibility="visible" />
+
+                    <RelativeLayout
+                        android:id="@+id/QieHuanZhangHaoRL"
+                        style="@style/TopBarRightStyle"
                         android:layout_centerVertical="true"
-                        android:gravity="center_vertical"
+                        android:layout_marginRight="18dp"
+                        android:visibility="visible">
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:gravity="center_vertical"
+                            android:orientation="horizontal">
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+
+                                android:src="@mipmap/a_lianmengyiyuan_dingwei" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="4dp"
+                                android:text="呼和浩特"
+                                android:textColor="@color/C242424"
+                                android:textSize="@dimen/textsize13"
+                                android:visibility="visible" />
+                        </LinearLayout>
+
+                    </RelativeLayout>
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+        </android.support.v7.widget.Toolbar>
+
+        <View style="@style/LineStyle"></View>
+
+        <ScrollView
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="60dp"
+                    android:orientation="horizontal">
+
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
                         android:orientation="horizontal">
 
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-
-                            android:src="@mipmap/a_lianmengyiyuan_dingwei" />
+                            android:src="@mipmap/a_lianmengyiyuan_icon" />
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginLeft="4dp"
-                            android:text="呼和浩特"
+                            android:layout_marginLeft="10dp"
+                            android:text="联盟医院"
                             android:textColor="@color/C242424"
-                            android:textSize="@dimen/textsize13"
-                            android:visibility="visible" />
+                            android:textSize="@dimen/textsize15" />
                     </LinearLayout>
 
-                </RelativeLayout>
-            </RelativeLayout>
+                    <LinearLayout
+                        android:layout_width="0dp"
+                        android:layout_height="match_parent"
+                        android:layout_weight="1"
+                        android:gravity="center"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/a_lianmengyiyuan_yisheng" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:text="医生"
+                            android:textColor="@color/C242424"
+                            android:textSize="@dimen/textsize15" />
+                    </LinearLayout>
+                </LinearLayout>
+
+                <View
+                    style="@style/LineStyle"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginRight="18dp"></View>
 
 
-        </LinearLayout>
+                <include layout="@layout/a_item_lianmengyiyuan_yisheng"></include>
 
-    </android.support.v7.widget.Toolbar>
+                <include layout="@layout/a_item_lianmengyiyuan_yisheng"></include>
 
-    <View style="@style/LineStyle"></View>
-
-    <ScrollView
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:orientation="vertical">
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="60dp"
-                android:orientation="horizontal">
+                <include layout="@layout/a_item_lianmengyiyuan_yisheng"></include>
 
                 <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@mipmap/a_lianmengyiyuan_icon" />
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="18dp"
+                    android:layout_marginTop="10dp"
+                    android:layout_marginRight="18dp"
+                    android:layout_marginBottom="30dp"
+                    android:background="@drawable/sysbtn_gray_f3f6fd_4_shape"
+                    android:gravity="center">
 
                     <TextView
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:text="联盟医院"
-                        android:textColor="@color/C242424"
-                        android:textSize="@dimen/textsize15" />
+                        android:layout_marginTop="8dp"
+                        android:layout_marginBottom="8dp"
+                        android:text="查看更多"
+                        android:textSize="@dimen/textsize12" />
                 </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="0dp"
-                    android:layout_height="match_parent"
-                    android:layout_weight="1"
-                    android:gravity="center"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@mipmap/a_lianmengyiyuan_yisheng" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:text="医生"
-                        android:textColor="@color/C242424"
-                        android:textSize="@dimen/textsize15" />
-                </LinearLayout>
-            </LinearLayout>
-
-            <View
-                style="@style/LineStyle"
-                android:layout_marginLeft="18dp"
-                android:layout_marginRight="18dp"></View>
-
-
-            <include layout="@layout/a_item_lianmengyiyuan_yisheng"></include>
-
-            <include layout="@layout/a_item_lianmengyiyuan_yisheng"></include>
-
-            <include layout="@layout/a_item_lianmengyiyuan_yisheng"></include>
-
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="18dp"
-                android:layout_marginTop="10dp"
-                android:layout_marginRight="18dp"
-                android:layout_marginBottom="30dp"
-                android:background="@drawable/sysbtn_gray_f3f6fd_4_shape"
-                android:gravity="center">
 
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:layout_marginTop="8dp"
-                    android:layout_marginBottom="8dp"
-                    android:text="查看更多"
-                    android:textSize="@dimen/textsize12" />
-            </LinearLayout>
+                    android:layout_marginLeft="18dp"
+                    android:text="联盟医院"
+                    android:textColor="@color/C242424"
+                    android:textSize="@dimen/textsize16" />
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginLeft="18dp"
-                android:text="联盟医院"
-                android:textColor="@color/C242424"
-                android:textSize="@dimen/textsize16" />
+                <LinearLayout
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="15dp">
 
-            <LinearLayout
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_marginTop="15dp">
+                    <include layout="@layout/a_item_lianmengyiyuan_yiyuan"></include>
+                </LinearLayout>
+
+
+                <include layout="@layout/a_item_lianmengyiyuan_yiyuan"></include>
 
                 <include layout="@layout/a_item_lianmengyiyuan_yiyuan"></include>
             </LinearLayout>
+        </ScrollView>
 
 
-            <include layout="@layout/a_item_lianmengyiyuan_yiyuan"></include>
-
-            <include layout="@layout/a_item_lianmengyiyuan_yiyuan"></include>
-        </LinearLayout>
-    </ScrollView>
-
-
-</LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

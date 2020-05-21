@@ -1,8 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    style="@style/PageRootLL"
-    android:background="@color/color2">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/RootView"
+    style="@style/PageRootLL">
+
 
     <ScrollView
         android:id="@+id/MySL"
@@ -682,8 +684,9 @@
 
             <Button
                 android:id="@+id/SendBtn"
+                style="@style/Button_Style"
                 android:layout_width="64dp"
-                android:layout_height="32dp" style="@style/Button_Style"
+                android:layout_height="32dp"
                 android:background="@drawable/sysbtn_ffe248_4_shape"
                 android:text="评论"
                 android:textColor="@color/C242424"

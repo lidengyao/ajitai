@@ -30,15 +30,18 @@
                 android:layout_height="60dp">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:gravity="center_vertical"
                     android:orientation="vertical">
 
                     <TextView
                         android:id="@+id/nicknameTV"
-                        android:layout_width="wrap_content"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
+                        android:layout_marginRight="20dp"
+                        android:ellipsize="end"
+                        android:singleLine="true"
                         android:text=""
                         android:textColor="@color/C242424"
                         android:textSize="@dimen/textsize15" />
@@ -51,10 +54,10 @@
             <!--内容-->
             <TextView
                 android:id="@+id/contentTV"
-                android:layout_width="wrap_content"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="10dp"
                 android:layout_marginRight="25dp"
+                android:layout_marginBottom="10dp"
                 android:text=""
                 android:textColor="#4C4C4C"
                 android:textSize="@dimen/textsize14" />

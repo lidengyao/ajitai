@@ -9,9 +9,11 @@ import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.hxsoft.ajitai.AppContext;
+import com.hxsoft.ajitai.utils.DensityUtils;
 import com.jakewharton.rxbinding.view.RxView;
 import com.hxsoft.ajitai.R;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
@@ -130,6 +132,39 @@ public abstract class BaseFragment extends Fragment implements View.OnTouchListe
     protected abstract int getLayoutId();
 
     protected void initView() {
+
+        RelativeLayout RootView = (RelativeLayout)mRootView.findViewById(R.id.RootView);
+        if (RootView != null) {
+
+            View tipView = View.inflate(getContext(), R.layout.a_tip, null);
+            RelativeLayout.LayoutParams layoutParams =new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT,ViewGroup.LayoutParams.WRAP_CONTENT);
+            layoutParams.rightMargin =  DensityUtils.px2dp(getContext(), 25);
+            layoutParams.bottomMargin =  DensityUtils.px2dp(getContext(), 70);
+            layoutParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+            layoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+            tipView.setLayoutParams(layoutParams);
+            RootView.addView(tipView);
+
+            tipView.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent motionEvent) {
+                    switch (motionEvent.getAction()) {
+                        case MotionEvent.ACTION_DOWN:
+                            tipView.setScaleX((float) 0.85);
+                            tipView.setScaleY((float) 0.85);
+                            break;
+
+                        case MotionEvent.ACTION_UP:
+                            tipView.setScaleX(1);
+                            tipView.setScaleY(1);
+                            break;
+                        default:
+                    }
+
+                    return false;
+                }
+            });
+        }
     }
 
     protected void initData() {

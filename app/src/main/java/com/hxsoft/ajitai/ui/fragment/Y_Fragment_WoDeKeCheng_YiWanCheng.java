@@ -11,7 +11,7 @@ import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.base.BasePresent;
 import com.hxsoft.ajitai.base.MvpFragment;
 import com.hxsoft.ajitai.ui.activity.A_Activity_YinPinZhiBo_XiangQing;
-import com.hxsoft.ajitai.utils.CheckControl_Dialog_yinpinzhibo_yijieshu;
+import com.hxsoft.ajitai.utils.CheckControl_Dialog_Tip;
 
 import butterknife.Bind;
 import butterknife.ButterKnife;
@@ -61,12 +61,12 @@ public class Y_Fragment_WoDeKeCheng_YiWanCheng extends MvpFragment {
         Item2LL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                CheckControl_Dialog_yinpinzhibo_yijieshu.ShowDialog(getContext(), getActivity(), "", new CheckControl_Dialog_yinpinzhibo_yijieshu.OnCheckControl_dialogClickListener() {
-                    @Override
-                    public void OnClick(int type) {
-
-                    }
-                });
+//                CheckControl_Dialog_Tip.ShowDialog(getContext(), getActivity(), "", new CheckControl_Dialog_Tip.OnCheckControl_dialogClickListener() {
+//                    @Override
+//                    public void OnClick(int type) {
+//
+//                    }
+//                });
             }
         });
 

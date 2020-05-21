@@ -1,272 +1,277 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    style="@style/PageRootLL"
-    android:background="@color/color2">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/RootView"
+    style="@style/PageRootLL">
 
-
-    <!--头部-->
-
-    <android.support.v7.widget.Toolbar
-        android:id="@+id/HeadToolbar"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/headheight"
-        android:background="@color/color2"
-        app:contentInsetStart="0dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <!--头部-->
 
-        <LinearLayout style="@style/TopStyle">
-
-            <RelativeLayout style="@style/TopBarStyle">
-
-                <LinearLayout
-                    style="@style/TopBarLeftStyle"
-                    android:visibility="visible">
-
-                    <ImageView
-                        android:id="@+id/BackIV"
-                        style="@style/TopBarBackImageStyle" />
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/SysNameIV"
-                    style="@style/TopBarTitleStyle"
-                    android:tag="给世界一个惊喜"
-                    android:text="给世界一个惊喜给世界一个惊喜给世界一个惊喜给世界一个惊喜"
-                    android:visibility="visible" />
-
-                <RelativeLayout
-                    android:id="@+id/QieHuanZhangHaoRL"
-                    style="@style/TopBarRightStyle"
-                    android:visibility="gone">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_marginRight="20dp"
-                        android:src="@mipmap/qiehuanzhanghao" />
-
-                    <TextView
-                        style="@style/TopBarRightTextStyle"
-                        android:text="修改"
-                        android:visibility="gone" />
-                </RelativeLayout>
-            </RelativeLayout>
-
-
-        </LinearLayout>
-
-    </android.support.v7.widget.Toolbar>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-
-        <LinearLayout
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/HeadToolbar"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@+id/BottomRL"
-            android:orientation="vertical">
-            <!--顶部图片-->
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="181dp">
+            android:layout_height="@dimen/headheight"
+            android:background="@color/color2"
+            app:contentInsetStart="0dp">
 
-                <ImageView
-                    android:id="@+id/faceIV"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:scaleType="centerCrop"
-                    android:src="@mipmap/a_ditu1"
-                    android:visibility="gone" />
+            <LinearLayout style="@style/TopStyle">
 
-                <cn.jzvd.JzvdStd
-                    android:id="@+id/ShiPin_Video"
-                    android:layout_width="match_parent"
-                    android:layout_height="217dp" />
+                <RelativeLayout style="@style/TopBarStyle">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="27dp"
-                    android:layout_alignParentBottom="true"
-                    android:background="#60242424"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal">
+                    <LinearLayout
+                        style="@style/TopBarLeftStyle"
+                        android:visibility="visible">
+
+                        <ImageView
+                            android:id="@+id/BackIV"
+                            style="@style/TopBarBackImageStyle" />
+                    </LinearLayout>
 
                     <TextView
-                        android:id="@+id/DaoJiShiTV"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:text="距离直播开始：0天0时00分60秒"
-                        android:textColor="@color/color2"
-                        android:textSize="@dimen/textsize14" />
+                        android:id="@+id/SysNameIV"
+                        style="@style/TopBarTitleStyle"
+                        android:tag="给世界一个惊喜"
+                        android:text="给世界一个惊喜给世界一个惊喜给世界一个惊喜给世界一个惊喜"
+                        android:visibility="visible" />
 
-                </LinearLayout>
-            </RelativeLayout>
+                    <RelativeLayout
+                        android:id="@+id/QieHuanZhangHaoRL"
+                        style="@style/TopBarRightStyle"
+                        android:visibility="gone">
 
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="68dp">
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginRight="20dp"
+                            android:src="@mipmap/qiehuanzhanghao" />
 
-                <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
-                    android:layout_marginLeft="20dp"
-                    android:orientation="horizontal">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-
-
-                        android:text="在线直播互动交流"
-                        android:textColor="@color/C242424"
-                        android:textSize="@dimen/textsize15" />
-
-                    <TextView
-                        android:id="@+id/StartTimeTV"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:text=""
-                        android:textColor="@color/C242424"
-                        android:textSize="@dimen/textsize15" />
-                </LinearLayout>
+                        <TextView
+                            style="@style/TopBarRightTextStyle"
+                            android:text="修改"
+                            android:visibility="gone" />
+                    </RelativeLayout>
+                </RelativeLayout>
 
 
-                <Button
-                    android:id="@+id/BaoMingBtn"
-                    style="@style/Button_Style"
-                    android:layout_width="65dp"
-                    android:layout_height="32dp"
-                    android:layout_alignParentRight="true"
-                    android:layout_centerVertical="true"
-                    android:layout_marginRight="20dp"
-                    android:background="@drawable/sysbtn_ffe248_4_shape"
-                    android:text="免费报名"
-                    android:textColor="@color/C242424"
-                    android:textSize="@dimen/textsize12" />
-            </RelativeLayout>
+            </LinearLayout>
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="6dp"
-                android:background="#F3F3F3"></LinearLayout>
-
-
-            <RelativeLayout
-                android:layout_width="match_parent"
-                android:layout_height="45dp">
-
-
-                <android.support.design.widget.TabLayout
-                    android:id="@+id/MenuTablayout"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_centerInParent="true"
-                    android:layout_marginLeft="70dp"
-                    android:layout_marginRight="70dp"
-                    app:tabBackground="@color/color2"
-                    app:tabIndicatorColor="#F0D347"
-                    app:tabIndicatorFullWidth="false"
-                    app:tabIndicatorHeight="2.5dp"
-                    app:tabRippleColor="@color/transparent"
-                    app:tabSelectedTextColor="#222222"
-                    app:tabTextAppearance="@style/Tablayoutstyle_zhiboshouye" />
-
-                <View
-                    style="@style/LineStyle"
-                    android:layout_alignParentBottom="true"></View>
-            </RelativeLayout>
-
-            <android.support.v4.view.ViewPager
-                android:id="@+id/viewPager"
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:layout_below="@id/scrollbar"
-                android:layout_marginTop="12dp"></android.support.v4.view.ViewPager>
-
-
-        </LinearLayout>
+        </android.support.v7.widget.Toolbar>
 
         <RelativeLayout
-            android:id="@+id/BottomRL"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_alignParentBottom="true"
-            android:background="@color/color2"
-            android:elevation="10dp">
+            android:layout_height="match_parent">
+
 
             <LinearLayout
                 android:layout_width="match_parent"
-                android:layout_height="32dp"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="17dp"
-                android:layout_toLeftOf="@+id/CaoZuoLL"
-                android:background="@drawable/sysbtn_gray_f6f6f6_4_shape">
-
-                <EditText
-                    android:id="@+id/ContentET"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/BottomRL"
+                android:orientation="vertical">
+                <!--顶部图片-->
+                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:background="@null" />
-            </LinearLayout>
+                    android:layout_height="181dp">
 
-            <LinearLayout
-                android:id="@+id/CaoZuoLL"
-                android:layout_width="100dp"
-                android:layout_height="wrap_content"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:gravity="center"
-                android:orientation="horizontal">
+                    <ImageView
+                        android:id="@+id/faceIV"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:scaleType="centerCrop"
+                        android:src="@mipmap/a_ditu1"
+                        android:visibility="gone" />
+
+                    <cn.jzvd.JzvdStd
+                        android:id="@+id/ShiPin_Video"
+                        android:layout_width="match_parent"
+                        android:layout_height="217dp" />
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="27dp"
+                        android:layout_alignParentBottom="true"
+                        android:background="#60242424"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:id="@+id/DaoJiShiTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="20dp"
+                            android:text="距离直播开始：0天0时00分60秒"
+                            android:textColor="@color/color2"
+                            android:textSize="@dimen/textsize14" />
+
+                    </LinearLayout>
+                </RelativeLayout>
+
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="68dp">
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_centerVertical="true"
+                        android:layout_marginLeft="20dp"
+                        android:orientation="horizontal">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+
+
+                            android:text="在线直播互动交流"
+                            android:textColor="@color/C242424"
+                            android:textSize="@dimen/textsize15" />
+
+                        <TextView
+                            android:id="@+id/StartTimeTV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text=""
+                            android:textColor="@color/C242424"
+                            android:textSize="@dimen/textsize15" />
+                    </LinearLayout>
+
+
+                    <Button
+                        android:id="@+id/BaoMingBtn"
+                        style="@style/Button_Style"
+                        android:layout_width="65dp"
+                        android:layout_height="32dp"
+                        android:layout_alignParentRight="true"
+                        android:layout_centerVertical="true"
+                        android:layout_marginRight="20dp"
+                        android:background="@drawable/sysbtn_ffe248_4_shape"
+                        android:text="免费报名"
+                        android:textColor="@color/C242424"
+                        android:textSize="@dimen/textsize12" />
+                </RelativeLayout>
 
                 <LinearLayout
-                    android:id="@+id/Img_ShareLL"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:visibility="gone">
+                    android:layout_width="match_parent"
+                    android:layout_height="6dp"
+                    android:background="#F3F3F3"></LinearLayout>
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="7dp"
-                        android:paddingLeft="10dp"
-                        android:paddingTop="10dp"
-                        android:paddingRight="10dp"
-                        android:paddingBottom="10dp"
-                        android:src="@mipmap/a_liaotiao_img" />
 
-                    <ImageView
-                        android:id="@+id/FenXinagIV"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:paddingLeft="7dp"
-                        android:paddingTop="10dp"
-                        android:paddingRight="20dp"
-                        android:paddingBottom="10dp"
-                        android:src="@mipmap/a_fenxiang" />
+                <RelativeLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="45dp">
+
+
+                    <android.support.design.widget.TabLayout
+                        android:id="@+id/MenuTablayout"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_centerInParent="true"
+                        android:layout_marginLeft="70dp"
+                        android:layout_marginRight="70dp"
+                        app:tabBackground="@color/color2"
+                        app:tabIndicatorColor="#F0D347"
+                        app:tabIndicatorFullWidth="false"
+                        app:tabIndicatorHeight="2.5dp"
+                        app:tabRippleColor="@color/transparent"
+                        app:tabSelectedTextColor="#222222"
+                        app:tabTextAppearance="@style/Tablayoutstyle_zhiboshouye" />
+
+                    <View
+                        style="@style/LineStyle"
+                        android:layout_alignParentBottom="true"></View>
+                </RelativeLayout>
+
+                <android.support.v4.view.ViewPager
+                    android:id="@+id/viewPager"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:layout_below="@id/scrollbar"
+                    android:layout_marginTop="12dp"></android.support.v4.view.ViewPager>
+
+
+            </LinearLayout>
+
+            <RelativeLayout
+                android:id="@+id/BottomRL"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/color2"
+                android:elevation="10dp">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="32dp"
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="17dp"
+                    android:layout_toLeftOf="@+id/CaoZuoLL"
+                    android:background="@drawable/sysbtn_gray_f6f6f6_4_shape">
+
+                    <EditText
+                        android:id="@+id/ContentET"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:background="@null" />
                 </LinearLayout>
 
+                <LinearLayout
+                    android:id="@+id/CaoZuoLL"
+                    android:layout_width="100dp"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:orientation="horizontal">
 
-                <Button
-                    android:id="@+id/SendBtn"
-                    style="@style/Button_Style"
-                    android:layout_width="64dp"
-                    android:layout_height="32dp"
-                    android:background="@drawable/sysbtn_ffe248_4_shape"
-                    android:text="发送"
-                    android:textColor="@color/C242424"
-                    android:textSize="@dimen/textsize12"
-                    android:visibility="visible" />
-            </LinearLayout>
+                    <LinearLayout
+                        android:id="@+id/Img_ShareLL"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="7dp"
+                            android:paddingLeft="10dp"
+                            android:paddingTop="10dp"
+                            android:paddingRight="10dp"
+                            android:paddingBottom="10dp"
+                            android:src="@mipmap/a_liaotiao_img" />
+
+                        <ImageView
+                            android:id="@+id/FenXinagIV"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:paddingLeft="7dp"
+                            android:paddingTop="10dp"
+                            android:paddingRight="20dp"
+                            android:paddingBottom="10dp"
+                            android:src="@mipmap/a_fenxiang" />
+                    </LinearLayout>
+
+
+                    <Button
+                        android:id="@+id/SendBtn"
+                        style="@style/Button_Style"
+                        android:layout_width="64dp"
+                        android:layout_height="32dp"
+                        android:background="@drawable/sysbtn_ffe248_4_shape"
+                        android:text="发送"
+                        android:textColor="@color/C242424"
+                        android:textSize="@dimen/textsize12"
+                        android:visibility="visible" />
+                </LinearLayout>
+            </RelativeLayout>
+
         </RelativeLayout>
 
-    </RelativeLayout>
-
-</LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

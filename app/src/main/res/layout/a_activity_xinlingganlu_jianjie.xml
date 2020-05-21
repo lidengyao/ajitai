@@ -1,151 +1,158 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/RootView"
     style="@style/PageRootLL">
 
-
-    <!--头部-->
-    <android.support.v7.widget.Toolbar
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/headheight"
-        android:background="@drawable/status_shape"
-        app:contentInsetStart="0dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <!--头部-->
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/headheight"
+            android:background="@drawable/status_shape"
+            app:contentInsetStart="0dp">
 
-        <LinearLayout style="@style/TopStyle">
+            <LinearLayout style="@style/TopStyle">
 
-            <RelativeLayout style="@style/TopBarStyle">
+                <RelativeLayout style="@style/TopBarStyle">
 
-                <LinearLayout
-                    style="@style/TopBarLeftStyle"
-                    android:visibility="visible">
+                    <LinearLayout
+                        style="@style/TopBarLeftStyle"
+                        android:visibility="visible">
 
-                    <ImageView style="@style/TopBarBackImageStyle" />
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/SysNameIV"
-                    style="@style/TopBarTitleStyle"
-                    android:tag="心灵甘露"
-                    android:text="心灵甘露"
-                    android:visibility="visible" />
-
-                <RelativeLayout
-                    android:id="@+id/GengDuoRL"
-                    style="@style/TopBarRightStyle"
-                    android:visibility="invisible">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_marginRight="20dp"
-                        android:src="@mipmap/a_gengduo_dian" />
+                        <ImageView style="@style/TopBarBackImageStyle" />
+                    </LinearLayout>
 
                     <TextView
-                        style="@style/TopBarRightTextStyle"
-                        android:text="修改"
-                        android:visibility="gone" />
+                        android:id="@+id/SysNameIV"
+                        style="@style/TopBarTitleStyle"
+                        android:tag="心灵甘露"
+                        android:text="心灵甘露"
+                        android:visibility="visible" />
+
+                    <RelativeLayout
+                        android:id="@+id/GengDuoRL"
+                        style="@style/TopBarRightStyle"
+                        android:visibility="invisible">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginRight="20dp"
+                            android:src="@mipmap/a_gengduo_dian" />
+
+                        <TextView
+                            style="@style/TopBarRightTextStyle"
+                            android:text="修改"
+                            android:visibility="gone" />
+                    </RelativeLayout>
                 </RelativeLayout>
-            </RelativeLayout>
 
 
-        </LinearLayout>
+            </LinearLayout>
 
-    </android.support.v7.widget.Toolbar>
+        </android.support.v7.widget.Toolbar>
 
-    <View style="@style/LineStyle"></View>
+        <View style="@style/LineStyle"></View>
 
 
-    <!--顶部图片-->
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="200dp">
-
-        <ImageView
+        <!--顶部图片-->
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:scaleType="centerCrop"
-            android:src="@mipmap/a_ditu1" />
+            android:layout_height="200dp">
 
-        <LinearLayout
+            <ImageView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:scaleType="centerCrop"
+                android:src="@mipmap/a_ditu1" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="27dp"
+                android:layout_alignParentBottom="true"
+                android:background="#60242424"
+                android:gravity="center_vertical">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="20dp"
+                    android:text="731334人参与打卡 | 0次打卡"
+                    android:textColor="@color/color2"
+                    android:textSize="@dimen/textsize14" />
+            </LinearLayout>
+        </RelativeLayout>
+
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="27dp"
-            android:layout_alignParentBottom="true"
-            android:background="#60242424"
-            android:gravity="center_vertical">
+            android:layout_height="wrap_content">
 
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_marginLeft="20dp"
-                android:text="731334人参与打卡 | 0次打卡"
-                android:textColor="@color/color2"
-                android:textSize="@dimen/textsize14" />
-        </LinearLayout>
-    </RelativeLayout>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginLeft="27dp"
-            android:layout_marginTop="25dp"
-            android:layout_marginBottom="25dp"
-            android:text="《心灵甘露》"
-            android:textColor="@color/C242424"
-            android:textSize="@dimen/textsize15" />
+                android:layout_marginLeft="27dp"
+                android:layout_marginTop="25dp"
+                android:layout_marginBottom="25dp"
+                android:text="《心灵甘露》"
+                android:textColor="@color/C242424"
+                android:textSize="@dimen/textsize15" />
 
 
-        <Button
-            android:id="@+id/SendBtn"
-            android:layout_width="64dp"
-            android:layout_height="32dp"
-            android:layout_alignParentRight="true" style="@style/Button_Style"
-            android:layout_centerVertical="true"
-            android:layout_marginRight="20dp"
-            android:background="@drawable/sysbtn_ffe248_4_shape"
-            android:text="购买链接"
-            android:textColor="@color/C242424"
-            android:textSize="@dimen/textsize12"
-            android:visibility="visible" />
-    </RelativeLayout>
+            <Button
+                android:id="@+id/SendBtn"
+                style="@style/Button_Style"
+                android:layout_width="64dp"
+                android:layout_height="32dp"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="20dp"
+                android:background="@drawable/sysbtn_ffe248_4_shape"
+                android:text="购买链接"
+                android:textColor="@color/C242424"
+                android:textSize="@dimen/textsize12"
+                android:visibility="visible" />
+        </RelativeLayout>
 
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="6dp"
-        android:background="#F3F3F3"></LinearLayout>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="6dp"
+            android:background="#F3F3F3"></LinearLayout>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="45dp">
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="45dp">
 
 
-        <android.support.design.widget.TabLayout
-            android:id="@+id/MenuTablayout"
+            <android.support.design.widget.TabLayout
+                android:id="@+id/MenuTablayout"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                app:tabBackground="@color/color2"
+                app:tabIndicatorColor="#F0D347"
+                app:tabIndicatorFullWidth="false"
+                app:tabIndicatorHeight="2.5dp"
+                app:tabRippleColor="@color/transparent"
+                app:tabSelectedTextColor="#222222"
+                app:tabTextAppearance="@style/Tablayoutstyle_zhiboshouye" />
+
+
+            <View
+                style="@style/LineStyle"
+                android:layout_alignParentBottom="true"></View>
+        </RelativeLayout>
+
+        <android.support.v4.view.ViewPager
+            android:id="@+id/viewPager"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:layout_centerInParent="true"
-            app:tabBackground="@color/color2"
-            app:tabIndicatorColor="#F0D347"
-            app:tabIndicatorFullWidth="false"
-            app:tabIndicatorHeight="2.5dp"
-            app:tabRippleColor="@color/transparent"
-            app:tabSelectedTextColor="#222222"
-            app:tabTextAppearance="@style/Tablayoutstyle_zhiboshouye" />
-
-
-        <View
-            style="@style/LineStyle"
-            android:layout_alignParentBottom="true"></View>
-    </RelativeLayout>
-
-    <android.support.v4.view.ViewPager
-        android:id="@+id/viewPager"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_below="@id/scrollbar"
-        android:layout_marginTop="12dp"></android.support.v4.view.ViewPager>
-</LinearLayout>
+            android:layout_below="@id/scrollbar"
+            android:layout_marginTop="12dp"></android.support.v4.view.ViewPager>
+    </LinearLayout>
+</RelativeLayout>

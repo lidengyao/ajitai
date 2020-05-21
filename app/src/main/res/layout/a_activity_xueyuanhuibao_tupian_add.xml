@@ -1,153 +1,160 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    style="@style/PageRootLL"
-    android:background="@color/color2">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/RootView"
+    style="@style/PageRootLL">
 
-    <!--头部-->
-    <android.support.v7.widget.Toolbar
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/headheight"
-        android:background="@drawable/status_shape"
-        app:contentInsetStart="0dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
 
-        <LinearLayout style="@style/TopStyle">
+        <!--头部-->
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/headheight"
+            android:background="@drawable/status_shape"
+            app:contentInsetStart="0dp">
 
-            <RelativeLayout style="@style/TopBarStyle">
+            <LinearLayout style="@style/TopStyle">
 
-                <LinearLayout
-                    style="@style/TopBarLeftStyle"
-                    android:visibility="visible">
+                <RelativeLayout style="@style/TopBarStyle">
 
-                    <ImageView style="@style/TopBarBackImageStyle" />
-                </LinearLayout>
+                    <LinearLayout
+                        style="@style/TopBarLeftStyle"
+                        android:visibility="visible">
 
-                <TextView
-                    android:id="@+id/SysNameIV"
-                    style="@style/TopBarTitleStyle"
-                    android:tag="学员汇报"
-                    android:text="图片资料"
-                    android:visibility="visible" />
-
-                <RelativeLayout
-                    android:id="@+id/QieHuanZhangHaoRL"
-                    style="@style/TopBarRightStyle"
-                    android:visibility="gone">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="20dp"
-                        android:src="@mipmap/xueyuanhuibaochaxuan" />
+                        <ImageView style="@style/TopBarBackImageStyle" />
+                    </LinearLayout>
 
                     <TextView
-                        style="@style/TopBarRightTextStyle"
-                        android:text="修改"
-                        android:visibility="gone" />
+                        android:id="@+id/SysNameIV"
+                        style="@style/TopBarTitleStyle"
+                        android:tag="学员汇报"
+                        android:text="图片资料"
+                        android:visibility="visible" />
+
+                    <RelativeLayout
+                        android:id="@+id/QieHuanZhangHaoRL"
+                        style="@style/TopBarRightStyle"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="20dp"
+                            android:src="@mipmap/xueyuanhuibaochaxuan" />
+
+                        <TextView
+                            style="@style/TopBarRightTextStyle"
+                            android:text="修改"
+                            android:visibility="gone" />
+                    </RelativeLayout>
                 </RelativeLayout>
-            </RelativeLayout>
 
 
-        </LinearLayout>
+            </LinearLayout>
 
-    </android.support.v7.widget.Toolbar>
+        </android.support.v7.widget.Toolbar>
 
-    <View style="@style/LineStyle"></View>
+        <View style="@style/LineStyle"></View>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <ScrollView
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@+id/BottomLL">
+            android:layout_height="match_parent">
 
-            <LinearLayout
+            <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp">
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginRight="20dp"
-                        android:background="@null"
-                        android:hint="标题"
-                        android:textColor="@color/C242424"
-                        android:textSize="@dimen/textsize15" />
-
-                    <View
-                        style="@style/LineStyle"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginLeft="20dp"></View>
-                </RelativeLayout>
+                android:layout_above="@+id/BottomLL">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
-                    android:minHeight="160dp">
+                    android:orientation="vertical">
 
-                    <EditText
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp">
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:background="@null"
+                            android:hint="标题"
+                            android:textColor="@color/C242424"
+                            android:textSize="@dimen/textsize15" />
+
+                        <View
+                            style="@style/LineStyle"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginLeft="20dp"></View>
+                    </RelativeLayout>
+
+                    <LinearLayout
                         android:layout_width="match_parent"
                         android:layout_height="match_parent"
-                        android:layout_centerVertical="true"
-                        android:layout_margin="20dp"
-                        android:background="@null"
-                        android:gravity="left|top"
-                        android:hint="输入图片解释说明"
-                        android:textColor="@color/C242424"
-                        android:textSize="@dimen/textsize15" />
+                        android:minHeight="160dp">
 
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerVertical="true"
+                            android:layout_margin="20dp"
+                            android:background="@null"
+                            android:gravity="left|top"
+                            android:hint="输入图片解释说明"
+                            android:textColor="@color/C242424"
+                            android:textSize="@dimen/textsize15" />
+
+
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:orientation="horizontal">
+
+                        <ImageView
+                            android:layout_width="102dp"
+                            android:layout_height="102dp"
+                            android:layout_marginLeft="20dp"
+                            android:src="@mipmap/a_ganwu_item_img" />
+
+                        <ImageView
+                            android:layout_width="102dp"
+                            android:layout_height="102dp"
+                            android:layout_marginLeft="10dp"
+                            android:src="@mipmap/a_fabuganwu_add" />
+                    </LinearLayout>
 
                 </LinearLayout>
+            </ScrollView>
 
-                <LinearLayout
+            <LinearLayout
+                android:id="@+id/BottomLL"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_alignParentBottom="true"
+                android:background="#F1D649"
+                android:elevation="10dp"
+                android:gravity="center"
+                android:visibility="visible">
+
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="102dp"
-                        android:layout_marginLeft="20dp"
-                        android:layout_height="102dp"
-                        android:src="@mipmap/a_ganwu_item_img" />
-
-                    <ImageView
-                        android:layout_width="102dp"
-                        android:layout_marginLeft="10dp"
-                        android:layout_height="102dp"
-                        android:src="@mipmap/a_fabuganwu_add" />
-                </LinearLayout>
-
+                    android:text="保存"
+                    android:textColor="@color/C242424"
+                    android:textSize="@dimen/textsize16" />
             </LinearLayout>
-        </ScrollView>
-
-        <LinearLayout
-            android:id="@+id/BottomLL"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_alignParentBottom="true"
-            android:background="#F1D649"
-            android:elevation="10dp"
-            android:gravity="center"
-            android:visibility="visible">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="保存"
-                android:textColor="@color/C242424"
-                android:textSize="@dimen/textsize16" />
-        </LinearLayout>
-    </RelativeLayout>
+        </RelativeLayout>
 
 
-</LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

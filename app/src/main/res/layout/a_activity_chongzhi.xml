@@ -1,158 +1,164 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    style="@style/PageRootLL"
-    android:background="@color/color2">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/RootView"
+    style="@style/PageRootLL">
 
-    <!--头部-->
-    <android.support.v7.widget.Toolbar
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/headheight"
-        android:background="@drawable/status_shape"
-        app:contentInsetStart="0dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <!--头部-->
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/headheight"
+            android:background="@drawable/status_shape"
+            app:contentInsetStart="0dp">
 
-        <LinearLayout style="@style/TopStyle">
+            <LinearLayout style="@style/TopStyle">
 
-            <RelativeLayout style="@style/TopBarStyle">
+                <RelativeLayout style="@style/TopBarStyle">
 
-                <LinearLayout
-                    style="@style/TopBarLeftStyle"
-                    android:visibility="visible">
+                    <LinearLayout
+                        style="@style/TopBarLeftStyle"
+                        android:visibility="visible">
 
-                    <ImageView style="@style/TopBarBackImageStyle" />
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/SysNameIV"
-                    style="@style/TopBarTitleStyle"
-                    android:tag="@string/titile_chongzhi"
-                    android:text="@string/titile_chongzhi"
-                    android:visibility="visible" />
-
-                <RelativeLayout
-                    android:id="@+id/JianJieRL"
-                    style="@style/TopBarRightStyle"
-                    android:visibility="invisible">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_marginRight="20dp"
-                        android:src="@mipmap/a_gengduo_dian" />
+                        <ImageView style="@style/TopBarBackImageStyle" />
+                    </LinearLayout>
 
                     <TextView
-                        style="@style/TopBarRightTextStyle"
-                        android:text="修改"
-                        android:visibility="gone" />
+                        android:id="@+id/SysNameIV"
+                        style="@style/TopBarTitleStyle"
+                        android:tag="@string/titile_chongzhi"
+                        android:text="@string/titile_chongzhi"
+                        android:visibility="visible" />
+
+                    <RelativeLayout
+                        android:id="@+id/JianJieRL"
+                        style="@style/TopBarRightStyle"
+                        android:visibility="invisible">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginRight="20dp"
+                            android:src="@mipmap/a_gengduo_dian" />
+
+                        <TextView
+                            style="@style/TopBarRightTextStyle"
+                            android:text="修改"
+                            android:visibility="gone" />
+                    </RelativeLayout>
                 </RelativeLayout>
-            </RelativeLayout>
 
 
-        </LinearLayout>
+            </LinearLayout>
 
-    </android.support.v7.widget.Toolbar>
+        </android.support.v7.widget.Toolbar>
 
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <ScrollView
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@+id/BottomLL">
+            android:layout_height="match_parent">
 
-            <LinearLayout
+            <ScrollView
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:layout_height="match_parent"
+                android:layout_above="@+id/BottomLL">
 
                 <LinearLayout
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginTop="20dp"
-                        android:text="充值金额"
-                        android:textColor="@color/C242424"
-                        android:textSize="@dimen/textsize16" />
-
-                    <RelativeLayout
+                    <LinearLayout
                         android:layout_width="match_parent"
-                        android:layout_height="60dp"
-                        android:layout_marginTop="20dp">
+                        android:layout_height="wrap_content"
+                        android:orientation="vertical">
 
-                        <ImageView
-                            android:id="@+id/QingKong_IV"
+                        <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
-                            android:padding="20dp"
-                            android:src="@mipmap/a_qingkong1" />
-
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
                             android:layout_marginLeft="20dp"
-                            android:layout_toLeftOf="@+id/QingKong_IV"
-                            android:orientation="horizontal">
+                            android:layout_marginTop="20dp"
+                            android:text="充值金额"
+                            android:textColor="@color/C242424"
+                            android:textSize="@dimen/textsize16" />
 
-                            <TextView
+                        <RelativeLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="60dp"
+                            android:layout_marginTop="20dp">
+
+                            <ImageView
+                                android:id="@+id/QingKong_IV"
                                 android:layout_width="wrap_content"
                                 android:layout_height="wrap_content"
-                                android:text="¥ "
-                                android:textColor="@color/C242424"
-                                android:textSize="@dimen/textsize30" />
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:padding="20dp"
+                                android:src="@mipmap/a_qingkong1" />
 
-                            <EditText
-                                android:id="@+id/Jine_ET"
+                            <LinearLayout
                                 android:layout_width="match_parent"
                                 android:layout_height="wrap_content"
-                                android:background="@null"
-                                android:inputType="numberDecimal"
-                                android:paddingLeft="10dp"
-                                android:text=""
-                                android:textColor="@color/C242424"
-                                android:textSize="@dimen/textsize30" />
-                        </LinearLayout>
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="20dp"
+                                android:layout_toLeftOf="@+id/QingKong_IV"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="¥ "
+                                    android:textColor="@color/C242424"
+                                    android:textSize="@dimen/textsize30" />
+
+                                <EditText
+                                    android:id="@+id/Jine_ET"
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+                                    android:background="@null"
+                                    android:inputType="numberDecimal"
+                                    android:paddingLeft="10dp"
+                                    android:text=""
+                                    android:textColor="@color/C242424"
+                                    android:textSize="@dimen/textsize30" />
+                            </LinearLayout>
 
 
-                        <View
-                            style="@style/LineStyle"
-                            android:layout_alignParentBottom="true"
-                            android:layout_marginLeft="20dp"></View>
+                            <View
+                                style="@style/LineStyle"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginLeft="20dp"></View>
 
-                    </RelativeLayout>
+                        </RelativeLayout>
+                    </LinearLayout>
+
                 </LinearLayout>
 
+
+            </ScrollView>
+
+            <LinearLayout
+                android:id="@+id/BottomLL"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_alignParentBottom="true"
+                android:background="#F1D649"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="去支付"
+                    android:textColor="@color/C242424"
+                    android:textSize="@dimen/textsize16" />
             </LinearLayout>
 
+        </RelativeLayout>
 
-        </ScrollView>
-
-        <LinearLayout
-            android:id="@+id/BottomLL"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_alignParentBottom="true"
-            android:background="#F1D649"
-            android:gravity="center">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="去支付"
-                android:textColor="@color/C242424"
-                android:textSize="@dimen/textsize16" />
-        </LinearLayout>
-
-    </RelativeLayout>
-
-</LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

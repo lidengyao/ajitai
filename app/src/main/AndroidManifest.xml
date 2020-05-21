@@ -79,6 +79,10 @@
 
 
         <activity
+            android:name=".ui.activity.A_Activity_XiuGaiMiMa"
+            android:configChanges="locale"
+            android:launchMode="singleTop" />
+        <activity
             android:name=".ui.activity.A_Activity_Vedio"
             android:configChanges="locale"
             android:launchMode="singleTop" />

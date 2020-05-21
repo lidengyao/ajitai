@@ -1,5 +1,6 @@
 package com.hxsoft.ajitai.adapter;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
 import android.view.View;
@@ -13,6 +14,7 @@ import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.model.info.A_ALive_Info;
 import com.hxsoft.ajitai.model.info.Cuseraddress_Info;
 import com.hxsoft.ajitai.ui.activity.A_Activity_ShiPinZhiBo_XiangQing;
+import com.hxsoft.ajitai.utils.CheckControl_Dialog_Tip;
 import com.hxsoft.ajitai.utils.GlideControl;
 
 import java.util.List;
@@ -23,11 +25,13 @@ import java.util.List;
 public class A_ALive_Adapter extends CommonAdapter<A_ALive_Info> {
 
     private Context _Context;
+    private Activity _Activity;
     private Integer _type;
 
-    public A_ALive_Adapter(Context context, List<A_ALive_Info> data, int itemLayoutId, Integer type) {
+    public A_ALive_Adapter(Context context, Activity activity, List<A_ALive_Info> data, int itemLayoutId, Integer type) {
         super(context, data, itemLayoutId);
         _Context = context;
+        _Activity = activity;
         _type = type;
     }
 
@@ -59,19 +63,13 @@ public class A_ALive_Adapter extends CommonAdapter<A_ALive_Info> {
             @Override
             public void onClick(View v) {
                 A_ALive_Info a_aLive_info = (A_ALive_Info) v.getTag(R.id.one);
-                if (a_aLive_info.getStatus() == 0) {
-                    Toast.makeText(_Context, "直播未开始", Toast.LENGTH_SHORT).show();
+                if (a_aLive_info.getStatus() == 2) {
+                    CheckControl_Dialog_Tip.ShowDialog(_Context, _Activity, "直播已结束");
                     return;
-                }
-                if (a_aLive_info.getStatus() == 1) {
+                } else {
                     Intent intent = new Intent(_Context, A_Activity_ShiPinZhiBo_XiangQing.class);
                     intent.putExtra("vid", a_aLive_info.getVid() + "");
                     _Context.startActivity(intent);
-                    return;
-                }
-                if (a_aLive_info.getStatus() == 2) {
-                    Toast.makeText(_Context, "直播已结束", Toast.LENGTH_SHORT).show();
-                    return;
                 }
             }
         });

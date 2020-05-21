@@ -1,585 +1,594 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    style="@style/PageRootLL"
-    android:background="@color/color2">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/RootView"
+    style="@style/PageRootLL">
 
-    <!--头部-->
-    <android.support.v7.widget.Toolbar
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/headheight"
-        android:background="@drawable/status_shape"
-        app:contentInsetStart="0dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <!--头部-->
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/headheight"
+            android:background="@drawable/status_shape"
+            app:contentInsetStart="0dp">
 
-        <LinearLayout style="@style/TopStyle">
+            <LinearLayout style="@style/TopStyle">
 
-            <RelativeLayout style="@style/TopBarStyle">
+                <RelativeLayout style="@style/TopBarStyle">
 
-                <LinearLayout
-                    style="@style/TopBarLeftStyle"
-                    android:visibility="visible">
+                    <LinearLayout
+                        style="@style/TopBarLeftStyle"
+                        android:visibility="visible">
 
-                    <ImageView style="@style/TopBarBackImageStyle" />
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/SysNameIV"
-                    style="@style/TopBarTitleStyle"
-                    android:tag="文字汇报"
-                    android:text="文字汇报"
-                    android:visibility="visible" />
-
-                <RelativeLayout
-                    android:id="@+id/QieHuanZhangHaoRL"
-                    style="@style/TopBarRightStyle"
-                    android:visibility="gone">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="20dp"
-                        android:src="@mipmap/xueyuanhuibaochaxuan" />
+                        <ImageView style="@style/TopBarBackImageStyle" />
+                    </LinearLayout>
 
                     <TextView
-                        style="@style/TopBarRightTextStyle"
-                        android:text="修改"
-                        android:visibility="gone" />
+                        android:id="@+id/SysNameIV"
+                        style="@style/TopBarTitleStyle"
+                        android:tag="文字汇报"
+                        android:text="文字汇报"
+                        android:visibility="visible" />
+
+                    <RelativeLayout
+                        android:id="@+id/QieHuanZhangHaoRL"
+                        style="@style/TopBarRightStyle"
+                        android:visibility="gone">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="20dp"
+                            android:src="@mipmap/xueyuanhuibaochaxuan" />
+
+                        <TextView
+                            style="@style/TopBarRightTextStyle"
+                            android:text="修改"
+                            android:visibility="gone" />
+                    </RelativeLayout>
                 </RelativeLayout>
-            </RelativeLayout>
 
 
-        </LinearLayout>
+            </LinearLayout>
 
-    </android.support.v7.widget.Toolbar>
+        </android.support.v7.widget.Toolbar>
 
-    <View style="@style/LineStyle"></View>
+        <View style="@style/LineStyle"></View>
 
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <ScrollView
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@+id/BottomLL">
+            android:layout_height="match_parent">
 
-            <LinearLayout
+            <ScrollView
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="60dp">
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginRight="20dp"
-                        android:background="@null"
-                        android:hint="标题"
-                        android:textColor="@color/C242424"
-                        android:textSize="@dimen/textsize15" />
-
-                    <View
-                        style="@style/LineStyle"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginLeft="20dp"></View>
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:minHeight="160dp">
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_margin="20dp"
-                        android:background="@null"
-                        android:gravity="left|top"
-                        android:hint="正文"
-                        android:textColor="@color/C242424"
-                        android:textSize="@dimen/textsize15" />
-
-                    <View
-                        style="@style/LineStyle"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginLeft="20dp"></View>
-
-                </RelativeLayout>
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:minHeight="160dp">
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_margin="20dp"
-                        android:background="@null"
-                        android:gravity="left|top"
-                        android:hint="学员自我介绍"
-                        android:textColor="@color/C242424"
-                        android:textSize="@dimen/textsize15" />
-
-                    <View
-                        style="@style/LineStyle"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginLeft="20dp"></View>
-
-                </RelativeLayout>
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:minHeight="160dp">
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_margin="20dp"
-                        android:background="@null"
-                        android:gravity="left|top"
-                        android:hint="听课之前病情介绍"
-                        android:textColor="@color/C242424"
-                        android:textSize="@dimen/textsize15" />
-
-                    <View
-                        style="@style/LineStyle"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginLeft="20dp"></View>
-
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:minHeight="160dp">
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_margin="20dp"
-                        android:background="@null"
-                        android:gravity="left|top"
-                        android:hint="听课之后病情变化"
-                        android:textColor="@color/C242424"
-                        android:textSize="@dimen/textsize15" />
-
-                    <View
-                        style="@style/LineStyle"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginLeft="20dp"></View>
-
-                </RelativeLayout>
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:minHeight="160dp">
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_margin="20dp"
-                        android:background="@null"
-                        android:gravity="left|top"
-                        android:hint="对这段听课经历的感受体验及认识"
-                        android:textColor="@color/C242424"
-                        android:textSize="@dimen/textsize15" />
-
-
-                </RelativeLayout>
+                android:layout_above="@+id/BottomLL">
 
                 <LinearLayout
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal">
-
-                    <ImageView
-                        android:layout_width="102dp"
-                        android:layout_height="102dp"
-                        android:layout_marginLeft="20dp"
-                        android:src="@mipmap/a_ganwu_item_img" />
-
-                    <ImageView
-                        android:layout_width="102dp"
-                        android:layout_height="102dp"
-                        android:layout_marginLeft="10dp"
-                        android:src="@mipmap/a_fabuganwu_add" />
-                </LinearLayout>
-
-                <RelativeLayout
                     android:layout_width="match_parent"
-                    android:layout_height="55dp"
-                    android:layout_marginTop="10dp">
+                    android:layout_height="match_parent"
+                    android:orientation="vertical">
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="60dp">
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:background="@null"
+                            android:hint="标题"
+                            android:textColor="@color/C242424"
+                            android:textSize="@dimen/textsize15" />
+
+                        <View
+                            style="@style/LineStyle"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginLeft="20dp"></View>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="20dp"
-                        android:text="主要病情"
-                        android:textColor="@color/C242424"
-                        android:textSize="@dimen/textsize15" />
+                        android:minHeight="160dp">
 
-                    <ImageView
-                        android:layout_width="wrap_content"
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="20dp"
+                            android:background="@null"
+                            android:gravity="left|top"
+                            android:hint="正文"
+                            android:textColor="@color/C242424"
+                            android:textSize="@dimen/textsize15" />
+
+                        <View
+                            style="@style/LineStyle"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginLeft="20dp"></View>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="10dp"
-                        android:padding="10dp"
-                        android:src="@mipmap/a_ganwu_guanzhuhaoyou_add" />
+                        android:minHeight="160dp">
 
-                    <View
-                        style="@style/LineStyle"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginLeft="20dp"></View>
-                </RelativeLayout>
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="20dp"
+                            android:background="@null"
+                            android:gravity="left|top"
+                            android:hint="学员自我介绍"
+                            android:textColor="@color/C242424"
+                            android:textSize="@dimen/textsize15" />
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="55dp">
+                        <View
+                            style="@style/LineStyle"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginLeft="20dp"></View>
 
-                    <TextView
-                        android:layout_width="wrap_content"
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="20dp"
-                        android:text="请选择"
-                        android:textColor="@color/CA8A8A8"
-                        android:textSize="@dimen/textsize15" />
+                        android:minHeight="160dp">
 
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="20dp"
+                            android:background="@null"
+                            android:gravity="left|top"
+                            android:hint="听课之前病情介绍"
+                            android:textColor="@color/C242424"
+                            android:textSize="@dimen/textsize15" />
+
+                        <View
+                            style="@style/LineStyle"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginLeft="20dp"></View>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="160dp">
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="20dp"
+                            android:background="@null"
+                            android:gravity="left|top"
+                            android:hint="听课之后病情变化"
+                            android:textColor="@color/C242424"
+                            android:textSize="@dimen/textsize15" />
+
+                        <View
+                            style="@style/LineStyle"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginLeft="20dp"></View>
+
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:minHeight="160dp">
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_margin="20dp"
+                            android:background="@null"
+                            android:gravity="left|top"
+                            android:hint="对这段听课经历的感受体验及认识"
+                            android:textColor="@color/C242424"
+                            android:textSize="@dimen/textsize15" />
+
+
+                    </RelativeLayout>
 
                     <LinearLayout
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="10dp"
-                        android:gravity="center_vertical">
-
-                        <Button
-                            android:layout_width="67dp"
-                            android:layout_height="27dp"
-                            android:layout_marginRight="20dp"
-                            android:background="@drawable/sysbtn_ffe248_4_shape"
-                            android:text="选择分类"
-                            android:textColor="@color/C242424"
-                            android:textSize="@dimen/textsize12" />
+                        android:orientation="horizontal">
 
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:padding="10dp"
-                            android:src="@mipmap/a_huibao_shanchu" />
-                    </LinearLayout>
-
-
-                    <View
-                        style="@style/LineStyle"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginLeft="20dp"></View>
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="55dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="20dp"
-                        android:text="请选择"
-                        android:textColor="@color/CA8A8A8"
-                        android:textSize="@dimen/textsize15" />
-
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="10dp"
-                        android:gravity="center_vertical">
-
-                        <Button
-                            android:layout_width="67dp"
-                            android:layout_height="27dp"
-                            android:layout_marginRight="20dp"
-                            android:background="@drawable/sysbtn_ffe248_4_shape"
-                            android:text="手动输入"
-                            android:textColor="@color/C242424"
-                            android:textSize="@dimen/textsize12" />
+                            android:layout_width="102dp"
+                            android:layout_height="102dp"
+                            android:layout_marginLeft="20dp"
+                            android:src="@mipmap/a_ganwu_item_img" />
 
                         <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:padding="10dp"
-                            android:src="@mipmap/a_huibao_shanchu" />
+                            android:layout_width="102dp"
+                            android:layout_height="102dp"
+                            android:layout_marginLeft="10dp"
+                            android:src="@mipmap/a_fabuganwu_add" />
                     </LinearLayout>
 
-
-                    <View
-                        style="@style/LineStyle"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginLeft="20dp"></View>
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="55dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="20dp"
-                        android:text="调理反应"
-                        android:textColor="@color/C242424"
-                        android:textSize="@dimen/textsize15" />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="10dp"
-                        android:padding="10dp"
-                        android:src="@mipmap/a_ganwu_guanzhuhaoyou_add" />
-
-                    <View
-                        style="@style/LineStyle"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginLeft="20dp"></View>
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="55dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="20dp"
-                        android:text="请选择"
-                        android:textColor="@color/CA8A8A8"
-                        android:textSize="@dimen/textsize15" />
-
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="10dp"
-                        android:gravity="center_vertical">
-
-                        <Button
-                            android:layout_width="67dp"
-                            android:layout_height="27dp"
-                            android:layout_marginRight="20dp"
-                            android:background="@drawable/sysbtn_ffe248_4_shape"
-                            android:text="选择分类"
-                            android:textColor="@color/C242424"
-                            android:textSize="@dimen/textsize12" />
-
-                        <ImageView
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:padding="10dp"
-                            android:src="@mipmap/a_huibao_shanchu" />
-                    </LinearLayout>
-
-
-                    <View
-                        style="@style/LineStyle"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginLeft="20dp"></View>
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="55dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="20dp"
-                        android:text="常规治疗过程"
-                        android:textColor="@color/C242424"
-                        android:textSize="@dimen/textsize15" />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="10dp"
-                        android:padding="10dp"
-                        android:src="@mipmap/a_next" />
-
-                    <View
-                        style="@style/LineStyle"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginLeft="20dp"></View>
-                </RelativeLayout>
-
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="55dp">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="20dp"
-                        android:text="检查单对比"
-                        android:textColor="@color/C242424"
-                        android:textSize="@dimen/textsize15" />
-
-
-                    <LinearLayout
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="10dp"
-                        android:gravity="center_vertical">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:layout_marginTop="10dp">
 
                         <TextView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_marginRight="10dp"
-                            android:text="是"
-                            android:textColor="@color/C808080"
-                            android:textSize="@dimen/textsize13" />
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="20dp"
+                            android:text="主要病情"
+                            android:textColor="@color/C242424"
+                            android:textSize="@dimen/textsize15" />
 
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="10dp"
                             android:padding="10dp"
-                            android:src="@mipmap/a_huibao_shanchu" />
-                    </LinearLayout>
+                            android:src="@mipmap/a_ganwu_guanzhuhaoyou_add" />
+
+                        <View
+                            style="@style/LineStyle"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginLeft="20dp"></View>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="20dp"
+                            android:text="请选择"
+                            android:textColor="@color/CA8A8A8"
+                            android:textSize="@dimen/textsize15" />
 
 
-                    <View
-                        style="@style/LineStyle"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginLeft="20dp"></View>
-                </RelativeLayout>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="10dp"
+                            android:gravity="center_vertical">
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="55dp">
+                            <Button
+                                android:layout_width="67dp"
+                                android:layout_height="27dp"
+                                android:layout_marginRight="20dp"
+                                android:background="@drawable/sysbtn_ffe248_4_shape"
+                                android:text="选择分类"
+                                android:textColor="@color/C242424"
+                                android:textSize="@dimen/textsize12" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="20dp"
-                        android:text="接受心理治疗时间"
-                        android:textColor="@color/C242424"
-                        android:textSize="@dimen/textsize15" />
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:src="@mipmap/a_huibao_shanchu" />
+                        </LinearLayout>
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="10dp"
-                        android:padding="10dp"
-                        android:src="@mipmap/a_next" />
 
-                    <View
-                        style="@style/LineStyle"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginLeft="20dp"></View>
-                </RelativeLayout>
+                        <View
+                            style="@style/LineStyle"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginLeft="20dp"></View>
+                    </RelativeLayout>
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="55dp">
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp">
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="20dp"
-                        android:text="治愈情况"
-                        android:textColor="@color/C242424"
-                        android:textSize="@dimen/textsize15" />
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="20dp"
+                            android:text="请选择"
+                            android:textColor="@color/CA8A8A8"
+                            android:textSize="@dimen/textsize15" />
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="10dp"
-                        android:padding="10dp"
-                        android:src="@mipmap/a_next" />
 
-                    <View
-                        style="@style/LineStyle"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginLeft="20dp"></View>
-                </RelativeLayout>
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="10dp"
+                            android:gravity="center_vertical">
 
-                <RelativeLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="55dp"
-                    android:layout_marginBottom="20dp">
+                            <Button
+                                android:layout_width="67dp"
+                                android:layout_height="27dp"
+                                android:layout_marginRight="20dp"
+                                android:background="@drawable/sysbtn_ffe248_4_shape"
+                                android:text="手动输入"
+                                android:textColor="@color/C242424"
+                                android:textSize="@dimen/textsize12" />
 
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="20dp"
-                        android:text="汇报次数"
-                        android:textColor="@color/C242424"
-                        android:textSize="@dimen/textsize15" />
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:src="@mipmap/a_huibao_shanchu" />
+                        </LinearLayout>
 
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_alignParentRight="true"
-                        android:layout_centerVertical="true"
-                        android:layout_marginRight="10dp"
-                        android:padding="10dp"
-                        android:src="@mipmap/a_next" />
 
-                    <View
-                        style="@style/LineStyle"
-                        android:layout_alignParentBottom="true"
-                        android:layout_marginLeft="20dp"></View>
-                </RelativeLayout>
+                        <View
+                            style="@style/LineStyle"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginLeft="20dp"></View>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="20dp"
+                            android:text="调理反应"
+                            android:textColor="@color/C242424"
+                            android:textSize="@dimen/textsize15" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="10dp"
+                            android:padding="10dp"
+                            android:src="@mipmap/a_ganwu_guanzhuhaoyou_add" />
+
+                        <View
+                            style="@style/LineStyle"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginLeft="20dp"></View>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="20dp"
+                            android:text="请选择"
+                            android:textColor="@color/CA8A8A8"
+                            android:textSize="@dimen/textsize15" />
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="10dp"
+                            android:gravity="center_vertical">
+
+                            <Button
+                                android:layout_width="67dp"
+                                android:layout_height="27dp"
+                                android:layout_marginRight="20dp"
+                                android:background="@drawable/sysbtn_ffe248_4_shape"
+                                android:text="选择分类"
+                                android:textColor="@color/C242424"
+                                android:textSize="@dimen/textsize12" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:src="@mipmap/a_huibao_shanchu" />
+                        </LinearLayout>
+
+
+                        <View
+                            style="@style/LineStyle"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginLeft="20dp"></View>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="20dp"
+                            android:text="常规治疗过程"
+                            android:textColor="@color/C242424"
+                            android:textSize="@dimen/textsize15" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="10dp"
+                            android:padding="10dp"
+                            android:src="@mipmap/a_next" />
+
+                        <View
+                            style="@style/LineStyle"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginLeft="20dp"></View>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="20dp"
+                            android:text="检查单对比"
+                            android:textColor="@color/C242424"
+                            android:textSize="@dimen/textsize15" />
+
+
+                        <LinearLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="10dp"
+                            android:gravity="center_vertical">
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginRight="10dp"
+                                android:text="是"
+                                android:textColor="@color/C808080"
+                                android:textSize="@dimen/textsize13" />
+
+                            <ImageView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:padding="10dp"
+                                android:src="@mipmap/a_huibao_shanchu" />
+                        </LinearLayout>
+
+
+                        <View
+                            style="@style/LineStyle"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginLeft="20dp"></View>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="20dp"
+                            android:text="接受心理治疗时间"
+                            android:textColor="@color/C242424"
+                            android:textSize="@dimen/textsize15" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="10dp"
+                            android:padding="10dp"
+                            android:src="@mipmap/a_next" />
+
+                        <View
+                            style="@style/LineStyle"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginLeft="20dp"></View>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="20dp"
+                            android:text="治愈情况"
+                            android:textColor="@color/C242424"
+                            android:textSize="@dimen/textsize15" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="10dp"
+                            android:padding="10dp"
+                            android:src="@mipmap/a_next" />
+
+                        <View
+                            style="@style/LineStyle"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginLeft="20dp"></View>
+                    </RelativeLayout>
+
+                    <RelativeLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="55dp"
+                        android:layout_marginBottom="20dp">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="20dp"
+                            android:text="汇报次数"
+                            android:textColor="@color/C242424"
+                            android:textSize="@dimen/textsize15" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_alignParentRight="true"
+                            android:layout_centerVertical="true"
+                            android:layout_marginRight="10dp"
+                            android:padding="10dp"
+                            android:src="@mipmap/a_next" />
+
+                        <View
+                            style="@style/LineStyle"
+                            android:layout_alignParentBottom="true"
+                            android:layout_marginLeft="20dp"></View>
+                    </RelativeLayout>
+                </LinearLayout>
+            </ScrollView>
+
+            <LinearLayout
+                android:id="@+id/BottomLL"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_alignParentBottom="true"
+                android:background="#F1D649"
+                android:elevation="10dp"
+                android:gravity="center"
+                android:visibility="visible">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="保存"
+                    android:textColor="@color/C242424"
+                    android:textSize="@dimen/textsize16" />
             </LinearLayout>
-        </ScrollView>
-
-        <LinearLayout
-            android:id="@+id/BottomLL"
-            android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_alignParentBottom="true"
-            android:background="#F1D649"
-            android:elevation="10dp"
-            android:gravity="center"
-            android:visibility="visible">
-
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="保存"
-                android:textColor="@color/C242424"
-                android:textSize="@dimen/textsize16" />
-        </LinearLayout>
-    </RelativeLayout>
+        </RelativeLayout>
 
 
-</LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

@@ -9,14 +9,18 @@ import android.os.Bundle;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import android.support.v7.app.AppCompatActivity;
+import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.Toast;
 
 import com.hxsoft.ajitai.AppContext;
 import com.hxsoft.ajitai.R;
+import com.hxsoft.ajitai.utils.DensityUtils;
 import com.hxsoft.ajitai.widget.LoadingDialog;
 import com.jakewharton.rxbinding.view.RxView;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
@@ -142,11 +146,45 @@ public abstract class BaseActivity extends AppCompatActivity {
     protected abstract int getLayoutId();
 
     protected void initView() {
-        Button button = new Button(getContext());
-        button.setText("dddddddddd");
-        View view = getWindow().getDecorView();
 
 
+        RelativeLayout RootView = (RelativeLayout) findViewById(R.id.RootView);
+        if (RootView != null) {
+            View tipView = View.inflate(getContext(), R.layout.a_tip, null);
+            RelativeLayout.LayoutParams layoutParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.WRAP_CONTENT, ViewGroup.LayoutParams.WRAP_CONTENT);
+            layoutParams.rightMargin = (int) DensityUtils.px2dp(getContext(), 25);
+            layoutParams.bottomMargin = (int) DensityUtils.px2dp(getContext(), 400);
+            layoutParams.addRule(RelativeLayout.ALIGN_PARENT_RIGHT);
+            layoutParams.addRule(RelativeLayout.ALIGN_PARENT_BOTTOM);
+            tipView.setLayoutParams(layoutParams);
+            RootView.addView(tipView);
+
+            tipView.setOnTouchListener(new View.OnTouchListener() {
+                @Override
+                public boolean onTouch(View v, MotionEvent motionEvent) {
+                    switch (motionEvent.getAction()) {
+                        case MotionEvent.ACTION_DOWN:
+                            tipView.setScaleX((float) 0.85);
+                            tipView.setScaleY((float) 0.85);
+                            break;
+
+                        case MotionEvent.ACTION_UP:
+                            tipView.setScaleX(1);
+                            tipView.setScaleY(1);
+                            break;
+                        default:
+                    }
+
+                    return false;
+                }
+            });
+            tipView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+
+                }
+            });
+        }
     }
 
     protected void initData() {

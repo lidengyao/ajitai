@@ -33,15 +33,11 @@ public class DensityUtils {
 				spVal, context.getResources().getDisplayMetrics());
 	}
 
-	/**
-	 * px转dp
-	 * 
-	 * @return
-	 */
-	public static float px2dp(Context context, float pxVal) {
+	public static int px2dp(Context context, float pxValue) {
 		final float scale = context.getResources().getDisplayMetrics().density;
-		return (pxVal / scale);
+		return (int) (pxValue / scale + 0.5f);
 	}
+
 
 	/**
 	 * px转sp

@@ -67,7 +67,7 @@ public class Y_Fragment_YinPinZhiBo_MengYu extends MvpFragment<A_YinPinZhiBo_Pre
 //        Item2LL.setOnClickListener(new View.OnClickListener() {
 //            @Override
 //            public void onClick(View v) {
-//                CheckControl_Dialog_yinpinzhibo_yijieshu.ShowDialog(getContext(), getActivity(), "", new CheckControl_Dialog_yinpinzhibo_yijieshu.OnCheckControl_dialogClickListener() {
+//                CheckControl_Dialog_Tip.ShowDialog(getContext(), getActivity(), "", new CheckControl_Dialog_Tip.OnCheckControl_dialogClickListener() {
 //                    @Override
 //                    public void OnClick(int type) {
 //
@@ -83,7 +83,7 @@ public class Y_Fragment_YinPinZhiBo_MengYu extends MvpFragment<A_YinPinZhiBo_Pre
 //                startActivity(intent);
 //            }
 //        });
-        adapter = new A_YinPinZhiBo_Adapter(getContext(), infoArrayList, R.layout.a_item_yinpinzhibo, 0);
+        adapter = new A_YinPinZhiBo_Adapter(getContext(),getActivity(), infoArrayList, R.layout.a_item_yinpinzhibo, 0);
 
         DataListView.setAdapter(adapter);
         DataListView.setOnPullLoadMoreListener(new PullLoadMoreListView.PullLoadMoreListener() {

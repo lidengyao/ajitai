@@ -1,266 +1,275 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    style="@style/PageRootLL"
-    android:background="@color/color2">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/RootView"
+    style="@style/PageRootLL">
 
-    <!--头部-->
-    <android.support.v7.widget.Toolbar
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/headheight"
-        android:background="@drawable/status_shape"
-        app:contentInsetStart="0dp">
-
-        <LinearLayout style="@style/TopStyle">
-
-            <RelativeLayout style="@style/TopBarStyle">
-
-                <LinearLayout
-                    style="@style/TopBarLeftStyle"
-                    android:visibility="visible">
-
-                    <ImageView style="@style/TopBarBackImageStyle" />
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/SysNameIV"
-                    style="@style/TopBarTitleStyle"
-                    android:tag="充值"
-                    android:text="充值"
-                    android:visibility="visible" />
-
-                <RelativeLayout
-                    android:id="@+id/JianJieRL"
-                    style="@style/TopBarRightStyle"
-                    android:visibility="invisible">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_marginRight="20dp"
-                        android:src="@mipmap/a_gengduo_dian" />
-
-                    <TextView
-                        style="@style/TopBarRightTextStyle"
-                        android:text="修改"
-                        android:visibility="gone" />
-                </RelativeLayout>
-            </RelativeLayout>
-
-
-        </LinearLayout>
-
-    </android.support.v7.widget.Toolbar>
-
-    <View style="@style/LineStyle"></View>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <ScrollView
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <!--头部-->
+        <android.support.v7.widget.Toolbar
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@+id/BottomLL">
+            android:layout_height="@dimen/headheight"
+            android:background="@drawable/status_shape"
+            app:contentInsetStart="0dp">
 
-            <LinearLayout
-                android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:orientation="vertical">
+            <LinearLayout style="@style/TopStyle">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="vertical">
-
-                    <ImageView
-                        android:layout_width="66dp"
-                        android:layout_height="66dp"
-                        android:layout_marginTop="20dp"
-                        android:src="@mipmap/a_touxiang" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="15dp"
-                        android:text="哈哈小猪"
-                        android:textColor="@color/C242424"
-                        android:textSize="@dimen/textsize15" />
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="6dp"
-                        android:text="188*****888"
-                        android:textColor="@color/CA8A8A8"
-                        android:textSize="@dimen/textsize12" />
-
+                <RelativeLayout style="@style/TopBarStyle">
 
                     <LinearLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginTop="30dp"
-                        android:orientation="horizontal">
-
-                        <TextView
-                            android:id="@+id/KeCheng_TV"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
-                            android:paddingTop="10dp"
-                            android:paddingBottom="10dp"
-                            android:text="选择课程"
-                            android:textColor="@color/C242424"
-                            android:textSize="@dimen/textsize16" />
-
-                        <TextView
-                            android:id="@+id/JinE_TV"
-                            android:layout_width="wrap_content"
-                            android:layout_height="wrap_content"
-                            android:layout_marginLeft="20dp"
-                            android:paddingTop="10dp"
-                            android:paddingBottom="10dp"
-                            android:text="充值金额"
-                            android:textColor="@color/C808080"
-                            android:textSize="@dimen/textsize16" />
-                    </LinearLayout>
-
-
-                    <RelativeLayout
-                        android:id="@+id/KeCheng_RL"
-                        android:layout_width="match_parent"
-                        android:layout_height="80dp"
+                        style="@style/TopBarLeftStyle"
                         android:visibility="visible">
 
-                        <Button
-                            android:id="@+id/Qi_Btn"
-                            android:layout_width="100dp"
-                            android:layout_height="42dp"
-                            android:layout_centerVertical="true"
-                            android:layout_marginLeft="24dp" style="@style/Button_Style"
-                            android:layout_marginBottom="20dp"
-                            android:background="@drawable/sysbtn_ffe248_4_shape"
-                            android:text="7天课程"
-                            android:textColor="@color/C242424"
-                            android:textSize="@dimen/textsize14" />
+                        <ImageView style="@style/TopBarBackImageStyle" />
+                    </LinearLayout>
 
-                        <Button
-
-                            android:id="@+id/ErYi_Btn"
-                            android:layout_width="100dp"
-                            android:layout_height="42dp"
-                            android:layout_centerInParent="true" style="@style/Button_Style"
-                            android:background="@drawable/sysbtn_f3f3f3_4_shape"
-                            android:text="21天课程"
-                            android:textColor="@color/C808080"
-                            android:textSize="@dimen/textsize14" />
-
-                        <Button
-                            android:id="@+id/SanWu_Btn"
-                            android:layout_width="100dp"
-                            android:layout_height="42dp"
-                            android:layout_alignParentRight="true" style="@style/Button_Style"
-                            android:layout_centerVertical="true"
-                            android:layout_marginRight="22dp"
-                            android:background="@drawable/sysbtn_f3f3f3_4_shape"
-                            android:text="35天课程"
-                            android:textColor="@color/C808080"
-                            android:textSize="@dimen/textsize14" />
-
-
-                        <View
-                            style="@style/LineStyle"
-                            android:layout_alignParentBottom="true"
-                            android:layout_marginLeft="20dp"></View>
-
-                    </RelativeLayout>
+                    <TextView
+                        android:id="@+id/SysNameIV"
+                        style="@style/TopBarTitleStyle"
+                        android:tag="充值"
+                        android:text="充值"
+                        android:visibility="visible" />
 
                     <RelativeLayout
-                        android:id="@+id/JinE_RL"
-                        android:layout_width="match_parent"
-                        android:layout_height="80dp"
-                        android:visibility="gone">
+                        android:id="@+id/JianJieRL"
+                        style="@style/TopBarRightStyle"
+                        android:visibility="invisible">
 
                         <ImageView
-                            android:id="@+id/QingKong_IV"
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
-                            android:layout_alignParentRight="true"
-                            android:layout_centerVertical="true"
-                            android:padding="20dp"
-                            android:src="@mipmap/a_qingkong1" />
+                            android:layout_centerInParent="true"
+                            android:layout_marginRight="20dp"
+                            android:src="@mipmap/a_gengduo_dian" />
 
-                        <LinearLayout
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            android:layout_centerVertical="true"
-                            android:layout_marginLeft="24dp"
-                            android:layout_toLeftOf="@+id/QingKong_IV"
-                            android:orientation="horizontal">
-
-                            <TextView
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:text="¥ "
-                                android:textColor="@color/C242424"
-                                android:textSize="@dimen/textsize30" />
-
-                            <EditText
-                                android:layout_width="match_parent"
-                                android:layout_height="wrap_content"
-
-                                android:background="@null"
-                                android:paddingLeft="10dp"
-                                android:text="100"
-                                android:textColor="@color/C242424"
-                                android:textSize="@dimen/textsize30" />
-                        </LinearLayout>
-
-
-                        <View
-                            style="@style/LineStyle"
-                            android:layout_alignParentBottom="true"
-                            android:layout_marginLeft="20dp"></View>
-
+                        <TextView
+                            style="@style/TopBarRightTextStyle"
+                            android:text="修改"
+                            android:visibility="gone" />
                     </RelativeLayout>
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:layout_marginLeft="10dp"
-                        android:layout_marginRight="10dp"
-                        android:background="@null"
-                        android:gravity="left|top"
-                        android:hint="添加备注"
-                        android:minHeight="60dp"
-                        android:padding="10dp"
-                        android:textSize="@dimen/textsize12" />
-                </LinearLayout>
+                </RelativeLayout>
 
 
             </LinearLayout>
 
+        </android.support.v7.widget.Toolbar>
 
-        </ScrollView>
+        <View style="@style/LineStyle"></View>
 
-        <LinearLayout
-            android:id="@+id/BottomLL"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_alignParentBottom="true"
-            android:background="#F1D649"
-            android:gravity="center">
+            android:layout_height="match_parent">
 
-            <TextView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:text="下一步"
-                android:textColor="@color/C242424"
-                android:textSize="@dimen/textsize16" />
-        </LinearLayout>
+            <ScrollView
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_above="@+id/BottomLL">
 
-    </RelativeLayout>
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="vertical">
 
-</LinearLayout>
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:gravity="center"
+                        android:orientation="vertical">
+
+                        <ImageView
+                            android:layout_width="66dp"
+                            android:layout_height="66dp"
+                            android:layout_marginTop="20dp"
+                            android:src="@mipmap/a_touxiang" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="15dp"
+                            android:text="哈哈小猪"
+                            android:textColor="@color/C242424"
+                            android:textSize="@dimen/textsize15" />
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="6dp"
+                            android:text="188*****888"
+                            android:textColor="@color/CA8A8A8"
+                            android:textSize="@dimen/textsize12" />
+
+
+                        <LinearLayout
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginTop="30dp"
+                            android:orientation="horizontal">
+
+                            <TextView
+                                android:id="@+id/KeCheng_TV"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:text="选择课程"
+                                android:textColor="@color/C242424"
+                                android:textSize="@dimen/textsize16" />
+
+                            <TextView
+                                android:id="@+id/JinE_TV"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_marginLeft="20dp"
+                                android:paddingTop="10dp"
+                                android:paddingBottom="10dp"
+                                android:text="充值金额"
+                                android:textColor="@color/C808080"
+                                android:textSize="@dimen/textsize16" />
+                        </LinearLayout>
+
+
+                        <RelativeLayout
+                            android:id="@+id/KeCheng_RL"
+                            android:layout_width="match_parent"
+                            android:layout_height="80dp"
+                            android:visibility="visible">
+
+                            <Button
+                                android:id="@+id/Qi_Btn"
+                                style="@style/Button_Style"
+                                android:layout_width="100dp"
+                                android:layout_height="42dp"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="24dp"
+                                android:layout_marginBottom="20dp"
+                                android:background="@drawable/sysbtn_ffe248_4_shape"
+                                android:text="7天课程"
+                                android:textColor="@color/C242424"
+                                android:textSize="@dimen/textsize14" />
+
+                            <Button
+
+                                android:id="@+id/ErYi_Btn"
+                                style="@style/Button_Style"
+                                android:layout_width="100dp"
+                                android:layout_height="42dp"
+                                android:layout_centerInParent="true"
+                                android:background="@drawable/sysbtn_f3f3f3_4_shape"
+                                android:text="21天课程"
+                                android:textColor="@color/C808080"
+                                android:textSize="@dimen/textsize14" />
+
+                            <Button
+                                android:id="@+id/SanWu_Btn"
+                                style="@style/Button_Style"
+                                android:layout_width="100dp"
+                                android:layout_height="42dp"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:layout_marginRight="22dp"
+                                android:background="@drawable/sysbtn_f3f3f3_4_shape"
+                                android:text="35天课程"
+                                android:textColor="@color/C808080"
+                                android:textSize="@dimen/textsize14" />
+
+
+                            <View
+                                style="@style/LineStyle"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginLeft="20dp"></View>
+
+                        </RelativeLayout>
+
+                        <RelativeLayout
+                            android:id="@+id/JinE_RL"
+                            android:layout_width="match_parent"
+                            android:layout_height="80dp"
+                            android:visibility="gone">
+
+                            <ImageView
+                                android:id="@+id/QingKong_IV"
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:layout_alignParentRight="true"
+                                android:layout_centerVertical="true"
+                                android:padding="20dp"
+                                android:src="@mipmap/a_qingkong1" />
+
+                            <LinearLayout
+                                android:layout_width="match_parent"
+                                android:layout_height="wrap_content"
+                                android:layout_centerVertical="true"
+                                android:layout_marginLeft="24dp"
+                                android:layout_toLeftOf="@+id/QingKong_IV"
+                                android:orientation="horizontal">
+
+                                <TextView
+                                    android:layout_width="wrap_content"
+                                    android:layout_height="wrap_content"
+                                    android:text="¥ "
+                                    android:textColor="@color/C242424"
+                                    android:textSize="@dimen/textsize30" />
+
+                                <EditText
+                                    android:layout_width="match_parent"
+                                    android:layout_height="wrap_content"
+
+                                    android:background="@null"
+                                    android:paddingLeft="10dp"
+                                    android:text="100"
+                                    android:textColor="@color/C242424"
+                                    android:textSize="@dimen/textsize30" />
+                            </LinearLayout>
+
+
+                            <View
+                                style="@style/LineStyle"
+                                android:layout_alignParentBottom="true"
+                                android:layout_marginLeft="20dp"></View>
+
+                        </RelativeLayout>
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="wrap_content"
+                            android:layout_marginLeft="10dp"
+                            android:layout_marginRight="10dp"
+                            android:background="@null"
+                            android:gravity="left|top"
+                            android:hint="添加备注"
+                            android:minHeight="60dp"
+                            android:padding="10dp"
+                            android:textSize="@dimen/textsize12" />
+                    </LinearLayout>
+
+
+                </LinearLayout>
+
+
+            </ScrollView>
+
+            <LinearLayout
+                android:id="@+id/BottomLL"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_alignParentBottom="true"
+                android:background="#F1D649"
+                android:gravity="center">
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="下一步"
+                    android:textColor="@color/C242424"
+                    android:textSize="@dimen/textsize16" />
+            </LinearLayout>
+
+        </RelativeLayout>
+
+    </LinearLayout>
+</RelativeLayout>

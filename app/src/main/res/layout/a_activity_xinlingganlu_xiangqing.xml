@@ -1,131 +1,136 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    style="@style/PageRootLL"
-    android:background="@color/color2">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/RootView"
+    style="@style/PageRootLL">
 
-
-    <!--头部-->
-    <android.support.v7.widget.Toolbar
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="@dimen/headheight"
-        android:background="@drawable/status_shape"
-        app:contentInsetStart="0dp">
+        android:layout_height="match_parent"
+        android:orientation="vertical">
+        <!--头部-->
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/headheight"
+            android:background="@drawable/status_shape"
+            app:contentInsetStart="0dp">
 
-        <LinearLayout style="@style/TopStyle">
+            <LinearLayout style="@style/TopStyle">
 
-            <RelativeLayout style="@style/TopBarStyle">
+                <RelativeLayout style="@style/TopBarStyle">
 
-                <LinearLayout
-                    style="@style/TopBarLeftStyle"
-                    android:visibility="visible">
+                    <LinearLayout
+                        style="@style/TopBarLeftStyle"
+                        android:visibility="visible">
 
-                    <ImageView style="@style/TopBarBackImageStyle" />
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/SysNameIV"
-                    style="@style/TopBarTitleStyle"
-                    android:tag="详情"
-                    android:text="详情"
-                    android:visibility="visible" />
-
-                <RelativeLayout
-                    android:id="@+id/QieHuanZhangHaoRL"
-                    style="@style/TopBarRightStyle"
-                    android:visibility="invisible">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:layout_marginRight="20dp"
-                        android:src="@mipmap/qiehuanzhanghao" />
+                        <ImageView style="@style/TopBarBackImageStyle" />
+                    </LinearLayout>
 
                     <TextView
-                        style="@style/TopBarRightTextStyle"
-                        android:text="修改"
-                        android:visibility="gone" />
+                        android:id="@+id/SysNameIV"
+                        style="@style/TopBarTitleStyle"
+                        android:tag="详情"
+                        android:text="详情"
+                        android:visibility="visible" />
+
+                    <RelativeLayout
+                        android:id="@+id/QieHuanZhangHaoRL"
+                        style="@style/TopBarRightStyle"
+                        android:visibility="invisible">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:layout_marginRight="20dp"
+                            android:src="@mipmap/qiehuanzhanghao" />
+
+                        <TextView
+                            style="@style/TopBarRightTextStyle"
+                            android:text="修改"
+                            android:visibility="gone" />
+                    </RelativeLayout>
                 </RelativeLayout>
-            </RelativeLayout>
 
 
-        </LinearLayout>
+            </LinearLayout>
 
-    </android.support.v7.widget.Toolbar>
-
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent">
-
-        <WebView
-            android:id="@+id/AdesWebView"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:visibility="gone"></WebView>
-
-        <com.hxsoft.ajitai.widget.PullLoadMoreListView
-            android:id="@+id/DataListView"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:layout_above="@+id/BottomRL"
-            android:layout_marginTop="12dp"
-            android:divider="@null"
-            android:visibility="visible" />
+        </android.support.v7.widget.Toolbar>
 
         <RelativeLayout
-            android:id="@+id/BottomRL"
             android:layout_width="match_parent"
-            android:layout_height="55dp"
-            android:layout_alignParentBottom="true"
-            android:background="@color/color2"
-            android:elevation="10dp">
+            android:layout_height="match_parent">
 
-            <View
-                style="@style/LineStyle"
-                android:layout_alignParentTop="true"></View>
-
-            <LinearLayout
+            <WebView
+                android:id="@+id/AdesWebView"
                 android:layout_width="match_parent"
-                android:layout_height="32dp"
-                android:layout_centerVertical="true"
-                android:layout_marginLeft="17dp"
-                android:layout_toLeftOf="@+id/CaoZuoLL"
-                android:background="@drawable/sysbtn_gray_f6f6f6_4_shape">
+                android:layout_height="wrap_content"
+                android:visibility="gone"></WebView>
 
-                <EditText
-                    android:id="@+id/ContentET"
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:layout_marginLeft="5dp"
-                    android:layout_marginRight="5dp"
-                    android:background="@null" />
-            </LinearLayout>
-
-            <LinearLayout
-                android:id="@+id/CaoZuoLL"
-                android:layout_width="100dp"
+            <com.hxsoft.ajitai.widget.PullLoadMoreListView
+                android:id="@+id/DataListView"
+                android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:layout_alignParentRight="true"
-                android:layout_centerVertical="true"
-                android:gravity="center"
-                android:orientation="horizontal">
+                android:layout_above="@+id/BottomRL"
+                android:layout_marginTop="12dp"
+                android:divider="@null"
+                android:visibility="visible" />
 
+            <RelativeLayout
+                android:id="@+id/BottomRL"
+                android:layout_width="match_parent"
+                android:layout_height="55dp"
+                android:layout_alignParentBottom="true"
+                android:background="@color/color2"
+                android:elevation="10dp">
 
-                <Button
-                    android:id="@+id/SendBtn"
-                    style="@style/Button_Style"
-                    android:layout_width="64dp"
+                <View
+                    style="@style/LineStyle"
+                    android:layout_alignParentTop="true"></View>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
                     android:layout_height="32dp"
-                    android:background="@drawable/sysbtn_ffe248_4_shape"
-                    android:text="评论"
-                    android:textColor="@color/C242424"
-                    android:textSize="@dimen/textsize12"
-                    android:visibility="visible" />
-            </LinearLayout>
+                    android:layout_centerVertical="true"
+                    android:layout_marginLeft="17dp"
+                    android:layout_toLeftOf="@+id/CaoZuoLL"
+                    android:background="@drawable/sysbtn_gray_f6f6f6_4_shape">
+
+                    <EditText
+                        android:id="@+id/ContentET"
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginLeft="5dp"
+                        android:layout_marginRight="5dp"
+                        android:background="@null" />
+                </LinearLayout>
+
+                <LinearLayout
+                    android:id="@+id/CaoZuoLL"
+                    android:layout_width="100dp"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentRight="true"
+                    android:layout_centerVertical="true"
+                    android:gravity="center"
+                    android:orientation="horizontal">
+
+
+                    <Button
+                        android:id="@+id/SendBtn"
+                        style="@style/Button_Style"
+                        android:layout_width="64dp"
+                        android:layout_height="32dp"
+                        android:background="@drawable/sysbtn_ffe248_4_shape"
+                        android:text="评论"
+                        android:textColor="@color/C242424"
+                        android:textSize="@dimen/textsize12"
+                        android:visibility="visible" />
+                </LinearLayout>
+            </RelativeLayout>
+
         </RelativeLayout>
 
-    </RelativeLayout>
 
-
-</LinearLayout>
+    </LinearLayout>
+</RelativeLayout>

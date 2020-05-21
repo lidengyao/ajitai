@@ -87,6 +87,7 @@ public class A_Activity_GeRenXinXi extends MvpActivity<A_GeRenXinXi_Present> imp
     private String[] needPermissions = {Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE};
     private static final int REQUEST_STORAGE_PERMISSION = 104;
     private Boolean saveOp = false;
+    private int sex = 0;
 
     @Override
     protected int getLayoutId() {
@@ -121,7 +122,7 @@ public class A_Activity_GeRenXinXi extends MvpActivity<A_GeRenXinXi_Present> imp
                 CheckControl_Dialog_XingBie.ShowDialog(getContext(), getActivity(), "", new CheckControl_Dialog_XingBie.OnCheckControl_dialogClickListener() {
                     @Override
                     public void OnClick(int type) {
-
+                        sex = type;
                     }
                 });
             }
@@ -153,7 +154,15 @@ public class A_Activity_GeRenXinXi extends MvpActivity<A_GeRenXinXi_Present> imp
             public void onClick(View v) {
                 saveOp = true;
                 A_UserUpdatecurrent_Bean a_userUpdatecurrent_bean = new A_UserUpdatecurrent_Bean();
-                a_userUpdatecurrent_bean.setNickname(nicknameET.getText().toString());
+
+                if (!MStringUtils.IsNullOrEmpty(nicknameET.getText().toString())) {
+                    a_userUpdatecurrent_bean.setNickname(nicknameET.getText().toString());
+                }
+
+                if (sex != 0) {
+                    a_userUpdatecurrent_bean.setSex(sex);
+                }
+
 //                a_userUpdatecurrent_bean.setAddress();
                 mPresenter.adminUserUpdatecurrent(a_userUpdatecurrent_bean, getContext());
             }
@@ -355,7 +364,7 @@ public class A_Activity_GeRenXinXi extends MvpActivity<A_GeRenXinXi_Present> imp
 
                         OssUploadFileC.OssUpFile(getContext(), fileName, filePath, new OssUpLoadFileListener() {
                             @Override
-                            public void OssUpLoadFile(Boolean IsSuccess, String ossFileName,String localFileName) {
+                            public void OssUpLoadFile(Boolean IsSuccess, String ossFileName, String localFileName) {
 
                                 Map<String, String> result = new HashMap<>();
                                 result.put("avatar", ossFileName);

@@ -1,90 +1,96 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    style="@style/PageRootLL"
-    android:background="@color/color2">
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/RootView"
+    style="@style/PageRootLL">
 
-    <!--头部-->
-    <android.support.v7.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/headheight"
-        android:background="@drawable/status_shape"
-        app:contentInsetStart="0dp">
-
-        <LinearLayout style="@style/TopStyle">
-
-            <RelativeLayout style="@style/TopBarStyle">
-
-                <LinearLayout
-                    android:id="@+id/Back_LL"
-                    style="@style/TopBarLeftStyle"
-                    android:visibility="visible">
-
-                    <ImageView style="@style/TopBarBackImageStyle" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="30dp"
-                    android:layout_centerVertical="true"
-                    android:layout_toLeftOf="@+id/ShaiXuan_RL"
-                    android:layout_toRightOf="@+id/Back_LL"
-                    android:background="@drawable/sysbtn_gray_f3f4f6_10_shape"
-                    android:gravity="center_vertical"
-                    android:orientation="horizontal"
-                    android:paddingLeft="12dp">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:src="@mipmap/a_sousuo_hei" />
-
-                    <EditText
-                        android:layout_width="match_parent"
-                        android:layout_height="match_parent"
-                        android:layout_marginLeft="14dp"
-                        android:background="@null"
-                        android:hint="搜索"
-                        android:textColor="@color/C242424"
-                        android:textSize="@dimen/textsize12" />
-                </LinearLayout>
-
-                <RelativeLayout
-                    android:id="@+id/ShaiXuan_RL"
-                    android:layout_width="60dp"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentRight="true"
-                    android:visibility="visible">
-
-                    <TextView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:text="取消"
-                        android:textColor="@color/C242424"
-                        android:textSize="@dimen/textsize14"
-                        android:visibility="gone" />
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerInParent="true"
-                        android:src="@mipmap/a_shaixuan_wenzhang" />
-                </RelativeLayout>
-            </RelativeLayout>
-
-
-        </LinearLayout>
-
-    </android.support.v7.widget.Toolbar>
-
-
-
-    <com.hxsoft.ajitai.widget.PullLoadMoreListView
-        android:id="@+id/DataListView"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_marginTop="12dp"
-        android:divider="@null" />
+        android:orientation="vertical">
 
-</LinearLayout>
+        <!--头部-->
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/headheight"
+            android:background="@drawable/status_shape"
+            app:contentInsetStart="0dp">
+
+            <LinearLayout style="@style/TopStyle">
+
+                <RelativeLayout style="@style/TopBarStyle">
+
+                    <LinearLayout
+                        android:id="@+id/Back_LL"
+                        style="@style/TopBarLeftStyle"
+                        android:visibility="visible">
+
+                        <ImageView style="@style/TopBarBackImageStyle" />
+                    </LinearLayout>
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="30dp"
+                        android:layout_centerVertical="true"
+                        android:layout_toLeftOf="@+id/ShaiXuan_RL"
+                        android:layout_toRightOf="@+id/Back_LL"
+                        android:background="@drawable/sysbtn_gray_f3f4f6_10_shape"
+                        android:gravity="center_vertical"
+                        android:orientation="horizontal"
+                        android:paddingLeft="12dp">
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:src="@mipmap/a_sousuo_hei" />
+
+                        <EditText
+                            android:layout_width="match_parent"
+                            android:layout_height="match_parent"
+                            android:layout_marginLeft="14dp"
+                            android:background="@null"
+                            android:hint="搜索"
+                            android:textColor="@color/C242424"
+                            android:textSize="@dimen/textsize12" />
+                    </LinearLayout>
+
+                    <RelativeLayout
+                        android:id="@+id/ShaiXuan_RL"
+                        android:layout_width="60dp"
+                        android:layout_height="match_parent"
+                        android:layout_alignParentRight="true"
+                        android:visibility="visible">
+
+                        <TextView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:text="取消"
+                            android:textColor="@color/C242424"
+                            android:textSize="@dimen/textsize14"
+                            android:visibility="gone" />
+
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerInParent="true"
+                            android:src="@mipmap/a_shaixuan_wenzhang" />
+                    </RelativeLayout>
+                </RelativeLayout>
+
+
+            </LinearLayout>
+
+        </android.support.v7.widget.Toolbar>
+
+
+        <com.hxsoft.ajitai.widget.PullLoadMoreListView
+            android:id="@+id/DataListView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_marginTop="12dp"
+            android:divider="@null" />
+
+    </LinearLayout>
+</RelativeLayout>

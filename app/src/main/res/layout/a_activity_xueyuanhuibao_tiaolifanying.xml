@@ -1,159 +1,166 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    style="@style/PageRootLL"
-    android:background="@color/color2">
-
-    <!--头部-->
-    <android.support.v7.widget.Toolbar
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/headheight"
-        android:background="@drawable/status_shape"
-        app:contentInsetStart="0dp">
-
-        <LinearLayout style="@style/TopStyle">
-
-            <RelativeLayout style="@style/TopBarStyle">
-
-                <LinearLayout
-                    style="@style/TopBarLeftStyle"
-                    android:visibility="visible">
-
-                    <ImageView style="@style/TopBarBackImageStyle" />
-                </LinearLayout>
-
-                <TextView
-                    android:id="@+id/SysNameIV"
-                    style="@style/TopBarTitleStyle"
-                    android:tag="调理反应"
-                    android:text="调理反应"
-                    android:visibility="visible" />
-
-                <RelativeLayout
-                    android:id="@+id/SouSuoRL"
-                    style="@style/TopBarRightStyle"
-
-                    android:visibility="visible">
-
-                    <ImageView
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:layout_centerVertical="true"
-                        android:layout_marginLeft="20dp"
-                        android:layout_marginRight="20dp"
-                        android:src="@mipmap/xueyuanhuibaochaxuan"
-                        android:visibility="gone" />
-
-                    <TextView
-                        style="@style/TopBarRightTextStyle"
-                        android:text="完成"
-                        android:textColor="@color/C242424"
-                        android:visibility="visible" />
-                </RelativeLayout>
-            </RelativeLayout>
-
-
-        </LinearLayout>
-
-    </android.support.v7.widget.Toolbar>
-
-    <View style="@style/LineStyle"></View>
-
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/RootView"
+    style="@style/PageRootLL">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:orientation="horizontal">
+        android:orientation="vertical">
 
-        <LinearLayout
-            android:layout_width="120dp"
-            android:layout_height="match_parent">
+        <!--头部-->
+        <android.support.v7.widget.Toolbar
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/headheight"
+            android:background="@drawable/status_shape"
+            app:contentInsetStart="0dp">
 
-            <ScrollView
-                android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="#F4F4F4">
+            <LinearLayout style="@style/TopStyle">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent"
-                    android:orientation="vertical">
+                <RelativeLayout style="@style/TopBarStyle">
 
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="55dp"
-                        android:background="@null"
-                        android:text="嗅觉"
-                        android:textColor="@color/C242424"
-                        android:textSize="@dimen/textsize15" />
+                    <LinearLayout
+                        style="@style/TopBarLeftStyle"
+                        android:visibility="visible">
 
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="55dp"
-                        android:background="@null"
-                        android:text="视觉"
-                        android:textColor="@color/C242424"
-                        android:textSize="@dimen/textsize15" />
+                        <ImageView style="@style/TopBarBackImageStyle" />
+                    </LinearLayout>
 
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="55dp"
-                        android:background="@null"
-                        android:text="味觉"
-                        android:textColor="@color/C242424"
-                        android:textSize="@dimen/textsize15" />
+                    <TextView
+                        android:id="@+id/SysNameIV"
+                        style="@style/TopBarTitleStyle"
+                        android:tag="调理反应"
+                        android:text="调理反应"
+                        android:visibility="visible" />
 
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="55dp"
-                        android:background="@null"
-                        android:text="嗅觉"
-                        android:textColor="@color/C242424"
-                        android:textSize="@dimen/textsize15" />
+                    <RelativeLayout
+                        android:id="@+id/SouSuoRL"
+                        style="@style/TopBarRightStyle"
 
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="55dp"
-                        android:background="@null"
-                        android:text="听觉"
-                        android:textColor="@color/C242424"
-                        android:textSize="@dimen/textsize15" />
+                        android:visibility="visible">
 
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="55dp"
-                        android:background="@color/color2"
+                        <ImageView
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_centerVertical="true"
+                            android:layout_marginLeft="20dp"
+                            android:layout_marginRight="20dp"
+                            android:src="@mipmap/xueyuanhuibaochaxuan"
+                            android:visibility="gone" />
 
-                        android:text="触觉"
-                        android:textColor="@color/C242424"
-                        android:textSize="@dimen/textsize15" />
+                        <TextView
+                            style="@style/TopBarRightTextStyle"
+                            android:text="完成"
+                            android:textColor="@color/C242424"
+                            android:visibility="visible" />
+                    </RelativeLayout>
+                </RelativeLayout>
 
-                    <Button
-                        android:layout_width="match_parent"
-                        android:layout_height="55dp"
-                        android:background="@null"
-                        android:text="躯体方面(排毒)"
-                        android:textColor="@color/C242424"
-                        android:textSize="@dimen/textsize15" />
-                </LinearLayout>
-            </ScrollView>
-        </LinearLayout>
+
+            </LinearLayout>
+
+        </android.support.v7.widget.Toolbar>
+
+        <View style="@style/LineStyle"></View>
+
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:gravity="center_horizontal"
-            android:orientation="vertical">
+            android:orientation="horizontal">
 
-            <Button
-                android:layout_width="200dp"
-                android:layout_height="48dp"
-                android:layout_marginTop="20dp"
-                android:background="@drawable/sysbtn_ffe248_4_shape"
-                android:text="有爬虫样的感觉"
-                android:textColor="@color/C242424"
-                android:textSize="@dimen/textsize14" />
+            <LinearLayout
+                android:layout_width="120dp"
+                android:layout_height="match_parent">
+
+                <ScrollView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="#F4F4F4">
+
+                    <LinearLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:orientation="vertical">
+
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="55dp"
+                            android:background="@null"
+                            android:text="嗅觉"
+                            android:textColor="@color/C242424"
+                            android:textSize="@dimen/textsize15" />
+
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="55dp"
+                            android:background="@null"
+                            android:text="视觉"
+                            android:textColor="@color/C242424"
+                            android:textSize="@dimen/textsize15" />
+
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="55dp"
+                            android:background="@null"
+                            android:text="味觉"
+                            android:textColor="@color/C242424"
+                            android:textSize="@dimen/textsize15" />
+
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="55dp"
+                            android:background="@null"
+                            android:text="嗅觉"
+                            android:textColor="@color/C242424"
+                            android:textSize="@dimen/textsize15" />
+
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="55dp"
+                            android:background="@null"
+                            android:text="听觉"
+                            android:textColor="@color/C242424"
+                            android:textSize="@dimen/textsize15" />
+
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="55dp"
+                            android:background="@color/color2"
+
+                            android:text="触觉"
+                            android:textColor="@color/C242424"
+                            android:textSize="@dimen/textsize15" />
+
+                        <Button
+                            android:layout_width="match_parent"
+                            android:layout_height="55dp"
+                            android:background="@null"
+                            android:text="躯体方面(排毒)"
+                            android:textColor="@color/C242424"
+                            android:textSize="@dimen/textsize15" />
+                    </LinearLayout>
+                </ScrollView>
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:gravity="center_horizontal"
+                android:orientation="vertical">
+
+                <Button
+                    android:layout_width="200dp"
+                    android:layout_height="48dp"
+                    android:layout_marginTop="20dp"
+                    android:background="@drawable/sysbtn_ffe248_4_shape"
+                    android:text="有爬虫样的感觉"
+                    android:textColor="@color/C242424"
+                    android:textSize="@dimen/textsize14" />
+            </LinearLayout>
         </LinearLayout>
-    </LinearLayout>
 
-</LinearLayout>
+    </LinearLayout>
+</RelativeLayout>
