@@ -107,11 +107,10 @@ public class A_Activity_ShiPinZhiBo_XiangQing extends MvpActivity<A_ShiPinZhiBo_
         BaoMingBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if (BaoMingBtn.getText().toString().equals("免费报名")) {
-
+                if (a_cvideostream_info.getIsattend() == 0) {
                     mPresenter.cvideostreamAttend(Integer.parseInt(vid), getContext());
-
-                } else {
+                }
+                if (a_cvideostream_info.getIsattend() == 1) {
                     mPresenter.cvideostreamCancle(Integer.parseInt(vid), getContext());
                 }
             }
@@ -131,14 +130,14 @@ public class A_Activity_ShiPinZhiBo_XiangQing extends MvpActivity<A_ShiPinZhiBo_
             @Override
             public void afterTextChanged(Editable s) {
 
-                if (s.length() > 0) {
-                    ImgShareLL.setVisibility(View.GONE);
-                    SendBtn.setVisibility(View.VISIBLE);
-                } else {
-
-                    ImgShareLL.setVisibility(View.VISIBLE);
-                    SendBtn.setVisibility(View.GONE);
-                }
+//                if (s.length() > 0) {
+//                    ImgShareLL.setVisibility(View.GONE);
+//                    SendBtn.setVisibility(View.VISIBLE);
+//                } else {
+//
+//                    ImgShareLL.setVisibility(View.VISIBLE);
+//                    SendBtn.setVisibility(View.GONE);
+//                }
             }
         });
 
@@ -163,6 +162,7 @@ public class A_Activity_ShiPinZhiBo_XiangQing extends MvpActivity<A_ShiPinZhiBo_
                     return;
                 }
                 y_fragment_shiPinZhiBo_xiangQing_huDong.SenMsg(Integer.parseInt(vid), ContentET.getText().toString());
+                viewPager.setCurrentItem(1);
                 ContentET.setText("");
             }
         });
@@ -244,7 +244,7 @@ public class A_Activity_ShiPinZhiBo_XiangQing extends MvpActivity<A_ShiPinZhiBo_
         //播放器
         ShiPinVideo.setUp(model.getVideourl(), model.getSname());
 
-        GlideControl.SetImage(getContext(),model.getFaceurl(),ShiPinVideo.thumbImageView,R.mipmap.jiazaiing);
+        GlideControl.SetImage(getContext(), model.getFaceurl(), ShiPinVideo.thumbImageView, R.mipmap.jiazaiing);
 
         Date startDate = TimeUtils.parseTimeString2Date(model.getStarttime());
         Calendar calendar = Calendar.getInstance();
@@ -257,6 +257,16 @@ public class A_Activity_ShiPinZhiBo_XiangQing extends MvpActivity<A_ShiPinZhiBo_
         int hour = calendar.get(Calendar.HOUR);
         int minute = calendar.get(Calendar.MINUTE);
         StartTimeTV.setText("（" + day + "号" + hour + "点" + minute + "分）");
+        if (model.getIsattend() == 1) {
+            BaoMingBtn.setBackground(getResources().getDrawable(R.drawable.sysbtn_gray_f6f6f6_4_shape));
+            BaoMingBtn.setText("已报名");
+            BaoMingBtn.setTextColor(getResources().getColor(R.color.C808080));
+        }
+        if (model.getIsattend() == 0) {
+            BaoMingBtn.setBackground(getResources().getDrawable(R.drawable.sysbtn_ffe248_4_shape));
+            BaoMingBtn.setText("免费报名");
+            BaoMingBtn.setTextColor(getResources().getColor(R.color.C242424));
+        }
 
 
         Calendar c = Calendar.getInstance();//
@@ -279,6 +289,7 @@ public class A_Activity_ShiPinZhiBo_XiangQing extends MvpActivity<A_ShiPinZhiBo_
         BaoMingBtn.setBackground(getResources().getDrawable(R.drawable.sysbtn_gray_f6f6f6_4_shape));
         BaoMingBtn.setText("已报名");
         BaoMingBtn.setTextColor(getResources().getColor(R.color.C808080));
+        a_cvideostream_info.setIsattend(1);
     }
 
     @Override
@@ -286,6 +297,7 @@ public class A_Activity_ShiPinZhiBo_XiangQing extends MvpActivity<A_ShiPinZhiBo_
         BaoMingBtn.setBackground(getResources().getDrawable(R.drawable.sysbtn_ffe248_4_shape));
         BaoMingBtn.setText("免费报名");
         BaoMingBtn.setTextColor(getResources().getColor(R.color.C242424));
+        a_cvideostream_info.setIsattend(0);
     }
 
     @Override

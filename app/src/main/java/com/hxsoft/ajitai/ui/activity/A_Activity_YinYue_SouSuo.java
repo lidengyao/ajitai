@@ -22,7 +22,6 @@ import android.widget.RelativeLayout;
 import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.adapter.FmPagerAdapter;
 import com.hxsoft.ajitai.base.MvpActivity;
-import com.hxsoft.ajitai.music.MusicService;
 import com.hxsoft.ajitai.present.LoginPresent;
 import com.hxsoft.ajitai.ui.fragment.Y_Fragment_YinYue_AJiTai;
 import com.hxsoft.ajitai.ui.fragment.Y_Fragment_YinYue_HanYu;
@@ -77,15 +76,6 @@ public class A_Activity_YinYue_SouSuo extends MvpActivity {
     private Y_Fragment_YinYue_ShiPin y_fragment_yinYue_shiPin;
 
 
-    public static final String EXTRA_START_FULLSCREEN =
-            "com.hxsoft.ajitai.ui.activity.EXTRA_START_FULLSCREEN";
-    public static final String EXTRA_CURRENT_MEDIA_DESCRIPTION =
-            "com.hxsoft.ajitai.ui.activity.CURRENT_MEDIA_DESCRIPTION";
-
-
-    private MediaBrowserCompat mMediaBrowser;
-    private MediaControllerCompat mediaController;
-
     @Override
     protected int getLayoutId() {
         return R.layout.a_activity_yinyue_sousuo;
@@ -135,25 +125,9 @@ public class A_Activity_YinYue_SouSuo extends MvpActivity {
 
             }
         });
-        mMediaBrowser = new MediaBrowserCompat(this,
-                new ComponentName(this, MusicService.class), mConnectionCallback, null);
-        mMediaBrowser.connect();
         PlayIV.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                MediaControllerCompat controller = MediaControllerCompat.getMediaController(getActivity());
-                PlaybackStateCompat stateObj = controller.getPlaybackState();
-                final int state = stateObj == null ?
-                        PlaybackStateCompat.STATE_NONE : stateObj.getState();
-                if (state == PlaybackStateCompat.STATE_PAUSED ||
-                        state == PlaybackStateCompat.STATE_STOPPED ||
-                        state == PlaybackStateCompat.STATE_NONE) {
-                    playMedia();
-                } else if (state == PlaybackStateCompat.STATE_PLAYING ||
-                        state == PlaybackStateCompat.STATE_BUFFERING ||
-                        state == PlaybackStateCompat.STATE_CONNECTING) {
-                    pauseMedia();
-                }
             }
         });
 
@@ -177,25 +151,6 @@ public class A_Activity_YinYue_SouSuo extends MvpActivity {
         });
     }
 
-    private final MediaBrowserCompat.ConnectionCallback mConnectionCallback =
-            new MediaBrowserCompat.ConnectionCallback() {
-                @Override
-                public void onConnected() {
-                    //说明已经连接上了
-                    try {
-                        connectToSession(mMediaBrowser.getSessionToken());
-                    } catch (RemoteException e) {
-                        e.printStackTrace();
-                    }
-                }
-            };
-
-    private void connectToSession(MediaSessionCompat.Token token) throws RemoteException {
-        mediaController = new MediaControllerCompat(this, token);
-        MediaControllerCompat.setMediaController(this, mediaController);
-//        onMediaBrowserConnected();
-//        onMediaControllerConnected(mediaController.getSessionToken());
-    }
 
     private void init() {
 

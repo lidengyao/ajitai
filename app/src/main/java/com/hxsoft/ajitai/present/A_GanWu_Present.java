@@ -26,6 +26,42 @@ import rx.Observable;
  * Created by jinxh on 16/2/1.
  */
 public class A_GanWu_Present extends BasePresent<A_GanWu_View> {
+    //获取当前用户基本信息
+    public void userInfo(Context context) {
+        String tip = "A_WoDe_Present-userInfo-获取当前用户基本信息\r\n";
+        FileUtils.writeLogToFile(tip);
+        Observable<ResponseBean<A_User_Info>> observable = RetrofitClient.builderRetrofit(context).create(APIService_AJiTai.class).userInfo();
+        addIOSubscription(observable, new ApiSubscriber(new ApiCallBack<A_User_Info>() {
+            @Override
+            public void onStart() {
+                super.onStart();
+                if (getView() != null) {
+                    getView().showLoading();
+                }
+            }
+
+            @Override
+            public void onSuccess(A_User_Info model) {
+                if (getView() != null) {
+                    getView().userInfoSuccess(model);
+                }
+            }
+
+            @Override
+            public void onFailure(int code, String msg) {
+                if (getView() != null) {
+                    FailOpeater.SetFail(code, tip, msg, context);
+                }
+            }
+
+            @Override
+            public void onCompleted() {
+                if (getView() != null) {
+                    getView().dismissLoading();
+                }
+            }
+        }, context));
+    }
 
     //感悟列表
     public void queryConscious(Integer page, Integer size, Context context) {
@@ -180,7 +216,8 @@ public class A_GanWu_Present extends BasePresent<A_GanWu_View> {
     public void commentreplyConscious(CommentreplyConscious_Bean commentreplyConscious_bean, Context context) {
         String tip = "A_GanWu_Present-commentreplyConsciousSuccess-回复评论\r\n";
         FileUtils.writeLogToFile(tip);
-        Observable<ResponseBean<ArrayList<A_Conscious_Info.CommentsBean>>> observable = RetrofitClient.builderRetrofit(context).create(APIService_AJiTai.class).commentreplyConscious(commentreplyConscious_bean);
+        Observable<ResponseBean<ArrayList<A_Conscious_Info.CommentsBean>>> observable =
+                RetrofitClient.builderRetrofit(context).create(APIService_AJiTai.class).commentreplyConscious(commentreplyConscious_bean);
         addIOSubscription(observable, new ApiSubscriber(new ApiCallBack<ArrayList<A_Conscious_Info.CommentsBean>>() {
             @Override
             public void onStart() {

@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/RootView"
-    style="@style/PageRootLL">
+    style="@style/PageRootLL"
+    android:tag="文章详情">
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -37,14 +38,14 @@
                     <RelativeLayout
                         android:id="@+id/QieHuanZhangHaoRL"
                         style="@style/TopBarRightStyle"
-                        android:visibility="invisible">
+                        android:visibility="visible">
 
                         <ImageView
                             android:layout_width="wrap_content"
                             android:layout_height="wrap_content"
                             android:layout_centerInParent="true"
                             android:layout_marginRight="20dp"
-                            android:src="@mipmap/qiehuanzhanghao" />
+                            android:src="@mipmap/a_fenxiang" />
 
                         <TextView
                             style="@style/TopBarRightTextStyle"
@@ -57,6 +58,8 @@
             </LinearLayout>
 
         </android.support.v7.widget.Toolbar>
+
+        <View style="@style/LineStyle"></View>
 
         <RelativeLayout
             android:layout_width="match_parent"

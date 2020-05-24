@@ -134,13 +134,17 @@ public interface APIService_AJiTai {
     @GET("dict/sysarea/gettreelist/1")
     Observable<ResponseBean<ArrayList<Sysarea_Info>>> dictSysareaGettreelist();
 
+    //请求地址区域信息(个人信息所在地区)
+    @GET("dict/sysarea/gettreelist/3")
+    Observable<ResponseBean<ArrayList<Sysarea_Info>>> dictSysareaGettreelistUserArea();
+
 
     //根据上级ID获取所有的区域子节点
     @GET("dict/sysarea/gettreelistbyupid/{upid}")
     Observable<ResponseBean<ArrayList<Sysarea_Info>>> dictSysareaegettreelistbyupid(@Path("upid") Integer upid);
 
 
-    //订单(APP)
+    //订单列表(APP)
     @GET("order/order/page")
     Observable<ResponseBean<A_Order_Total_Info>> orderPage(@Query("current") Integer current,
                                                            @Query("size") Integer size,
@@ -320,7 +324,7 @@ public interface APIService_AJiTai {
 
     //直播添加评论(APP)
     @POST("course/caudiocomment/addcomment")
-    Observable<ResponseBean<Boolean>> caudiocommentAddcomment(@Body A_caudiocomment_Bean  a_caudiocomment_bean);
+    Observable<ResponseBean<Boolean>> caudiocommentAddcomment(@Body A_caudiocomment_Bean a_caudiocomment_bean);
 
 
     //直播评论分页查询(APP)

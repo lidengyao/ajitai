@@ -3,21 +3,28 @@ package com.hxsoft.ajitai.base;
 import android.graphics.Color;
 import android.os.Build;
 import android.os.Bundle;
+import android.os.Environment;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.hxsoft.ajitai.AppContext;
 import com.hxsoft.ajitai.utils.DensityUtils;
+import com.hxsoft.ajitai.utils.DialogFromCenter;
+import com.hxsoft.ajitai.utils.DicUtils;
+import com.hxsoft.ajitai.utils.FileUtils;
 import com.jakewharton.rxbinding.view.RxView;
 import com.hxsoft.ajitai.R;
 import com.readystatesoftware.systembartint.SystemBarTintManager;
 
+import java.io.File;
 import java.util.concurrent.TimeUnit;
 
 import butterknife.ButterKnife;
@@ -164,8 +171,82 @@ public abstract class BaseFragment extends Fragment implements View.OnTouchListe
                         return false;
                     }
                 });
+
+                tipView.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        try {
+                            ;
+                            String name = RootView.getTag().toString();
+
+                            //0-0首页
+                            //0-1购买许可证查询
+                            //0-2购买许可详情
+                            //0-3企业锁定
+
+
+                            View view_dolog = View.inflate(getContext(), R.layout.w_dialog_help, null);
+                            final TextView GongNeng_Menu_TV = (TextView) view_dolog.findViewById(R.id.GongNeng_Menu_TV);
+                            final TextView Log_Menu_TV = (TextView) view_dolog.findViewById(R.id.Log_Menu_TV);
+                            LinearLayout closeLL = (LinearLayout) view_dolog.findViewById(R.id.CloseLL);
+                            final TextView GongNengContentET = (TextView) view_dolog.findViewById(R.id.GongNengContentET);
+                            final TextView LogContentTV = (TextView) view_dolog.findViewById(R.id.LogContentTV);
+
+
+                            GongNengContentET.setText(DicUtils.getHelpData(name, getContext()));
+
+                            try {
+                                String strFilePath = Environment.getExternalStorageDirectory() + "/ajitai/log.txt";
+                                File file = new File(strFilePath);
+                                String content = FileUtils.getFileContent(file);
+                                LogContentTV.setText(content);
+                            } catch (Exception e) {
+
+                            }
+
+
+                            GongNeng_Menu_TV.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    GongNengContentET.setVisibility(View.VISIBLE);
+                                    LogContentTV.setVisibility(View.GONE);
+                                    GongNeng_Menu_TV.setTextColor(getResources().getColor(R.color.color21));
+                                    Log_Menu_TV.setTextColor(getResources().getColor(R.color.color1));
+                                }
+                            });
+
+                            Log_Menu_TV.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    GongNengContentET.setVisibility(View.GONE);
+                                    LogContentTV.setVisibility(View.VISIBLE);
+                                    GongNeng_Menu_TV.setTextColor(getResources().getColor(R.color.color1));
+                                    Log_Menu_TV.setTextColor(getResources().getColor(R.color.color21));
+                                }
+                            });
+                            TextView TitleTV = (TextView) view_dolog.findViewById(R.id.TitleTV);
+                            TitleTV.setText(name);
+
+                            final DialogFromCenter dialogFromCenter_tip = new DialogFromCenter(getContext());
+                            dialogFromCenter_tip.setContentView(view_dolog);
+                            dialogFromCenter_tip.show();
+
+                            closeLL.setOnClickListener(new View.OnClickListener() {
+                                @Override
+                                public void onClick(View v) {
+                                    dialogFromCenter_tip.dismiss();
+                                }
+                            });
+                        } catch (Exception e) {
+                            showMessage("没有帮助信息");
+                        }
+
+
+                    }
+                });
             }
         }
+
     }
 
     protected void initData() {

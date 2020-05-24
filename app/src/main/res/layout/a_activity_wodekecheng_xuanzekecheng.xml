@@ -3,7 +3,8 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/RootView"
-    style="@style/PageRootLL">
+    style="@style/PageRootLL"
+    android:tag="选择课程">
 
     <LinearLayout
         android:layout_width="match_parent"

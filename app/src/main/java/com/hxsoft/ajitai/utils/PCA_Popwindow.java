@@ -8,9 +8,12 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.gson.Gson;
+import com.google.gson.reflect.TypeToken;
 import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.model.bean.AreaBean;
+import com.hxsoft.ajitai.model.info.A_Area;
 import com.hxsoft.ajitai.model.info.A_Bean;
+import com.hxsoft.ajitai.model.info.BaseCodeInfo;
 import com.hxsoft.ajitai.model.info.C_Bean;
 import com.hxsoft.ajitai.model.info.P_Bean;
 import com.hxsoft.ajitai.timepaker.wheelview.OnWheelChangedListener;
@@ -21,9 +24,10 @@ import com.hxsoft.ajitai.timepaker.wheelview.adapter.WheelViewAdapter;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
-public class PCA_Popwindow   implements View.OnClickListener {
+public class PCA_Popwindow implements View.OnClickListener {
 
     private WheelView wvProvince;
     private WheelView wvCitys;
@@ -64,23 +68,30 @@ public class PCA_Popwindow   implements View.OnClickListener {
     private OnAddressCListener _onAddressCListener;
     private int maxsize = 14;
     private int minsize = 12;
-    private ArrayList<P_Bean> TotalDataList = new ArrayList<>();
+    private ArrayList<A_Area> TotalDataList = new ArrayList<>();
 
-    private P_Bean current_P_Bean = new P_Bean();
-    private C_Bean current_C_Bean = new C_Bean();
-    private A_Bean current_A_Bean = new A_Bean();
+    private A_Area current_P_Bean = new A_Area();
+    private A_Area current_C_Bean = new A_Area();
+    private A_Area current_A_Bean = new A_Area();
     private DialogFromBottom dialogFromBottom;
 
-    public void ShowDialog(final Context context,OnAddressCListener onAddressCListener) {
+    public void ShowDialog(final Context context, OnAddressCListener onAddressCListener) {
 
-        _onAddressCListener=onAddressCListener;
-        Gson gsonZU = new Gson();
-        String y_pca_gson = SpUtils.getSettingNote(context, DbKeyS.test);
-//        Y_PCA y_pca = gsonZU.fromJson(y_pca_gson, Y_PCA.class);
-//
-//
-//        this.context = context;
-//        TotalDataList = y_pca.getCity_list();
+        _onAddressCListener = onAddressCListener;
+
+        Gson gson = new Gson();
+        String gsonData = SpUtils.getSettingNote(context, DbKeyS.area);
+
+        if (!MStringUtils.IsNullOrEmpty(gsonData)) {
+            ArrayList<A_Area> tempGList = gson.fromJson(gsonData, new TypeToken<List<A_Area>>() {
+            }.getType());
+            TotalDataList.addAll(tempGList);
+        } else {
+            Toast.makeText(context, "没有获取到省市区数据", Toast.LENGTH_SHORT).show();
+            return;
+        }
+
+        this.context = context;
 
 
         dialogFromBottom = new DialogFromBottom(context);
@@ -102,16 +113,16 @@ public class PCA_Popwindow   implements View.OnClickListener {
 
 //        initDatas_new();
 
-        P_Bean p_bean = TotalDataList.get(0);
+        A_Area p_bean = TotalDataList.get(0);
         current_P_Bean = p_bean;
-        strProvince = p_bean.getN();
-        if (p_bean.getC().size() > 0) {
-            C_Bean c_bean = p_bean.getC().get(0);
-            strCity = c_bean.getN();
+        strProvince = p_bean.getAreaname();
+        if (p_bean.getChildren().size() > 0) {
+            A_Area c_bean = p_bean.getChildren().get(0);
+            strCity = c_bean.getAreaname();
 
-            if (c_bean.getC().size() > 0) {
-                A_Bean a_bean = c_bean.getC().get(0);
-                strArea = a_bean.getN();
+            if (c_bean.getChildren().size() > 0) {
+                A_Area a_bean = c_bean.getChildren().get(0);
+                strArea = a_bean.getAreaname();
             }
 
         }
@@ -130,11 +141,11 @@ public class PCA_Popwindow   implements View.OnClickListener {
         wvCitys.setViewAdapter((WheelViewAdapter) cityAdapter);
         wvCitys.setCurrentItem(getCityItem(strCity));
 
-        if (current_P_Bean.getC() != null) {
-            current_C_Bean = current_P_Bean.getC().get(0);
+        if (current_P_Bean.getChildren() != null) {
+            current_C_Bean = current_P_Bean.getChildren().get(0);
         }
-        if (current_C_Bean.getC() != null) {
-            current_A_Bean = current_C_Bean.getC().get(0);
+        if (current_C_Bean.getChildren() != null) {
+            current_A_Bean = current_C_Bean.getChildren().get(0);
         }
 
         initAreas(current_C_Bean);
@@ -149,15 +160,15 @@ public class PCA_Popwindow   implements View.OnClickListener {
             @Override
             public void onChanged(WheelView wheel, int oldValue, int newValue) {
                 current_P_Bean = TotalDataList.get(newValue);
-                strProvince = current_P_Bean.getN();
+                strProvince = current_P_Bean.getAreaname();
                 setTextviewSize(strProvince, provinceAdapter);
 
-                if (current_P_Bean.getC() != null) {
+                if (current_P_Bean.getChildren() != null) {
                     initCitys(current_P_Bean);
-                    if (current_P_Bean.getC().size() > 0) {
-                        current_C_Bean = current_P_Bean.getC().get(0);
+                    if (current_P_Bean.getChildren().size() > 0) {
+                        current_C_Bean = current_P_Bean.getChildren().get(0);
                     } else {
-                        current_C_Bean = new C_Bean();
+                        current_C_Bean = new A_Area();
                     }
                     cityAdapter = new AddressTextAdapter(context, arrCitys, 0, maxsize, minsize);
                     wvCitys.setVisibleItems(5);
@@ -166,12 +177,12 @@ public class PCA_Popwindow   implements View.OnClickListener {
                     setTextviewSize("0", cityAdapter);
 
                     //根据市，地区联动
-                    if (current_C_Bean.getC() != null) {
+                    if (current_C_Bean.getChildren() != null) {
                         initAreas(current_C_Bean);
-                        if (current_C_Bean.getC().size() > 0) {
-                            current_A_Bean = current_C_Bean.getC().get(0);
+                        if (current_C_Bean.getChildren().size() > 0) {
+                            current_A_Bean = current_C_Bean.getChildren().get(0);
                         } else {
-                            current_A_Bean = new A_Bean();
+                            current_A_Bean = new A_Area();
                         }
                         areaAdapter = new AddressTextAdapter(context, arrAreas, 0, maxsize, minsize);
                         wvArea.setVisibleItems(5);
@@ -206,16 +217,16 @@ public class PCA_Popwindow   implements View.OnClickListener {
             @Override
             public void onChanged(WheelView wheel, int oldValue, int newValue) {
 
-                current_C_Bean = current_P_Bean.getC().get(newValue);
-                strCity = current_C_Bean.getN();
+                current_C_Bean = current_P_Bean.getChildren().get(newValue);
+                strCity = current_C_Bean.getAreaname();
                 setTextviewSize(strCity, cityAdapter);
                 //根据市，地区联动
-                if (current_C_Bean.getC() != null) {
+                if (current_C_Bean.getChildren() != null) {
                     initAreas(current_C_Bean);
-                    if (current_C_Bean.getC().size() > 0) {
-                        current_A_Bean = current_C_Bean.getC().get(0);
+                    if (current_C_Bean.getChildren().size() > 0) {
+                        current_A_Bean = current_C_Bean.getChildren().get(0);
                     } else {
-                        current_A_Bean = new A_Bean();
+                        current_A_Bean = new A_Area();
                     }
                     areaAdapter = new AddressTextAdapter(context, arrAreas, 0, maxsize, minsize);
                     wvArea.setVisibleItems(5);
@@ -227,7 +238,6 @@ public class PCA_Popwindow   implements View.OnClickListener {
 
             }
         });
-
 
 
         wvCitys.addScrollingListener(new OnWheelScrollListener() {
@@ -255,9 +265,9 @@ public class PCA_Popwindow   implements View.OnClickListener {
             @Override
             public void onChanged(WheelView wheel, int oldValue, int newValue) {
 
-                if (current_C_Bean.getC() != null && current_C_Bean.getC().size() != 0) {
-                    current_A_Bean = current_C_Bean.getC().get(newValue);
-                    strArea = current_A_Bean.getN();
+                if (current_C_Bean.getChildren() != null && current_C_Bean.getChildren().size() != 0) {
+                    current_A_Bean = current_C_Bean.getChildren().get(newValue);
+                    strArea = current_A_Bean.getAreaname();
                     setTextviewSize(strArea, cityAdapter);
                 }
             }
@@ -300,7 +310,7 @@ public class PCA_Popwindow   implements View.OnClickListener {
             view.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(context,"dddd",Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, "dddd", Toast.LENGTH_LONG).show();
                 }
             });
 //            CheckBox checkBox=(CheckBox)view.findViewById(R.id.DataCheckBox);
@@ -346,7 +356,7 @@ public class PCA_Popwindow   implements View.OnClickListener {
         }
     }
 
-    public void setTextviewClick( AddressTextAdapter adapter) {
+    public void setTextviewClick(AddressTextAdapter adapter) {
         ArrayList<View> arrayList = adapter.getTestViews();
         int size = arrayList.size();
         for (int i = 0; i < size; i++) {
@@ -354,7 +364,7 @@ public class PCA_Popwindow   implements View.OnClickListener {
             textvew.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Toast.makeText(context, textvew.getText().toString(),Toast.LENGTH_LONG).show();
+                    Toast.makeText(context, textvew.getText().toString(), Toast.LENGTH_LONG).show();
                 }
             });
 
@@ -382,7 +392,7 @@ public class PCA_Popwindow   implements View.OnClickListener {
      * @author Administrator
      */
     public interface OnAddressCListener {
-        void onClick(P_Bean province, C_Bean city, A_Bean area);
+        void onClick(A_Area province, A_Area city, A_Area area);
     }
 
 
@@ -392,8 +402,8 @@ public class PCA_Popwindow   implements View.OnClickListener {
     public void initProvinces() {
         int length = TotalDataList.size();
         for (int i = 0; i < length; i++) {
-            P_Bean p_bean = TotalDataList.get(i);
-            arrProvinces.add(p_bean.getN());
+            A_Area p_bean = TotalDataList.get(i);
+            arrProvinces.add(p_bean.getAreaname());
         }
     }
 
@@ -402,13 +412,13 @@ public class PCA_Popwindow   implements View.OnClickListener {
      *
      * @param
      */
-    public void initCitys(P_Bean p_bean) {
-        if (p_bean != null && p_bean.getC().size() > 0) {
+    public void initCitys(A_Area p_bean) {
+        if (p_bean != null && p_bean.getChildren().size() > 0) {
             arrCitys.clear();
-            int length = p_bean.getC().size();
+            int length = p_bean.getChildren().size();
             for (int i = 0; i < length; i++) {
-                C_Bean c_bean = p_bean.getC().get(i);
-                arrCitys.add(c_bean.getN());
+                A_Area c_bean = p_bean.getChildren().get(i);
+                arrCitys.add(c_bean.getAreaname());
             }
         } else {
 
@@ -421,13 +431,13 @@ public class PCA_Popwindow   implements View.OnClickListener {
         }
     }
 
-    public void initAreas(C_Bean c_bean) {
-        if (c_bean != null && c_bean.getC().size() > 0) {
+    public void initAreas(A_Area c_bean) {
+        if (c_bean != null && c_bean.getChildren().size() > 0) {
             arrAreas.clear();
-            int length = c_bean.getC().size();
+            int length = c_bean.getChildren().size();
             for (int i = 0; i < length; i++) {
-                A_Bean a_bean = c_bean.getC().get(i);
-                arrAreas.add(a_bean.getN());
+                A_Area a_bean = c_bean.getChildren().get(i);
+                arrAreas.add(a_bean.getAreaname());
             }
         } else {
             arrAreas.clear();

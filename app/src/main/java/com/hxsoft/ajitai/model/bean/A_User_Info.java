@@ -73,23 +73,32 @@ public class A_User_Info implements Serializable {
     }
 
     public static class SysUserBean implements Serializable{
+
+
         /**
          * uid : 1
          * usertype : 1
-         * nickname : 测试
+         * nickname : 小小黑
+         * province : 1
+         * city : 2
+         * area : 18
          * address : 30
-         * avatar : asdfasdfsadfasdf
-         * phone : 18810269616
+         * avatar : http://image.hxsoft.net/image/1590229222703194.JPEG
+         * phone : 15251435195
          * udesc : 个人介绍
          * identify : 320288191204012342
          * sex : 2
          * createTime : 2019-01-31 14:29:07
-         * updateTime : 2020-04-22 07:31:34
+         * updateTime : 2020-05-20 23:11:28
+         * addressinfo : 河南省洛阳市新安县正村镇
          */
 
         private Integer uid;
         private Integer usertype;
         private String nickname;
+        private Integer province;
+        private Integer city;
+        private Integer area;
         private Integer address;
         private String avatar;
         private String phone;
@@ -98,6 +107,7 @@ public class A_User_Info implements Serializable {
         private Integer sex;
         private String createTime;
         private String updateTime;
+        private String addressinfo;
 
         public Integer getUid() {
             return uid;
@@ -121,6 +131,30 @@ public class A_User_Info implements Serializable {
 
         public void setNickname(String nickname) {
             this.nickname = nickname;
+        }
+
+        public Integer getProvince() {
+            return province;
+        }
+
+        public void setProvince(Integer province) {
+            this.province = province;
+        }
+
+        public Integer getCity() {
+            return city;
+        }
+
+        public void setCity(Integer city) {
+            this.city = city;
+        }
+
+        public Integer getArea() {
+            return area;
+        }
+
+        public void setArea(Integer area) {
+            this.area = area;
         }
 
         public Integer getAddress() {
@@ -185,6 +219,14 @@ public class A_User_Info implements Serializable {
 
         public void setUpdateTime(String updateTime) {
             this.updateTime = updateTime;
+        }
+
+        public String getAddressinfo() {
+            return addressinfo;
+        }
+
+        public void setAddressinfo(String addressinfo) {
+            this.addressinfo = addressinfo;
         }
     }
 

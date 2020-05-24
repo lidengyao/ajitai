@@ -9,12 +9,14 @@ import com.hxsoft.ajitai.model.api.ApiSubscriber;
 import com.hxsoft.ajitai.model.api.ResponseBean;
 import com.hxsoft.ajitai.model.api.RetrofitClient;
 import com.hxsoft.ajitai.model.bean.A_UserUpdatecurrent_Bean;
+import com.hxsoft.ajitai.model.info.Sysarea_Info;
 import com.hxsoft.ajitai.ui.view.A_GeRenXinXi_View;
 import com.hxsoft.ajitai.utils.FailOpeater;
 import com.hxsoft.ajitai.utils.FileUtils;
 import com.hxsoft.ajitai.utils.LogCode;
 
 import java.io.File;
+import java.util.ArrayList;
 
 import okhttp3.MediaType;
 import okhttp3.MultipartBody;
@@ -61,7 +63,7 @@ public class A_GeRenXinXi_Present extends BasePresent<A_GeRenXinXi_View> {
                     getView().dismissLoading();
                 }
             }
-        },context));
+        }, context));
     }
 
     //附件上传
@@ -91,6 +93,45 @@ public class A_GeRenXinXi_Present extends BasePresent<A_GeRenXinXi_View> {
             public void onFailure(int code, String msg) {
                 if (getView() != null) {
                     getView().onFailure(code, LogCode.GetCode("Y_WeiChuLi_AddPresent-addDataUpload") + msg);
+                }
+            }
+
+            @Override
+            public void onCompleted() {
+                if (getView() != null) {
+                    getView().dismissLoading();
+                }
+            }
+        }, context));
+    }
+
+
+    //请求地址区域信息(个人信息所在地区)
+    public void dictSysareaGettreelistUserArea(Context context) {
+        String tip = "A_GeRenXinXi_Present-dictSysareaGettreelistUserArea-请求地址区域信息(个人信息所在地区)\r\n";
+        FileUtils.writeLogToFile(tip);
+
+        Observable<ResponseBean<ArrayList<Sysarea_Info>>> observable = RetrofitClient.builderRetrofit(context).create(APIService_AJiTai.class).dictSysareaGettreelistUserArea();
+        addIOSubscription(observable, new ApiSubscriber(new ApiCallBack<ArrayList<Sysarea_Info>>() {
+            @Override
+            public void onStart() {
+                super.onStart();
+                if (getView() != null) {
+                    getView().showLoading();
+                }
+            }
+
+            @Override
+            public void onSuccess(ArrayList<Sysarea_Info> model) {
+                if (getView() != null) {
+                    getView().dictSysareaGettreelistUserAreaSuccess(model);
+                }
+            }
+
+            @Override
+            public void onFailure(int code, String msg) {
+                if (getView() != null) {
+                    getView().onFailure(0, msg);
                 }
             }
 

@@ -188,7 +188,12 @@ public class A_GanWu_Fragment extends MvpFragment<A_GanWu_Present> implements A_
 //                startActivity(intent);
 //            }
 //        });
-
+        WenZhangYueDuLL.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                showMessage("暂不支持");
+            }
+        });
         FaBuGanWuRL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -410,7 +415,8 @@ public class A_GanWu_Fragment extends MvpFragment<A_GanWu_Present> implements A_
     @Override
     public void onResume() {
         super.onResume();
-        getData();
+
+        presenter.userInfo(getContext());
     }
 
     private void getData() {
@@ -497,6 +503,18 @@ public class A_GanWu_Fragment extends MvpFragment<A_GanWu_Present> implements A_
             currentA_Conscious_Info.setComments(model);
             adapter.notifyDataSetChanged();
         }
+    }
+
+    @Override
+    public void userInfoSuccess(A_User_Info model) {
+        if (model == null)
+            return;
+        Gson gson = new Gson();
+        String gsonStr = gson.toJson(model);
+        SpUtils.saveSettingNote(getContext(), DbKeyS.A_User_Info, gsonStr);
+        SpUtils.saveSettingNote(getContext(), DbKeyS.uid, model.getSysUser().getUid() + "");
+
+        getData();
     }
 
     @Override

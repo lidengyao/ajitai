@@ -164,6 +164,8 @@ public class A_Activity_SheZhi extends MvpActivity<A_SheZhi_Present> implements 
                 UpdateManager updateManager = new UpdateManager(getContext());
                 updateManager.forceCheckUpdate(model.getAppurl());
 
+            } else {
+                showMessage("当前已是最新版本");
             }
         }
     }

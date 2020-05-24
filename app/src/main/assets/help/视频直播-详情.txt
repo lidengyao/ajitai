@@ -1,0 +1,27 @@
+描述：
+1.直播详情
+-----------------------------------------
+接口：
+1.
+    //直播详情(APP)
+    @GET("course/cvideostream/view/{vid}")
+2.
+    //参加直播(APP)
+    @GET("course/cvideostream/attend/{vid}")
+3.
+    //取消参加详情(APP)
+    @GET("course/cvideostream/cancle/{vid}")
+4.
+    //进入直播间(APP)
+    @GET("course/cvideostream/enter/{vid}")
+5.
+    //离开直播间(APP)
+    @GET("course/cvideostream/leave/{vid}")
+6.
+    //直播添加评论(APP)
+    @POST("course/cvideocomment/addcomment")
+7.
+    //直播评论分页查询(APP)
+    @GET("course/cvideocomment/page/{vid}")
+-----------------------------------------
+修改：

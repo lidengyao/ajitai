@@ -33,6 +33,16 @@ public class A_Cvideostream_Info implements Serializable {
     private Integer pushstatus;
     private String videourl;
     private Integer joinnumber;
+    private Integer isattend;
+
+
+    public Integer getIsattend() {
+        return isattend;
+    }
+
+    public void setIsattend(Integer isattend) {
+        this.isattend = isattend;
+    }
 
     public Integer getVid() {
         return vid;

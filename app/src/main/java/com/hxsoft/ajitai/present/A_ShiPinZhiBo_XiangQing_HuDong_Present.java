@@ -35,7 +35,7 @@ public class A_ShiPinZhiBo_XiangQing_HuDong_Present extends BasePresent<A_ShiPin
             public void onStart() {
                 super.onStart();
                 if (getView() != null) {
-                    getView().showLoading();
+//                    getView().showLoading();
                 }
             }
 
@@ -56,7 +56,7 @@ public class A_ShiPinZhiBo_XiangQing_HuDong_Present extends BasePresent<A_ShiPin
             @Override
             public void onCompleted() {
                 if (getView() != null) {
-                    getView().dismissLoading();
+//                    getView().dismissLoading();
                 }
             }
         }, context));
@@ -73,7 +73,7 @@ public class A_ShiPinZhiBo_XiangQing_HuDong_Present extends BasePresent<A_ShiPin
             public void onStart() {
                 super.onStart();
                 if (getView() != null) {
-                    getView().showLoading();
+//                    getView().showLoading();
                 }
             }
 
@@ -94,7 +94,7 @@ public class A_ShiPinZhiBo_XiangQing_HuDong_Present extends BasePresent<A_ShiPin
             @Override
             public void onCompleted() {
                 if (getView() != null) {
-                    getView().dismissLoading();
+//                    getView().dismissLoading();
                 }
             }
         }, context));

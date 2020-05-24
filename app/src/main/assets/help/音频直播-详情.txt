@@ -1,0 +1,27 @@
+描述：
+1.音频直播详情
+-----------------------------------------
+接口：
+1.
+    //音频直播详情(APP)
+    @GET("course/cmediaclasses/{cid}")
+2.
+    //参加音频直播(APP)
+    @GET("course/cmediaclasses/attend/{cid}")
+3.
+    //取消参加详情(APP)
+    @GET("course/cmediaclasses/cancle/{cid}")
+4.
+    //进入直播间(APP)
+    @GET("course/cmediaclasses/enter/{cid}")
+5.
+    //离开直播间(APP)
+    @GET("course/cmediaclasses/leave/{cid}")
+6.
+    //直播添加评论(APP)
+    @POST("course/caudiocomment/addcomment")
+7.
+    //直播评论分页查询(APP)
+    @GET("course/caudiocomment/page/{vid}")
+-----------------------------------------
+修改：

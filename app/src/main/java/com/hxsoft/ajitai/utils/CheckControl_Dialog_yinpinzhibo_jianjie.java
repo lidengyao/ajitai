@@ -7,6 +7,7 @@ import android.graphics.drawable.ColorDrawable;
 import android.view.Gravity;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.PopupWindow;
 
 import com.hxsoft.ajitai.R;
@@ -38,6 +39,14 @@ public class CheckControl_Dialog_yinpinzhibo_jianjie {
         });
         pop.setAnimationStyle(R.style.center_dialog_anim);
         pop.showAtLocation(activity.getWindow().getDecorView(), Gravity.CENTER, 0, 0);
+
+        Button OK_Btn = (Button) bottomView.findViewById(R.id.OK_Btn);
+        OK_Btn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                pop.dismiss();
+            }
+        });
     }
 
 

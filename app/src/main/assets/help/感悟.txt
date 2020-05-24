@@ -1,0 +1,22 @@
+描述：
+1.感悟。
+-----------------------------------------
+接口：
+1.
+    //感悟列表
+    @GET("conscious/cconscious")
+2.
+    //感悟点攒
+    @POST("conscious/cconscious/thumb/{cid}")
+3.
+    //取消点攒
+    @DELETE("conscious/cconscious/thumb/{cid}")
+4.
+    //评论
+    @POST("conscious/cconscious/comment")
+5.
+    //回复评论
+    @POST("conscious/cconscious/commentreply")
+6.
+-----------------------------------------
+修改：

@@ -6,7 +6,7 @@
         <!--<item name="android:windowActionBarOverlay">true</item>-->
         <item name="colorPrimary">@color/color2</item>
         <item name="colorPrimaryDark">@color/color2</item>
-        <item name="colorAccent">@color/color1</item>
+        <item name="colorAccent">@color/CFFE248</item>
     </style>
 
     <style name="leftRight" parent="AppTheme">

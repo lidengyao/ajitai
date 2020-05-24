@@ -3,6 +3,7 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/RootView"
+    android:tag="视频直播"
     style="@style/PageRootLL">
 
     <LinearLayout

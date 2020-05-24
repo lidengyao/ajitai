@@ -365,6 +365,7 @@ public class A_Activity_GanWu_FaBuGanWu extends MvpActivity<A_FaBuGanWu_Present>
                         //拍照
                         PictureSelector.create(getActivity())
                                 .openCamera(PictureMimeType.ofImage()).compress(true)
+                                .selectionMedia(selectList_Add)// 是否传入已选图片
                                 .forResult(PictureConfig.CHOOSE_REQUEST);
                         break;
                     case R.id.tv_vedio:

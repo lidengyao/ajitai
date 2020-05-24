@@ -10,6 +10,7 @@ import android.os.Environment;
 import android.support.annotation.ColorInt;
 import android.support.annotation.ColorRes;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.MotionEvent;
 import android.view.View;
@@ -70,6 +71,7 @@ public abstract class BaseActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(getLayoutId());
         ButterKnife.bind(this);
+        deleteLogFile();
         getWindow().setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_ADJUST_PAN);
         this.activity = getActivity();
         this.context = getContext();
@@ -93,6 +95,23 @@ public abstract class BaseActivity extends AppCompatActivity {
         initData();
         initEvent();
         initView();
+    }
+    private void deleteLogFile() {
+        String filePath = "ajitai";
+        String fileName = "log.txt";
+        filePath = Environment.getExternalStorageDirectory() + "/" + filePath + "/";
+
+        String strFilePath = filePath + fileName;
+        // 每次写入时，都换行写
+        try {
+            File file = new File(strFilePath);
+            if (file.exists()) {
+                file.delete();
+            }
+
+        } catch (Exception e) {
+            Log.e("TestFile", "Error on write File:" + e);
+        }
     }
 
     public void SetSysUiColor(Integer colorType) {
@@ -210,7 +229,7 @@ public abstract class BaseActivity extends AppCompatActivity {
                             GongNengContentET.setText(DicUtils.getHelpData(name, context));
 
                             try {
-                                String strFilePath = Environment.getExternalStorageDirectory() + "/wgga/log.txt";
+                                String strFilePath = Environment.getExternalStorageDirectory() + "/ajitai/log.txt";
                                 File file = new File(strFilePath);
                                 String content = FileUtils.getFileContent(file);
                                 LogContentTV.setText(content);

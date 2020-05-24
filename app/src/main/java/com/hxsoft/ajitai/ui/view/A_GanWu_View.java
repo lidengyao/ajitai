@@ -11,6 +11,7 @@ import java.util.ArrayList;
  * Created by jinxh on 16/6/15.
  */
 public interface A_GanWu_View extends BaseMvpView {
+    void userInfoSuccess(A_User_Info model);
 
     void queryConsciousSuccess(A_Conscious_Total_Info model);
 

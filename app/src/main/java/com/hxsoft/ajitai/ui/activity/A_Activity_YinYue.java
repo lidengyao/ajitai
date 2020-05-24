@@ -23,7 +23,6 @@ import android.widget.TextView;
 import com.hxsoft.ajitai.R;
 import com.hxsoft.ajitai.adapter.FmPagerAdapter;
 import com.hxsoft.ajitai.base.MvpActivity;
-import com.hxsoft.ajitai.music.MusicService;
 import com.hxsoft.ajitai.present.LoginPresent;
 import com.hxsoft.ajitai.ui.fragment.Y_Fragment_YinYue_AJiTai;
 import com.hxsoft.ajitai.ui.fragment.Y_Fragment_YinYue_HanYu;
@@ -78,15 +77,6 @@ public class A_Activity_YinYue extends MvpActivity {
     private Y_Fragment_YinYue_HanYu y_fragment_yinYue_hanYu;
     private Y_Fragment_YinYue_ShiPin y_fragment_yinYue_shiPin;
 
-
-    public static final String EXTRA_START_FULLSCREEN =
-            "com.hxsoft.ajitai.ui.activity.EXTRA_START_FULLSCREEN";
-    public static final String EXTRA_CURRENT_MEDIA_DESCRIPTION =
-            "com.hxsoft.ajitai.ui.activity.CURRENT_MEDIA_DESCRIPTION";
-
-
-    private MediaBrowserCompat mMediaBrowser;
-    private MediaControllerCompat mediaController;
 
     @Override
     protected int getLayoutId() {
@@ -175,35 +165,7 @@ public class A_Activity_YinYue extends MvpActivity {
             }
         });
 
-        mMediaBrowser = new MediaBrowserCompat(this,
-                new ComponentName(this, MusicService.class),mConnectionCallback, null);
-        mMediaBrowser.connect();
 
-    }
-
-    private void AddMusics()
-    {
-
-    }
-
-    private final MediaBrowserCompat.ConnectionCallback mConnectionCallback =
-            new MediaBrowserCompat.ConnectionCallback() {
-                @Override
-                public void onConnected() {
-                    //说明已经连接上了Y_LiShiJiLu_Activity
-                    try {
-                        connectToSession(mMediaBrowser.getSessionToken());
-                    } catch (RemoteException e) {
-                        e.printStackTrace();
-                    }
-                }
-            };
-
-    private void connectToSession(MediaSessionCompat.Token token) throws RemoteException {
-        mediaController = new MediaControllerCompat(this, token);
-        MediaControllerCompat.setMediaController(this, mediaController);
-//        onMediaBrowserConnected();
-//        onMediaControllerConnected(mediaController.getSessionToken());
     }
 
     private void init() {

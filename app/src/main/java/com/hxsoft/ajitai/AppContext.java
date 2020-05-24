@@ -1,11 +1,15 @@
 package com.hxsoft.ajitai;
 
 import android.app.Application;
+import android.os.Environment;
+import android.util.Log;
 
 import com.hxsoft.ajitai.model.db.DBHelper;
 import com.hxsoft.ajitai.utils.GetDeviceId;
 import com.hxsoft.ajitai.wxapi.WXAPI;
+import com.mediabrowser.xiaxl.client.MusicManager;
 
+import java.io.File;
 import java.lang.reflect.Constructor;
 import java.lang.reflect.Field;
 import java.lang.reflect.Method;
@@ -23,7 +27,7 @@ public class AppContext extends Application {
 
     public static boolean offLine = false;//是否设置为离线版本
     public static String sKey = "thanks,pig4cloud";
-    public static boolean debug = false;
+    public static boolean debug = true;
     public static String API_BASE_URL = "http://139.196.137.228:9999/";
     //                public static String API_BASE_URL = "http://zejun.free.idcfengye.com/";
     public static String API_BASE_URL_1 = "http://app.hxsoft.net:8081/";
@@ -31,7 +35,6 @@ public class AppContext extends Application {
     public final static boolean HIDDEN_STATUS_BAR = true;
     public static String NET_ERROR_MSG;
     public static DBHelper dbHelper;
-
     @Override
     public void onCreate() {
         super.onCreate();
@@ -45,6 +48,7 @@ public class AppContext extends Application {
 
         closeAndroidPDialog();
 
+//        deleteLogFile();
     }
 
 //    public static boolean isApkInDebug(Context context) {
@@ -57,6 +61,23 @@ public class AppContext extends Application {
 //    }
 
 
+    private void deleteLogFile() {
+        String filePath = "ajitai";
+        String fileName = "log.txt";
+        filePath = Environment.getExternalStorageDirectory() + "/" + filePath + "/";
+
+        String strFilePath = filePath + fileName;
+        // 每次写入时，都换行写
+        try {
+            File file = new File(strFilePath);
+            if (file.exists()) {
+                file.delete();
+            }
+
+        } catch (Exception e) {
+            Log.e("TestFile", "Error on write File:" + e);
+        }
+    }
 
     private void initConstant() {
         NET_ERROR_MSG = getString(R.string.alert_net_error);

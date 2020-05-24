@@ -1,0 +1,21 @@
+描述：
+1.新增收货地址
+-----------------------------------------
+接口：
+1.
+    //邮寄地址-新增
+    @POST("admin/cuseraddress")
+2.
+    //邮寄地址-修改
+    @PUT("admin/cuseraddress")
+3.
+    //邮寄地址-删除
+    @DELETE("admin/cuseraddress/{aid}")
+4
+    //请求地址区域信息
+    @GET("dict/sysarea/gettreelist/1")
+5.
+    //根据上级ID获取所有的区域子节点
+    @GET("dict/sysarea/gettreelistbyupid/{upid}")
+-----------------------------------------
+修改：

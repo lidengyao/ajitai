@@ -54,12 +54,14 @@ public class CheckControl_Dialog_GanWu_FenXiang {
         WeiXinHaoYouLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pop.dismiss();
                 onCheckControl_dialogClickListener.OnClick(0);
             }
         });
         PengYouQuanLL.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                pop.dismiss();
                 onCheckControl_dialogClickListener.OnClick(1);
             }
         });

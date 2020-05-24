@@ -1,0 +1,25 @@
+描述：
+1.文章列表
+2.目前只做了心灵感悟分类的文章
+-----------------------------------------
+接口：
+1.
+    //心灵甘露详情(APP)
+    @GET("course/carticle/{aid}")
+2.
+    //心灵甘露-评论(APP)
+    @GET("course/carticlecomment/page/{aid}")
+3.
+    //添加评论(APP)
+    @POST("course/carticlecomment/addcomment")
+4.
+    //文章点攒(APP)
+    @POST("course/carticle/heartnectar/thumb/{articleId}")
+5.
+    //文章取消点攒(APP)
+    @POST("course/carticle/heartnectar/canclethumb/{articleId}")
+6.
+    //文章阅读(APP)
+    @POST("course/carticle/heartnectar/click/{articleId}")
+-----------------------------------------
+修改：

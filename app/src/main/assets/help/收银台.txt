@@ -1,0 +1,18 @@
+描述：
+1.收银台
+-----------------------------------------
+接口：
+1.
+    //微信下单
+    @POST("pay/wxPay/appPay")
+2.
+    //支付宝下单
+    @PUT("pay/aliPay/appPay")
+3.
+    //阿吉泰钱包支付
+    @PUT("pay/ajitaipay/pay")
+4.
+    //钱包余额(APP)
+    @GET("pay/ajitaipay/queryBalance")
+-----------------------------------------
+修改：

@@ -9,6 +9,8 @@ import android.os.StatFs;
 import android.util.Base64;
 import android.util.Log;
 
+import com.hxsoft.ajitai.AppContext;
+
 import java.io.BufferedReader;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -409,26 +411,28 @@ public class FileUtils {
 
     // 将字符串写入到文本文件中
     public static void writeLogToFile(String strcontent) {
-//        String filePath = "qjrj";
-//        String fileName = "log.txt";
-//        filePath = Environment.getExternalStorageDirectory() + "/" + filePath + "/";
-//        makeFilePath(filePath, fileName);
-//
-//        String strFilePath = filePath + fileName;
-//        // 每次写入时，都换行写
-//        String strContent = strcontent;
-//        try {
-//            File file = new File(strFilePath);
-//            if (!file.exists()) {
-//                Log.d("TestFile", "Create the file:" + strFilePath);
-//                file.getParentFile().mkdirs();
-//                file.createNewFile();
-//            }
-//
-//            insert(strFilePath, 0, strContent);
-//        } catch (Exception e) {
-//            Log.e("TestFile", "Error on write File:" + e);
-//        }
+        if (AppContext.debug == false)
+            return;
+        String filePath = "ajitai";
+        String fileName = "log.txt";
+        filePath = Environment.getExternalStorageDirectory() + "/" + filePath + "/";
+        makeFilePath(filePath, fileName);
+
+        String strFilePath = filePath + fileName;
+        // 每次写入时，都换行写
+        String strContent = strcontent;
+        try {
+            File file = new File(strFilePath);
+            if (!file.exists()) {
+                Log.d("TestFile", "Create the file:" + strFilePath);
+                file.getParentFile().mkdirs();
+                file.createNewFile();
+            }
+
+            insert(strFilePath, 0, strContent);
+        } catch (Exception e) {
+            Log.e("TestFile", "Error on write File:" + e);
+        }
     }
 
 

@@ -705,10 +705,10 @@ public class WheelView extends View {
 		centerDrawable.draw(canvas);
 		//*/
         Paint paint = new Paint();
-        paint.setColor(getResources().getColor(R.color.line_color));
+        paint.setColor(getResources().getColor(R.color.CFFE248));
         // 设置线宽
 //		paint.setStrokeWidth((float) 3);
-        paint.setStrokeWidth((float) 4);
+        paint.setStrokeWidth((float) 2);
         // 绘制上边直线
         canvas.drawLine(0, center - offset, getWidth(), center - offset, paint);
         // 绘制下边直线

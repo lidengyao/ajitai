@@ -27,6 +27,11 @@ import com.hxsoft.ajitai.base.MvpActivity;
 import com.hxsoft.ajitai.model.Inf.OssUpLoadFileListener;
 import com.hxsoft.ajitai.model.bean.A_UserUpdatecurrent_Bean;
 import com.hxsoft.ajitai.model.bean.A_User_Info;
+import com.hxsoft.ajitai.model.info.A_Area;
+import com.hxsoft.ajitai.model.info.A_Bean;
+import com.hxsoft.ajitai.model.info.C_Bean;
+import com.hxsoft.ajitai.model.info.P_Bean;
+import com.hxsoft.ajitai.model.info.Sysarea_Info;
 import com.hxsoft.ajitai.present.A_GeRenXinXi_Present;
 import com.hxsoft.ajitai.timepaker.ChangeDatePopwindow;
 import com.hxsoft.ajitai.ui.view.A_GeRenXinXi_View;
@@ -35,6 +40,7 @@ import com.hxsoft.ajitai.utils.DbKeyS;
 import com.hxsoft.ajitai.utils.GlideControl;
 import com.hxsoft.ajitai.utils.MStringUtils;
 import com.hxsoft.ajitai.utils.OssUploadFileC;
+import com.hxsoft.ajitai.utils.PCA_Popwindow;
 import com.hxsoft.ajitai.utils.SpUtils;
 import com.luck.picture.lib.PictureSelector;
 import com.luck.picture.lib.config.PictureConfig;
@@ -60,14 +66,22 @@ public class A_Activity_GeRenXinXi extends MvpActivity<A_GeRenXinXi_Present> imp
     TextView SysNameIV;
     @Bind(R.id.QieHuanZhangHaoRL)
     RelativeLayout QieHuanZhangHaoRL;
-    @Bind(R.id.textView)
-    TextView textView;
-    @Bind(R.id.BottomLL)
-    LinearLayout BottomLL;
-    @Bind(R.id.ChuShengRiQi_TV)
-    TextView ChuShengRiQiTV;
+    @Bind(R.id.avatar_IV)
+    ImageView avatarIV;
+    @Bind(R.id.ZhangHao_ET)
+    EditText ZhangHaoET;
+    @Bind(R.id.nickname_ET)
+    EditText nicknameET;
     @Bind(R.id.XingBie_TV)
     TextView XingBieTV;
+    @Bind(R.id.ChuShengRiQi_TV)
+    TextView ChuShengRiQiTV;
+    @Bind(R.id.phone_ET)
+    EditText phoneET;
+    @Bind(R.id.emailET)
+    EditText emailET;
+    @Bind(R.id.addressinfoTV)
+    TextView addressinfoTV;
     @Bind(R.id.ShouHuoDiZhi_TV)
     TextView ShouHuoDiZhiTV;
     @Bind(R.id.ShouHuoDiZhi_RL)
@@ -76,18 +90,19 @@ public class A_Activity_GeRenXinXi extends MvpActivity<A_GeRenXinXi_Present> imp
     TextView ZengPiaoZiZhiTV;
     @Bind(R.id.ZengPiaoZiZhi_RL)
     RelativeLayout ZengPiaoZiZhiRL;
-    @Bind(R.id.nickname_ET)
-    EditText nicknameET;
-    @Bind(R.id.avatar_IV)
-    ImageView avatarIV;
-    @Bind(R.id.ZhangHao_ET)
-    EditText ZhangHaoET;
-    @Bind(R.id.phone_ET)
-    EditText phoneET;
+    @Bind(R.id.textView)
+    TextView textView;
+    @Bind(R.id.BottomLL)
+    LinearLayout BottomLL;
+    @Bind(R.id.RootView)
+    RelativeLayout RootView;
     private String[] needPermissions = {Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE};
     private static final int REQUEST_STORAGE_PERMISSION = 104;
     private Boolean saveOp = false;
-    private int sex = 0;
+    private Integer sex;
+    private Integer province;
+    private Integer city;
+    private Integer area;
 
     @Override
     protected int getLayoutId() {
@@ -123,6 +138,12 @@ public class A_Activity_GeRenXinXi extends MvpActivity<A_GeRenXinXi_Present> imp
                     @Override
                     public void OnClick(int type) {
                         sex = type;
+                        if (sex == 1) {
+                            XingBieTV.setText("男");
+                        }
+                        if (sex == 2) {
+                            XingBieTV.setText("女");
+                        }
                     }
                 });
             }
@@ -138,7 +159,7 @@ public class A_Activity_GeRenXinXi extends MvpActivity<A_GeRenXinXi_Present> imp
                         sb.append(year.substring(0, year.length() - 1)).append("-").append(month.substring(0, month.length() - 1)).append("-").append(day.substring(0, day.length() - 1));
                         String showDate = sb.toString();
 
-//                        birthdayTV.setText(showDate);
+                        ChuShengRiQiTV.setText(showDate);
 //                        UserIndexBean userIndexBean = new UserIndexBean();
 //                        userIndexBean.setBirthday(showDate);
 //                        mPresenter.userprofile(getContext(), userIndexBean);
@@ -159,9 +180,19 @@ public class A_Activity_GeRenXinXi extends MvpActivity<A_GeRenXinXi_Present> imp
                     a_userUpdatecurrent_bean.setNickname(nicknameET.getText().toString());
                 }
 
-                if (sex != 0) {
+                if (sex != null) {
                     a_userUpdatecurrent_bean.setSex(sex);
                 }
+
+                if (!MStringUtils.IsNullOrEmpty(emailET.getText().toString().trim())) {
+                    a_userUpdatecurrent_bean.setEmail(emailET.getText().toString().trim());
+                }
+                if (province != null && city != null && area != null) {
+                    a_userUpdatecurrent_bean.setProvince(province);
+                    a_userUpdatecurrent_bean.setCity(city);
+                    a_userUpdatecurrent_bean.setArea(area);
+                }
+
 
 //                a_userUpdatecurrent_bean.setAddress();
                 mPresenter.adminUserUpdatecurrent(a_userUpdatecurrent_bean, getContext());
@@ -190,14 +221,47 @@ public class A_Activity_GeRenXinXi extends MvpActivity<A_GeRenXinXi_Present> imp
             nicknameET.setText(a_user_info.getSysUser().getNickname());
             ZhangHaoET.setText(a_user_info.getSysUser().getPhone());
             phoneET.setText(a_user_info.getSysUser().getPhone());
+            if (a_user_info.getSysUser().getSex() == 1) {
+                XingBieTV.setText("男");
+            }
+            if (a_user_info.getSysUser().getSex() == 2) {
+                XingBieTV.setText("女");
+            }
+
+
+//            emailET.setText(a_user_info.getSysUser().gete);
+
+            addressinfoTV.setText(a_user_info.getSysUser().getAddressinfo());
         }
+
+        addressinfoTV.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                PCA_Popwindow qrsType_popwindow = new PCA_Popwindow();
+                qrsType_popwindow.ShowDialog(getContext(), new PCA_Popwindow.OnAddressCListener() {
+                    @Override
+                    public void onClick(A_Area province_A_Area, A_Area city_A_Area, A_Area area_A_Area) {
+                        province = province_A_Area.getAid();
+                        city = city_A_Area.getAid();
+                        area = area_A_Area.getAid();
+
+                        addressinfoTV.setText(province_A_Area.getAreaname() + city_A_Area.getAreaname() + area_A_Area.getAreaname());
+//                        _province = province.getI();
+//                        _city = city.getI();
+//                        CityTV.setText(province.getN() + "-" + city.getN() + "-" + area.getN());
+                    }
+                });
+            }
+        });
+
+        mPresenter.dictSysareaGettreelistUserArea(getContext());
     }
 
 
     private PopupWindow pop;
 
     private void showPop() {
-        View bottomView = View.inflate(getContext(), R.layout.layout_bottom_dialog, null);
+        View bottomView = View.inflate(getContext(), R.layout.layout_headimg_dialog, null);
         TextView mAlbum = bottomView.findViewById(R.id.tv_album);
         TextView mCamera = bottomView.findViewById(R.id.tv_camera);
         TextView mCancel = bottomView.findViewById(R.id.tv_cancel);
@@ -336,6 +400,15 @@ public class A_Activity_GeRenXinXi extends MvpActivity<A_GeRenXinXi_Present> imp
         if (model == null)
             return;
         showMessage(model);
+    }
+
+    @Override
+    public void dictSysareaGettreelistUserAreaSuccess(ArrayList<Sysarea_Info> model) {
+        if (model == null)
+            return;
+        Gson gson = new Gson();
+        String areaGson = gson.toJson(model);
+        SpUtils.saveSettingNote(getContext(), DbKeyS.area, areaGson);
     }
 
     @Override

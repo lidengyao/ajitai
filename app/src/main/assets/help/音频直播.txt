@@ -1,0 +1,12 @@
+描述：
+1.音频直播列表
+-----------------------------------------
+接口：
+1.
+    //音频直播列表 参数skind:语种,1:中文 2:蒙文
+    @GET("course/cmediaclasses/page")
+    Observable<ResponseBean<A_Cmediaclasses_Total_Info>> cmediaclassesPage(@Query("page") Integer page,
+                                                                           @Query("size") Integer size,
+                                                                           @Query("skind") Integer skind);
+-----------------------------------------
+修改：
