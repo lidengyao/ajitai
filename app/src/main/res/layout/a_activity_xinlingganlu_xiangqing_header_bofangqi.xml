@@ -73,10 +73,14 @@
                 <com.hxsoft.ajitai.music.widget.MediaSeekBar
                     android:id="@+id/seekbar_audio"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
+                    android:layout_height="12dp"
                     android:layout_centerVertical="true"
                     android:layout_toLeftOf="@+id/endText"
-                    android:layout_toRightOf="@+id/startText" />
+                    android:layout_toRightOf="@+id/startText"
+                    android:paddingTop="5dp"
+                    android:paddingBottom="5dp"
+                    android:progressDrawable="@drawable/bg_adjust_seek_bar"
+                    android:thumb="@mipmap/jindutiaoimg" />
 
                 <TextView
                     android:id="@+id/endText"
