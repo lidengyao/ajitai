@@ -50,7 +50,7 @@ public class A_YinPinZhiBo_Adapter extends CommonAdapter<A_Cmediaclasses_Info> {
             statusBtn.setText("已结束");
         }
         helper.setText(R.id.joinnumberTV, item.getJoinnumber() + "");
-        helper.setText(R.id.classnameTV, item.getClassname());
+        helper.setText(R.id.titleTV, item.getTitle());
         helper.setText(R.id.timelabelBtn, item.getTimelabel());
 
         LinearLayout YinPinLL = (LinearLayout) helper.getView(R.id.YinPinLL);

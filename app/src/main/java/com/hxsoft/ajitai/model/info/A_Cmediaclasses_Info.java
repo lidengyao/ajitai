@@ -35,6 +35,15 @@ public class A_Cmediaclasses_Info implements Serializable {
     private String createTime;
     private String updateTime;
     private Integer joinnumber;
+    private String title;
+
+    public String getTitle() {
+        return title;
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
 
     public Integer getCid() {
         return cid;
